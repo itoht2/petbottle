@@ -1,0 +1,114 @@
+fileFormatVersion: 2
+guid: 304f0373187b45942a34877e23b1dd0e
+timeCreated: 1456313420
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Pump_0
+    21300002: Pump_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 512
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Pump_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 506
+        height: 1140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37, y: 95.93918}
+        - {x: 35, y: 316.93918}
+        - {x: 24, y: 482.93918}
+        - {x: 82, y: 487.93918}
+        - {x: 80, y: 508.93918}
+        - {x: 78, y: 511.93918}
+        - {x: -83, y: 511.93918}
+        - {x: -102, y: 482.93918}
+        - {x: -40, y: 319.93918}
+        - {x: -37, y: 94.93918}
+        - {x: -100, y: 85.93918}
+        - {x: -114, y: 30.939178}
+        - {x: -114, y: -0.060821533}
+        - {x: 113, y: -0.060821533}
+        - {x: 114, y: 2.9391785}
+        - {x: 114, y: 27.939178}
+        - {x: 103, y: 84.93918}
+    - name: Pump_1
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 0
+        width: 545
+        height: 829
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 53.786224, y: 97.61717}
+        - {x: 89.786224, y: 333.6172}
+        - {x: 86.786224, y: 369.6172}
+        - {x: 84.786224, y: 372.6172}
+        - {x: -88.213776, y: 372.6172}
+        - {x: -96.213776, y: 346.6172}
+        - {x: -41.213776, y: 317.6172}
+        - {x: -43.213776, y: 119.61717}
+        - {x: -116.213776, y: 84.61717}
+        - {x: -122.213776, y: 70.61717}
+        - {x: -122.213776, y: 9.617172}
+        - {x: -115.213776, y: -0.38282776}
+        - {x: 114.786224, y: -0.38282776}
+        - {x: 121.786224, y: 7.6171722}
+        - {x: 122.786224, y: 9.617172}
+        - {x: 122.786224, y: 83.61717}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,124 @@
+fileFormatVersion: 2
+guid: 394ca42f8b17c9a42ad03105e34dafc7
+timeCreated: 1461413288
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ThreeSwitch_0
+    21300002: ThreeSwitch_1
+    21300004: ThreeSwitch_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ThreeSwitch_0
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 405
+        width: 35
+        height: 62
+      alignment: 9
+      pivot: {x: 0.5000004, y: 0.18037365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.500015, y: 50.816833}
+        - {x: -17.500015, y: -8.1831665}
+        - {x: -10.500015, y: -11.1831665}
+        - {x: 17.499985, y: -11.1831665}
+        - {x: 17.499985, y: 50.816833}
+    - name: ThreeSwitch_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 396
+        width: 35
+        height: 62
+      alignment: 9
+      pivot: {x: 0.48112792, y: 0.7983187}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.839478, y: 12.504242}
+        - {x: -16.839478, y: -2.495758}
+        - {x: -16.839478, y: -49.495758}
+        - {x: 13.160522, y: -49.495758}
+        - {x: 18.160522, y: -47.495758}
+        - {x: 18.160522, y: 9.504242}
+        - {x: 11.160522, y: 12.504242}
+    - name: ThreeSwitch_2
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 52
+        width: 445
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 222.5, y: -102}
+        - {x: 222.5, y: 102}
+        - {x: 220.5, y: 107}
+        - {x: 211.5, y: 116}
+        - {x: 204.5, y: 119}
+        - {x: -204.5, y: 119}
+        - {x: -211.5, y: 116}
+        - {x: -218.5, y: 109}
+        - {x: -222.5, y: 100}
+        - {x: -222.5, y: -100}
+        - {x: -221.5, y: -104}
+        - {x: -214.5, y: -113}
+        - {x: -213.5, y: -113}
+        - {x: -210.5, y: -117}
+        - {x: -205.5, y: -119}
+        - {x: 205.5, y: -119}
+        - {x: 212.5, y: -116}
+        - {x: 218.5, y: -109}
+        - {x: 220.5, y: -107}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Rocket
+  - SRBA
+  - SRBABody
+  - Star
+  - MapCamera
+  - Fire
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - cansat
+  - 
+  - 
+  - 
+  - 
+  - rocket
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - MapObject
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - graund
+  m_SortingLayers:
+  - name: graund
+    uniqueID: 2049925307
+    locked: 0
+  - name: Back
+    uniqueID: 3748188211
+    locked: 0
+  - name: cansat
+    uniqueID: 1770398253
+    locked: 0
+  - name: rocket
+    uniqueID: 2423887917
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: SRBA
+    uniqueID: 2350070949
+    locked: 0
+  - name: Launcher
+    uniqueID: 454083671
+    locked: 0
