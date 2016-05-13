@@ -69,12 +69,12 @@ public class SpecData : MonoBehaviour {
 
      IEnumerator FuncCoroutine()
      {
-          while (true)
+          while (Rocket != null)
           {             
                AirResistancce = Cd * DensityOfAir * ProjectedArea * Rocket.velocity.y * Rocket.velocity.y / 2;
                Rocket.AddForce(-AirResistancce * Rocket.velocity / 10);
 
-               yield return new WaitForSeconds(0.2f);
+               yield return new WaitForSeconds(0.5f);
           }
      }
 
