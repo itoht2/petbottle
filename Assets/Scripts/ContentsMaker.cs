@@ -7,7 +7,10 @@ public class ContentsMaker : MonoBehaviour {
      public NoseCornFolder noseCornFolder;
      public GameObject content;
      private int numberOfItem;
-     private Text Disc;
+     private Text DiscText;
+     private Text PriceText;
+     private float Price;
+     private Image IconImage;
      
      // Use this for initialization
      void Start()
@@ -27,8 +30,15 @@ public class ContentsMaker : MonoBehaviour {
                Item.transform.SetParent(content.transform);
                Item.transform.localScale = new Vector3(1, 1, 1);
                Item.name = "Item" + i;
-               Disc = Item.transform.Find("Description").GetComponent<Text>();
-               Disc.text = noseCornFolder.GetDiscription(i);
+               DiscText = Item.transform.Find("Description").GetComponent<Text>();
+               DiscText.text = noseCornFolder.GetDiscription(i);
+               PriceText = Item.transform.Find("Price").GetComponent<Text>();
+               Price = noseCornFolder.GetPrice(i);
+               PriceText.text = Price.ToString("#");
+               IconImage = Item.transform.Find("ItemImage").GetComponent<Image>();
+               IconImage.sprite = noseCornFolder.GetImage(i);
+
+
 
           }
      }
