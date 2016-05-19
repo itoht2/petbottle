@@ -3,11 +3,18 @@ using System.Collections;
 
 public class DialogOpener : MonoBehaviour {
      public Animator _menuAnim;
+     public GameObject detailDialog;
 
      // Use this for initialization
      void Start () {
-          _menuAnim = gameObject.GetComponent<Animator>();
+          detailDialog = GameObject.Find("DetailDialog");
+
+          //_menuAnim = gameObject.GetComponent<Animator>();
+          _menuAnim = detailDialog.GetComponent<Animator>();
+          //_menuAnim.runtimeAnimatorController = (RuntimeAnimatorController)RuntimeAnimatorController.Instantiate(Resources.Load("Animations/DetailDialog"));
+          
      }
+
 	
 	// Update is called once per frame
 	void Update () {

@@ -503,6 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menuAnim: {fileID: 0}
+  detailDialog: {fileID: 0}
 --- !u!222 &22205754
 CanvasRenderer:
   m_ObjectHideFlags: 1
