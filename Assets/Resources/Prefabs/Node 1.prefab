@@ -45,6 +45,7 @@ GameObject:
   - 222: {fileID: 22244618}
   - 114: {fileID: 11409420}
   - 114: {fileID: 11430102}
+  - 114: {fileID: 11462334}
   m_Layer: 5
   m_Name: Node 1
   m_TagString: Untagged
@@ -115,7 +116,7 @@ GameObject:
   - 114: {fileID: 11405478}
   - 114: {fileID: 11402710}
   m_Layer: 5
-  m_Name: ' DetailButton'
+  m_Name: DetailButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +205,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11405478}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11462334}
+        m_MethodName: ControlMenuAnimator
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11405478
@@ -479,6 +491,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u8CB7\u3046\u3088"
+--- !u!114 &11462334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d76de51e06f4634eb23ee45d72761f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menuAnim: {fileID: 0}
 --- !u!222 &22205754
 CanvasRenderer:
   m_ObjectHideFlags: 1
