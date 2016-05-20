@@ -42,7 +42,9 @@ MonoBehaviour:
   Rocket: {fileID: 0}
   Gravity: 9.807
   WaterDensity: 1000
-  RocketWeight: 0.1
+  RocketWeight: 0.07
+  NoseCornWeight: 0.02
+  FinWeight: 0.01
   FuelCapacity: 0.0002
   FuelWeight: 0
   AverageWeight: 0
@@ -60,6 +62,9 @@ MonoBehaviour:
   Temperature: 20
   GasConstant: 2.87
   Cd: 1
+  NoseCornCD: 0.2
+  FinCD: 0.2
+  CDFactor: 1
   DensityOfAir: 0
   AirResistancce: 0
   PumpMax: 300
@@ -68,13 +73,14 @@ MonoBehaviour:
   SideThrusterForce: 1
   SideThrusterTime: 5
   SideThrusterRate: 0
-  LauncherForce: 10
+  LauncherForce: 0
   SRBANumber: 2
   SRBAThrustForce: 5
   SRBABurningTime: 1
   SRBApositionFactor: 0.65
   SRBAOffset: {x: 0, y: 0.89, z: 0}
   PayLoadName: CanSat
+  PayLoadWeight: 0.1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

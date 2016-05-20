@@ -8,6 +8,8 @@ public class NoseCornFolder : MonoBehaviour {
      public float[] Weight ;
      public float[] Price;
      public string[] Discription;
+     public string[] Specs;
+     public string[] DiscriptionLong;
      public Sprite[] Image;
      public int[] NumberOfHold;
      public int NowUsed;
@@ -50,6 +52,15 @@ public class NoseCornFolder : MonoBehaviour {
      public int GetNumberOfHold(int i)
      {
           return NumberOfHold[i];
+     }
+
+     public string GetSpecs(int i)
+     {
+          return Specs[i];
+     }
+     public string GetDescriptionLong(int i)
+     {
+          return DiscriptionLong[i];
      }
      public int GetNowUsed()
      {

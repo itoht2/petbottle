@@ -5,38 +5,43 @@ public class SpecData : MonoBehaviour {
 
      public Rigidbody2D Rocket;
 
-     public float Gravity = 9.807f;                  // m/s^2
-     public float WaterDensity = 1000.0f;        // kg/m^3
-     public float RocketWeight = 0.1f;            // kg
-     public float FuelCapacity = 0.0002f;          // m^3
-     public float FuelWeight ;                        // kg
-     public float AverageWeight;                     // kg
-     public float NozzleRadius = 0.003f;          // m
-     public float NozzleArea;                         // m^2
-     public int Multistage;                            //
+     public float Gravity = 9.807f;                  // m/s^2　重力
+     public float WaterDensity = 1000.0f;        // kg/m^3　水の密度
+     public float RocketWeight = 0.07f;            // kg　ロケットの質量
+     public float NoseCornWeight = 0.02f;         // kg　ノーズコーンの質量
+     public float FinWeight = 0.01f;                   // kg　フィンの質量
+     public float FuelCapacity = 0.0002f;          // m^3　水の量
+     public float FuelWeight ;                        // kg　水の質量
+     public float AverageWeight;                     // kg　平均質量
+     public float NozzleRadius = 0.003f;          // m　ノズル直径
+     public float NozzleArea;                         // m^2　ノズル面積　
+     public int Multistage;                            //　ロケットの段数
 
-     public float InnerPressureMax = 303f;             // kPa
+     public float InnerPressureMax = 303f;             // kPa　ボディの耐圧
 
-     public float AtmospherPresuure = 101.3f; // kPa
+     public float AtmospherPresuure = 101.3f; // kPa　大気圧
 
-     public float NozzleFlowRate;                // m/s 
-     public float BodyRadius = 0.05f;                   // m
-     public float ProjectedArea;                      // m^2
-     public float InitialVelocity;                          // m^2
+     public float NozzleFlowRate;                // m/s 　ノズル通過時の流速
+     public float BodyRadius = 0.05f;                   // m　ボディ直径
+     public float ProjectedArea;                      // m^2　ボディ投影面積
+     public float InitialVelocity;                          // m^2　初速
 
-     public float Thrust;                                  //  N
+     public float Thrust;                                  //  N　上昇力
 
-     public float BurningTime;                         // Sec
+     public float BurningTime;                         // Sec　燃焼時間
 
-     public float Temperature = 20.0f;                         // Deg
-     public float GasConstant = 2.87f;                         //
-     public float Cd = 1.0f;           //
-     public float DensityOfAir;                             //  kg/m^3
-     public float AirResistancce;                     // N
+     public float Temperature = 20.0f;                         // Deg　外気温
+     public float GasConstant = 2.87f;                         //　気体定数
+     public float Cd = 0.6f;                                    //　ボディの空気抵抗係数　
+     public float NoseCornCD = 0.2f;                   //　ノーズコーンの空気抵抗係数
+     public float FinCD = 0.2f;                             //　フィンの空気抵抗係数
+     public float CDFactor = 1.0f;                     //　空気抵抗係数補正値
+     public float DensityOfAir;                             //  kg/m^3　空気の密度
+     public float AirResistancce;                     // N　空気抵抗
 
-     public float PumpMax;                        // kPa
-     public float PumpCapacity;              // kPa
-     public float PumpPressure;                  // kPa
+     public float PumpMax;                        // kPa　ポンプの最大圧
+     public float PumpCapacity;              // kPa　一回のポンピングでの圧力上昇分
+     public float PumpPressure;                  // kPa　ポンプ圧
 
      public float SideThrusterForce;              // N 横向きの力
      public float SideThrusterTime;               // Sec スラスタ噴射時間
@@ -44,15 +49,16 @@ public class SpecData : MonoBehaviour {
 
      public float LauncherForce;                  // ランチャーの追加の推力
 
-     public int SRBANumber;                      //
-     public float SRBAThrustForce;           // N
-     public float SRBABurningTime;           // Sec
+     public int SRBANumber;                      //　固体燃料ロケットの本数
+     public float SRBAThrustForce;           // N　固体燃料ロケットの一本あたりの推力
+     public float SRBABurningTime;           // Sec　固体燃料ロケットの燃焼時間
 
 
-     public float SRBApositionFactor;        //
+     public float SRBApositionFactor;        //　SRBA位置合わせ用係数
      public Vector3 SRBAOffset;                   // SRBA位置調整
 
      public string PayLoadName;              // ペイロードの種類
+     public float PayLoadWeight;             //　ペイロードの質量
 
      // Use this for initialization
      void Awake() {
@@ -63,15 +69,14 @@ public class SpecData : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-          //AirResistancce = Cd * DensityOfAir * ProjectedArea * Rocket.velocity.y * Rocket.velocity.y / 2;
-          //Rocket.AddForce(-AirResistancce * Rocket.velocity / 10 );
+         
      }
 
      IEnumerator FuncCoroutine()
      {
           while (Rocket != null)
           {             
-               AirResistancce = Cd * DensityOfAir * ProjectedArea * Rocket.velocity.y * Rocket.velocity.y / 2;
+               AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * Rocket.velocity.y * Rocket.velocity.y / 2;
                Rocket.AddForce(-AirResistancce * Rocket.velocity / 10);
 
                yield return new WaitForSeconds(0.5f);
@@ -82,7 +87,7 @@ public class SpecData : MonoBehaviour {
      public void Recalculation ()
      {
           FuelWeight = FuelCapacity * WaterDensity;
-          AverageWeight = FuelWeight / 2 + RocketWeight;
+          AverageWeight = FuelWeight / 2 + RocketWeight + NoseCornWeight + FinWeight ;
           NozzleArea = NozzleRadius * NozzleRadius * Mathf.PI;
           ProjectedArea = BodyRadius * BodyRadius * Mathf.PI;
           NozzleFlowRate = Mathf.Sqrt(2 * (PumpPressure ) / WaterDensity * 1000);

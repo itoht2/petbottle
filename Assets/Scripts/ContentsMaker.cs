@@ -47,4 +47,9 @@ public class ContentsMaker : MonoBehaviour {
 	void Update () {
 	
 	}
+
+     public NoseCornFolder GetNoseCornFolder()
+     {
+          return noseCornFolder;
+     }
 }
