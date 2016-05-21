@@ -50,6 +50,9 @@ public class DialogOpener : MonoBehaviour {
 
                int.TryParse(this.name.Substring(4, 1), out SelectedNumber);
 
+               image = detailDialog.transform.Find("ItemImage").GetComponent<Image>();
+               image.sprite = _noseCornFolder.GetImage(SelectedNumber);
+
                itemNameText = detailDialog.transform.FindChild("ItemNameText").GetComponent<Text>();             
                itemNameText.text = _noseCornFolder.GetDiscription(SelectedNumber);
 
