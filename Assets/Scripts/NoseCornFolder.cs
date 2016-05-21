@@ -53,7 +53,6 @@ public class NoseCornFolder : MonoBehaviour {
      {
           return NumberOfHold[i];
      }
-
      public string GetSpecs(int i)
      {
           return Specs[i];

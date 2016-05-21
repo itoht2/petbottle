@@ -10,6 +10,8 @@ public class DialogOpener : MonoBehaviour {
      private Image image;
      private Text itemNameText;
      private int SelectedNumber;
+     private Text priceText;
+     private Text specText;
 
 
      // Use this for initialization
@@ -50,6 +52,22 @@ public class DialogOpener : MonoBehaviour {
 
                itemNameText = detailDialog.transform.FindChild("ItemNameText").GetComponent<Text>();             
                itemNameText.text = _noseCornFolder.GetDiscription(SelectedNumber);
+
+               priceText = detailDialog.transform.FindChild("PriceText").GetComponent<Text>();
+               priceText.text = (int)_noseCornFolder.GetPrice(SelectedNumber) + " pt";
+
+               specText = detailDialog.transform.FindChild("SpecText").GetComponent<Text>();
+               //specText.text = _noseCornFolder.GetSpecs(SelectedNumber);
+               string TempText = _noseCornFolder.GetSpecs(SelectedNumber).Replace("/n", "\n");
+               specText.text = TempText;
+
+               specText = detailDialog.transform.FindChild("DetailText").GetComponent<Text>();
+               //specText.text = _noseCornFolder.GetSpecs(SelectedNumber);
+               TempText = _noseCornFolder.GetDescriptionLong(SelectedNumber).Replace("/n", "\n");
+               specText.text = TempText;
+
+
+
 
           }
 
