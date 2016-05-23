@@ -40,6 +40,7 @@ public class ContentsMaker : MonoBehaviour {
 
 
 
+
           }
      }
 	
@@ -51,5 +52,30 @@ public class ContentsMaker : MonoBehaviour {
      public NoseCornFolder GetNoseCornFolder()
      {
           return noseCornFolder;
+     }
+
+     ///【機能】 ボタン状態による色変更
+     ///【第一引数】色を変更したいボタン
+     ///【第二引数】変更したい色(new Color(float a,floar b,float c,float d))
+     ///【第三引数】色を変更したい状態(0:normalColor 1:highlightedColor 2:pressedColor 3:disabledColor)
+     public static void BtnStateColorChange(Button btn, Color color, int changeState)
+     {
+          ColorBlock cbBtn = btn.colors;
+          switch (changeState)
+          {
+               case 0://normalColor
+                    cbBtn.normalColor = color;
+                    break;
+               case 1://highlightedColor
+                    cbBtn.highlightedColor = color;
+                    break;
+               case 2://pressedColor
+                    cbBtn.pressedColor = color;
+                    break;
+               case 3://disabledColor
+                    cbBtn.disabledColor = color;
+                    break;
+          }
+          btn.colors = cbBtn;
      }
 }
