@@ -22,15 +22,10 @@ public class DialogOpener : MonoBehaviour {
           if (Content.name == "Content") { 
           _noseCornFolder = Content.GetComponent<ContentsMaker>().GetNoseCornFolder();
           }
-
-
-          //_noseCornFolder = GameObject.Find("NoseCornFolder").GetComponent<NoseCornFolder>();
           
+          //_noseCornFolder = GameObject.Find("NoseCornFolder").GetComponent<NoseCornFolder>(); 
 
-
-          _menuAnim = detailDialog.GetComponent<Animator>();
-          //_menuAnim.runtimeAnimatorController = (RuntimeAnimatorController)RuntimeAnimatorController.Instantiate(Resources.Load("Animations/DetailDialog"));
-                            
+          _menuAnim = detailDialog.GetComponent<Animator>();             
      }
 
 	
@@ -59,17 +54,27 @@ public class DialogOpener : MonoBehaviour {
                priceText = detailDialog.transform.FindChild("PriceText").GetComponent<Text>();
                priceText.text = (int)_noseCornFolder.GetPrice(SelectedNumber) + " pt";
 
-               specText = detailDialog.transform.FindChild("SpecText").GetComponent<Text>();
-               //specText.text = _noseCornFolder.GetSpecs(SelectedNumber);
+               specText = detailDialog.transform.FindChild("SpecText").GetComponent<Text>();              
                string TempText = _noseCornFolder.GetSpecs(SelectedNumber).Replace("/n", "\n");
                specText.text = TempText;
 
-               specText = detailDialog.transform.FindChild("DetailText").GetComponent<Text>();
-               //specText.text = _noseCornFolder.GetSpecs(SelectedNumber);
+               specText = detailDialog.transform.FindChild("DetailText").GetComponent<Text>();              
                TempText = _noseCornFolder.GetDescriptionLong(SelectedNumber).Replace("/n", "\n");
                specText.text = TempText;
 
+               specText = detailDialog.transform.FindChild("NumberOfHoldText").GetComponent<Text>();              
+               TempText = "現在所持数:　" + _noseCornFolder.GetNumberOfHold(SelectedNumber) + "個";
+               specText.text = TempText;
 
+               int nowUsed = _noseCornFolder.GetNowUsed();
+               Text NowUsingText = detailDialog.transform.FindChild("NowUsingText").GetComponent<Text>();
+               if (nowUsed == SelectedNumber)
+               {
+                    NowUsingText.enabled = true;
+               } else
+               {
+                    NowUsingText.enabled = false;
+               }
 
 
           }

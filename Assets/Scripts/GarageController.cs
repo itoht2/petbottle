@@ -5,12 +5,12 @@ using UnityEngine.UI;
 public class GarageController : MonoBehaviour {
      public SpecData specData;
      public ScoreData scoreData;
-     public float TotalScore;
+     public int TotalScore;
      public Text TotalScoreText;
 
 	// Use this for initialization
 	void Start () {
-          TotalScore = scoreData.GetTotalScore();
+          TotalScore = (int)scoreData.GetTotalScore();
           TotalScoreText.text = "スコア: " + TotalScore +" point";
 
      }
