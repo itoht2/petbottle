@@ -25,7 +25,7 @@ public class DialogOpener : MonoBehaviour {
           
           //_noseCornFolder = GameObject.Find("NoseCornFolder").GetComponent<NoseCornFolder>(); 
 
-          _menuAnim = detailDialog.GetComponent<Animator>();             
+          _menuAnim = detailDialog.GetComponent<Animator>(); 
      }
 
 	

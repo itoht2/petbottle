@@ -11,11 +11,12 @@ public class ContentsMaker : MonoBehaviour {
      private Text PriceText;
      private float Price;
      private Image IconImage;
+     private Button usingButton;
+     private Text usingButtonText;
      
      // Use this for initialization
      void Start()
      {
-
           numberOfItem = noseCornFolder.GetNumberOfItem();
 
           for (int i = 0; i < numberOfItem; i++)
@@ -37,9 +38,10 @@ public class ContentsMaker : MonoBehaviour {
                PriceText.text = Price.ToString("#");
                IconImage = Item.transform.Find("ItemImage").GetComponent<Image>();
                IconImage.sprite = noseCornFolder.GetImage(i);
+               usingButton = Item.transform.Find("UsingButton").GetComponent<Button>();
+               usingButtonText = usingButton.transform.Find("Text").GetComponent<Text>();
 
-
-
+               ButttonColorControll(i);      // ボタンの色替え
 
           }
      }
@@ -48,6 +50,40 @@ public class ContentsMaker : MonoBehaviour {
 	void Update () {
 	
 	}
+
+     public void ButttonColorControll(int i)      // ボタンの色替え
+     {
+          if (noseCornFolder.GetNowUsed() == i) // 使用中のボタンの色と内容を変更
+          {    // 使用中だったら
+               BtnStateColorChange(usingButton, new Color32(255, 0, 0, 255), 0);     // nomal #FF0000FF
+               BtnStateColorChange(usingButton, new Color32(255, 0, 0, 255), 1);     // Highlight #FF0000FF
+               BtnStateColorChange(usingButton, new Color32(169, 9, 238, 255), 2);     // pressed #FF0000FF
+               BtnStateColorChange(usingButton, new Color32(178, 178, 178, 255), 3);     // disablel #FF0000FF
+
+               usingButtonText.text = "使用中";
+               usingButton.interactable = true;
+          }
+          else if (noseCornFolder.GetNumberOfHold(i) > 0)
+          {    // 持ってるけど使ってなかったら
+               BtnStateColorChange(usingButton, new Color32(20, 105, 163, 255), 0);     // nomal #FF0000FF
+               BtnStateColorChange(usingButton, new Color32(20, 105, 163, 255), 1);     // Highlight #FF0000FF
+               BtnStateColorChange(usingButton, new Color32(169, 9, 238, 255), 2);     // pressed #FF0000FF
+               BtnStateColorChange(usingButton, new Color32(178, 178, 178, 255), 3);     // disablel #FF0000FF
+
+               usingButtonText.text = "所持";
+               usingButton.interactable = true;
+          }
+          else
+          {    // 持ってなかったら
+               BtnStateColorChange(usingButton, new Color32(255, 0, 0, 255), 0);     // nomal #FF0000FF
+               BtnStateColorChange(usingButton, new Color32(255, 0, 0, 255), 1);     // Highlight #FF0000FF
+               BtnStateColorChange(usingButton, new Color32(169, 9, 238, 255), 2);     // pressed #FF0000FF
+               BtnStateColorChange(usingButton, new Color32(178, 178, 178, 255), 3);     // disablel #FF0000FF
+
+               usingButtonText.text = "非所持";
+               usingButton.interactable = false;
+          }
+     }
 
      public NoseCornFolder GetNoseCornFolder()
      {
