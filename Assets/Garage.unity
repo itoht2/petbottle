@@ -2078,10 +2078,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NumberOfItem: 3
-  CD:
-  - 1
-  - 0.5
-  - 0.1
+  ItemName:
+  - body0
+  - body1
+  - body2
   Weight:
   - 0.6
   - 0.7
@@ -2108,6 +2108,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d72d3e8a025809a45bc63c1e0359c67f, type: 3}
   NumberOfHold: 010000000200000000000000
   NowUsed: 1
+  NumberOfParameter: 0
+  ParameterName:
+  - Maxpressure
+  ParameterValue1:
+  - 100
+  - 300
+  - 1000
+  ParameterValue2: []
+  ParameterValue3: []
 --- !u!4 &1063738816
 Transform:
   m_ObjectHideFlags: 0
@@ -2528,14 +2537,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NumberOfItem: 3
-  CD:
-  - 1
+  ItemName:
+  - nose0
+  - nose1
+  - nose3
+  Weight:
   - 0.5
   - 0.1
-  Weight:
-  - 0.6
-  - 0.7
-  - 0.5
+  - 0.01
   Price:
   - 100
   - 200
@@ -2558,6 +2567,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2f3006f254935ad45bfd5d27bbc17724, type: 3}
   NumberOfHold: 010000000200000000000000
   NowUsed: 1
+  NumberOfParameter: 2
+  ParameterName:
+  - CD
+  ParameterValue1:
+  - 0.5
+  - 0.1
+  - 0.01
+  ParameterValue2: []
+  ParameterValue3: []
 --- !u!1 &1375260780
 GameObject:
   m_ObjectHideFlags: 0

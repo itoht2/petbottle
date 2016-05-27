@@ -19,5 +19,6 @@ public class BuyItemControll : MonoBehaviour {
      {
           string Itemname = ItemObject.name;
           Debug.Log("BuyItemControll " + ItemObject.name);
+
      }
 }

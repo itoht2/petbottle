@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class NoseCornFolder : MonoBehaviour {
      public int NumberOfItem;
-     public float[] CD  ;
+     public string[] ItemName;  
      public float[] Weight ;
      public float[] Price;
      public string[] Discription;
@@ -13,10 +13,15 @@ public class NoseCornFolder : MonoBehaviour {
      public Sprite[] Image;
      public int[] NumberOfHold;
      public int NowUsed;
+     public int NumberOfParameter;
+     public string[] ParameterName;
+     public float[] ParameterValue1;
+     public float[] ParameterValue2;
+     public float[] ParameterValue3;
 
 
-	// Use this for initialization
-	void Start () {
+     // Use this for initialization
+     void Start () {
         
      }
 	
@@ -29,10 +34,12 @@ public class NoseCornFolder : MonoBehaviour {
      {
           return NumberOfItem;
      }
-     public float GetCD( int i)
+     public string GetItemName(int i)
      {
-          return CD[i];
+          return ItemName[i];
+          
      }
+    
      public float GetWeight(int i)
      {
           return  Weight[i];
@@ -65,6 +72,21 @@ public class NoseCornFolder : MonoBehaviour {
      {
           return NowUsed;
      }
-   
+    public string GetParameterName(int i)
+     {
+          return ParameterName[i];
+     }
+     public float GetParameterValue1(int i)
+     {
+          return ParameterValue1[i];
+     }
+     public float GetParameterValue2(int i)
+     {
+          return ParameterValue2[i];
+     }
+     public float GetParameterValue3(int i)
+     {
+          return ParameterValue3[i];
+     }
 
 }

@@ -30,7 +30,7 @@ public class ContentsMaker : MonoBehaviour {
 
                Item.transform.SetParent(content.transform);
                Item.transform.localScale = new Vector3(1, 1, 1);
-               Item.name = "Item" + i;
+               Item.name = noseCornFolder.GetItemName(i);
                DiscText = Item.transform.Find("Description").GetComponent<Text>();
                DiscText.text = noseCornFolder.GetDiscription(i);
                PriceText = Item.transform.Find("Price").GetComponent<Text>();
