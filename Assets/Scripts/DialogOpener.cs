@@ -9,7 +9,7 @@ public class DialogOpener : MonoBehaviour {
      public GameObject Content;
      private Image image;
      private Text itemNameText;
-     private int SelectedNumber;
+     public int SelectedNumber;
      private Text priceText;
      private Text specText;
 
@@ -25,7 +25,9 @@ public class DialogOpener : MonoBehaviour {
           
           //_noseCornFolder = GameObject.Find("NoseCornFolder").GetComponent<NoseCornFolder>(); 
 
-          _menuAnim = detailDialog.GetComponent<Animator>(); 
+          _menuAnim = detailDialog.GetComponent<Animator>();
+
+          int.TryParse(this.name.Substring(4, 1), out SelectedNumber);
      }
 
 	
@@ -43,7 +45,7 @@ public class DialogOpener : MonoBehaviour {
                //image = detailDialog.transform.FindChild("ItemImage").GetComponent<Image>();
                //image.sprite = _noseCornFolder.GetImage(1);
 
-               int.TryParse(this.name.Substring(4, 1), out SelectedNumber);
+               //int.TryParse(this.name.Substring(4, 1), out SelectedNumber);
 
                image = detailDialog.transform.Find("ItemImage").GetComponent<Image>();
                image.sprite = _noseCornFolder.GetImage(SelectedNumber);
@@ -79,5 +81,14 @@ public class DialogOpener : MonoBehaviour {
 
           }
 
+     }
+     public NoseCornFolder GetNoseCornFolder ()
+     {
+          return _noseCornFolder;
+     }
+
+     public int GetIdNumber ()
+     {
+          return SelectedNumber;
      }
 }

@@ -2087,9 +2087,9 @@ MonoBehaviour:
   - 0.7
   - 0.5
   Price:
-  - 100
-  - 200
-  - 1000
+  - 50
+  - 500
+  - 5000
   Discription:
   - "\u5F31\u3044\u30DC\u30C7\u30A3"
   - "\u3061\u3087\u3063\u3068\u3044\u3044\u30DC\u30C7\u30A3"
@@ -2540,7 +2540,7 @@ MonoBehaviour:
   ItemName:
   - nose0
   - nose1
-  - nose3
+  - nose2
   Weight:
   - 0.5
   - 0.1
@@ -4148,6 +4148,7 @@ MonoBehaviour:
   detailDialog: {fileID: 0}
   _noseCornFolder: {fileID: 1356898730}
   Content: {fileID: 0}
+  SelectedNumber: 0
 --- !u!1 &2018948357
 GameObject:
   m_ObjectHideFlags: 0
