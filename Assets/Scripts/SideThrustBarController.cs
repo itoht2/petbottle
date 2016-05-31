@@ -10,7 +10,7 @@ public class SideThrustBarController : MonoBehaviour {
 
      // Use this for initialization
      void Start () {
-         
+          specData = GameObject.Find("SpecData").GetComponent<SpecData>();
           Vector2 sd = GetComponent<RectTransform>().sizeDelta;
           WidthMax = sd.x;
           //Debug.Log("WithMax:" + WidthMax);

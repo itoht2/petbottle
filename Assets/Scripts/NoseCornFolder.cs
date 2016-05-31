@@ -72,9 +72,9 @@ public class NoseCornFolder : MonoBehaviour {
      {
           return NowUsed;
      }
-    public string GetParameterName(int i)
+    public string GetParameterName(int j)
      {
-          return ParameterName[i];
+          return ParameterName[j];
      }
      public float GetParameterValue1(int i)
      {

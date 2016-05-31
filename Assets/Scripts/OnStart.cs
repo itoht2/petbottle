@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 public class OnStart : MonoBehaviour {
 
@@ -7,13 +8,28 @@ public class OnStart : MonoBehaviour {
      public ScoreData scoreData;
      public GameObject Rocket;
      private float MaxHight;
+     public GameObject StarFolder;
 
-	// Use this for initialization
-	void Start () {
+     // Use this for initialization
+     void Start () {
           QualitySettings.vSyncCount = 0; // VSyncをOFFにする
           Application.targetFrameRate = 60; // ターゲットフレームレートを60に設定
 
-          MaxHight = scoreData.GetMaxDistance();
+          GameObject IsSpecData = GameObject.Find("SpecData");
+
+          if (IsSpecData == null) { 
+          //Debug.Log(IsSpecData.name);
+                GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/SpecData");
+               IsSpecData = Instantiate(SpecDataprefab);
+               IsSpecData.name = "SpecData";
+
+          }
+          if  (scoreData.GetMaxDistance() >=50.0f) { 
+               MaxHight = scoreData.GetMaxDistance();
+          } else
+          {
+               MaxHight = 50.0f;
+          }
           StartCoroutine("ScatterStar");          
 
      }
@@ -36,8 +52,18 @@ public class OnStart : MonoBehaviour {
                           
                Star_temp.GetComponent<StarController>().scoreData = scoreData.GetComponent<ScoreData>();
                Star_temp.GetComponent<StarController>().Rocket = Rocket.GetComponent<RocketController>();
-              yield return null;
+
+               Star_temp.transform.parent = StarFolder.transform;
+               Star_temp.name = "Star" + i;
+
+               
+               yield return null;
 
           }
+     }
+
+     public void OnApplicationQuit()
+     {
+          PlayerPrefs.Flush();
      }
 }

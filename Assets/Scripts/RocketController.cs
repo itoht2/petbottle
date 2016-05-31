@@ -106,6 +106,7 @@ public class RocketController : MonoBehaviour {
      // Use this for initialization
      void Start () {
           RocketBody2D = RocketHontai.GetComponent<Rigidbody2D>();
+          specData = GameObject.Find("SpecData").GetComponent<SpecData>();
 
           RocketBody2D.mass = specData.GetMass();
           ScoreBody = RocketBody2D;

@@ -30,6 +30,7 @@ public class PumpingButton : MonoBehaviour {
      // Use this for initialization
      void Start()
      {
+          specData = GameObject.Find("SpecData").GetComponent<SpecData>();
           PumpMax = specData.GetPumpMax();
           PumpCapacity = specData.GetPumpCapacity();
           PumpPressure = 0;

@@ -1,28 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 public class SpecData : MonoBehaviour {
 
      public Rigidbody2D Rocket;
 
-     public float Gravity = 9.807f;                  // m/s^2　重力
-     public float WaterDensity = 1000.0f;        // kg/m^3　水の密度
-     public float RocketWeight = 0.07f;            // kg　ロケットの質量
-     public float NoseCornWeight = 0.02f;         // kg　ノーズコーンの質量
-     public float FinWeight = 0.01f;                   // kg　フィンの質量
-     public float FuelCapacity = 0.0002f;          // m^3　水の量
+     public float Gravity ;                  // m/s^2　重力
+     public float WaterDensity;        // kg/m^3　水の密度
+     public float RocketWeight ;            // kg　ロケットの質量
+     public float NoseCornWeight ;         // kg　ノーズコーンの質量
+     public float FinWeight ;                   // kg　フィンの質量
+     public float FuelCapacity ;          // m^3　水の量
      public float FuelWeight ;                        // kg　水の質量
      public float AverageWeight;                     // kg　平均質量
-     public float NozzleRadius = 0.003f;          // m　ノズル直径
+     public float NozzleRadius ;          // m　ノズル直径
      public float NozzleArea;                         // m^2　ノズル面積　
      public int Multistage;                            //　ロケットの段数
 
-     public float InnerPressureMax = 303f;             // kPa　ボディの耐圧
+     public float InnerPressureMax ;             // kPa　ボディの耐圧
 
-     public float AtmospherPresuure = 101.3f; // kPa　大気圧
+     public float AtmospherPresuure  ; // kPa　大気圧
 
      public float NozzleFlowRate;                // m/s 　ノズル通過時の流速
-     public float BodyRadius = 0.05f;                   // m　ボディ直径
+     public float BodyRadius ;                   // m　ボディ直径
      public float ProjectedArea;                      // m^2　ボディ投影面積
      public float InitialVelocity;                          // m^2　初速
 
@@ -30,12 +31,12 @@ public class SpecData : MonoBehaviour {
 
      public float BurningTime;                         // Sec　燃焼時間
 
-     public float Temperature = 20.0f;                         // Deg　外気温
-     public float GasConstant = 2.87f;                         //　気体定数
-     public float Cd = 0.6f;                                    //　ボディの空気抵抗係数　
-     public float NoseCornCD = 0.2f;                   //　ノーズコーンの空気抵抗係数
-     public float FinCD = 0.2f;                             //　フィンの空気抵抗係数
-     public float CDFactor = 1.0f;                     //　空気抵抗係数補正値
+     public float Temperature ;                         // Deg　外気温
+     public float GasConstant ;                         //　気体定数
+     public float Cd  ;                                    //　ボディの空気抵抗係数　
+     public float NoseCornCD ;                   //　ノーズコーンの空気抵抗係数
+     public float FinCD ;                             //　フィンの空気抵抗係数
+     public float CDFactor ;                     //　空気抵抗係数補正値
      public float DensityOfAir;                             //  kg/m^3　空気の密度
      public float AirResistancce;                     // N　空気抵抗
 
@@ -59,12 +60,36 @@ public class SpecData : MonoBehaviour {
 
      public string PayLoadName;              // ペイロードの種類
      public float PayLoadWeight;             //　ペイロードの質量
+         
 
      // Use this for initialization
      void Awake() {
+          DontDestroyOnLoad(this);
+
+          Rocket = GameObject.Find("RocketBody").transform.GetComponent<Rigidbody2D>();
+
+          //TotalDistance = PlayerPrefs.GetFloat("TotalDistance", 0.0f);
+
+          Gravity = PlayerPrefs.GetFloat("Gravity",9.807f); 
+          WaterDensity = PlayerPrefs.GetFloat("WaterDensity", 1000.0f);   
+          RocketWeight = PlayerPrefs.GetFloat("RocketWeight", 0.07f);          
+          NoseCornWeight = PlayerPrefs.GetFloat("NoseCornWeight",  0.02f);  
+          FinWeight = PlayerPrefs.GetFloat("FinWeight",  0.01f);   
+          FuelCapacity = PlayerPrefs.GetFloat("FuelCapacity",  0.0002f);         
+          NozzleRadius = PlayerPrefs.GetFloat("NozzleRadius",  0.003f);   
+          InnerPressureMax = PlayerPrefs.GetFloat("InnerPressureMax", 303f);
+          AtmospherPresuure = PlayerPrefs.GetFloat("AtmospherPresuure", 101.3f); 
+          BodyRadius = PlayerPrefs.GetFloat("BodyRadius", 0.05f);                  
+          Temperature = PlayerPrefs.GetFloat("Temperature",20.0f);       
+          GasConstant = PlayerPrefs.GetFloat("GasConstant",  2.87f);                
+          Cd = PlayerPrefs.GetFloat("Cd",0.6f);                                 
+          NoseCornCD = PlayerPrefs.GetFloat("NoseCornCD", 0.2f);                   
+          FinCD = PlayerPrefs.GetFloat(" FinCD",  0.2f);                           
+          CDFactor = PlayerPrefs.GetFloat("CDFacto",  1.0f);                 
 
           Recalculation();
           StartCoroutine(FuncCoroutine());
+          
      }
 	
 	// Update is called once per frame

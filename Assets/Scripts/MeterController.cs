@@ -18,6 +18,7 @@ public class MeterController : MonoBehaviour {
 
      // Use this for initialization
      void Start () {
+          specData = GameObject.Find("SpecData").GetComponent<SpecData>();
           needle.transform.localRotation = Quaternion.Euler(0, 0, StartRotation);
           MaxPressure = specData.GetPumpMax();
          

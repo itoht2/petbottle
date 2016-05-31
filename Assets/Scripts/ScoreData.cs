@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 public class ScoreData : MonoBehaviour {
 
@@ -48,6 +49,8 @@ public class ScoreData : MonoBehaviour {
           PlayerPrefs.SetFloat("ScoreCoefficient", ScoreCoefficient);
           PlayerPrefs.SetInt("LaunchNumber", LaunchNumber);
           PlayerPrefs.SetFloat("MaxDistance", MaxDistance);
+
+          PlayerPrefs.Flush();
 
      }
 
