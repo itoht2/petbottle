@@ -14,7 +14,6 @@ public class BuyItemControll : MonoBehaviour {
      private float ParameterValue2;
      private float ParameterValue3;
 
-
      // Use this for initialization
      void Start () {
 	

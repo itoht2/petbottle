@@ -55,21 +55,15 @@ public class SpecData : MonoBehaviour {
      public float SRBAThrustForce;           // N　固体燃料ロケットの一本あたりの推力
      public float SRBABurningTime;           // Sec　固体燃料ロケットの燃焼時間
 
-
      public float SRBApositionFactor;        //　SRBA位置合わせ用係数
      public Vector3 SRBAOffset;                   // SRBA位置調整
 
      public string PayLoadName;              // ペイロードの種類
-     public float PayLoadWeight;             //　ペイロードの質量
-
-   
+     public float PayLoadWeight;             //　ペイロードの質量   
 
      // Use this for initialization
 
-     void Awake() {         
-          
-
-          //TotalDistance = PlayerPrefs.GetFloat("TotalDistance", 0.0f);
+     void Awake() {  
 
           Gravity = PlayerPrefs.GetFloat("Gravity",9.807f); 
           WaterDensity = PlayerPrefs.GetFloat("WaterDensity", 1000.0f);   
@@ -216,6 +210,10 @@ public class SpecData : MonoBehaviour {
      public float GetCd()
      {
           return Cd;
+     }
+     public Sprite GetNoseCornImage()
+     {
+          return NoseCornImage;
      }
      public float GetNoseCornCD()
      {

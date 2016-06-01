@@ -15,7 +15,6 @@ public class OnStartTitleScript : MonoBehaviour {
                IsSpecData = Instantiate(SpecDataprefab);
                IsSpecData.name = "SpecData";
                DontDestroyOnLoad(IsSpecData);
-
           }
 
      }

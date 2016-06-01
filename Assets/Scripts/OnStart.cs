@@ -10,7 +10,7 @@ public class OnStart : MonoBehaviour {
      private float MaxHight;
      public GameObject StarFolder;
      public GameObject noseCorn;
-
+     public SpecData specData;
 
 
      // Use this for initialization
@@ -28,6 +28,8 @@ public class OnStart : MonoBehaviour {
                DontDestroyOnLoad(IsSpecData);
 
           }
+
+          specData = IsSpecData.GetComponent<SpecData>();
 
           ImageChanger();
 
@@ -71,8 +73,7 @@ public class OnStart : MonoBehaviour {
 
      public void ImageChanger()         // 表示する画像を変更する。
      {
-          //noseCorn.GetComponent<SpriteRenderer>().sprite = NoseCornFolder.Image[1];
-          
+          noseCorn.GetComponent<SpriteRenderer>().sprite = specData.GetNoseCornImage();
      }
 
      public void OnApplicationQuit()

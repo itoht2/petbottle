@@ -1618,6 +1618,48 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 847983994}
+--- !u!1 &877440153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 877440155}
+  - 114: {fileID: 877440154}
+  m_Layer: 0
+  m_Name: OnStartGarage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &877440154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 877440153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf72b5eade5e80b46b5eba53ec286052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noseCornFolder: {fileID: 1356898730}
+  bodyFolder: {fileID: 1063738815}
+  specData: {fileID: 0}
+--- !u!4 &877440155
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 877440153}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &886509341
 GameObject:
   m_ObjectHideFlags: 0
@@ -2487,7 +2529,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1257eab77242ddc43b43d5e4d4eb64d6, type: 3}
   NumberOfHold: 010000000200000000000000
   NowUsed: 1
-  NumberOfParameter: 2
+  NumberOfParameter: 1
   ParameterName:
   - NoseCornCD
   - 

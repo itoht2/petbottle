@@ -114,4 +114,6 @@ public class ContentsMaker : MonoBehaviour {
           }
           btn.colors = cbBtn;
      }
+
+     
 }

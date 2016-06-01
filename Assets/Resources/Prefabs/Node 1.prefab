@@ -99,6 +99,7 @@ GameObject:
   - 222: {fileID: 22208288}
   - 114: {fileID: 11424710}
   - 114: {fileID: 11462768}
+  - 114: {fileID: 11428952}
   m_Layer: 5
   m_Name: UsingButton
   m_TagString: Untagged
@@ -323,6 +324,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
   m_Text: "\u306A\u3093\u304B\u306E\u8AAC\u660E\n2\u884C\u304F\u3089\u3044\n3\u884C\u76EE"
+--- !u!114 &11428952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a0f4c892baa7144a9fcd3fd57d3d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _noseCornFolder: {fileID: 0}
 --- !u!114 &11440518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,6 +351,7 @@ MonoBehaviour:
   detailDialog: {fileID: 0}
   _noseCornFolder: {fileID: 0}
   Content: {fileID: 0}
+  SelectedNumber: 0
 --- !u!114 &11444864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -403,6 +417,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuyButton: {fileID: 11483946}
   _buyItemContrll: {fileID: 0}
+  BuyItem: {fileID: 0}
+  Node: {fileID: 0}
 --- !u!114 &11458566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -552,7 +568,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11424710}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11428952}
+        m_MethodName: UsingButtonChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11464474
