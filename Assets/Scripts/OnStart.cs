@@ -9,6 +9,9 @@ public class OnStart : MonoBehaviour {
      public GameObject Rocket;
      private float MaxHight;
      public GameObject StarFolder;
+     public GameObject noseCorn;
+
+
 
      // Use this for initialization
      void Start () {
@@ -22,8 +25,12 @@ public class OnStart : MonoBehaviour {
                 GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/SpecData");
                IsSpecData = Instantiate(SpecDataprefab);
                IsSpecData.name = "SpecData";
+               DontDestroyOnLoad(IsSpecData);
 
           }
+
+          ImageChanger();
+
           if  (scoreData.GetMaxDistance() >=50.0f) { 
                MaxHight = scoreData.GetMaxDistance();
           } else
@@ -60,6 +67,12 @@ public class OnStart : MonoBehaviour {
                yield return null;
 
           }
+     }
+
+     public void ImageChanger()         // 表示する画像を変更する。
+     {
+          //noseCorn.GetComponent<SpriteRenderer>().sprite = NoseCornFolder.Image[1];
+          
      }
 
      public void OnApplicationQuit()

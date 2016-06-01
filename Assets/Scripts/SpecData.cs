@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using PlayerPrefs = PreviewLabs.PlayerPrefs;
+using UnityEngine.UI;
 
 public class SpecData : MonoBehaviour {
 
@@ -35,6 +36,7 @@ public class SpecData : MonoBehaviour {
      public float GasConstant ;                         //　気体定数
      public float Cd  ;                                    //　ボディの空気抵抗係数　
      public float NoseCornCD ;                   //　ノーズコーンの空気抵抗係数
+     public Sprite NoseCornImage;            // ノーズコーンの画像
      public float FinCD ;                             //　フィンの空気抵抗係数
      public float CDFactor ;                     //　空気抵抗係数補正値
      public float DensityOfAir;                             //  kg/m^3　空気の密度
@@ -60,13 +62,14 @@ public class SpecData : MonoBehaviour {
 
      public string PayLoadName;              // ペイロードの種類
      public float PayLoadWeight;             //　ペイロードの質量
-         
+
+     private bool NorocketBody;
+
 
      // Use this for initialization
-     void Awake() {
-          DontDestroyOnLoad(this);
 
-          Rocket = GameObject.Find("RocketBody").transform.GetComponent<Rigidbody2D>();
+     void Awake() {         
+          
 
           //TotalDistance = PlayerPrefs.GetFloat("TotalDistance", 0.0f);
 
@@ -85,28 +88,40 @@ public class SpecData : MonoBehaviour {
           Cd = PlayerPrefs.GetFloat("Cd",0.6f);                                 
           NoseCornCD = PlayerPrefs.GetFloat("NoseCornCD", 0.2f);                   
           FinCD = PlayerPrefs.GetFloat(" FinCD",  0.2f);                           
-          CDFactor = PlayerPrefs.GetFloat("CDFacto",  1.0f);                 
+          CDFactor = PlayerPrefs.GetFloat("CDFacto",  1.0f);
+
+          NorocketBody = false;
+     }
+
+     void Start()
+     {
+
+         
 
           Recalculation();
-          StartCoroutine(FuncCoroutine());
-          
-     }
-	
-	// Update is called once per frame
-	void Update () {
-         
+       
      }
 
-     IEnumerator FuncCoroutine()
-     {
-          while (Rocket != null)
-          {             
-               AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * Rocket.velocity.y * Rocket.velocity.y / 2;
-               Rocket.AddForce(-AirResistancce * Rocket.velocity / 10);
+     // Update is called once per frame
+     void Update () {
+          if (!NorocketBody) { 
+               Rocket = GameObject.Find("RocketBody").transform.GetComponent<Rigidbody2D>();
+               NorocketBody = true;
+        }
+          //StartCoroutine(FuncCoroutine());
 
-               yield return new WaitForSeconds(0.5f);
-          }
      }
+
+     //IEnumerator FuncCoroutine()
+     //{
+     //     while (Rocket != null)
+     //     {             
+     //          AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * Rocket.velocity.y * Rocket.velocity.y / 2;
+     //          Rocket.AddForce(-AirResistancce * Rocket.velocity / 10);
+
+     //          yield return new WaitForSeconds(1.0f);
+     //     }
+     //}
 
 
      public void Recalculation ()
@@ -228,6 +243,32 @@ public class SpecData : MonoBehaviour {
      public float GetLauncherForce() {
           return LauncherForce;
      }
+     public float GetCd()
+     {
+          return Cd;
+     }
+     public float GetNoseCornCD()
+     {
+          return NoseCornCD;
+     }
+     public float GetFinCD()
+     {
+          return FinCD;
+     }
+     public float GetCDFactor()
+     {
+          return CDFactor;
+     }
+     public float GetDensityOfAir()
+     {
+          return DensityOfAir;
+     }
+     public float GetProjectedAera()
+     {
+          return ProjectedArea;
+     }
+     
+     
 }
 
 

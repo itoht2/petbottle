@@ -12,8 +12,9 @@ public class NoseCornFolder : MonoBehaviour {
      public string[] DiscriptionLong;
      public Sprite[] Image;
      public int[] NumberOfHold;
-     public int NowUsed;
-     public int NumberOfParameter;
+     public int NowUsed;                     // 今使ってる種類
+
+     public int NumberOfParameter;      // パラメータの数　 Max3
      public string[] ParameterName;
      public float[] ParameterValue1;
      public float[] ParameterValue2;
@@ -22,7 +23,7 @@ public class NoseCornFolder : MonoBehaviour {
 
      // Use this for initialization
      void Start () {
-        
+          DontDestroyOnLoad(this);
      }
 	
 	// Update is called once per frame

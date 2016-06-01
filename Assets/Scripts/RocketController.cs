@@ -98,6 +98,15 @@ public class RocketController : MonoBehaviour {
      public Text PumpMaxText;
      public bool Broken;
 
+     public float AirResistancce;
+     private float Cd;
+     private float NoseCornCD;
+     private float FinCD;
+     private float CDFactor;
+     private float DensityOfAir;
+     private float ProjectedArea;
+     
+
      void Awake ()
      {
           
@@ -173,6 +182,15 @@ public class RocketController : MonoBehaviour {
                specData.SideThrusterRate = 0.0f;
           }
 
+       
+          Cd = specData.GetCd();
+          NoseCornCD = specData.GetNoseCornCD();
+          FinCD = specData.GetFinCD();
+          CDFactor = specData.GetCDFactor();
+          DensityOfAir = specData.GetDensityOfAir();
+          ProjectedArea = specData.GetDensityOfAir();
+
+          StartCoroutine("ReCalcResistance");
 
           //Debug.Log(specData.GetPayLoadName().Length);
           //Debug.Log(IsCanSat);
@@ -249,7 +267,9 @@ public class RocketController : MonoBehaviour {
          
           scoreLabel.text = ScoreBody.transform.position.y.ToString("N2") ;
           SpeedMeter.text = ScoreBody.velocity.y.ToString("N1") ;
-         
+
+        
+
 
           if (score > RocketBody2D.transform.position.y + 2.0f) // 頂点に達したら(2m落ちたら)
           {
@@ -593,6 +613,19 @@ public class RocketController : MonoBehaviour {
           {
                BackPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(5.0f, (float) i, 0.0f); ;
                yield return null;
+          }
+     }
+
+     IEnumerator ReCalcResistance()
+     {
+          while (ScoreBody != null)
+          {
+               AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * ScoreBody.velocity.y * ScoreBody.velocity.y / 2;
+               ScoreBody.AddForce(-AirResistancce * ScoreBody.velocity / 500);
+
+               Debug.Log(ScoreBody.name);
+               yield return new WaitForSeconds(0.2f);
+              
           }
      }
 

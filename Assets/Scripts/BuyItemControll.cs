@@ -43,6 +43,8 @@ public class BuyItemControll : MonoBehaviour {
           ParameterValue[2] = _noseCornFolder.GetParameterValue3(MyIDNumber);
           
           Debug.Log(Itemname + " " + ItemPrice + " " +ItemWeight + " " +ParameterName[0] + " " + ParameterValue[0]);
+
+
           
      }
 }

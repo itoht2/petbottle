@@ -800,7 +800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objTarget: {fileID: 672931023}
   offset: {x: 0, y: -1, z: -2}
-  smoothTime: 0.1
+  smoothTime: 0.05
 --- !u!1 &497070487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,6 +1241,7 @@ MonoBehaviour:
   scoreData: {fileID: 222143716}
   Rocket: {fileID: 672931023}
   StarFolder: {fileID: 558861754}
+  noseCorn: {fileID: 1526646603}
 --- !u!4 &633705171
 Transform:
   m_ObjectHideFlags: 0
