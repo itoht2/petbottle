@@ -623,7 +623,7 @@ public class RocketController : MonoBehaviour {
                AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * ScoreBody.velocity.y * ScoreBody.velocity.y / 2;
                ScoreBody.AddForce(-AirResistancce * ScoreBody.velocity / 500);
 
-               Debug.Log(ScoreBody.name);
+               //Debug.Log(ScoreBody.name);
                yield return new WaitForSeconds(0.2f);
               
           }

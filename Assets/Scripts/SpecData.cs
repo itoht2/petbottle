@@ -4,8 +4,7 @@ using PlayerPrefs = PreviewLabs.PlayerPrefs;
 using UnityEngine.UI;
 
 public class SpecData : MonoBehaviour {
-
-     public Rigidbody2D Rocket;
+    
 
      public float Gravity ;                  // m/s^2　重力
      public float WaterDensity;        // kg/m^3　水の密度
@@ -40,7 +39,7 @@ public class SpecData : MonoBehaviour {
      public float FinCD ;                             //　フィンの空気抵抗係数
      public float CDFactor ;                     //　空気抵抗係数補正値
      public float DensityOfAir;                             //  kg/m^3　空気の密度
-     public float AirResistancce;                     // N　空気抵抗
+     
 
      public float PumpMax;                        // kPa　ポンプの最大圧
      public float PumpCapacity;              // kPa　一回のポンピングでの圧力上昇分
@@ -63,8 +62,7 @@ public class SpecData : MonoBehaviour {
      public string PayLoadName;              // ペイロードの種類
      public float PayLoadWeight;             //　ペイロードの質量
 
-     private bool NorocketBody;
-
+   
 
      // Use this for initialization
 
@@ -88,42 +86,19 @@ public class SpecData : MonoBehaviour {
           Cd = PlayerPrefs.GetFloat("Cd",0.6f);                                 
           NoseCornCD = PlayerPrefs.GetFloat("NoseCornCD", 0.2f);                   
           FinCD = PlayerPrefs.GetFloat(" FinCD",  0.2f);                           
-          CDFactor = PlayerPrefs.GetFloat("CDFacto",  1.0f);
-
-          NorocketBody = false;
+          CDFactor = PlayerPrefs.GetFloat("CDFacto",  1.0f);         
      }
 
      void Start()
      {
-
-         
-
-          Recalculation();
-       
+          Recalculation();       
      }
 
      // Update is called once per frame
-     void Update () {
-          if (!NorocketBody) { 
-               Rocket = GameObject.Find("RocketBody").transform.GetComponent<Rigidbody2D>();
-               NorocketBody = true;
-        }
-          //StartCoroutine(FuncCoroutine());
+     void Update () {         
 
      }
-
-     //IEnumerator FuncCoroutine()
-     //{
-     //     while (Rocket != null)
-     //     {             
-     //          AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * Rocket.velocity.y * Rocket.velocity.y / 2;
-     //          Rocket.AddForce(-AirResistancce * Rocket.velocity / 10);
-
-     //          yield return new WaitForSeconds(1.0f);
-     //     }
-     //}
-
-
+     
      public void Recalculation ()
      {
           FuelWeight = FuelCapacity * WaterDensity;
@@ -163,12 +138,7 @@ public class SpecData : MonoBehaviour {
      public float GetGravity ()
      {
           return Gravity;
-     }
-
-     public float GetAirResistancce()
-     {
-          return AirResistancce;
-     }
+     }   
 
      public float GetPumpMax()
      {
@@ -267,8 +237,17 @@ public class SpecData : MonoBehaviour {
      {
           return ProjectedArea;
      }
-     
-     
+
+     public void OnApplicationQuit()
+     {
+          PlayerPrefs.Flush();
+     }
+
+     void OnDestroy()
+     {
+          PlayerPrefs.Flush();
+     }
+
 }
 
 

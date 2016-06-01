@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 public class NoseCornFolder : MonoBehaviour {
      public int NumberOfItem;
@@ -23,13 +24,27 @@ public class NoseCornFolder : MonoBehaviour {
 
      // Use this for initialization
      void Start () {
-          DontDestroyOnLoad(this);
+          //DontDestroyOnLoad(this);
+          NowUsed = PlayerPrefs.GetInt("NowUsed_" + this.name , 0);
+          Debug.Log("NowUsed_" + this.name);
      }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+     public void SaveData( )
+     {
+         
+          PlayerPrefs.Flush();
+     }
+
+     void OnDestroy()
+     {
+          PlayerPrefs.Flush();
+     }
+
 
      public int GetNumberOfItem()
      {
@@ -88,6 +103,11 @@ public class NoseCornFolder : MonoBehaviour {
      public float GetParameterValue3(int i)
      {
           return ParameterValue3[i];
+     }
+
+     public void OnApplicationQuit()
+     {
+          PlayerPrefs.Flush();
      }
 
 }
