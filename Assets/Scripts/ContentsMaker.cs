@@ -10,23 +10,76 @@ public class ContentsMaker : MonoBehaviour {
      private Text DiscText;
      private Text PriceText;
      private float Price;
+     private Text NumberOfHoldText;
+     private int NumberOfHold;
      private Image IconImage;
      private Button usingButton;
      private Text usingButtonText;
-     
+
+     private GameObject Item;
+
      // Use this for initialization
      void Start()
      {
           numberOfItem = noseCornFolder.GetNumberOfItem();
 
+          ContentChanger();
+
+          //for (int i = 0; i < numberOfItem; i++)
+          //{
+          //     //Debug.Log("i=" + i);
+          //     GameObject Item = (GameObject)Instantiate(
+          //          nodeFrefab,
+          //          transform.position,
+          //          Quaternion.identity
+          //          );
+
+          //     Item.transform.SetParent(content.transform);
+          //     Item.transform.localScale = new Vector3(1, 1, 1);
+          //     Item.name = noseCornFolder.GetItemName(i);
+          //     DiscText = Item.transform.Find("Description").GetComponent<Text>();
+          //     DiscText.text = noseCornFolder.GetDiscription(i);
+          //     PriceText = Item.transform.Find("Price").GetComponent<Text>();
+          //     Price = noseCornFolder.GetPrice(i);
+          //     PriceText.text = Price.ToString("#");
+          //     NumberOfHoldText = Item.transform.Find("NomberOfHoldText").GetComponent<Text>();
+          //     NumberOfHold = noseCornFolder.GetNumberOfHold(i);
+          //     NumberOfHoldText.text = NumberOfHold + " 個";
+
+          //     IconImage = Item.transform.Find("ItemImage").GetComponent<Image>();
+          //     IconImage.sprite = noseCornFolder.GetImage(i);
+          //     usingButton = Item.transform.Find("UsingButton").GetComponent<Button>();
+          //     usingButtonText = usingButton.transform.Find("Text").GetComponent<Text>();
+
+          //     ButttonColorControll(i);      // ボタンの色替え
+
+          //}
+     }
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+
+     public void ContentChanger()
+     {
           for (int i = 0; i < numberOfItem; i++)
           {
                //Debug.Log("i=" + i);
-               GameObject Item = (GameObject)Instantiate(
+
+               
+
+               if (GameObject.Find(noseCornFolder.GetItemName(i)) == null) {
+
+                Item = (GameObject)Instantiate(
                     nodeFrefab,
                     transform.position,
                     Quaternion.identity
                     );
+                } else
+               {
+                     Item = GameObject.Find(noseCornFolder.GetItemName(i));
+               }
 
                Item.transform.SetParent(content.transform);
                Item.transform.localScale = new Vector3(1, 1, 1);
@@ -36,23 +89,23 @@ public class ContentsMaker : MonoBehaviour {
                PriceText = Item.transform.Find("Price").GetComponent<Text>();
                Price = noseCornFolder.GetPrice(i);
                PriceText.text = Price.ToString("#");
+               NumberOfHoldText = Item.transform.Find("NomberOfHoldText").GetComponent<Text>();
+               NumberOfHold = noseCornFolder.GetNumberOfHold(i);
+               NumberOfHoldText.text = NumberOfHold + " 個";
+
                IconImage = Item.transform.Find("ItemImage").GetComponent<Image>();
                IconImage.sprite = noseCornFolder.GetImage(i);
                usingButton = Item.transform.Find("UsingButton").GetComponent<Button>();
                usingButtonText = usingButton.transform.Find("Text").GetComponent<Text>();
 
-               ButttonColorControll(i);      // ボタンの色替え
+               ButttonColorControll(i, usingButton);      // ボタンの色替え
 
           }
      }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
-     public void ButttonColorControll(int i)      // ボタンの色替え
+     public void ButttonColorControll(int i, Button usingButton)      // ボタンの色替え
      {
+
           if (noseCornFolder.GetNowUsed() == i) // 使用中のボタンの色と内容を変更
           {    // 使用中だったら
                BtnStateColorChange(usingButton, new Color32(255, 0, 0, 255), 0);     // nomal #FF0000FF
@@ -115,5 +168,9 @@ public class ContentsMaker : MonoBehaviour {
           btn.colors = cbBtn;
      }
 
-     
+     public  int GetNumberOfItem()
+     {
+          return numberOfItem;
+     }
+
 }

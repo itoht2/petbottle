@@ -65,7 +65,7 @@ public class DialogOpener : MonoBehaviour {
                specText.text = TempText;
 
                specText = detailDialog.transform.FindChild("NumberOfHoldText").GetComponent<Text>();              
-               TempText = "現在所持数:　" + _noseCornFolder.GetNumberOfHold(SelectedNumber) + "個";
+               TempText = "現在所持数:" + _noseCornFolder.GetNumberOfHold(SelectedNumber) + "個";
                specText.text = TempText;
 
                int nowUsed = _noseCornFolder.GetNowUsed();

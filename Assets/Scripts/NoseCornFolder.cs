@@ -26,7 +26,7 @@ public class NoseCornFolder : MonoBehaviour {
      void Start () {
           //DontDestroyOnLoad(this);
           NowUsed = PlayerPrefs.GetInt("NowUsed_" + this.name , 0);
-          Debug.Log("NowUsed_" + this.name);
+          //Debug.Log("NowUsed_" + this.name);
      }
 	
 	// Update is called once per frame
@@ -36,7 +36,7 @@ public class NoseCornFolder : MonoBehaviour {
 
      public void SaveData( )
      {
-         
+          PlayerPrefs.SetInt("NowUsed_" + this.name, NowUsed);
           PlayerPrefs.Flush();
      }
 
@@ -52,8 +52,7 @@ public class NoseCornFolder : MonoBehaviour {
      }
      public string GetItemName(int i)
      {
-          return ItemName[i];
-          
+          return ItemName[i];          
      }
     
      public float GetWeight(int i)
