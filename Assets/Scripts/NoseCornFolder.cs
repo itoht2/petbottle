@@ -24,7 +24,7 @@ public class NoseCornFolder : MonoBehaviour {
      void Awake()
      {
           NowUsed = PlayerPrefs.GetInt("NowUsed_" + this.name , 0);
-          Debug.Log("NowUsed_" + this.name + " " + NowUsed);
+          //Debug.Log("NowUsed_" + this.name + " " + NowUsed);
      }
 
      // Use this for initialization
@@ -105,6 +105,10 @@ public class NoseCornFolder : MonoBehaviour {
      public float GetParameterValue3(int i)
      {
           return ParameterValue3[i];
+     }
+     public int GetNumberOfParameter()
+     {
+          return NumberOfParameter;
      }
 
      public void OnApplicationQuit()

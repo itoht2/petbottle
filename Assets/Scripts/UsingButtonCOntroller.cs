@@ -8,10 +8,13 @@ public class UsingButtonCOntroller : MonoBehaviour {
      public int nowUsedNumber;
      public int myNumber;
      public ContentsMaker contentMaker;
+     
+     public string parameterName;
+     public float parameterValue;
 
 
-	// Use this for initialization
-	void Start () {
+     // Use this for initialization
+     void Start () {
 
           _noseCornFolder = gameObject.transform.parent.GetComponent<DialogOpener>().GetNoseCornFolder();
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
@@ -37,8 +40,10 @@ public class UsingButtonCOntroller : MonoBehaviour {
                _noseCornFolder.NowUsed = myNumber;
                nowUsedNumber = myNumber;
                contentMaker.ContentChanger();
-               _noseCornFolder.SaveData();
+               //_noseCornFolder.SaveData();
 
+               SpecDataChanger(myNumber);
+               
 
           } else    // 既に使ってたら
           {
@@ -46,6 +51,60 @@ public class UsingButtonCOntroller : MonoBehaviour {
           }
 
           PlayerPrefs.SetInt("NowUsed_" + _noseCornFolder.name, nowUsedNumber);
-          Debug.Log(_noseCornFolder.name + " nowUsed " + nowUsedNumber);
+          //Debug.Log(_noseCornFolder.name + " nowUsed " + nowUsedNumber);
+     }
+
+
+     public void SpecDataChanger (int i) 
+     {
+          int numberOfParameter = _noseCornFolder.GetNumberOfParameter();
+          if (numberOfParameter == 0)
+          {
+               return;
+          } else { 
+
+               for (int j = 0; j < numberOfParameter; j++)
+               {
+                    parameterName = _noseCornFolder.GetParameterName(j);
+                    Debug.Log("i= "+ i + " j= "+ j + " " + parameterName + "=" + parameterValue);
+
+                    switch (j)
+                    {
+                         case 0:
+                              parameterValue = _noseCornFolder.GetParameterValue1(i);
+                              break;
+                         case 1:
+                              parameterValue = _noseCornFolder.GetParameterValue2(i);
+                              break;
+                         case 2:
+                              parameterValue = _noseCornFolder.GetParameterValue3(i);
+                              break;
+                         default:
+
+                              break;                         
+                    }
+
+                    switch (parameterName)
+                    {
+                         case "NoseCornCD":
+                              specData.NoseCornCD = parameterValue;
+
+                              break;
+                         case "Maxpressure":
+                              specData.InnerPressureMax = parameterValue;
+                              break;
+
+
+
+
+                         default:
+                              Debug.Log(parameterName + "is Wrong");
+                              break;
+
+                    }
+
+
+               }
+          }
      }
 }
