@@ -84,19 +84,19 @@ public class ContentsMaker : MonoBehaviour {
                Item.transform.SetParent(content.transform);
                Item.transform.localScale = new Vector3(1, 1, 1);
                Item.name = noseCornFolder.GetItemName(i);
-               DiscText = Item.transform.Find("Description").GetComponent<Text>();
+               DiscText = Item.transform.FindChild("Description").GetComponent<Text>();
                DiscText.text = noseCornFolder.GetDiscription(i);
-               PriceText = Item.transform.Find("Price").GetComponent<Text>();
+               PriceText = Item.transform.FindChild("Price").GetComponent<Text>();
                Price = noseCornFolder.GetPrice(i);
                PriceText.text = Price.ToString("#");
-               NumberOfHoldText = Item.transform.Find("NomberOfHoldText").GetComponent<Text>();
+               NumberOfHoldText = Item.transform.FindChild("NomberOfHoldText").GetComponent<Text>();
                NumberOfHold = noseCornFolder.GetNumberOfHold(i);
                NumberOfHoldText.text = NumberOfHold + " 個";
 
-               IconImage = Item.transform.Find("ItemImage").GetComponent<Image>();
+               IconImage = Item.transform.FindChild("ItemImage").GetComponent<Image>();
                IconImage.sprite = noseCornFolder.GetImage(i);
-               usingButton = Item.transform.Find("UsingButton").GetComponent<Button>();
-               usingButtonText = usingButton.transform.Find("Text").GetComponent<Text>();
+               usingButton = Item.transform.FindChild("UsingButton").GetComponent<Button>();
+               usingButtonText = usingButton.transform.FindChild("Text").GetComponent<Text>();
 
                ButttonColorControll(i, usingButton);      // ボタンの色替え
 
@@ -105,7 +105,7 @@ public class ContentsMaker : MonoBehaviour {
 
      public void ButttonColorControll(int i, Button usingButton)      // ボタンの色替え
      {
-
+          //Debug.Log(noseCornFolder.name + " " + noseCornFolder.GetNowUsed());
           if (noseCornFolder.GetNowUsed() == i) // 使用中のボタンの色と内容を変更
           {    // 使用中だったら
                BtnStateColorChange(usingButton, new Color32(255, 0, 0, 255), 0);     // nomal #FF0000FF

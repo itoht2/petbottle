@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 public class UsingButtonCOntroller : MonoBehaviour {
      public NoseCornFolder _noseCornFolder;
@@ -27,7 +28,9 @@ public class UsingButtonCOntroller : MonoBehaviour {
      public void UsingButtonChanged()
      {
           nowUsedNumber = _noseCornFolder.GetNowUsed();
-          //Debug.Log("myNumber " + myNumber + " nowUsed " + nowUsedNumber );
+          myNumber = gameObject.transform.parent.GetComponent<DialogOpener>().GetIdNumber();
+          
+
 
           if (nowUsedNumber != myNumber)     // 使ってなかったら
           {
@@ -42,5 +45,7 @@ public class UsingButtonCOntroller : MonoBehaviour {
 
           }
 
+          PlayerPrefs.SetInt("NowUsed_" + _noseCornFolder.name, nowUsedNumber);
+          Debug.Log(_noseCornFolder.name + " nowUsed " + nowUsedNumber);
      }
 }

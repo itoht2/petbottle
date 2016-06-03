@@ -21,12 +21,15 @@ public class NoseCornFolder : MonoBehaviour {
      public float[] ParameterValue2;
      public float[] ParameterValue3;
 
+     void Awake()
+     {
+          NowUsed = PlayerPrefs.GetInt("NowUsed_" + this.name , 0);
+          Debug.Log("NowUsed_" + this.name + " " + NowUsed);
+     }
 
      // Use this for initialization
      void Start () {
-          //DontDestroyOnLoad(this);
-          NowUsed = PlayerPrefs.GetInt("NowUsed_" + this.name , 0);
-          //Debug.Log("NowUsed_" + this.name);
+        
      }
 	
 	// Update is called once per frame
