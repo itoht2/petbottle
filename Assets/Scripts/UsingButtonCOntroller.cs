@@ -21,6 +21,7 @@ public class UsingButtonCOntroller : MonoBehaviour {
           myNumber = gameObject.transform.parent.GetComponent<DialogOpener>().GetIdNumber();
           //Debug.Log(_noseCornFolder.name);
           contentMaker = transform.GetComponentInParent<ContentsMaker>();
+         
      }
 	
 	// Update is called once per frame
@@ -32,8 +33,8 @@ public class UsingButtonCOntroller : MonoBehaviour {
      {
           nowUsedNumber = _noseCornFolder.GetNowUsed();
           myNumber = gameObject.transform.parent.GetComponent<DialogOpener>().GetIdNumber();
-          
 
+         //Debug.Log(" nowUsed " + nowUsedNumber + " myNumber" + myNumber);
 
           if (nowUsedNumber != myNumber)     // 使ってなかったら
           {
@@ -66,7 +67,7 @@ public class UsingButtonCOntroller : MonoBehaviour {
                for (int j = 0; j < numberOfParameter; j++)
                {
                     parameterName = _noseCornFolder.GetParameterName(j);
-                    Debug.Log("i= "+ i + " j= "+ j + " " + parameterName + "=" + parameterValue);
+                   
 
                     switch (j)
                     {
@@ -102,9 +103,11 @@ public class UsingButtonCOntroller : MonoBehaviour {
                               break;
 
                     }
-
+                    //Debug.Log("i= " + i + " j= " + j + " " + parameterName + "=" + parameterValue);
 
                }
           }
      }
+     
+
 }
