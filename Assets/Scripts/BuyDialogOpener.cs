@@ -53,8 +53,6 @@ public class BuyDialogOpener : MonoBehaviour {
                itemNameText = detailDialog.transform.FindChild("ItemNameText").GetComponent<Text>();
                itemNameText.text = _noseCornFolder.GetDiscription(SelectedNumber);          
                    
-          
-
           }
 
      }

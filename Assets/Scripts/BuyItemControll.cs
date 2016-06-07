@@ -4,23 +4,28 @@ using System.Collections;
 public class BuyItemControll : MonoBehaviour {
      public SpecData specData;
      public ScoreData scoreData;
-     private float ItemPrice;
-     private NoseCornFolder _noseCornFolder;
+     public float TotalPoint;
+     public float ItemPrice;
+     public NoseCornFolder _noseCornFolder;
      private GameObject MyNode;
-     private int MyIDNumber;
-     private float ItemWeight;
-     private string [] ParameterName = new string [3];
-     private float [] ParameterValue = new float [3];
-     private float ParameterValue2;
-     private float ParameterValue3;
+     public int MyIDNumber;
+     public float ItemWeight;
+     public string [] ParameterName = new string [3];
+     public float [] ParameterValue = new float [3];
+     public float ParameterValue2;
+     public float ParameterValue3;
 
      // Use this for initialization
      void Start () {
-	
-	}
+
+          specData = GameObject.Find("SpecData").GetComponent<SpecData>();
+          scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
+
+     }
 	
 	// Update is called once per frame
 	void Update () {
+
 	
 	}
 
@@ -32,6 +37,7 @@ public class BuyItemControll : MonoBehaviour {
           _noseCornFolder = ItemObject.GetComponent<DialogOpener>().GetNoseCornFolder();
           ItemPrice = _noseCornFolder.GetPrice(MyIDNumber);
           ItemWeight = _noseCornFolder.GetWeight(MyIDNumber);
+          TotalPoint = scoreData.GetTotalScore();
 
           for (int j= 0; j < 2; j++)
           {
@@ -41,9 +47,16 @@ public class BuyItemControll : MonoBehaviour {
           ParameterValue[1] = _noseCornFolder.GetParameterValue2(MyIDNumber);
           ParameterValue[2] = _noseCornFolder.GetParameterValue3(MyIDNumber);
           
-          Debug.Log(Itemname + " " + ItemPrice + " " +ItemWeight + " " +ParameterName[0] + " " + ParameterValue[0]);
-
-
-          
+          Debug.Log(Itemname + " " + ItemPrice + " " + ItemWeight + " " + ParameterName[0] + " " + ParameterValue[0]);
+          //Debug.Log(Itemname + " " + ItemPrice + " " + ItemWeight + " " + ParameterName[1] + " " + ParameterValue[1]);
+          //Debug.Log(Itemname + " " + ItemPrice + " " + ItemWeight + " " + ParameterName[2] + " " + ParameterValue[2]);
      }
+
+     public void BuyItemOK()
+     {
+          Debug.Log(_noseCornFolder.GetItemName(MyIDNumber));
+
+     }
+
+
 }
