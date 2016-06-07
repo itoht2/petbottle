@@ -5,6 +5,7 @@ using PlayerPrefs = PreviewLabs.PlayerPrefs;
 public class UsingButtonCOntroller : MonoBehaviour {
      public NoseCornFolder _noseCornFolder;
      public SpecData specData;
+     
      public int nowUsedNumber;
      public int myNumber;
      public ContentsMaker contentMaker;

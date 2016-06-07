@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class BuyDialogOpener : MonoBehaviour {
      public Animator _menuAnim;
      public GameObject detailDialog;
+     public GameObject BuyDialogPrefab;
      public NoseCornFolder _noseCornFolder;
      public GameObject Content;
      private Image image;
@@ -17,7 +18,11 @@ public class BuyDialogOpener : MonoBehaviour {
      // Use this for initialization
      void Start()
      {
-          detailDialog = GameObject.Find("BuyDialog");
+          //detailDialog = GameObject.Find("BuyDialog");
+
+          detailDialog = (GameObject)Instantiate(
+                  BuyDialogPrefab
+                  );
 
           Content = this.transform.parent.gameObject;
           if (Content.name == "Content")

@@ -269,6 +269,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specData: {fileID: 0}
   scoreData: {fileID: 0}
+  TotalPoint: 0
+  ItemPrice: 0
+  _noseCornFolder: {fileID: 0}
+  MyIDNumber: 0
+  ItemWeight: 0
+  ParameterName:
+  - 
+  - 
+  - 
+  ParameterValue:
+  - 0
+  - 0
+  - 0
+  ParameterValue2: 0
+  ParameterValue3: 0
 --- !u!114 &11407314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -720,6 +735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuAnim: {fileID: 0}
   detailDialog: {fileID: 0}
+  BuyDialogPrefab: {fileID: 124766, guid: e7811edb14e90ab41ad21200fcef1846, type: 2}
   _noseCornFolder: {fileID: 0}
   Content: {fileID: 0}
   SelectedNumber: 0
