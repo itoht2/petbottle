@@ -24,6 +24,12 @@ public class NoseCornFolder : MonoBehaviour {
      void Awake()
      {
           NowUsed = PlayerPrefs.GetInt("NowUsed_" + this.name , 0);
+          for (int i = 0; i < NumberOfItem; i++)
+          {
+               NumberOfHold[i] = PlayerPrefs.GetInt("NumberOfHold_" + this.name + i, 0);
+          }
+                
+
           //Debug.Log("NowUsed_" + this.name + " " + NowUsed);
      }
 
@@ -40,6 +46,13 @@ public class NoseCornFolder : MonoBehaviour {
      public void SaveData( )
      {
           PlayerPrefs.SetInt("NowUsed_" + this.name, NowUsed);
+          for (int i = 0; i < NumberOfItem; i++)
+
+          {
+               PlayerPrefs.SetInt("NumberOfHold_" + this.name + i, NumberOfHold[i]);
+          }
+          
+
           PlayerPrefs.Flush();
      }
 

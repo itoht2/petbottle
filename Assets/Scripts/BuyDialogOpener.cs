@@ -12,6 +12,7 @@ public class BuyDialogOpener : MonoBehaviour {
      public int SelectedNumber;
      private Text priceText;
      private Text specText;
+     public Button BuyOkButtom;
 
 
      // Use this for initialization
@@ -29,11 +30,15 @@ public class BuyDialogOpener : MonoBehaviour {
           _menuAnim = detailDialog.GetComponent<Animator>();
 
           int.TryParse(this.name.Substring(4, 1), out SelectedNumber);
+
+          //BuyOkButtom = GameObject.Find("OkButton").GetComponent<Button>();
+          //Debug.Log(BuyOkButtom.name);
+          //BuyOkButtom.onClick.AddListener(PushedOkButton);
      }
 
-  	
-	// Update is called once per frame
-	void Update () {
+
+     // Update is called once per frame
+     void Update () {
 	
 	}
      public void ControlMenuAnimator()
@@ -46,12 +51,15 @@ public class BuyDialogOpener : MonoBehaviour {
                //image.sprite = _noseCornFolder.GetImage(1);
 
                //int.TryParse(this.name.Substring(4, 1), out SelectedNumber);
+               BuyOkButtom = GameObject.Find("OkButton").GetComponent<Button>();
+               //Debug.Log(BuyOkButtom.name);
+               BuyOkButtom.onClick.AddListener(PushedOkButton);
 
                image = detailDialog.transform.Find("ItemImage").GetComponent<Image>();
                image.sprite = _noseCornFolder.GetImage(SelectedNumber);
 
                itemNameText = detailDialog.transform.FindChild("ItemNameText").GetComponent<Text>();
-               itemNameText.text = _noseCornFolder.GetDiscription(SelectedNumber);          
+               itemNameText.text = _noseCornFolder.GetDiscription(SelectedNumber);      
                    
           }
 
@@ -64,5 +72,17 @@ public class BuyDialogOpener : MonoBehaviour {
      public int GetIdNumber()
      {
           return SelectedNumber;
+     }
+
+     public void PushedOkButton ()
+     {
+
+
+          //Debug.Log("OK!" + _noseCornFolder.name + SelectedNumber);
+          _noseCornFolder.NumberOfHold[SelectedNumber] += 1;
+          _noseCornFolder.SaveData();
+
+
+          BuyOkButtom.onClick.RemoveListener(PushedOkButton);
      }
 }
