@@ -83,6 +83,8 @@ public class BuyDialogOpener : MonoBehaviour {
           _noseCornFolder.SaveData();
 
 
+          _menuAnim.SetBool("UP", !_menuAnim.GetBool("UP"));
           BuyOkButtom.onClick.RemoveListener(PushedOkButton);
+
      }
 }
