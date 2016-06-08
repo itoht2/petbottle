@@ -24,6 +24,7 @@ public class ContentsMaker : MonoBehaviour {
      void Start()
      {
           numberOfItem = noseCornFolder.GetNumberOfItem();
+          this.name = noseCornFolder.name + "Content";
 
           ContentChanger();
          
@@ -77,7 +78,7 @@ public class ContentsMaker : MonoBehaviour {
 
                totalScore = scoreData.GetTotalScore();
 
-               Debug.Log(totalScore + " " + Price);
+               //Debug.Log(totalScore + " " + Price);
                if (Price > totalScore)
                {
                     buyButton.interactable = false;

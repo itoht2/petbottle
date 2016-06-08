@@ -19,8 +19,10 @@ public class DialogOpener : MonoBehaviour {
           detailDialog = GameObject.Find("DetailDialog");
 
           Content = this.transform.parent.gameObject;
-          if (Content.name == "Content") { 
-          _noseCornFolder = Content.GetComponent<ContentsMaker>().GetNoseCornFolder();
+          //Debug.Log(Content.name);
+          if (Content.name !="Canvas")
+          { 
+               _noseCornFolder = Content.GetComponent<ContentsMaker>().GetNoseCornFolder();
           }
           
 

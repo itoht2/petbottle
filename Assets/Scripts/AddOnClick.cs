@@ -29,5 +29,7 @@ public class AddOnClick : MonoBehaviour {
           //Debug.Log("Start Button clicked");
           Node = this.gameObject.transform.parent.gameObject;
           _buyItemContrll.BuyItemDo(Node);
+
+          
      }
 }

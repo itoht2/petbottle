@@ -32,7 +32,7 @@ public class BuyItemControll : MonoBehaviour {
      public void BuyItemDo (GameObject ItemObject)
      {
           MyIDNumber = ItemObject.GetComponent<DialogOpener>().GetIdNumber();        
-          string Itemname = ItemObject.name;
+          //string Itemname = ItemObject.name;
           //Debug.Log(MyIDNumber);
           _noseCornFolder = ItemObject.GetComponent<DialogOpener>().GetNoseCornFolder();
           ItemPrice = _noseCornFolder.GetPrice(MyIDNumber);
@@ -47,14 +47,14 @@ public class BuyItemControll : MonoBehaviour {
           ParameterValue[1] = _noseCornFolder.GetParameterValue2(MyIDNumber);
           ParameterValue[2] = _noseCornFolder.GetParameterValue3(MyIDNumber);
           
-          Debug.Log(Itemname + " " + ItemPrice + " " + ItemWeight + " " + ParameterName[0] + " " + ParameterValue[0]);
+          //Debug.Log(Itemname + " " + ItemPrice + " " + ItemWeight + " " + ParameterName[0] + " " + ParameterValue[0]);
           //Debug.Log(Itemname + " " + ItemPrice + " " + ItemWeight + " " + ParameterName[1] + " " + ParameterValue[1]);
           //Debug.Log(Itemname + " " + ItemPrice + " " + ItemWeight + " " + ParameterName[2] + " " + ParameterValue[2]);
      }
 
      public void BuyItemOK()
      {
-          Debug.Log(_noseCornFolder.GetItemName(MyIDNumber));
+          //Debug.Log(_noseCornFolder.GetItemName(MyIDNumber));
 
      }
 

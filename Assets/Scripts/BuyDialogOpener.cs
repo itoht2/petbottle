@@ -18,6 +18,7 @@ public class BuyDialogOpener : MonoBehaviour {
      public float itemPrice;
      public ScoreData scoreData;
      public GarageController garageController;
+     public ContentsMaker contentsMaker;
 
 
      // Use this for initialization
@@ -28,7 +29,10 @@ public class BuyDialogOpener : MonoBehaviour {
           garageController = GameObject.Find("GarageController").GetComponent<GarageController>();
 
           Content = this.transform.parent.gameObject;
-          if (Content.name == "Content")
+
+          //Debug.Log(Content.name.Substring(Content.name.Length - 7, 7));
+
+          if (Content.name.Substring(Content.name.Length - 7 ,7 ) == "Content")
           {
                _noseCornFolder = Content.GetComponent<ContentsMaker>().GetNoseCornFolder();
           }
@@ -40,10 +44,7 @@ public class BuyDialogOpener : MonoBehaviour {
 
           TotalPointText = GameObject.Find("TotalPoint").GetComponent<Text>();
           totalPoint = scoreData.GetTotalScore();
-
-          //BuyOkButtom = GameObject.Find("OkButton").GetComponent<Button>();
-          //Debug.Log(BuyOkButtom.name);
-          //BuyOkButtom.onClick.AddListener(PushedOkButton);
+          
      }
 
 
@@ -54,8 +55,6 @@ public class BuyDialogOpener : MonoBehaviour {
      public void ControlMenuAnimator()
      {
           _menuAnim.SetBool("UP", !_menuAnim.GetBool("UP"));
-
-
 
           if (_menuAnim.GetBool("UP"))
           {
@@ -104,7 +103,10 @@ public class BuyDialogOpener : MonoBehaviour {
 
           scoreData.TotalScore = totalPoint ;
           scoreData.SaveScore();
-          
+
+          contentsMaker = GameObject.Find(_noseCornFolder.name + "Content").GetComponent<ContentsMaker>();
+          contentsMaker.ContentChanger();
+
 
 
      }
