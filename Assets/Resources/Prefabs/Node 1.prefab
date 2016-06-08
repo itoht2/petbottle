@@ -269,6 +269,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specData: {fileID: 0}
   scoreData: {fileID: 0}
+  TotalPoint: 0
+  ItemPrice: 0
+  _noseCornFolder: {fileID: 0}
+  MyIDNumber: 0
+  ItemWeight: 0
+  ParameterName:
+  - 
+  - 
+  - 
+  ParameterValue:
+  - 0
+  - 0
+  - 0
+  ParameterValue2: 0
+  ParameterValue3: 0
 --- !u!114 &11407314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -723,6 +738,12 @@ MonoBehaviour:
   _noseCornFolder: {fileID: 0}
   Content: {fileID: 0}
   SelectedNumber: 0
+  BuyOkButtom: {fileID: 0}
+  TotalPointText: {fileID: 0}
+  totalPoint: 0
+  itemPrice: 0
+  scoreData: {fileID: 0}
+  garageController: {fileID: 0}
 --- !u!114 &11483946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -743,8 +764,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0, g: 0.7931032, b: 1, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.60294116, b: 0.60294116, a: 1}
+    m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1

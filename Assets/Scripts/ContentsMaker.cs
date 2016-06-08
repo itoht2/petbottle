@@ -6,6 +6,7 @@ public class ContentsMaker : MonoBehaviour {
      public GameObject nodeFrefab;
      public NoseCornFolder noseCornFolder;
      public GameObject content;
+     public ScoreData scoreData;
      private int numberOfItem;
      private Text DiscText;
      private Text PriceText;
@@ -15,7 +16,8 @@ public class ContentsMaker : MonoBehaviour {
      private Image IconImage;
      private Button usingButton;
      private Text usingButtonText;
-
+     private Button buyButton;
+     private float totalScore;
      private GameObject Item;
 
      // Use this for initialization
@@ -24,36 +26,7 @@ public class ContentsMaker : MonoBehaviour {
           numberOfItem = noseCornFolder.GetNumberOfItem();
 
           ContentChanger();
-
-          //for (int i = 0; i < numberOfItem; i++)
-          //{
-          //     //Debug.Log("i=" + i);
-          //     GameObject Item = (GameObject)Instantiate(
-          //          nodeFrefab,
-          //          transform.position,
-          //          Quaternion.identity
-          //          );
-
-          //     Item.transform.SetParent(content.transform);
-          //     Item.transform.localScale = new Vector3(1, 1, 1);
-          //     Item.name = noseCornFolder.GetItemName(i);
-          //     DiscText = Item.transform.Find("Description").GetComponent<Text>();
-          //     DiscText.text = noseCornFolder.GetDiscription(i);
-          //     PriceText = Item.transform.Find("Price").GetComponent<Text>();
-          //     Price = noseCornFolder.GetPrice(i);
-          //     PriceText.text = Price.ToString("#");
-          //     NumberOfHoldText = Item.transform.Find("NomberOfHoldText").GetComponent<Text>();
-          //     NumberOfHold = noseCornFolder.GetNumberOfHold(i);
-          //     NumberOfHoldText.text = NumberOfHold + " 個";
-
-          //     IconImage = Item.transform.Find("ItemImage").GetComponent<Image>();
-          //     IconImage.sprite = noseCornFolder.GetImage(i);
-          //     usingButton = Item.transform.Find("UsingButton").GetComponent<Button>();
-          //     usingButtonText = usingButton.transform.Find("Text").GetComponent<Text>();
-
-          //     ButttonColorControll(i);      // ボタンの色替え
-
-          //}
+         
      }
 	
 	// Update is called once per frame
@@ -63,11 +36,10 @@ public class ContentsMaker : MonoBehaviour {
 
      public void ContentChanger()
      {
+          scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
           for (int i = 0; i < numberOfItem; i++)
           {
-               //Debug.Log("i=" + i);
-
-               
+               //Debug.Log("i=" + i);               
 
                if (GameObject.Find(noseCornFolder.GetItemName(i)) == null) {
 
@@ -98,7 +70,21 @@ public class ContentsMaker : MonoBehaviour {
                usingButton = Item.transform.FindChild("UsingButton").GetComponent<Button>();
                usingButtonText = usingButton.transform.FindChild("Text").GetComponent<Text>();
 
+               buyButton = Item.transform.FindChild("BuyButton").GetComponent<Button>();
+
+
                ButttonColorControll(i, usingButton);      // ボタンの色替え
+
+               totalScore = scoreData.GetTotalScore();
+
+               Debug.Log(totalScore + " " + Price);
+               if (Price > totalScore)
+               {
+                    buyButton.interactable = false;
+               } else
+               {
+                    buyButton.interactable = true;
+               }
 
           }
      }
@@ -106,6 +92,7 @@ public class ContentsMaker : MonoBehaviour {
      public void ButttonColorControll(int i, Button usingButton)      // ボタンの色替え
      {
           //Debug.Log(noseCornFolder.name + " " + noseCornFolder.GetNowUsed());
+
           if (noseCornFolder.GetNowUsed() == i) // 使用中のボタンの色と内容を変更
           {    // 使用中だったら
                BtnStateColorChange(usingButton, new Color32(255, 0, 0, 255), 0);     // nomal #FF0000FF
