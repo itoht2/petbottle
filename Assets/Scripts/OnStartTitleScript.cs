@@ -7,6 +7,7 @@ public class OnStartTitleScript : MonoBehaviour {
 	void Start () {
 
           GameObject IsSpecData = GameObject.Find("SpecData");
+          GameObject IsScoreData = GameObject.Find("ScoreData");
 
           if (IsSpecData == null)
           {
@@ -15,6 +16,15 @@ public class OnStartTitleScript : MonoBehaviour {
                IsSpecData = Instantiate(SpecDataprefab);
                IsSpecData.name = "SpecData";
                DontDestroyOnLoad(IsSpecData);
+          }
+
+          if(IsScoreData == null)
+          {
+               //Debug.Log(IsSpecData.name);
+               GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/ScoreData");
+               IsScoreData = Instantiate(SpecDataprefab);
+               IsScoreData.name = "ScoreData";
+               DontDestroyOnLoad(IsScoreData);
           }
 
      }

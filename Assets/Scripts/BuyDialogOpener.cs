@@ -13,12 +13,19 @@ public class BuyDialogOpener : MonoBehaviour {
      private Text priceText;
      private Text specText;
      public Button BuyOkButtom;
+     public Text TotalPointText;
+     public float totalPoint;
+     public float itemPrice;
+     public ScoreData scoreData;
+     public GarageController garageController;
 
 
      // Use this for initialization
      void Start()
      {
           detailDialog = GameObject.Find("BuyDialog");
+          scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
+          garageController = GameObject.Find("GarageController").GetComponent<GarageController>();
 
           Content = this.transform.parent.gameObject;
           if (Content.name == "Content")
@@ -30,6 +37,9 @@ public class BuyDialogOpener : MonoBehaviour {
           _menuAnim = detailDialog.GetComponent<Animator>();
 
           int.TryParse(this.name.Substring(4, 1), out SelectedNumber);
+
+          TotalPointText = GameObject.Find("TotalPoint").GetComponent<Text>();
+          totalPoint = scoreData.GetTotalScore();
 
           //BuyOkButtom = GameObject.Find("OkButton").GetComponent<Button>();
           //Debug.Log(BuyOkButtom.name);
@@ -45,6 +55,8 @@ public class BuyDialogOpener : MonoBehaviour {
      {
           _menuAnim.SetBool("UP", !_menuAnim.GetBool("UP"));
 
+
+
           if (_menuAnim.GetBool("UP"))
           {
                //image = detailDialog.transform.FindChild("ItemImage").GetComponent<Image>();
@@ -54,6 +66,8 @@ public class BuyDialogOpener : MonoBehaviour {
                BuyOkButtom = GameObject.Find("OkButton").GetComponent<Button>();
                //Debug.Log(BuyOkButtom.name);
                BuyOkButtom.onClick.AddListener(PushedOkButton);
+
+               itemPrice = _noseCornFolder.GetPrice(SelectedNumber);
 
                image = detailDialog.transform.Find("ItemImage").GetComponent<Image>();
                image.sprite = _noseCornFolder.GetImage(SelectedNumber);
@@ -76,8 +90,7 @@ public class BuyDialogOpener : MonoBehaviour {
 
      public void PushedOkButton ()
      {
-
-
+          totalPoint = scoreData.GetTotalScore();
           //Debug.Log("OK!" + _noseCornFolder.name + SelectedNumber);
           _noseCornFolder.NumberOfHold[SelectedNumber] += 1;
           _noseCornFolder.SaveData();
@@ -85,6 +98,14 @@ public class BuyDialogOpener : MonoBehaviour {
 
           _menuAnim.SetBool("UP", !_menuAnim.GetBool("UP"));
           BuyOkButtom.onClick.RemoveListener(PushedOkButton);
+
+          StartCoroutine(garageController.ScoreAnimation((int)totalPoint, (int)totalPoint - (int)itemPrice, 2));
+          totalPoint = totalPoint - itemPrice;
+
+          scoreData.TotalScore = totalPoint ;
+          scoreData.SaveScore();
+          
+
 
      }
 }

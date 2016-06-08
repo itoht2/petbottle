@@ -15,6 +15,7 @@ public class ScoreShowController : MonoBehaviour {
     
      // Use this for initialization
      void Start () {
+          scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
 
 
           //StartCoroutine(ScoreAnimation(0.5f, 1000f, 10000f, 2f));

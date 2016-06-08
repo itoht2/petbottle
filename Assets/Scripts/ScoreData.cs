@@ -15,13 +15,7 @@ public class ScoreData : MonoBehaviour {
 
      void Awake()
      {
-          TotalDistance = PlayerPrefs.GetFloat("TotalDistance", 0.0f);
-          TotalScore = PlayerPrefs.GetFloat("TotalScore", 0.0f);
-          ScoreNow = PlayerPrefs.GetFloat("ScoreNow", 0.0f);
-          Score = PlayerPrefs.GetFloat("Score", 0.0f);
-          ScoreCoefficient = PlayerPrefs.GetFloat("ScoreCoefficient", 1.0f);
-          LaunchNumber = PlayerPrefs.GetInt("LaunchNumber", 0);
-          MaxDistance = PlayerPrefs.GetFloat("MaxDistance", 0);
+          LoadScore();
      }
 
      // Use this for initialization
@@ -52,6 +46,17 @@ public class ScoreData : MonoBehaviour {
 
           PlayerPrefs.Flush();
 
+     }
+
+     public void LoadScore()
+     {
+          TotalDistance = PlayerPrefs.GetFloat("TotalDistance", 0.0f);
+          TotalScore = PlayerPrefs.GetFloat("TotalScore", 0.0f);
+          ScoreNow = PlayerPrefs.GetFloat("ScoreNow", 0.0f);
+          Score = PlayerPrefs.GetFloat("Score", 0.0f);
+          ScoreCoefficient = PlayerPrefs.GetFloat("ScoreCoefficient", 1.0f);
+          LaunchNumber = PlayerPrefs.GetInt("LaunchNumber", 0);
+          MaxDistance = PlayerPrefs.GetFloat("MaxDistance", 0);
      }
 
      public void CalcNewScore (float AddDistance) // 距離を加える

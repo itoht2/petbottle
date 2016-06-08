@@ -19,6 +19,7 @@ public class OnStart : MonoBehaviour {
           Application.targetFrameRate = 60; // ターゲットフレームレートを60に設定
 
           GameObject IsSpecData = GameObject.Find("SpecData");
+          scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
 
           if (IsSpecData == null) { 
           //Debug.Log(IsSpecData.name);

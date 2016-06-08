@@ -13,6 +13,8 @@ public class GreenLineController : MonoBehaviour {
      // Use this for initialization
      void Start () {
 
+          scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
+
           MaxHight = scoreData.GetMaxDistance();
           //Debug.Log("maxDistance" + MaxHight);
           this.GetComponent<Transform>().position = new Vector3(0.0f, MaxHight, 0);

@@ -63,24 +63,8 @@ public class SpecData : MonoBehaviour {
 
      // Use this for initialization
 
-     void Awake() {  
-
-          Gravity = PlayerPrefs.GetFloat("Gravity",9.807f); 
-          WaterDensity = PlayerPrefs.GetFloat("WaterDensity", 1000.0f);   
-          RocketWeight = PlayerPrefs.GetFloat("RocketWeight", 0.07f);          
-          NoseCornWeight = PlayerPrefs.GetFloat("NoseCornWeight",  0.02f);  
-          FinWeight = PlayerPrefs.GetFloat("FinWeight",  0.01f);   
-          FuelCapacity = PlayerPrefs.GetFloat("FuelCapacity",  0.0002f);         
-          NozzleRadius = PlayerPrefs.GetFloat("NozzleRadius",  0.003f);   
-          InnerPressureMax = PlayerPrefs.GetFloat("InnerPressureMax", 303f);
-          AtmospherPresuure = PlayerPrefs.GetFloat("AtmospherPresuure", 101.3f); 
-          BodyRadius = PlayerPrefs.GetFloat("BodyRadius", 0.05f);                  
-          Temperature = PlayerPrefs.GetFloat("Temperature",20.0f);       
-          GasConstant = PlayerPrefs.GetFloat("GasConstant",  2.87f);                
-          Cd = PlayerPrefs.GetFloat("Cd",0.6f);                                 
-          NoseCornCD = PlayerPrefs.GetFloat("NoseCornCD", 0.2f);                   
-          FinCD = PlayerPrefs.GetFloat(" FinCD",  0.2f);                           
-          CDFactor = PlayerPrefs.GetFloat("CDFacto",  1.0f);         
+     void Awake() {
+          LoadData();
      }
 
      void Start()
@@ -91,6 +75,48 @@ public class SpecData : MonoBehaviour {
      // Update is called once per frame
      void Update () {         
 
+     }
+
+     public void LoadData()
+     {
+          Gravity = PlayerPrefs.GetFloat("Gravity", 9.807f);
+          WaterDensity = PlayerPrefs.GetFloat("WaterDensity", 1000.0f);
+          RocketWeight = PlayerPrefs.GetFloat("RocketWeight", 0.07f);
+          NoseCornWeight = PlayerPrefs.GetFloat("NoseCornWeight", 0.02f);
+          FinWeight = PlayerPrefs.GetFloat("FinWeight", 0.01f);
+          FuelCapacity = PlayerPrefs.GetFloat("FuelCapacity", 0.0002f);
+          NozzleRadius = PlayerPrefs.GetFloat("NozzleRadius", 0.003f);
+          InnerPressureMax = PlayerPrefs.GetFloat("InnerPressureMax", 303f);
+          AtmospherPresuure = PlayerPrefs.GetFloat("AtmospherPresuure", 101.3f);
+          BodyRadius = PlayerPrefs.GetFloat("BodyRadius", 0.05f);
+          Temperature = PlayerPrefs.GetFloat("Temperature", 20.0f);
+          GasConstant = PlayerPrefs.GetFloat("GasConstant", 2.87f);
+          Cd = PlayerPrefs.GetFloat("Cd", 0.6f);
+          NoseCornCD = PlayerPrefs.GetFloat("NoseCornCD", 0.2f);
+          FinCD = PlayerPrefs.GetFloat("FinCD", 0.2f);
+          CDFactor = PlayerPrefs.GetFloat("CDFacto", 1.0f);
+     }
+
+     public void SaveData ()
+     {
+          PlayerPrefs.SetFloat("Gravity", Gravity);
+          PlayerPrefs.SetFloat("WaterDensity", WaterDensity);
+          PlayerPrefs.SetFloat("RocketWeight", RocketWeight);
+          PlayerPrefs.SetFloat("NoseCornWeight", NoseCornWeight);
+          PlayerPrefs.SetFloat("FinWeight", FinWeight);
+          PlayerPrefs.SetFloat("FuelCapacity", FuelCapacity);
+          PlayerPrefs.SetFloat("NozzleRadius", NozzleRadius);
+          PlayerPrefs.SetFloat("InnerPressureMax", InnerPressureMax);
+          PlayerPrefs.SetFloat("AtmospherPresuure", AtmospherPresuure);
+          PlayerPrefs.SetFloat("BodyRadius", BodyRadius);
+          PlayerPrefs.SetFloat("Temperature", Temperature);
+          PlayerPrefs.SetFloat("GasConstant", GasConstant);
+          PlayerPrefs.SetFloat("Cd", Cd);
+          PlayerPrefs.SetFloat("NoseCornCD", NoseCornCD);
+          PlayerPrefs.SetFloat("FinCD", FinCD);
+          PlayerPrefs.SetFloat("CDFacto", CDFactor);
+
+          PlayerPrefs.Flush();
      }
      
      public void Recalculation ()
@@ -103,7 +129,9 @@ public class SpecData : MonoBehaviour {
           Thrust = WaterDensity * NozzleArea * NozzleFlowRate * NozzleFlowRate;
           BurningTime = FuelCapacity / (NozzleArea * NozzleFlowRate);
           DensityOfAir = AtmospherPresuure * 10 / (GasConstant * (Temperature + 273.15f));
-          
+
+          PlayerPrefs.Flush();
+
      }
 
      public int GetMultistage ()
