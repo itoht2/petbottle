@@ -41,7 +41,7 @@ public class UsingButtonCOntroller : MonoBehaviour {
                _noseCornFolder.NowUsed = myNumber;
                nowUsedNumber = myNumber;
                contentMaker.ContentChanger();
-               //_noseCornFolder.SaveData();
+              _noseCornFolder.SaveData();
 
                SpecDataChanger(myNumber);
                

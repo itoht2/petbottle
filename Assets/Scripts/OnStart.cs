@@ -32,7 +32,7 @@ public class OnStart : MonoBehaviour {
 
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
 
-          ImageChanger();
+         
 
           if  (scoreData.GetMaxDistance() >=50.0f) { 
                MaxHight = scoreData.GetMaxDistance();
@@ -40,8 +40,9 @@ public class OnStart : MonoBehaviour {
           {
                MaxHight = 50.0f;
           }
-          StartCoroutine("ScatterStar");          
+          StartCoroutine("ScatterStar");
 
+          ImageChanger();
      }
 
      // Update is called once per frame
@@ -51,6 +52,7 @@ public class OnStart : MonoBehaviour {
 
      private IEnumerator ScatterStar () // 星をばらまく
      {
+
           
           yield return new WaitForSeconds(1.0f);
           for (int i = 0; i < 20; i++)
@@ -74,7 +76,9 @@ public class OnStart : MonoBehaviour {
 
      public void ImageChanger()         // 表示する画像を変更する。
      {
-          //noseCorn.GetComponent<SpriteRenderer>().sprite = specData.GetNoseCornImage();
+          // noseCornの画像変更
+          Sprite tempImage = NoseCornFolder.GetNowUsedImage();          
+               noseCorn.GetComponent<SpriteRenderer>().sprite = tempImage;         
      }
 
      public void OnApplicationQuit()

@@ -14,6 +14,7 @@ public class NoseCornFolder : MonoBehaviour {
      public Sprite[] Image;
      public int[] NumberOfHold;
      public int NowUsed;                     // 今使ってる種類
+     public static Sprite NowUsedImage;        // 今使っているイメージ　スタティックにしてみる
 
      public int NumberOfParameter;      // パラメータの数　 Max3
      public string[] ParameterName;
@@ -27,9 +28,10 @@ public class NoseCornFolder : MonoBehaviour {
           for (int i = 0; i < NumberOfItem; i++)
           {
                NumberOfHold[i] = PlayerPrefs.GetInt("NumberOfHold_" + this.name + i, 0);
-          }
-                
 
+          }
+
+          NowUsedImage = Image[NowUsed];
           //Debug.Log("NowUsed_" + this.name + " " + NowUsed);
      }
 
@@ -45,6 +47,7 @@ public class NoseCornFolder : MonoBehaviour {
 
      public void SaveData( )
      {
+          NowUsedImage = this.Image[this.NowUsed];
           PlayerPrefs.SetInt("NowUsed_" + this.name, NowUsed);
           for (int i = 0; i < NumberOfItem; i++)
 
@@ -123,6 +126,13 @@ public class NoseCornFolder : MonoBehaviour {
      {
           return NumberOfParameter;
      }
+
+     public static Sprite GetNowUsedImage()
+     {
+         
+          return NowUsedImage;
+     }
+
 
      public void OnApplicationQuit()
      {
