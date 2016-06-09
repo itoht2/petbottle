@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 public class OnStartTitleScript : MonoBehaviour {
 
@@ -33,4 +34,9 @@ public class OnStartTitleScript : MonoBehaviour {
 	void Update () {
 	
 	}
+
+     public void OnApplicationQuit()
+     {
+          PlayerPrefs.Flush();
+     }
 }

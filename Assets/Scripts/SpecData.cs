@@ -38,8 +38,7 @@ public class SpecData : MonoBehaviour {
      public Sprite NoseCornImage;            // ノーズコーンの画像
      public float FinCD ;                             //　フィンの空気抵抗係数
      public float CDFactor ;                     //　空気抵抗係数補正値
-     public float DensityOfAir;                             //  kg/m^3　空気の密度
-     
+     public float DensityOfAir;                             //  kg/m^3　空気の密度     
 
      public float PumpMax;                        // kPa　ポンプの最大圧
      public float PumpCapacity;              // kPa　一回のポンピングでの圧力上昇分
@@ -95,7 +94,21 @@ public class SpecData : MonoBehaviour {
           NoseCornCD = PlayerPrefs.GetFloat("NoseCornCD", 0.2f);
           FinCD = PlayerPrefs.GetFloat("FinCD", 0.2f);
           CDFactor = PlayerPrefs.GetFloat("CDFacto", 1.0f);
-     }
+
+          PumpMax = PlayerPrefs.GetFloat("PumpMax", 300f);
+          PumpCapacity = PlayerPrefs.GetFloat("PumpCapacity", 2f);          
+          SideThrusterForce = PlayerPrefs.GetFloat("SideThrusterForce",1f);
+          SideThrusterTime = PlayerPrefs.GetFloat("SideThrusterTime",5f);
+          LauncherForce = PlayerPrefs.GetFloat("LauncherForce", 0f);
+          SRBANumber = PlayerPrefs.GetInt("SRBANumber", 2);
+          SRBAThrustForce = PlayerPrefs.GetFloat("SRBAThrustForce", 1);
+          SRBABurningTime = PlayerPrefs.GetFloat("SRBABurningTime", 5f);
+          PayLoadName = PlayerPrefs.GetString("PayLoadName", "Cansat");
+          PayLoadWeight = PlayerPrefs.GetFloat("PayLoadWeight", 0.1f);
+    
+
+
+}
 
      public void SaveData ()
      {
@@ -115,6 +128,18 @@ public class SpecData : MonoBehaviour {
           PlayerPrefs.SetFloat("NoseCornCD", NoseCornCD);
           PlayerPrefs.SetFloat("FinCD", FinCD);
           PlayerPrefs.SetFloat("CDFacto", CDFactor);
+
+
+          PlayerPrefs.SetFloat("PumpMax", PumpMax);
+          PlayerPrefs.SetFloat("PumpCapacity", PumpCapacity);
+          PlayerPrefs.SetFloat("SideThrusterForce", SideThrusterForce);
+          PlayerPrefs.SetFloat("SideThrusterTime", SideThrusterTime);
+          PlayerPrefs.SetFloat("LauncherForce", LauncherForce);
+          PlayerPrefs.SetInt("SRBANumber", SRBANumber);
+          PlayerPrefs.SetFloat("SRBAThrustForce", SRBAThrustForce);
+          PlayerPrefs.SetFloat("SRBABurningTime", SRBABurningTime);
+          PlayerPrefs.SetString("PayLoadName", PayLoadName);
+          PlayerPrefs.SetFloat("PayLoadWeight", PayLoadWeight);
 
           PlayerPrefs.Flush();
      }
