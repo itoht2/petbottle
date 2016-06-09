@@ -604,7 +604,6 @@ public class RocketController : MonoBehaviour {
           ParaJoint.connectedAnchor = new Vector2(0.0f, 4.0f);           
 
           yield return null;
-
          
      }
 

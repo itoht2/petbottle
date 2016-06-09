@@ -15,22 +15,22 @@ public class OnStart : MonoBehaviour {
 
      // Use this for initialization
      void Start () {
-          QualitySettings.vSyncCount = 0; // VSyncをOFFにする
-          Application.targetFrameRate = 60; // ターゲットフレームレートを60に設定
+          //QualitySettings.vSyncCount = 0; // VSyncをOFFにする
+          //Application.targetFrameRate = 60; // ターゲットフレームレートを60に設定
 
-          GameObject IsSpecData = GameObject.Find("SpecData");
+          //GameObject IsSpecData = GameObject.Find("SpecData");
           scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
 
-          if (IsSpecData == null) { 
-          //Debug.Log(IsSpecData.name);
-                GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/SpecData");
-               IsSpecData = Instantiate(SpecDataprefab);
-               IsSpecData.name = "SpecData";
-               DontDestroyOnLoad(IsSpecData);
+          //if (IsSpecData == null) { 
+          ////Debug.Log(IsSpecData.name);
+          //      GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/SpecData");
+          //     IsSpecData = Instantiate(SpecDataprefab);
+          //     IsSpecData.name = "SpecData";
+          //     DontDestroyOnLoad(IsSpecData);
 
-          }
+          //}
 
-          specData = IsSpecData.GetComponent<SpecData>();
+          specData = GameObject.Find("SpecData").GetComponent<SpecData>();
 
           ImageChanger();
 
@@ -74,7 +74,7 @@ public class OnStart : MonoBehaviour {
 
      public void ImageChanger()         // 表示する画像を変更する。
      {
-          noseCorn.GetComponent<SpriteRenderer>().sprite = specData.GetNoseCornImage();
+          //noseCorn.GetComponent<SpriteRenderer>().sprite = specData.GetNoseCornImage();
      }
 
      public void OnApplicationQuit()

@@ -14,43 +14,49 @@ public class FollowCamera : MonoBehaviour {
      void Start()
      {
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
+          StartCoroutine(LastFixedUpdate());
      }
 
-     void FixedUpdate()
+
+     //void FixedUpdate()
+     //{        
+
+     //     Vector3 targetPosition = objTarget.transform.TransformPoint(offset);
+     //     transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime, Mathf.Infinity, Time.deltaTime);
+
+     //     float Altitude = specData.GetAltitude();
+
+     //     if (Altitude > 100.0f)
+     //     {
+     //          mainCamera.orthographicSize = Altitude * 0.06f;
+     //     }
+     //     else
+     //     {
+     //          mainCamera.orthographicSize = 6.0f;
+     //     }
+
+     //}
+
+     IEnumerator LastFixedUpdate()
      {
-          Vector3 targetPosition = objTarget.transform.TransformPoint(offset);
-          transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime, Mathf.Infinity, Time.deltaTime);
-
-          float Altitude = specData.GetAltitude();
-
-          if (Altitude > 100.0f)
+          while (true)
           {
-               mainCamera.orthographicSize = Altitude * 0.06f;
+               yield return new WaitForFixedUpdate();
+
+               Vector3 targetPosition = objTarget.transform.TransformPoint(offset);
+               transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime, Mathf.Infinity, Time.deltaTime);
+
+               float Altitude = specData.GetAltitude();
+
+               if (Altitude > 100.0f)
+               {
+                    mainCamera.orthographicSize = Altitude * 0.06f;
+               }
+               else
+               {
+                    mainCamera.orthographicSize = 6.0f;
+               }
+
           }
-          else
-          {
-               mainCamera.orthographicSize = 6.0f;
-          }
-
      }
-
-     void Update()
-     {
-
-          ////Debug.Log(specData.GetSpeed());
-          //float speed = specData.GetSpeed();
-
-          //if (speed > 10.0f)
-          //{
-          //     mainCamera.orthographicSize = speed * 0.6f;
-          //}
-          //else
-          //{
-          //     mainCamera.orthographicSize = 6.0f;
-          //}
-
-
-        
-     }
-
 }
