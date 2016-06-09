@@ -270,7 +270,8 @@ public class RocketController : MonoBehaviour {
           scoreLabel.text = ScoreBody.transform.position.y.ToString("N2") ;
           SpeedMeter.text = ScoreBody.velocity.y.ToString("N1") ;
 
-        
+          specData.Speed = ScoreBody.velocity.y;
+          specData.Altitude = ScoreBody.transform.position.y;
 
 
           if (score > RocketBody2D.transform.position.y + 2.0f) // 頂点に達したら(2m落ちたら)
@@ -589,7 +590,7 @@ public class RocketController : MonoBehaviour {
           SideThrustJetL.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
 
           MainCamera.GetComponent<FollowCamera>().objTarget = CanSat;
-          MapCamera.GetComponent<FollowCamera>().objTarget = CanSat;
+          MapCamera.GetComponent<FollowCameraForMapcamera>().objTarget = CanSat;
 
           ParaPrefab = (GameObject)Resources.Load("Prefabs/Para");
           GameObject ParaObject = (GameObject)Instantiate(ParaPrefab);

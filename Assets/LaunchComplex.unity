@@ -795,6 +795,8 @@ MonoBehaviour:
   objTarget: {fileID: 672931023}
   offset: {x: 0, y: -1, z: -2}
   smoothTime: 0.05
+  mainCamera: {fileID: 483443387}
+  specData: {fileID: 0}
 --- !u!1 &497070487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,7 +1423,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 659202358}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88d5995105ab4eb4296cd527d209348e, type: 3}
+  m_Script: {fileID: 11500000, guid: f024a96af3b7ac04a82c00ca4216bcdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objTarget: {fileID: 672931023}

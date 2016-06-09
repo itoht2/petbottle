@@ -8,10 +8,12 @@ public class FollowCamera : MonoBehaviour {
      public Vector3 offset;
      public float smoothTime = 0.1F;
      private Vector3 velocity = Vector3.zero;
+     public Camera mainCamera;
+     public SpecData specData;
 
      void Start()
      {
-          updatePostion();
+          specData = GameObject.Find("SpecData").GetComponent<SpecData>();
      }
 
      void FixedUpdate()
@@ -19,17 +21,36 @@ public class FollowCamera : MonoBehaviour {
           Vector3 targetPosition = objTarget.transform.TransformPoint(offset);
           transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime, Mathf.Infinity, Time.deltaTime);
 
-          // updatePostion();
+          float Altitude = specData.GetAltitude();
+
+          if (Altitude > 100.0f)
+          {
+               mainCamera.orthographicSize = Altitude * 0.06f;
+          }
+          else
+          {
+               mainCamera.orthographicSize = 6.0f;
+          }
+
      }
 
-     void updatePostion()
+     void Update()
      {
-        //  Vector3 pos = objTarget.transform.localPosition;
 
-        //  transform.localPosition = pos + offset;
+          ////Debug.Log(specData.GetSpeed());
+          //float speed = specData.GetSpeed();
 
-          //Vector3 targetPosition = objTarget.transform.TransformPoint( offset);
-          //transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime,  Mathf.Infinity,  Time.deltaTime);
+          //if (speed > 10.0f)
+          //{
+          //     mainCamera.orthographicSize = speed * 0.6f;
+          //}
+          //else
+          //{
+          //     mainCamera.orthographicSize = 6.0f;
+          //}
+
+
+        
      }
 
 }

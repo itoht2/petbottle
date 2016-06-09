@@ -19,6 +19,8 @@ public class SpecData : MonoBehaviour {
      public int Multistage;                            //　ロケットの段数
 
      public float InnerPressureMax ;             // kPa　ボディの耐圧
+     public float Speed;                               // 現在のスピード
+     public float Altitude;                            // 現在の高度
 
      public float AtmospherPresuure  ; // kPa　大気圧
 
@@ -287,6 +289,16 @@ public class SpecData : MonoBehaviour {
      public float GetProjectedAera()
      {
           return ProjectedArea;
+     }
+
+     public float GetSpeed()
+     {
+          return Speed;
+     }
+
+     public float GetAltitude()
+     {
+          return Altitude;
      }
 
      public void OnApplicationQuit()
