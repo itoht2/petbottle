@@ -15,8 +15,8 @@ public class OnStart : MonoBehaviour {
 
      // Use this for initialization
      void Start () {
-          //QualitySettings.vSyncCount = 0; // VSyncをOFFにする
-          //Application.targetFrameRate = 60; // ターゲットフレームレートを60に設定
+          QualitySettings.vSyncCount = 0; // VSyncをOFFにする
+          Application.targetFrameRate = 60; // ターゲットフレームレートを60に設定
 
           //GameObject IsSpecData = GameObject.Find("SpecData");
           scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
@@ -32,16 +32,14 @@ public class OnStart : MonoBehaviour {
 
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
 
-          ImageChanger();
-
           if  (scoreData.GetMaxDistance() >=50.0f) { 
                MaxHight = scoreData.GetMaxDistance();
           } else
           {
                MaxHight = 50.0f;
           }
-          StartCoroutine("ScatterStar");          
-
+          StartCoroutine("ScatterStar");
+          ImageChanger();
      }
 
      // Update is called once per frame
@@ -65,7 +63,6 @@ public class OnStart : MonoBehaviour {
 
                Star_temp.transform.parent = StarFolder.transform;
                Star_temp.name = "Star" + i;
-
                
                yield return null;
 
@@ -74,7 +71,9 @@ public class OnStart : MonoBehaviour {
 
      public void ImageChanger()         // 表示する画像を変更する。
      {
-          //noseCorn.GetComponent<SpriteRenderer>().sprite = specData.GetNoseCornImage();
+          NoseCornFolder noseCornFolder = GameObject.Find("NoseCornFolder").GetComponent<NoseCornFolder>();
+          noseCorn.GetComponent<SpriteRenderer>().sprite = noseCornFolder.GetImage(noseCornFolder.GetNowUsed());
+          Debug.Log(noseCornFolder.GetImage(noseCornFolder.GetNowUsed()));
      }
 
      public void OnApplicationQuit()
