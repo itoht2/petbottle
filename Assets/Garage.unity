@@ -818,7 +818,7 @@ GameObject:
   - 114: {fileID: 283102209}
   - 114: {fileID: 283102211}
   m_Layer: 5
-  m_Name: Content
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -890,8 +890,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeFrefab: {fileID: 109638, guid: 136ba90be070d76488b11d0c8c0feee2, type: 2}
-  noseCornFolder: {fileID: 1063738815}
+  noseCornFolder: {fileID: 0}
   content: {fileID: 283102207}
+  scoreData: {fileID: 0}
 --- !u!1 &333350214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,8 +2045,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf72b5eade5e80b46b5eba53ec286052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noseCornFolder: {fileID: 1356898730}
-  bodyFolder: {fileID: 1063738815}
+  noseCornFolder: {fileID: 0}
+  bodyFolder: {fileID: 0}
   specData: {fileID: 0}
 --- !u!4 &877440155
 Transform:
@@ -2058,7 +2059,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!1 &886509341
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,66 +2611,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1036351608}
---- !u!114 &1063738815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11473274, guid: 5b510cda35b449044a0633566f1bfb33,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1308254510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee7d93dbdef4b3149a764f0f4c733a97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NumberOfItem: 3
-  ItemName:
-  - body0
-  - body1
-  - body2
-  Weight:
-  - 0.6
-  - 0.7
-  - 0.5
-  Price:
-  - 50
-  - 500
-  - 5000
-  Discription:
-  - "\u5F31\u3044\u30DC\u30C7\u30A3"
-  - "\u3061\u3087\u3063\u3068\u3044\u3044\u30DC\u30C7\u30A3"
-  - "\u3059\u3054\u304F\u3044\u3044\u30DC\u30C7\u30A3"
-  Specs:
-  - "\u8010\u5727100kPa"
-  - "\u8010\u5727300kPa"
-  - "\u8010\u57271000kPa"
-  DiscriptionLong:
-  - 
-  - 
-  - 
-  Image:
-  - {fileID: 21300000, guid: 78dcb7dee55321349813a57923960deb, type: 3}
-  - {fileID: 21300006, guid: 018c8a73a74b23a419dc625a599fd796, type: 3}
-  - {fileID: 21300000, guid: 52f0f0befd0f8be4eab80fb3cfd7e59c, type: 3}
-  NumberOfHold: 010000000200000000000000
-  NowUsed: 1
-  NumberOfParameter: 3
-  ParameterName:
-  - Maxpressure
-  - "\u304A\u304A\u304D\u3055"
-  - "\u3061\u3044\u3055\u3055"
-  ParameterValue1:
-  - 100
-  - 300
-  - 1000
-  ParameterValue2:
-  - 50
-  - 60
-  - 70
-  ParameterValue3:
-  - 200
-  - 400
-  - 800
 --- !u!1 &1082266480
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,34 +2987,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232985092}
---- !u!1 &1254325060
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 168788, guid: 17a49a6f74335654fbba4a1fc3b754a1, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1254325061}
-  - 114: {fileID: 1356898730}
-  m_Layer: 0
-  m_Name: NoseCornFolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1254325061
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 491336, guid: 17a49a6f74335654fbba4a1fc3b754a1, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1254325060}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
 --- !u!1 &1288763171
 GameObject:
   m_ObjectHideFlags: 0
@@ -3263,34 +3176,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1302980387}
---- !u!1 &1308254510
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 186334, guid: 5b510cda35b449044a0633566f1bfb33, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1308254511}
-  - 114: {fileID: 1063738815}
-  m_Layer: 0
-  m_Name: BodyFolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1308254511
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 475364, guid: 5b510cda35b449044a0633566f1bfb33, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1308254510}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
 --- !u!1 &1328009874
 GameObject:
   m_ObjectHideFlags: 0
@@ -3440,66 +3325,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1347791906}
---- !u!114 &1356898730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11494920, guid: 17a49a6f74335654fbba4a1fc3b754a1,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1254325060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee7d93dbdef4b3149a764f0f4c733a97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NumberOfItem: 3
-  ItemName:
-  - nose0
-  - nose1
-  - nose2
-  Weight:
-  - 0.5
-  - 0.1
-  - 0.01
-  Price:
-  - 100
-  - 200
-  - 1000
-  Discription:
-  - "\u6700\u521D\u306E\u30CE\u30FC\u30BA\u30B3\u30FC\u30F3"
-  - "\u3061\u3087\u3063\u3068\u3044\u3044\u30CE\u30FC\u30BA\u30B3\u30FC\u30F3"
-  - "\u3059\u3054\u304F\u3044\u3044\u30CE\u30FC\u30BA\u30B3\u30FC\u30F3"
-  Specs:
-  - "Cd:0.5 /n\u8CEA\u91CF:0.2 "
-  - "Cd:0.1  /n\u8CEA\u91CF:0.15"
-  - "Cd:0.01 /n\u8CEA\u91CF:0.05"
-  DiscriptionLong:
-  - "\u307E\u3042\u666E\u901A\u306E\u30CE\u30FC\u30BA\u30B3\u30FC\u30F3/n\u30B4\u30E0\u88FD\u3067\u30D5\u30CB\u30E3"
-  - "\u3061\u3087\u3063\u3068\u3044\u3044\u3084\u3064\u3067\u3001\u786C\u3044"
-  - "\u4F55\u6545\u304BCD\u5024\u304C\u5C0F\u3055\u3044\u4E0D\u601D\u8B70\u306A\u30CE\u30FC\u30BA\u30B3\u30FC\u30F3"
-  Image:
-  - {fileID: 21300000, guid: 521233ad226e8d2499a53b915a863b6a, type: 3}
-  - {fileID: 21300000, guid: a94737ca57b494e41a928210333224bf, type: 3}
-  - {fileID: 21300000, guid: 1257eab77242ddc43b43d5e4d4eb64d6, type: 3}
-  NumberOfHold: 010000000200000000000000
-  NowUsed: 1
-  NumberOfParameter: 1
-  ParameterName:
-  - NoseCornCD
-  - 
-  - 
-  ParameterValue1:
-  - 0.5
-  - 0.1
-  - 0.01
-  ParameterValue2:
-  - 0
-  - 0
-  - 0
-  ParameterValue3:
-  - 0
-  - 0
-  - 0
 --- !u!1 &1375260780
 GameObject:
   m_ObjectHideFlags: 0
@@ -3710,7 +3535,7 @@ GameObject:
   - 114: {fileID: 1417362394}
   - 114: {fileID: 1417362396}
   m_Layer: 5
-  m_Name: Content
+  m_Name: NoseCorn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3782,8 +3607,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeFrefab: {fileID: 109638, guid: 136ba90be070d76488b11d0c8c0feee2, type: 2}
-  noseCornFolder: {fileID: 1356898730}
+  noseCornFolder: {fileID: 0}
   content: {fileID: 1417362392}
+  scoreData: {fileID: 0}
 --- !u!1 &1426837780
 GameObject:
   m_ObjectHideFlags: 0
@@ -4029,7 +3855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuAnim: {fileID: 1484481407}
   detailDialog: {fileID: 0}
-  _noseCornFolder: {fileID: 1356898730}
+  _noseCornFolder: {fileID: 0}
   Content: {fileID: 0}
   SelectedNumber: 0
   BuyOkButtom: {fileID: 0}
@@ -4038,6 +3864,7 @@ MonoBehaviour:
   itemPrice: 0
   scoreData: {fileID: 0}
   garageController: {fileID: 0}
+  contentsMaker: {fileID: 0}
 --- !u!95 &1484481407
 Animator:
   serializedVersion: 3
@@ -4448,7 +4275,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1001 &1706666187
 Prefab:
   m_ObjectHideFlags: 0
@@ -5168,7 +4995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuAnim: {fileID: 1953882873}
   detailDialog: {fileID: 0}
-  _noseCornFolder: {fileID: 1356898730}
+  _noseCornFolder: {fileID: 0}
   Content: {fileID: 0}
   SelectedNumber: 0
 --- !u!1 &2001222470

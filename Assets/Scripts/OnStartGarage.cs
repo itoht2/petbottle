@@ -11,6 +11,9 @@ public class OnStartGarage : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+          noseCornFolder = GameObject.Find("NoseCornFolder").GetComponent<NoseCornFolder>();
+          bodyFolder = GameObject.Find("BodyFolder").GetComponent<NoseCornFolder>();
+
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
           specData.NoseCornImage = noseCornFolder.GetImage(noseCornFolder.GetNowUsed());
 	

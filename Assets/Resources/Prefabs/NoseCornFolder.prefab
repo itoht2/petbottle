@@ -1,14 +1,14 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &168788
+--- !u!1 &137714
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 491336}
-  - 114: {fileID: 11494920}
+  - 4: {fileID: 489804}
+  - 114: {fileID: 11450790}
   m_Layer: 0
   m_Name: NoseCornFolder
   m_TagString: Untagged
@@ -16,60 +16,77 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &491336
+--- !u!4 &489804
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168788}
+  m_GameObject: {fileID: 137714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11494920
+--- !u!114 &11450790
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168788}
+  m_GameObject: {fileID: 137714}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee7d93dbdef4b3149a764f0f4c733a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NumberOfItem: 3
-  CD:
-  - 1
+  ItemName:
+  - nose0
+  - nose1
+  - nose2
+  Weight:
   - 0.5
   - 0.1
-  Weight:
-  - 0.6
-  - 0.7
-  - 0.5
+  - 0.01
   Price:
   - 100
   - 200
   - 1000
   Discription:
-  - "\u5F31\u3044\u30DC\u30C7\u30A3"
-  - "\u3061\u3087\u3063\u3068\u3044\u3044\u30DC\u30C7\u30A3"
-  - "\u3059\u3054\u304F\u3044\u3044\u30DC\u30C7\u30A3"
+  - "\u6700\u521D\u306E\u30CE\u30FC\u30BA\u30B3\u30FC\u30F3"
+  - "\u3061\u3087\u3063\u3068\u3044\u3044\u30CE\u30FC\u30BA\u30B3\u30FC\u30F3"
+  - "\u3059\u3054\u304F\u3044\u3044\u30CE\u30FC\u30BA\u30B3\u30FC\u30F3"
   Specs:
-  - "\u8010\u5727100kPa"
-  - "\u8010\u5727300kPa"
-  - "\u8010\u57271000kPa"
+  - "Cd:0.5 /n\u8CEA\u91CF:0.2 "
+  - "Cd:0.1  /n\u8CEA\u91CF:0.15"
+  - "Cd:0.01 /n\u8CEA\u91CF:0.05"
   DiscriptionLong:
-  - 
-  - 
-  - 
+  - "\u307E\u3042\u666E\u901A\u306E\u30CE\u30FC\u30BA\u30B3\u30FC\u30F3/n\u30B4\u30E0\u88FD\u3067\u30D5\u30CB\u30E3"
+  - "\u3061\u3087\u3063\u3068\u3044\u3044\u3084\u3064\u3067\u3001\u786C\u3044"
+  - "\u4F55\u6545\u304BCD\u5024\u304C\u5C0F\u3055\u3044\u4E0D\u601D\u8B70\u306A\u30CE\u30FC\u30BA\u30B3\u30FC\u30F3"
   Image:
   - {fileID: 21300000, guid: 521233ad226e8d2499a53b915a863b6a, type: 3}
-  - {fileID: 21300000, guid: 880cd918835d49e48802d1b812d153f2, type: 3}
-  - {fileID: 21300000, guid: 2f3006f254935ad45bfd5d27bbc17724, type: 3}
+  - {fileID: 21300000, guid: a94737ca57b494e41a928210333224bf, type: 3}
+  - {fileID: 21300000, guid: 1257eab77242ddc43b43d5e4d4eb64d6, type: 3}
   NumberOfHold: 010000000200000000000000
   NowUsed: 1
+  NumberOfParameter: 1
+  ParameterName:
+  - NoseCornCD
+  - 
+  - 
+  ParameterValue1:
+  - 0.5
+  - 0.1
+  - 0.01
+  ParameterValue2:
+  - 0
+  - 0
+  - 0
+  ParameterValue3:
+  - 0
+  - 0
+  - 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -79,5 +96,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 168788}
+  m_RootGameObject: {fileID: 137714}
   m_IsPrefabParent: 1

@@ -9,6 +9,8 @@ public class OnStartTitleScript : MonoBehaviour {
 
           GameObject IsSpecData = GameObject.Find("SpecData");
           GameObject IsScoreData = GameObject.Find("ScoreData");
+          GameObject IsBodyFolder = GameObject.Find("BodyFolder");
+          GameObject IsNoseCornFolder = GameObject.Find("NoseCornFolder");
 
           if (IsSpecData == null)
           {
@@ -26,6 +28,24 @@ public class OnStartTitleScript : MonoBehaviour {
                IsScoreData = Instantiate(SpecDataprefab);
                IsScoreData.name = "ScoreData";
                DontDestroyOnLoad(IsScoreData);
+          }
+
+          if (IsBodyFolder == null)
+          {
+               //Debug.Log(IsSpecData.name);
+               GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/BodyFolder");
+               IsBodyFolder = Instantiate(SpecDataprefab);
+               IsBodyFolder.name = "BodyFolder";
+               DontDestroyOnLoad(IsBodyFolder);
+          }
+
+          if (IsNoseCornFolder == null)
+          {
+               //Debug.Log(IsSpecData.name);
+               GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/NoseCornFolder");
+               IsNoseCornFolder = Instantiate(SpecDataprefab);
+               IsNoseCornFolder.name = "NoseCornFolder";
+               DontDestroyOnLoad(IsNoseCornFolder);
           }
 
      }
