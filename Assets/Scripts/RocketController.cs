@@ -105,7 +105,9 @@ public class RocketController : MonoBehaviour {
      private float CDFactor;
      private float DensityOfAir;
      private float ProjectedArea;
-     
+
+     public float[] tScale;
+     public int tRank;
 
      void Awake ()
      {
@@ -140,7 +142,8 @@ public class RocketController : MonoBehaviour {
 
           WaterJetSound = gameObject.GetComponent<AudioSource>();
 
-         
+          tScale = new float [] { 1.0f, 2.7f, 7.9f };
+          tRank =  0;
 
          //center = new Vector2(0.0f, 2.0f);
 
@@ -265,18 +268,19 @@ public class RocketController : MonoBehaviour {
      // Update is called once per frame
 
      void Update() {
-	
-          score = Mathf.Max(score, ScoreBody.transform.position.y);
+
+          float NowAltitude = ScoreBody.transform.position.y * tScale[tRank];
+          score = Mathf.Max(score, NowAltitude);
           SpeedMax = Mathf.Max(SpeedMax, ScoreBody.velocity.y);
          
-          scoreLabel.text = ScoreBody.transform.position.y.ToString("N2") ;
+          scoreLabel.text = NowAltitude.ToString("N2") ;
           SpeedMeter.text = ScoreBody.velocity.y.ToString("N1") ;
 
           specData.Speed = ScoreBody.velocity.y;
           specData.Altitude = ScoreBody.transform.position.y;
 
 
-          if (score > RocketBody2D.transform.position.y + 2.0f) // 頂点に達したら(2m落ちたら)
+          if (score > NowAltitude + 2.0f) // 頂点に達したら(2m落ちたら)
           {
               if (!TopFlag)
                {  
@@ -381,6 +385,7 @@ public class RocketController : MonoBehaviour {
 
      IEnumerator GoScore()
      {
+          Time.timeScale = 1.0f;
           yield return new WaitForSeconds(5.0f);
           //Debug.Log("GoScore");
           SceneManager.LoadScene("ScoreUpdate");
@@ -396,7 +401,14 @@ public class RocketController : MonoBehaviour {
           specData.Recalculation();
           //Debug.Log(specData.GetMass());
           RocketBody2D.mass = specData.GetMass();
-        
+
+          if (true)
+          {
+               tRank = 2;
+          }
+
+          Time.timeScale = tRank +1;
+
           timeTemp = 0.0f;
           thrustForce = specData.GetThrustForce();
           thrustTime = specData.GetBurningTime();
