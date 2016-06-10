@@ -51,7 +51,7 @@ public class ScoreData : MonoBehaviour {
      public void LoadScore()
      {
           TotalDistance = PlayerPrefs.GetFloat("TotalDistance", 0.0f);
-          TotalScore = PlayerPrefs.GetFloat("TotalScore", 100.0f);
+          TotalScore = PlayerPrefs.GetFloat("TotalScore", 200.0f);
           ScoreNow = PlayerPrefs.GetFloat("ScoreNow", 0.0f);
           Score = PlayerPrefs.GetFloat("Score", 0.0f);
           ScoreCoefficient = PlayerPrefs.GetFloat("ScoreCoefficient", 1.0f);

@@ -73,7 +73,7 @@ public class OnStart : MonoBehaviour {
      {
           NoseCornFolder noseCornFolder = GameObject.Find("NoseCornFolder").GetComponent<NoseCornFolder>();
           noseCorn.GetComponent<SpriteRenderer>().sprite = noseCornFolder.GetImage(noseCornFolder.GetNowUsed());
-          Debug.Log(noseCornFolder.GetImage(noseCornFolder.GetNowUsed()));
+          //Debug.Log(noseCornFolder.GetImage(noseCornFolder.GetNowUsed()));
      }
 
      public void OnApplicationQuit()

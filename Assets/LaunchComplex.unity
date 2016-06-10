@@ -1531,7 +1531,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 672931023}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2eed5b9fd3648ac45b292c6b6f9f2982, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -1551,7 +1551,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 672931023}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2eed5b9fd3648ac45b292c6b6f9f2982, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 1.9643805}
@@ -1566,7 +1566,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 672931023}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2eed5b9fd3648ac45b292c6b6f9f2982, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0.021086384, y: -1.1251192}
@@ -7275,6 +7275,10 @@ Prefab:
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 672931029}
+    - target: {fileID: 6158474, guid: 30d7889d4fddfe74baffbbd34a5313f7, type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: f871eb7da9245b640813b9240d741936, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30d7889d4fddfe74baffbbd34a5313f7, type: 2}
   m_IsPrefabParent: 0
