@@ -118,6 +118,8 @@ public class RocketController : MonoBehaviour {
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
           ScoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
 
+          RocketBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;  // 回転させない
+
 
           RocketBody2D.mass = specData.GetMass();
           ScoreBody = RocketBody2D;
@@ -277,11 +279,11 @@ public class RocketController : MonoBehaviour {
           if (score > RocketBody2D.transform.position.y + 2.0f) // 頂点に達したら(2m落ちたら)
           {
               if (!TopFlag)
-
                {  
                     ScoreData.CalcNewScore(score);
                     TopFlag = true;
-                   
+                    RocketBody2D.constraints = RigidbodyConstraints2D.None ;  // 回転させる
+
                     //RocketBody2D.centerOfMass = center;
                     StartCoroutine("Rotate");
                     ScoreData.ScoreNow = score;

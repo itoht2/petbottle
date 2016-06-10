@@ -18,6 +18,8 @@ public class OnStart : MonoBehaviour {
           QualitySettings.vSyncCount = 0; // VSyncをOFFにする
           Application.targetFrameRate = 60; // ターゲットフレームレートを60に設定
 
+          Time.timeScale = 1.0f;
+
           //GameObject IsSpecData = GameObject.Find("SpecData");
           scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
 
