@@ -42,6 +42,7 @@ public class OnStart : MonoBehaviour {
           }
           StartCoroutine("ScatterStar");
           ImageChanger();
+                   
      }
 
      // Update is called once per frame

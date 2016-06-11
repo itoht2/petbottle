@@ -395,7 +395,11 @@ public class RocketController : MonoBehaviour {
 
      IEnumerator Launch()    
      {
-
+          if (SystemInfo.supportsVibration)
+          {
+               Handheld.Vibrate();
+          }
+               
            startTime = Time.time;
 
           specData.Recalculation();

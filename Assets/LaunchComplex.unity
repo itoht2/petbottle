@@ -1666,6 +1666,8 @@ MonoBehaviour:
   PumpMaxText: {fileID: 1929577320}
   Broken: 0
   AirResistancce: 0
+  tScale: []
+  tRank: 0
 --- !u!82 &672931031
 AudioSource:
   m_ObjectHideFlags: 0
