@@ -406,7 +406,16 @@ public class RocketController : MonoBehaviour {
           //Debug.Log(specData.GetMass());
           RocketBody2D.mass = specData.GetMass();
 
-          if (true)
+          float totlThrustFource = specData.GetThrustForce() * specData.GetBurningTime() + specData.GetSRBANumber() * specData.GetSRBAThrustForce() * specData.GetSRBABurningTime() ;
+          Debug.Log(totlThrustFource); 
+
+          if (totlThrustFource <= 200f)
+          {
+               tRank = 0;
+          } else if (totlThrustFource <= 400f)
+          {
+               tRank = 1;         
+          } else
           {
                tRank = 2;
           }
