@@ -407,7 +407,7 @@ public class RocketController : MonoBehaviour {
           RocketBody2D.mass = specData.GetMass();
 
           float totlThrustFource = specData.GetThrustForce() * specData.GetBurningTime() + specData.GetSRBANumber() * specData.GetSRBAThrustForce() * specData.GetSRBABurningTime() ;
-          Debug.Log(totlThrustFource); 
+          //Debug.Log(totlThrustFource); 
 
           if (totlThrustFource <= 200f)
           {
@@ -445,7 +445,6 @@ public class RocketController : MonoBehaviour {
                //RocketBody2D.AddForce(RocketBody2D.transform.up * LancherForce, ForceMode2D.Impulse);
                StartCoroutine("LauncherAddForce");
 
-
                LancherForce = 0.0f;
           }
 
@@ -454,9 +453,7 @@ public class RocketController : MonoBehaviour {
               
                // ロケット発射             
                
-               RocketBody2D.AddForce(RocketBody2D.transform.up * thrustForce);
-
-               
+               RocketBody2D.AddForce(RocketBody2D.transform.up * thrustForce);               
 
                posTemp = posMax * (thrustTime - timeTemp) / thrustTime ;
                ScaleW.y = posTemp;
