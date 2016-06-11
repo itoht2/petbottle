@@ -142,7 +142,7 @@ public class RocketController : MonoBehaviour {
 
           WaterJetSound = gameObject.GetComponent<AudioSource>();
 
-          tScale = new float [] { 1.0f, 2.7f, 7.9f };
+          tScale = new float [] { 1.0f, 2.7f, 7.9f ,120f};
           tRank =  0;
 
          //center = new Vector2(0.0f, 2.0f);
@@ -415,9 +415,11 @@ public class RocketController : MonoBehaviour {
           } else if (totlThrustFource <= 400f)
           {
                tRank = 1;         
-          } else
+          } else if (totlThrustFource <= 900f)
           {
                tRank = 2;
+          } else {
+               tRank = 3;
           }
 
           Time.timeScale = tRank +1;
