@@ -130,7 +130,7 @@ public class ContentsMaker : MonoBehaviour {
 
                usingButtonText.text = "非所持";
                usingButton.interactable = false;
-               IconImage.color = new Color32(149, 149, 149, 149);
+               IconImage.color = new Color32(40, 40, 40, 255);
           }
      }
 
