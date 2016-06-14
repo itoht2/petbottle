@@ -1976,7 +1976,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1905005753}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2933,7 +2933,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22462644, guid: 9d4650e3cb42e6542ad0af92fe0c2725, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22462644, guid: 9d4650e3cb42e6542ad0af92fe0c2725, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -4255,7 +4255,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 426823452}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

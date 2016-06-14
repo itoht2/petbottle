@@ -70,6 +70,9 @@ public class ContentsMaker : MonoBehaviour {
 
                IconImage = Item.transform.FindChild("ItemImage").GetComponent<Image>();
                IconImage.sprite = noseCornFolder.GetImage(i);
+
+
+
                usingButton = Item.transform.FindChild("UsingButton").GetComponent<Button>();
                usingButtonText = usingButton.transform.FindChild("Text").GetComponent<Text>();
 
@@ -105,6 +108,7 @@ public class ContentsMaker : MonoBehaviour {
 
                usingButtonText.text = "使用中";
                usingButton.interactable = true;
+               IconImage.color = new Color32(255, 255, 255, 255);
           }
           else if (noseCornFolder.GetNumberOfHold(i) > 0)
           {    // 持ってるけど使ってなかったら
@@ -115,6 +119,7 @@ public class ContentsMaker : MonoBehaviour {
 
                usingButtonText.text = "所持";
                usingButton.interactable = true;
+               IconImage.color = new Color32(255, 255, 255, 255);
           }
           else
           {    // 持ってなかったら
@@ -125,6 +130,7 @@ public class ContentsMaker : MonoBehaviour {
 
                usingButtonText.text = "非所持";
                usingButton.interactable = false;
+               IconImage.color = new Color32(149, 149, 149, 149);
           }
      }
 
