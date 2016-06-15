@@ -1,0 +1,108 @@
+fileFormatVersion: 2
+guid: f814e6823050cff459ba30bf5e2ba87d
+timeCreated: 1465986736
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: DocumentButton_0
+    21300002: DocumentButton_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 512
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: DocumentButton_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 41
+        width: 487
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 105.00667, y: 83.99333}
+        - {x: 100.00667, y: 92.99333}
+        - {x: 85.00667, y: 104.99333}
+        - {x: -82.99333, y: 104.99333}
+        - {x: -95.99333, y: 96.99333}
+        - {x: -103.99333, y: 83.99333}
+        - {x: -103.99333, y: -83.00667}
+        - {x: -100.99333, y: -89.00667}
+        - {x: -92.99333, y: -98.00667}
+        - {x: -83.99333, y: -103.00667}
+        - {x: -81.99333, y: -104.00667}
+        - {x: 85.00667, y: -104.00667}
+        - {x: 102.00667, y: -92.00667}
+        - {x: 105.00667, y: -83.00667}
+    - name: DocumentButton_1
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 41
+        width: 488
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 105.90668, y: 85.99333}
+        - {x: 93.90668, y: 100.99333}
+        - {x: 84.90668, y: 104.99333}
+        - {x: -80.09332, y: 104.99333}
+        - {x: -92.09332, y: 98.99333}
+        - {x: -100.09332, y: 89.99333}
+        - {x: -104.09332, y: 82.99333}
+        - {x: -104.09332, y: -84.00667}
+        - {x: -91.09332, y: -102.00667}
+        - {x: -84.09332, y: -104.00667}
+        - {x: 82.90668, y: -104.00667}
+        - {x: 91.90668, y: -101.00667}
+        - {x: 105.90668, y: -84.00667}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
