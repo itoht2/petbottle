@@ -17,23 +17,40 @@ public class TitleController : MonoBehaviour {
 
      public void OnLaunchComplexButtonClicked ()
      {
-          SceneManager.LoadScene("LaunchComplex");
+          StartCoroutine(GoNextScine("LaunchComplex"));
+          
      }
 
      public void OnGarageButtonClicked()
      {
-          SceneManager.LoadScene("Garage");
+          
+          StartCoroutine(GoNextScine("Garage"));
 
      }
 
      public void OnScoreButtonClicked()
      {
-          SceneManager.LoadScene("ScoreAndSpecs");
+         
+          StartCoroutine(GoNextScine("ScoreAndSpecs"));
 
      }
 
      public void OnHomeButtonClicked()
      {
-          SceneManager.LoadScene("Title");
+     
+          StartCoroutine(GoNextScine("Title"));
+
      }
+
+     IEnumerator GoNextScine(string NextScine)
+     {
+          
+          yield return new WaitForSeconds(0.5f);
+          
+          SceneManager.LoadScene(NextScine);
+          yield return null;
+
+     }
+
+
 }
