@@ -166,6 +166,10 @@ public class SpecData : MonoBehaviour {
           return Multistage;
      }
 
+     public float GetRocketWeight ()
+     {
+          return RocketWeight;
+     }
 
      public float GetThrustForce ()
      {
@@ -194,6 +198,11 @@ public class SpecData : MonoBehaviour {
           return PumpMax;
      }
     
+     public float GetNozzleRadius ()
+     {
+          return NozzleRadius;
+     }
+
      public float GetPumpCapacity()
      {
           return PumpCapacity;
