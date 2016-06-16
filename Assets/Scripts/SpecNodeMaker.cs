@@ -23,45 +23,32 @@ public class SpecNodeMaker : MonoBehaviour {
           ItemMaker("ノズル径", specData.GetNozzleRadius() * 1000, 1, "mm");        // m　ノズル直径
           ItemMaker("ロケット段数", specData.GetMultistage(), 0, "段");                      //　ロケットの段数
           ItemMaker("ボディの耐圧", specData.GetInnerPressureMax(), 0, "kPa");        // kPa　ボディの耐圧
-
-          specData.PumpPressure = specData.GetInnerPressureMax();
-
           ItemMaker("噴射速度", specData.GetNozzleFlowRate(), 1, "m/s");             // m/s 　ノズル通過時の流速
           ItemMaker("本体推力", specData.GetThrustForce(), 1, "N");                      //  N　上昇力
           ItemMaker("噴射時間", specData.GetBurningTime(), 2, "Sec");               // Sec　燃焼時間
-
-
-
-          //public float Temperature;                         // Deg　外気温
-          //public float GasConstant;                         //　気体定数
-          //public float Cd;                                    //　ボディの空気抵抗係数　
-          //public float NoseCornCD;                   //　ノーズコーンの空気抵抗係数
-          //public Sprite NoseCornImage;            // ノーズコーンの画像
-          //public float FinCD;                             //　フィンの空気抵抗係数
-          //public float CDFactor;                     //　空気抵抗係数補正値
-          //public float DensityOfAir;                             //  kg/m^3　空気の密度     
-
-          //public float PumpMax;                        // kPa　ポンプの最大圧
-          //public float PumpCapacity;              // kPa　一回のポンピングでの圧力上昇分
-          //public float PumpPressure;                  // kPa　ポンプ圧
-
-          //public float SideThrusterForce;              // N 横向きの力
-          //public float SideThrusterTime;               // Sec スラスタ噴射時間
-          //public float SideThrusterRate;                   // スラスタの残りの噴射時間の割合
-
-          //public float LauncherForce;                  // ランチャーの追加の推力
-
-          //public int SRBANumber;                      //　固体燃料ロケットの本数
-          //public float SRBAThrustForce;           // N　固体燃料ロケットの一本あたりの推力
-          //public float SRBABurningTime;           // Sec　固体燃料ロケットの燃焼時間
-
-          //public float SRBApositionFactor;        //　SRBA位置合わせ用係数
-          //public Vector3 SRBAOffset;                   // SRBA位置調整
-
-          //public string PayLoadName;              // ペイロードの種類
-          //public float PayLoadWeight;             //　ペイロードの質量   
-
-
+          ItemMaker("CD値", specData.GetCd(), 2, "");                                      // CD
+          ItemMaker("ポンプ最大圧力", specData.GetPumpMax(), 0, "kPa");               // kPa　ポンプの最大圧
+          if (specData.GetSideThrusterForce() > 0.0f)
+          {
+               ItemMaker("サイドスラスタ推力", specData.GetSideThrusterForce(), 1, "N");      // N 横向きの力
+               ItemMaker("サイドスラスタ噴射時間", specData.GetSideThrusterTime(), 1, "Sec");       // Sec スラスタ噴射時間
+          }
+          if (specData.GetLauncherForce() > 0.0f)
+          {
+               ItemMaker("発射台追加推力", specData.GetLauncherForce(), 1, "N");            // ランチャーの追加の推力
+          }
+          if (specData.GetSRBANumber() > 0 )
+          {
+               ItemMaker("固体補助ブースター", specData.GetSRBANumber(), 0, "本");         //　固体燃料ロケットの本数
+               ItemMaker("ブースター推力", specData.GetSRBAThrustForce(), 1, "N/本");        // N　固体燃料ロケットの一本あたりの推力
+               ItemMaker("ブースター燃焼時間", specData.GetSRBABurningTime(), 1, "Sec");      // Sec　固体燃料ロケットの燃焼時間
+          }
+          if (specData.GetPayLoadName() != null)
+          {
+               ItemMakerNoNumber("ペイロード",  specData.GetPayLoadName());                   // ペイロードの種類
+               ItemMaker("ペイロード重量", specData.GetPayLoadWeight(), 1, "kg");           //　ペイロードの質量   
+          }
+          
 
 
 
@@ -78,7 +65,17 @@ public class SpecNodeMaker : MonoBehaviour {
           item.SetParent(transform, false);
           item.name = ItemName;
           item.FindChild("Heading").GetComponent<Text>().text = ItemName;
-          item.FindChild("Number").GetComponent<Text>().text = Number.ToString("N"+digits) + Unit;
+          item.FindChild("Number").GetComponent<Text>().text = Number.ToString("N"+digits) + " " + Unit;
+
+     }
+
+     void ItemMakerNoNumber(string ItemName, string ItemDiscription)
+     {
+          var item = GameObject.Instantiate(prefab) as RectTransform;
+          item.SetParent(transform, false);
+          item.name = ItemName;
+          item.FindChild("Heading").GetComponent<Text>().text = ItemName;
+          item.FindChild("Number").GetComponent<Text>().text = ItemDiscription;
 
      }
 }

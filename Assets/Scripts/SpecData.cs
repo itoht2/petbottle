@@ -264,6 +264,12 @@ public class SpecData : MonoBehaviour {
           return PayLoadName;
      }
 
+     public float GetPayLoadWeight()
+     {
+          return PayLoadWeight;
+     }
+
+
      public float GetInnerPressureMax()
      {
           return InnerPressureMax;
