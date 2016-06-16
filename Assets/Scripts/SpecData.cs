@@ -66,11 +66,12 @@ public class SpecData : MonoBehaviour {
 
      void Awake() {
           LoadData();
+          Recalculation();
      }
 
      void Start()
      {
-          Recalculation();       
+          //Recalculation();       
      }
 
      // Update is called once per frame
@@ -308,6 +309,11 @@ public class SpecData : MonoBehaviour {
      public float GetAltitude()
      {
           return Altitude;
+     }
+
+     public float GetNozzleFlowRate()
+     {
+          return NozzleFlowRate;
      }
 
      public void OnApplicationQuit()

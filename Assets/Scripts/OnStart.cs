@@ -33,6 +33,7 @@ public class OnStart : MonoBehaviour {
           //}
 
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
+          specData.PumpPressure = 0.0f;
 
           if  (scoreData.GetMaxDistance() >=50.0f) { 
                MaxHight = scoreData.GetMaxDistance();

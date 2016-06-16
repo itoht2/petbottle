@@ -15,27 +15,22 @@ public class SpecNodeMaker : MonoBehaviour {
 
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
           scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
-          
+          specData.PumpPressure = specData.GetInnerPressureMax();
+          specData.Recalculation();
+
           ItemMaker("機体重量", specData.GetRocketWeight() , 2, "kg");              // kg　ロケットの質量
           ItemMaker("燃料重量", specData.GetMass(), 2, "kg");                            // kg　水の質量
           ItemMaker("ノズル径", specData.GetNozzleRadius() * 1000, 1, "mm");        // m　ノズル直径
-     //public float NozzleArea;                         // m^2　ノズル面積　
-     //public int Multistage;                            //　ロケットの段数
+          ItemMaker("ロケット段数", specData.GetMultistage(), 0, "段");                      //　ロケットの段数
+          ItemMaker("ボディの耐圧", specData.GetInnerPressureMax(), 0, "kPa");        // kPa　ボディの耐圧
 
-          //public float InnerPressureMax;             // kPa　ボディの耐圧
-          //public float Speed;                               // 現在のスピード
-          //public float Altitude;                            // 現在の高度
+          specData.PumpPressure = specData.GetInnerPressureMax();
 
-          //public float AtmospherPresuure; // kPa　大気圧
+          ItemMaker("噴射速度", specData.GetNozzleFlowRate(), 1, "m/s");             // m/s 　ノズル通過時の流速
+          ItemMaker("本体推力", specData.GetThrustForce(), 1, "N");                      //  N　上昇力
+          ItemMaker("噴射時間", specData.GetBurningTime(), 2, "Sec");               // Sec　燃焼時間
 
-          //public float NozzleFlowRate;                // m/s 　ノズル通過時の流速
-          //public float BodyRadius;                   // m　ボディ直径
-          //public float ProjectedArea;                      // m^2　ボディ投影面積
-          //public float InitialVelocity;                          // m^2　初速
 
-          //public float Thrust;                                  //  N　上昇力
-
-          //public float BurningTime;                         // Sec　燃焼時間
 
           //public float Temperature;                         // Deg　外気温
           //public float GasConstant;                         //　気体定数
