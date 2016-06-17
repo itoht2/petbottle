@@ -65,6 +65,9 @@ public class RocketController : MonoBehaviour {
      private bool BackPanelClosed;
      public GameObject BackPanel;
 
+     //private bool CheckButtonOpend;
+     public GameObject CheckButton;
+
      public bool TopFlag;
      public Vector3 effectRotation;
      public bool Launched = false;
@@ -206,6 +209,7 @@ public class RocketController : MonoBehaviour {
           WaterJet.SetActive(false);
           TopFlag = false;
           BackPanelClosed = false;
+          //CheckButtonOpend = false;
           Landed = false;
 
           IsCanSat = !(specData.GetPayLoadName().Length == 0);
@@ -293,6 +297,10 @@ public class RocketController : MonoBehaviour {
                     ScoreData.ScoreNow = score;
                     ScoreData.CalcMaxDistance(score);
                     ScoreData.SaveScore();
+
+                    
+                    StartCoroutine("CheckButtonOpen");
+                  
                }
 
               if (ScoreBody.transform.position.y <= 1.0f && ScoreBody.velocity.y <=0.5f && !Landed)
@@ -302,7 +310,8 @@ public class RocketController : MonoBehaviour {
                    
                     Landed = true;
 
-               }              
+               }  
+                          
                
           } 
 
@@ -640,6 +649,17 @@ public class RocketController : MonoBehaviour {
           for (int i = 0; i < 130; i=i+3)
           {
                BackPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(5.0f, (float) i, 0.0f); ;
+               yield return null;
+          }
+     }
+
+     IEnumerator CheckButtonOpen()  // チェックパネルを出す
+     {
+          BackPanelClosed = true;
+          yield return new WaitForSeconds(1.0f);
+          for (int i = 0; i < 65; i = i +2)
+          {
+              CheckButton.GetComponent<RectTransform>().anchoredPosition = new Vector3((float)i ,471f , 0.0f); ;
                yield return null;
           }
      }

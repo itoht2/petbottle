@@ -22,16 +22,8 @@ public class OnStart : MonoBehaviour {
 
           //GameObject IsSpecData = GameObject.Find("SpecData");
           scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
-
-          //if (IsSpecData == null) { 
-          ////Debug.Log(IsSpecData.name);
-          //      GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/SpecData");
-          //     IsSpecData = Instantiate(SpecDataprefab);
-          //     IsSpecData.name = "SpecData";
-          //     DontDestroyOnLoad(IsSpecData);
-
-          //}
-
+          scoreData.Score = 0.0f;
+          scoreData.ScoreNow = 0.0f;
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
           specData.PumpPressure = 0.0f;
 

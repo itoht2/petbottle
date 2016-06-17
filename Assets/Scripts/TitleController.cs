@@ -15,6 +15,12 @@ public class TitleController : MonoBehaviour {
 	
 	}
 
+     public void OnScoreUpdateButtonClicked ()
+     {
+          StartCoroutine(GoNextScine("ScoreUpdate"));
+     }
+
+
      public void OnLaunchComplexButtonClicked ()
      {
           StartCoroutine(GoNextScine("LaunchComplex"));

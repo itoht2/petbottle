@@ -13,10 +13,20 @@ public class SpecNodeMaker : MonoBehaviour {
      // Use this for initialization
      void Start () {
 
+
+
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
           scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
           specData.PumpPressure = specData.GetInnerPressureMax();
           specData.Recalculation();
+
+          ItemMaker("現在のスコア", scoreData.GetTotalScore(), 0, "Pts");                               // 今までのトータルスコア
+          ItemMaker("打ち上げ回数", scoreData.GetLaunchNumber(), 0, "回");             // 打ち上げ回数
+          ItemMaker("最高高度", scoreData.GetMaxDistance(), 0, "m");                     //今までの最高高度
+
+
+          
+
 
           ItemMaker("機体重量", specData.GetRocketWeight() , 2, "kg");              // kg　ロケットの質量
           ItemMaker("燃料重量", specData.GetMass(), 2, "kg");                            // kg　水の質量
