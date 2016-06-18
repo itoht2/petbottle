@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 
 public class TitleController : MonoBehaviour {
@@ -50,7 +51,7 @@ public class TitleController : MonoBehaviour {
 
      IEnumerator GoNextScine(string NextScine)
      {
-          
+          PlayerPrefs.Flush();
           yield return new WaitForSeconds(0.5f);
           
           SceneManager.LoadScene(NextScine);

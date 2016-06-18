@@ -21,22 +21,28 @@ public class NoseCornFolder : MonoBehaviour {
      public float[] ParameterValue2;
      public float[] ParameterValue3;
 
-     void Awake()
+     void Start()
      {
           NowUsed = PlayerPrefs.GetInt("NowUsed_" + this.name , 0);
+          //Debug.Log("NowUsed_" + this.name + NowUsed);
           for (int i = 0; i < NumberOfItem; i++)
           {
-               NumberOfHold[i] = PlayerPrefs.GetInt("NumberOfHold_" + this.name + i, 0);
+               if (i == 0)
+               {
+                    NumberOfHold[i] = PlayerPrefs.GetInt("NumberOfHold_" + this.name + i, 1);
+               } else
+               {
+                    NumberOfHold[i] = PlayerPrefs.GetInt("NumberOfHold_" + this.name + i, 0);
+               }
+               
+               //Debug.Log(NumberOfHold[i]);
           }
                 
 
           //Debug.Log("NowUsed_" + this.name + " " + NowUsed);
      }
 
-     // Use this for initialization
-     void Start () {
-        
-     }
+    
 	
 	// Update is called once per frame
 	void Update () {
@@ -53,11 +59,13 @@ public class NoseCornFolder : MonoBehaviour {
           }
           
 
-          PlayerPrefs.Flush();
+          //PlayerPrefs.Flush();
      }
 
      void OnDestroy()
      {
+          SaveData();
+          //Debug.Log(this.name + "saved");
           PlayerPrefs.Flush();
      }
 
@@ -124,9 +132,11 @@ public class NoseCornFolder : MonoBehaviour {
           return NumberOfParameter;
      }
 
-     public void OnApplicationQuit()
-     {
-          PlayerPrefs.Flush();
-     }
+     //public void OnApplicationQuit()
+     //{
+     //     SaveData();
+     //     Debug.Log(this.name + "saved");
+     //     PlayerPrefs.Flush();
+     //}
 
 }
