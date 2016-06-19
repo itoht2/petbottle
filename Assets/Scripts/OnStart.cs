@@ -7,10 +7,11 @@ public class OnStart : MonoBehaviour {
      public GameObject PointStar;
      public ScoreData scoreData;
      public GameObject Rocket;
-     private float MaxHight;
+
      public GameObject StarFolder;
      public GameObject noseCorn;
      public SpecData specData;
+     private float HightRenge;
 
 
      // Use this for initialization
@@ -27,29 +28,31 @@ public class OnStart : MonoBehaviour {
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
           specData.PumpPressure = 0.0f;
 
-          if  (scoreData.GetMaxDistance() >=50.0f) { 
-               MaxHight = scoreData.GetMaxDistance();
-          } else
-          {
-               MaxHight = 50.0f;
-          }
-          StartCoroutine("ScatterStar");
+          HightRenge = 25.0f;
+
+          StartCoroutine(ScatterStar(HightRenge));
           ImageChanger();
                    
      }
 
      // Update is called once per frame
      void Update () {
-          	
-	}
+          if (specData.GetAltitude() > HightRenge)
+          {
+               StartCoroutine(ScatterStar(HightRenge ));
+               HightRenge = HightRenge * 2;
+          }
 
-     private IEnumerator ScatterStar () // 星をばらまく
+
+     }
+
+     private IEnumerator ScatterStar (float HightLevel) // 星をばらまく
      {
           
           yield return new WaitForSeconds(1.0f);
-          for (int i = 0; i < 20; i++)
+          for (int i = 0; i < 10; i++)
           {               
-               Vector3 placePosition = new Vector3(Random.Range(-MaxHight / 7, MaxHight / 7), Random.Range(5.0f, MaxHight * 1.2f), 0);
+               Vector3 placePosition = new Vector3(Random.Range(-HightLevel *2 , HightLevel *2), Random.Range(HightLevel * 0.75f  , HightLevel * 2.5f), 0);
                Quaternion q = new Quaternion();
                q = Quaternion.identity;
                GameObject Star_temp = (GameObject)Instantiate(PointStar, placePosition,q);
