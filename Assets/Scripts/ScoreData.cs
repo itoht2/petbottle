@@ -164,6 +164,14 @@ public class ScoreData : MonoBehaviour {
      {
           return MaxDistance;
       }
+     public int GetNumberOfDays()
+     {
+          return NumberOfDays;
+     }
+     public int GetNumbrtOfDaysContinue()
+     {
+          return NumbrtOfDaysContinue;
+     }
 
      public void AddLaunchNumber()
      {
