@@ -83,12 +83,12 @@ public class SpecData : MonoBehaviour {
      {
           Gravity = PlayerPrefs.GetFloat("Gravity", 9.807f);
           WaterDensity = PlayerPrefs.GetFloat("WaterDensity", 1000.0f);
-          RocketWeight = PlayerPrefs.GetFloat("RocketWeight", 0.07f);
-          NoseCornWeight = PlayerPrefs.GetFloat("NoseCornWeight", 0.02f);
+          RocketWeight = PlayerPrefs.GetFloat("RocketWeight", 0.1f);
+          NoseCornWeight = PlayerPrefs.GetFloat("NoseCornWeight", 0.2f);
           FinWeight = PlayerPrefs.GetFloat("FinWeight", 0.01f);
           FuelCapacity = PlayerPrefs.GetFloat("FuelCapacity", 0.0002f);
           NozzleRadius = PlayerPrefs.GetFloat("NozzleRadius", 0.003f);
-          InnerPressureMax = PlayerPrefs.GetFloat("InnerPressureMax", 303f);
+          InnerPressureMax = PlayerPrefs.GetFloat("InnerPressureMax", 250f);
           AtmospherPresuure = PlayerPrefs.GetFloat("AtmospherPresuure", 101.3f);
           BodyRadius = PlayerPrefs.GetFloat("BodyRadius", 0.05f);
           Temperature = PlayerPrefs.GetFloat("Temperature", 20.0f);
@@ -103,9 +103,9 @@ public class SpecData : MonoBehaviour {
           SideThrusterForce = PlayerPrefs.GetFloat("SideThrusterForce",1f);
           SideThrusterTime = PlayerPrefs.GetFloat("SideThrusterTime",5.0f);
           LauncherForce = PlayerPrefs.GetFloat("LauncherForce", 0f);
-          SRBANumber = PlayerPrefs.GetInt("SRBANumber", 2);
-          SRBAThrustForce = PlayerPrefs.GetFloat("SRBAThrustForce", 1.0f);
-          SRBABurningTime = PlayerPrefs.GetFloat("SRBABurningTime", 5.0f);
+          SRBANumber = PlayerPrefs.GetInt("SRBANumber", 0);
+          SRBAThrustForce = PlayerPrefs.GetFloat("SRBAThrustForce", 0.0f);
+          SRBABurningTime = PlayerPrefs.GetFloat("SRBABurningTime", 0.0f);
           PayLoadName = PlayerPrefs.GetString("PayLoadName", "Cansat");
           PayLoadWeight = PlayerPrefs.GetFloat("PayLoadWeight", 0.1f);
     

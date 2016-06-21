@@ -22,7 +22,7 @@ public class SpecNodeMaker : MonoBehaviour {
 
           ItemMaker("現在のスコア", scoreData.GetTotalScore(), 0, "Pts");                               // 今までのトータルスコア
           ItemMaker("打ち上げ回数", scoreData.GetLaunchNumber(), 0, "回");             // 打ち上げ回数
-          ItemMaker("最高高度", scoreData.GetMaxDistance(), 0, "m");                     //今までの最高高度
+          ItemMaker("最高高度", scoreData.GetMaxDistance(), 2, "m");                     //今までの最高高度
           ItemMaker("プレイ日数", scoreData.GetNumberOfDays(), 0, "日");
           ItemMaker("連続プレイ日数", scoreData.GetNumbrtOfDaysContinue(), 0, "日");
 

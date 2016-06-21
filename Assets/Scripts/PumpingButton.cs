@@ -116,7 +116,7 @@ public class PumpingButton : MonoBehaviour {
                ScaleW.y = 0.0f;
                rocketController.Water.transform.localScale = ScaleW;
 
-               Rocket.GetComponent<Rigidbody2D>().AddTorque(2.0f, ForceMode2D.Impulse);
+               Rocket.GetComponent<Rigidbody2D>().AddTorque(5.0f, ForceMode2D.Impulse);
                              
                scoreData.ScoreNow = -10.0f;  //破裂したらマイナスポイント
                scoreData.SaveScore();

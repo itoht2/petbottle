@@ -45,9 +45,9 @@ MonoBehaviour:
   - body1
   - body2
   Weight:
-  - 0.6
-  - 0.7
-  - 0.5
+  - 0.1
+  - 0.08
+  - 0.05
   Price:
   - 50
   - 500
@@ -57,7 +57,7 @@ MonoBehaviour:
   - "\u3061\u3087\u3063\u3068\u3044\u3044\u30DC\u30C7\u30A3"
   - "\u3059\u3054\u304F\u3044\u3044\u30DC\u30C7\u30A3"
   Specs:
-  - "\u8010\u5727100kPa"
+  - "\u8010\u5727250kPa"
   - "\u8010\u5727300kPa"
   - "\u8010\u57271000kPa"
   DiscriptionLong:
@@ -73,20 +73,20 @@ MonoBehaviour:
   NumberOfParameter: 3
   ParameterName:
   - Maxpressure
-  - "\u304A\u304A\u304D\u3055"
-  - "\u3061\u3044\u3055\u3055"
+  - FuelCapacity
+  - Cd
   ParameterValue1:
-  - 100
+  - 250
   - 300
   - 1000
   ParameterValue2:
-  - 50
-  - 60
-  - 70
+  - 0.0002
+  - 0.0002
+  - 0.0003
   ParameterValue3:
-  - 200
-  - 400
-  - 800
+  - 0.6
+  - 0.6
+  - 0.6
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -4,6 +4,7 @@ using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 public class UsingButtonCOntroller : MonoBehaviour {
      public NoseCornFolder _noseCornFolder;
+     public string noseCornFolderName ;
      public SpecData specData;
      public int nowUsedNumber;
      public int myNumber;
@@ -21,7 +22,8 @@ public class UsingButtonCOntroller : MonoBehaviour {
           myNumber = gameObject.transform.parent.GetComponent<DialogOpener>().GetIdNumber();
           //Debug.Log(_noseCornFolder.name);
           contentMaker = transform.GetComponentInParent<ContentsMaker>();
-         
+          noseCornFolderName = _noseCornFolder.name;
+
      }
 	
 	// Update is called once per frame
@@ -44,7 +46,7 @@ public class UsingButtonCOntroller : MonoBehaviour {
                //_noseCornFolder.SaveData();
 
                SpecDataChanger(myNumber);
-               
+                              
 
           } else    // 既に使ってたら
           {
@@ -94,19 +96,43 @@ public class UsingButtonCOntroller : MonoBehaviour {
                          case "Maxpressure":
                               specData.InnerPressureMax = parameterValue;
                               break;
+                        
 
 
 
 
                          default:
-                              Debug.Log(parameterName + "is Wrong");
+                              //Debug.Log(parameterName + "is Wrong");
                               break;
 
                     }
+
+
+
                     //Debug.Log("i= " + i + " j= " + j + " " + parameterName + "=" + parameterValue);
 
                }
           }
+
+          switch (noseCornFolderName)
+          {
+               case "BodyFolder":
+                    specData.RocketWeight = _noseCornFolder.GetWeight(i);
+                    break;
+               case "NoseCornFolder":
+                    specData.NoseCornWeight = _noseCornFolder.GetWeight(i);
+                    break;
+               case "FinFolder":
+                    specData.FinWeight = _noseCornFolder.GetWeight(i);
+                    break;
+               default:
+
+
+                    break;
+          }
+
+
+
      }
      
 

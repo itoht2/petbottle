@@ -39,7 +39,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba718c835061f442bcbdb6e930e25ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rocket: {fileID: 0}
   Gravity: 9.807
   WaterDensity: 1000
   RocketWeight: 0.07
@@ -51,7 +50,9 @@ MonoBehaviour:
   NozzleRadius: 0.003
   NozzleArea: 0
   Multistage: 3
-  InnerPressureMax: 298
+  InnerPressureMax: 300
+  Speed: 0
+  Altitude: 0
   AtmospherPresuure: 101.3
   NozzleFlowRate: 0
   BodyRadius: 0.05
@@ -63,10 +64,10 @@ MonoBehaviour:
   GasConstant: 2.87
   Cd: 1
   NoseCornCD: 0.2
+  NoseCornImage: {fileID: 0}
   FinCD: 0.2
   CDFactor: 1
   DensityOfAir: 0
-  AirResistancce: 0
   PumpMax: 300
   PumpCapacity: 2
   PumpPressure: 0
@@ -74,14 +75,13 @@ MonoBehaviour:
   SideThrusterTime: 5
   SideThrusterRate: 0
   LauncherForce: 0
-  SRBANumber: 2
-  SRBAThrustForce: 5
-  SRBABurningTime: 1
+  SRBANumber: 0
+  SRBAThrustForce: 0
+  SRBABurningTime: 0
   SRBApositionFactor: 0.65
   SRBAOffset: {x: 0, y: 0.89, z: 0}
   PayLoadName: CanSat
   PayLoadWeight: 0.1
-  TimeSpeed: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
