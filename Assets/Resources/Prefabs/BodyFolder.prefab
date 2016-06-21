@@ -45,9 +45,9 @@ MonoBehaviour:
   - body1
   - body2
   Weight:
-  - 0.1
-  - 0.08
-  - 0.05
+  - 0.04
+  - 0.03
+  - 0.02
   Price:
   - 50
   - 500

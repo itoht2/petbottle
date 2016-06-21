@@ -83,12 +83,12 @@ public class SpecData : MonoBehaviour {
      {
           Gravity = PlayerPrefs.GetFloat("Gravity", 9.807f);
           WaterDensity = PlayerPrefs.GetFloat("WaterDensity", 1000.0f);
-          RocketWeight = PlayerPrefs.GetFloat("RocketWeight", 0.1f);
-          NoseCornWeight = PlayerPrefs.GetFloat("NoseCornWeight", 0.2f);
-          FinWeight = PlayerPrefs.GetFloat("FinWeight", 0.01f);
+          RocketWeight = PlayerPrefs.GetFloat("RocketWeight", 0.02f);
+          NoseCornWeight = PlayerPrefs.GetFloat("NoseCornWeight", 0.01f);
+          FinWeight = PlayerPrefs.GetFloat("FinWeight", 0.03f);
           FuelCapacity = PlayerPrefs.GetFloat("FuelCapacity", 0.0002f);
           NozzleRadius = PlayerPrefs.GetFloat("NozzleRadius", 0.003f);
-          InnerPressureMax = PlayerPrefs.GetFloat("InnerPressureMax", 250f);
+          InnerPressureMax = PlayerPrefs.GetFloat("InnerPressureMax", 300f);
           AtmospherPresuure = PlayerPrefs.GetFloat("AtmospherPresuure", 101.3f);
           BodyRadius = PlayerPrefs.GetFloat("BodyRadius", 0.05f);
           Temperature = PlayerPrefs.GetFloat("Temperature", 20.0f);
@@ -153,7 +153,7 @@ public class SpecData : MonoBehaviour {
           AverageWeight = FuelWeight / 2 + RocketWeight + NoseCornWeight + FinWeight ;
           NozzleArea = NozzleRadius * NozzleRadius * Mathf.PI;
           ProjectedArea = BodyRadius * BodyRadius * Mathf.PI;
-          NozzleFlowRate = Mathf.Sqrt(2 * (PumpPressure ) / WaterDensity * 1000);
+          NozzleFlowRate = Mathf.Sqrt(2 * (PumpPressure - AtmospherPresuure) / WaterDensity * 1000);
           Thrust = WaterDensity * NozzleArea * NozzleFlowRate * NozzleFlowRate;
           BurningTime = FuelCapacity / (NozzleArea * NozzleFlowRate);
           DensityOfAir = AtmospherPresuure * 10 / (GasConstant * (Temperature + 273.15f));
