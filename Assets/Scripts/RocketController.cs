@@ -420,18 +420,18 @@ public class RocketController : MonoBehaviour {
 
           if (totlThrustFource <= 200f)
           {
-               tRank = 1;
+               tRank = 0;
           } else if (totlThrustFource <= 400f)
           {
-               tRank = 2;         
+               tRank = 1;         
           } else if (totlThrustFource <= 900f)
           {
-               tRank = 3;
+               tRank = 2;
           } else {
-               tRank = 4;
+               tRank = 3;
           }
 
-          Time.timeScale = tRank ;
+          Time.timeScale = tRank +1;
 
           timeTemp = 0.0f;
           thrustForce = specData.GetThrustForce();
