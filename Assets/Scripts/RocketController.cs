@@ -283,6 +283,8 @@ public class RocketController : MonoBehaviour {
           specData.Speed = ScoreBody.velocity.y;
           specData.Altitude = ScoreBody.transform.position.y;
 
+       
+
 
           if (score > NowAltitude + 2.0f) // 頂点に達したら(2m落ちたら)
           {
