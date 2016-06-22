@@ -2,16 +2,12 @@
 using System.Collections;
 using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
-
 public class PrefReset : MonoBehaviour {
      public SpecData specData;
      public ScoreData scoreData;
 
-
 	// Use this for initialization
 	void Start () {
-
-          
 
 	}
 	
@@ -32,7 +28,10 @@ public class PrefReset : MonoBehaviour {
                Debug.Log("データ全消去したわよッ!!(・∀・)");
                specData.LoadData();
                scoreData.LoadScore();
-               
+               GameObject.Find("NoseCornFolder").GetComponent<NoseCornFolder>().LoadData();
+               GameObject.Find("BodyFolder").GetComponent<NoseCornFolder>().LoadData();
+
+
           }
      }
 #endif

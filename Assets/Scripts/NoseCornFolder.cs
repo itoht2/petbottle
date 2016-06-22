@@ -23,23 +23,7 @@ public class NoseCornFolder : MonoBehaviour {
 
      void Start()
      {
-          NowUsed = PlayerPrefs.GetInt("NowUsed_" + this.name , 0);
-          //Debug.Log("NowUsed_" + this.name + NowUsed);
-          for (int i = 0; i < NumberOfItem; i++)
-          {
-               if (i == 0)
-               {
-                    NumberOfHold[i] = PlayerPrefs.GetInt("NumberOfHold_" + this.name + i, 1);
-               } else
-               {
-                    NumberOfHold[i] = PlayerPrefs.GetInt("NumberOfHold_" + this.name + i, 0);
-               }
-               
-               //Debug.Log(NumberOfHold[i]);
-          }
-                
-
-          //Debug.Log("NowUsed_" + this.name + " " + NowUsed);
+          LoadData();
      }
 
     
@@ -69,6 +53,24 @@ public class NoseCornFolder : MonoBehaviour {
           PlayerPrefs.Flush();
      }
 
+     public void LoadData()
+     {
+          NowUsed = PlayerPrefs.GetInt("NowUsed_" + this.name, 0);
+          //Debug.Log("NowUsed_" + this.name + NowUsed);
+          for (int i = 0; i < NumberOfItem; i++)
+          {
+               if (i == 0)
+               {
+                    NumberOfHold[i] = PlayerPrefs.GetInt("NumberOfHold_" + this.name + i, 1);
+               }
+               else
+               {
+                    NumberOfHold[i] = PlayerPrefs.GetInt("NumberOfHold_" + this.name + i, 0);
+               }
+
+               //Debug.Log(NumberOfHold[i]);
+          }
+     }
 
      public int GetNumberOfItem()
      {
