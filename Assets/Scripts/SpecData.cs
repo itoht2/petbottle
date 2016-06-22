@@ -21,6 +21,7 @@ public class SpecData : MonoBehaviour {
      public float InnerPressureMax ;             // kPa　ボディの耐圧
      public float Speed;                               // 現在のスピード
      public float Altitude;                            // 現在の高度
+     public float SpeedMax;                       //  最高速度
 
      public float AtmospherPresuure  ; // kPa　大気圧
 
@@ -39,6 +40,9 @@ public class SpecData : MonoBehaviour {
      public float NoseCornCD ;                   //　ノーズコーンの空気抵抗係数
      public Sprite NoseCornImage;            // ノーズコーンの画像
      public float FinCD ;                             //　フィンの空気抵抗係数
+
+     public float Stability;                           // 安定性　小さいほど安定する
+
      public float CDFactor ;                     //　空気抵抗係数補正値
      public float DensityOfAir;                             //  kg/m^3　空気の密度     
 
@@ -97,6 +101,7 @@ public class SpecData : MonoBehaviour {
           NoseCornCD = PlayerPrefs.GetFloat("NoseCornCD", 0.2f);
           FinCD = PlayerPrefs.GetFloat("FinCD", 0.2f);
           CDFactor = PlayerPrefs.GetFloat("CDFacto", 1.0f);
+          Stability = PlayerPrefs.GetFloat("Stability", 1.0f);
 
           PumpMax = PlayerPrefs.GetFloat("PumpMax", 300f);
           PumpCapacity = PlayerPrefs.GetFloat("PumpCapacity", 2f);          
@@ -131,6 +136,7 @@ public class SpecData : MonoBehaviour {
           PlayerPrefs.SetFloat("NoseCornCD", NoseCornCD);
           PlayerPrefs.SetFloat("FinCD", FinCD);
           PlayerPrefs.SetFloat("CDFacto", CDFactor);
+          PlayerPrefs.SetFloat("Stability", Stability);
 
 
           PlayerPrefs.SetFloat("PumpMax", PumpMax);
@@ -269,6 +275,11 @@ public class SpecData : MonoBehaviour {
           return PayLoadWeight;
      }
 
+     public float GetSpeedMax()
+     {
+          return SpeedMax;
+     }
+
 
      public float GetInnerPressureMax()
      {
@@ -298,6 +309,12 @@ public class SpecData : MonoBehaviour {
      {
           return CDFactor;
      }
+
+     public float GetStability()
+     {
+          return Stability;
+     }
+
      public float GetDensityOfAir()
      {
           return DensityOfAir;

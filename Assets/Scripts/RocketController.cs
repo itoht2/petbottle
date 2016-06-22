@@ -86,6 +86,7 @@ public class RocketController : MonoBehaviour {
      public int Stage;
      public int SRBANumber;
 
+     private float Stability;
 
      public Text scoreLabel;
      public Text SpeedMeter;
@@ -131,6 +132,8 @@ public class RocketController : MonoBehaviour {
 
           ScoreData.ScoreCoefficient = 1.0f;
 
+          specData.SpeedMax = 0.0f;
+
           Stage = specData.GetMultistage();
           SRBANumber = specData.GetSRBANumber();
 
@@ -141,7 +144,7 @@ public class RocketController : MonoBehaviour {
           SRBAPositionFactor = specData.GetSRBApositionFactor();
           SRBAoffset = specData.GetSRBAOffset();
 
-
+          Stability = specData.GetStability();
 
           WaterJetSound = gameObject.GetComponent<AudioSource>();
 
@@ -281,9 +284,16 @@ public class RocketController : MonoBehaviour {
           SpeedMeter.text = ScoreBody.velocity.y.ToString("N1") ;
 
           specData.Speed = ScoreBody.velocity.y;
+          specData.SpeedMax = SpeedMax;
           specData.Altitude = ScoreBody.transform.position.y;
 
-       
+          if (Launched && !TopFlag)
+          {
+               RocketBody2D.MoveRotation(Random.Range(-Stability* 5 * Mathf.Clamp(ScoreBody.velocity.y / 50 , 0.0f, 2.0f), Stability * 5 * Mathf.Clamp(ScoreBody.velocity.y / 50, 0.0f, 2.0f)));  //　ブルブルフラフラ
+               //Debug.Log(ScoreBody.velocity.y / 50);
+          }
+          
+
 
 
           if (score > NowAltitude + 2.0f) // 頂点に達したら(2m落ちたら)
@@ -332,11 +342,13 @@ public class RocketController : MonoBehaviour {
                return;
           }
 
+          Launched = true;
+
           if (Stage >= 1)
           {
                StartCoroutine("Launch");
                Stage = Stage - 1;
-               Launched = true; 
+               
           }
 
           if (!BackPanelClosed) // 戻るパネル隠して
@@ -389,8 +401,8 @@ public class RocketController : MonoBehaviour {
      IEnumerator Rotate()
      {
 
-          yield return new WaitForSeconds(0.5f);
-   //       RocketBody2D.AddTorque(0.2f, ForceMode2D.Impulse);
+          yield return new WaitForSeconds(0.2f);
+          RocketBody2D.AddTorque(Random.Range(-Stability * 1.5f - 1f,Stability *1.5f +1f), ForceMode2D.Impulse);
           yield return null;
      }
 
@@ -412,6 +424,8 @@ public class RocketController : MonoBehaviour {
           }
                
            startTime = Time.time;
+          Launched = true;
+          RocketBody2D.constraints = RigidbodyConstraints2D.None;  // 回転させる
 
           specData.Recalculation();
           //Debug.Log(specData.GetMass());
