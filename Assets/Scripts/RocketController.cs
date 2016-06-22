@@ -40,6 +40,7 @@ public class RocketController : MonoBehaviour {
 
      private float dx;
      private float dy;
+     private int Ccount;
    
 
      public float[] SRBAxPosition;
@@ -288,11 +289,19 @@ public class RocketController : MonoBehaviour {
           specData.Altitude = ScoreBody.transform.position.y;
 
           if (Launched && !TopFlag)
-          {
-               RocketBody2D.MoveRotation(Random.Range(-Stability* 10 * Mathf.Clamp(ScoreBody.velocity.y / 50 , 0.0f, 2.0f), Stability * 10 * Mathf.Clamp(ScoreBody.velocity.y / 50, 0.0f, 2.0f)));  //　ブルブルフラフラ
-               //Debug.Log(ScoreBody.velocity.y / 50);
+          {               
+               //Debug.Log(Ccount);
+               Ccount++;
+
+               if (Ccount >= 10)
+               {
+                    RocketBody2D.MoveRotation(Random.Range(-Stability* 10 * Mathf.Clamp(ScoreBody.velocity.y / 50 , 0.0f, 2.0f), Stability * 10 * Mathf.Clamp(ScoreBody.velocity.y / 50, 0.0f, 2.0f)));  //　ブルブルフラフラ
+                    //Debug.Log(ScoreBody.velocity.y / 50);
+                    Ccount = 0;
+               }
           }
-          
+
+         
 
 
 
