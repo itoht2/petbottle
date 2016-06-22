@@ -77,11 +77,11 @@ MonoBehaviour:
   - "\u30AB\u30FC\u30DC\u30F3\u88FD\u306E\u306B\u304F\u3044\u5974/n\u3053\u308C\u3067\u4E07\u5168"
   - "\u6700\u9AD8\u7D1A\u306E\u30CE\u30FC\u30BA\u30B3\u30FC\u30F3/n\u30B3\u30EC\u306F\u826F\u3044\u7269\u3060"
   Image:
-  - {fileID: 21300000, guid: 521233ad226e8d2499a53b915a863b6a, type: 3}
-  - {fileID: 21300000, guid: a94737ca57b494e41a928210333224bf, type: 3}
-  - {fileID: 21300000, guid: 1257eab77242ddc43b43d5e4d4eb64d6, type: 3}
-  - {fileID: 21300000, guid: 1257eab77242ddc43b43d5e4d4eb64d6, type: 3}
-  - {fileID: 21300000, guid: 1257eab77242ddc43b43d5e4d4eb64d6, type: 3}
+  - {fileID: 21300000, guid: 178ac62cdaccc36439a9b21a356c7c14, type: 3}
+  - {fileID: 21300002, guid: 178ac62cdaccc36439a9b21a356c7c14, type: 3}
+  - {fileID: 21300004, guid: 178ac62cdaccc36439a9b21a356c7c14, type: 3}
+  - {fileID: 21300006, guid: 178ac62cdaccc36439a9b21a356c7c14, type: 3}
+  - {fileID: 21300008, guid: 178ac62cdaccc36439a9b21a356c7c14, type: 3}
   NumberOfHold: 0100000000000000000000000000000000000000
   NowUsed: 1
   NumberOfParameter: 1
