@@ -289,7 +289,7 @@ public class RocketController : MonoBehaviour {
 
           if (Launched && !TopFlag)
           {
-               RocketBody2D.MoveRotation(Random.Range(-Stability* 5 * Mathf.Clamp(ScoreBody.velocity.y / 50 , 0.0f, 2.0f), Stability * 5 * Mathf.Clamp(ScoreBody.velocity.y / 50, 0.0f, 2.0f)));  //　ブルブルフラフラ
+               RocketBody2D.MoveRotation(Random.Range(-Stability* 10 * Mathf.Clamp(ScoreBody.velocity.y / 50 , 0.0f, 2.0f), Stability * 10 * Mathf.Clamp(ScoreBody.velocity.y / 50, 0.0f, 2.0f)));  //　ブルブルフラフラ
                //Debug.Log(ScoreBody.velocity.y / 50);
           }
           
@@ -303,6 +303,7 @@ public class RocketController : MonoBehaviour {
                     ScoreData.CalcNewScore(score);
                     TopFlag = true;
                     RocketBody2D.constraints = RigidbodyConstraints2D.None ;  // 回転させる
+                    transform.FindChild("SideFin").GetComponent<PolygonCollider2D>().enabled = true;
 
                     //RocketBody2D.centerOfMass = center;
                     StartCoroutine("Rotate");
@@ -342,7 +343,7 @@ public class RocketController : MonoBehaviour {
                return;
           }
 
-          Launched = true;
+          //Launched = true;
 
           if (Stage >= 1)
           {
@@ -426,6 +427,7 @@ public class RocketController : MonoBehaviour {
            startTime = Time.time;
           Launched = true;
           RocketBody2D.constraints = RigidbodyConstraints2D.None;  // 回転させる
+          
 
           specData.Recalculation();
           //Debug.Log(specData.GetMass());
