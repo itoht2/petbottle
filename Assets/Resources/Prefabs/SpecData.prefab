@@ -53,6 +53,7 @@ MonoBehaviour:
   InnerPressureMax: 300
   Speed: 0
   Altitude: 0
+  SpeedMax: 0
   AtmospherPresuure: 101.3
   NozzleFlowRate: 0
   BodyRadius: 0.05
@@ -66,6 +67,7 @@ MonoBehaviour:
   NoseCornCD: 0.2
   NoseCornImage: {fileID: 0}
   FinCD: 0.2
+  Stability: 1
   CDFactor: 1
   DensityOfAir: 0
   PumpMax: 300
