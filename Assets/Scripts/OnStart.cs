@@ -6,10 +6,11 @@ public class OnStart : MonoBehaviour {
 
      public GameObject PointStar;
      public ScoreData scoreData;
-     public GameObject Rocket;
+     public GameObject rocket;
 
      public GameObject StarFolder;
      public GameObject noseCorn;
+     
      public SpecData specData;
      private float HightRenge;
 
@@ -58,7 +59,7 @@ public class OnStart : MonoBehaviour {
                GameObject Star_temp = (GameObject)Instantiate(PointStar, placePosition,q);
                           
                Star_temp.GetComponent<StarController>().scoreData = scoreData.GetComponent<ScoreData>();
-               Star_temp.GetComponent<StarController>().Rocket = Rocket.GetComponent<RocketController>();
+               Star_temp.GetComponent<StarController>().Rocket = rocket.GetComponent<RocketController>();
 
                Star_temp.transform.parent = StarFolder.transform;
                Star_temp.name = "Star" + i;
@@ -72,6 +73,10 @@ public class OnStart : MonoBehaviour {
      {
           NoseCornFolder noseCornFolder = GameObject.Find("NoseCornFolder").GetComponent<NoseCornFolder>();
           noseCorn.GetComponent<SpriteRenderer>().sprite = noseCornFolder.GetImage(noseCornFolder.GetNowUsed());
+
+          NoseCornFolder bodyFolder = GameObject.Find("BodyFolder").GetComponent<NoseCornFolder>();
+          rocket.GetComponent<SpriteRenderer>().sprite = bodyFolder.GetImage(bodyFolder.GetNowUsed());
+
           //Debug.Log(noseCornFolder.GetImage(noseCornFolder.GetNowUsed()));
      }
 

@@ -93,10 +93,23 @@ public class UsingButtonCOntroller : MonoBehaviour {
                               specData.NoseCornCD = parameterValue;
 
                               break;
-                         case "Maxpressure":
-                              specData.InnerPressureMax = parameterValue;
-                              break;
+
                         
+                         case "InnerPressureMax":
+                              specData.InnerPressureMax = parameterValue;
+
+                              break;
+
+                         case "FuelCapacity":
+                              specData.FuelCapacity = parameterValue;
+
+                              break;
+                         case "Cd":
+                              specData.Cd = parameterValue;
+
+                              break;
+
+
 
 
 

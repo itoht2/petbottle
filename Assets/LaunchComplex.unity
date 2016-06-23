@@ -1494,7 +1494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PointStar: {fileID: 141348, guid: d76f48da89f5ba6468bb8aecf6e2478e, type: 2}
   scoreData: {fileID: 0}
-  Rocket: {fileID: 672931023}
+  rocket: {fileID: 672931023}
   StarFolder: {fileID: 558861754}
   noseCorn: {fileID: 1526646603}
   specData: {fileID: 0}

@@ -39,54 +39,95 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7d93dbdef4b3149a764f0f4c733a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfItem: 3
+  NumberOfItem: 7
   ItemName:
   - body0
   - body1
   - body2
+  - body3
+  - body4
+  - body5
+  - body6
   Weight:
   - 0.04
   - 0.03
   - 0.02
+  - 0.01
+  - 0.005
+  - 0.002
+  - 0.001
   Price:
   - 50
   - 500
   - 5000
+  - 10000
+  - 20000
+  - 50000
+  - 100000
   Discription:
-  - "\u5F31\u3044\u30DC\u30C7\u30A3"
-  - "\u3061\u3087\u3063\u3068\u3044\u3044\u30DC\u30C7\u30A3"
-  - "\u3059\u3054\u304F\u3044\u3044\u30DC\u30C7\u30A3"
+  - "\u70AD\u9178\u7528\u30DA\u30C3\u30C8\u30DC\u30C8\u30EB"
+  - "\u5F37\u70AD\u9178\u7528\u30DA\u30C3\u30C8\u30DC\u30C8\u30EB"
+  - "\u5F37\u5316ABS\u30DC\u30C7\u30A3"
+  - "\u30AB\u30FC\u30DC\u30F3\u30DC\u30C7\u30A3"
+  - "\u30C1\u30BF\u30F3\u524A\u308A\u51FA\u3057\u30DC\u30C7\u30A3"
+  - "\u5F37\u5316\u30C1\u30BF\u30F3\u30AB\u30FC\u30DC\u30F3\u30CA\u30CE\u30C1\u30E5\u30FC\u30D6\u30CF\u30A4\u30D6\u30EA\u30C3\u30C9"
+  - "\u8D85\u69CB\u9020\u4F53\u30DC\u30C7\u30A3"
   Specs:
-  - "\u8010\u5727250kPa"
-  - "\u8010\u5727300kPa"
-  - "\u8010\u57271000kPa"
+  - "\u8010\u5727:300kPa /n\u5BB9\u91CF:2L /nCD:0.6"
+  - "\u8010\u5727:400kPa /n\u5BB9\u91CF:2L /nCD:0.6"
+  - "\u8010\u5727:800kPa /n\u5BB9\u91CF:3L /nCD:0.6"
+  - "\u8010\u5727:1000kPa /n\u5BB9\u91CF:5L /nCD:0.5"
+  - "\u8010\u5727:1500kPa /n\u5BB9\u91CF:10L /nCD:0.4"
+  - "\u8010\u5727:2000kPa /n\u5BB9\u91CF:20L /nCD:0.3"
+  - "\u8010\u5727:5000kPa /n\u5BB9\u91CF:50L /nCD:0.2"
   DiscriptionLong:
-  - 
-  - 
-  - 
+  - "\u3044\u308F\u3086\u308B\u666E\u901A\u306E\u30DA\u30C3\u30C8\u30DC\u30C8\u30EB/n\u307E\u305A\u306F\u3053\u308C\u304B\u3089"
+  - "\u5F37\u70AD\u9178\u7528\u30DA\u30C3\u30C8\u30DC\u30C8\u30EB\u306A\u306E\u3067\u3001\u8010\u5727\u304C\u9AD8\u3044\u3002/n\u30DD\u30F3\u30D7\u3082\u3044\u3044\u3082\u306E\u306B\u5909\u3048\u3088\u3046"
+  - "\u3055\u3089\u306B\u9AD8\u5727\u306B\u8010\u3048\u308B\u30DC\u30C7\u30A3/n\u5BB9\u91CF\u3082\u4E0A\u304C\u3063\u3066\u308B"
+  - "\u8010\u5727\u304C\u9AD8\u3044\u30AB\u30FC\u30DC\u30F3\u306E\u5C02\u7528\u30DC\u30C7\u30A3/n\u5BB9\u91CF\u3082\u5897\u3048\u3066\u308B\u3057\u7A7A\u6C17\u62B5\u6297\u3082\u82E5\u5E72\u4E0B\u304C\u308B"
+  - "\u30C1\u30BF\u30F3\u4E00\u4F53\u7269\u306E\u5C02\u7528\u30DC\u30C7\u30A3/n\u8EFD\u304F\u3066\u4E08\u592B/n\u306A\u305C\u304B\u71C3\u6599\u304C\u6CA2\u5C71\u5165\u308B"
+  - "\u5F37\u5316\u30C1\u30BF\u30F3\u30AB\u30FC\u30DC\u30F3\u30CA\u30CE\u30C1\u30E5\u30FC\u30D6\u30CF\u30A4\u30D6\u30EA\u30C3\u30C9\u88FD/n\u3055\u3089\u306B\u8EFD\u304F\u3066\u4E08\u592B\u3067\u7A7A\u6C17\u62B5\u6297\u3082\u5C11\u306A\u3044/n\u306A\u305C\u304B\u71C3\u6599\u304C\u3082\u3063\u3068\u6CA2\u5C71\u5165\u308B"
+  - "\u65B0\u7D20\u6750\u8D85\u69CB\u9020\u4F53\u304C\u7DF4\u308A\u3053\u307E\u308C\u3066\u3044\u308B
+    /n\u8EFD\u304F\u3066\u8010\u5727\u304C\u9AD8\u304F\u8D85\u5727\u7E2E\u6280\u8853\u306750L\u3082\u306E\u71C3\u6599\u304C\u642D\u8F09\u3067\u304D\u308B"
   Image:
-  - {fileID: 21300000, guid: 78dcb7dee55321349813a57923960deb, type: 3}
-  - {fileID: 21300006, guid: 018c8a73a74b23a419dc625a599fd796, type: 3}
-  - {fileID: 21300000, guid: 52f0f0befd0f8be4eab80fb3cfd7e59c, type: 3}
-  NumberOfHold: 010000000200000000000000
+  - {fileID: 21300000, guid: a49c688b53f162c4db64e78607bc8a33, type: 3}
+  - {fileID: 21300002, guid: a49c688b53f162c4db64e78607bc8a33, type: 3}
+  - {fileID: 21300004, guid: a49c688b53f162c4db64e78607bc8a33, type: 3}
+  - {fileID: 21300006, guid: a49c688b53f162c4db64e78607bc8a33, type: 3}
+  - {fileID: 21300008, guid: a49c688b53f162c4db64e78607bc8a33, type: 3}
+  - {fileID: 21300010, guid: a49c688b53f162c4db64e78607bc8a33, type: 3}
+  - {fileID: 21300012, guid: a49c688b53f162c4db64e78607bc8a33, type: 3}
+  NumberOfHold: 01000000000000000000000000000000000000000000000000000000
   NowUsed: 1
   NumberOfParameter: 3
   ParameterName:
-  - Maxpressure
+  - InnerPressureMax
   - FuelCapacity
   - Cd
   ParameterValue1:
-  - 250
   - 300
+  - 400
+  - 800
   - 1000
+  - 1500
+  - 2000
+  - 5000
   ParameterValue2:
   - 0.0002
   - 0.0002
   - 0.0003
+  - 0.0005
+  - 0.001
+  - 0.002
+  - 0.005
   ParameterValue3:
   - 0.6
   - 0.6
   - 0.6
+  - 0.5
+  - 0.4
+  - 0.3
+  - 0.2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

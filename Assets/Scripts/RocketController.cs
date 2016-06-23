@@ -312,7 +312,7 @@ public class RocketController : MonoBehaviour {
                     ScoreData.CalcNewScore(score);
                     TopFlag = true;
                     RocketBody2D.constraints = RigidbodyConstraints2D.None ;  // 回転させる
-                    transform.FindChild("SideFin").GetComponent<PolygonCollider2D>().enabled = true;
+                    
 
                     //RocketBody2D.centerOfMass = center;
                     StartCoroutine("Rotate");
@@ -329,7 +329,7 @@ public class RocketController : MonoBehaviour {
                {
                    //Debug.Log("Stop");
                     StartCoroutine("GoScore");
-                   
+                    transform.FindChild("SideFin").GetComponent<PolygonCollider2D>().enabled = true;
                     Landed = true;
 
                }  
