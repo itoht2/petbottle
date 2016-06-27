@@ -50,7 +50,7 @@ public class OnStart : MonoBehaviour {
      private IEnumerator ScatterStar (float HightLevel) // 星をばらまく
      {
           
-          yield return new WaitForSeconds(1.0f);
+          yield return new WaitForSeconds(0.1f);
           for (int i = 0; i < 10; i++)
           {               
                Vector3 placePosition = new Vector3(Random.Range(-HightLevel *2 , HightLevel *2), Random.Range(HightLevel * 0.75f  , HightLevel * 2.5f), 0);
@@ -83,8 +83,5 @@ public class OnStart : MonoBehaviour {
           //Debug.Log(noseCornFolder.GetImage(noseCornFolder.GetNowUsed()));
      }
 
-     public void OnApplicationQuit()
-     {
-          PlayerPrefs.Flush();
-     }
+     
 }

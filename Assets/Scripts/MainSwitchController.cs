@@ -36,6 +36,11 @@ public class MainSwitchController : MonoBehaviour {
           } else
           {
                buttonImage.sprite = OffImage;
+               for (int i = 0; i < Ing.Length; i++)
+               {
+                    Ing[i].SetActive(false);
+               }
+
           }
           MainSwitch = !MainSwitch;
      }
@@ -53,7 +58,7 @@ public class MainSwitchController : MonoBehaviour {
                Ing[i].SetActive(true);
           }
 
-          yield return new WaitForSeconds(1.5f);
+          yield return new WaitForSeconds(1.0f);
 
           for (int i = 0; i < Ing.Length; i++)
           {

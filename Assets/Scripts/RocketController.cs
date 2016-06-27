@@ -41,6 +41,8 @@ public class RocketController : MonoBehaviour {
      private float dx;
      private float dy;
      private int Ccount;
+
+     private MainSwitchController mainSwitchController;
    
 
      public float[] SRBAxPosition;
@@ -66,7 +68,6 @@ public class RocketController : MonoBehaviour {
      private bool BackPanelClosed;
      public GameObject BackPanel;
 
-     //private bool CheckButtonOpend;
      public GameObject CheckButton;
 
      public bool TopFlag;
@@ -209,8 +210,11 @@ public class RocketController : MonoBehaviour {
           //Debug.Log(specData.GetPayLoadName().Length);
           //Debug.Log(IsCanSat);
 
+          mainSwitchController = GameObject.Find("MainSwitch").GetComponent<MainSwitchController>();
 
-          WaterJet.SetActive(false);
+
+
+     WaterJet.SetActive(false);
           TopFlag = false;
           BackPanelClosed = false;
           //CheckButtonOpend = false;
@@ -603,6 +607,11 @@ public class RocketController : MonoBehaviour {
      public void PayLoadEject()
      {
           if (Broken)
+          {
+               return;
+          }
+
+          if (mainSwitchController.GetMainSwitch() == false)
           {
                return;
           }
