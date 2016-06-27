@@ -30,12 +30,12 @@ public class SpecNodeMaker : MonoBehaviour {
           
 
 
-          ItemMaker("機体重量", specData.GetRocketWeight() , 2, "kg");              // kg　ロケットの質量
-          ItemMaker("燃料重量", specData.GetMass(), 2, "kg");                            // kg　水の質量
+          ItemMaker("機体重量", specData.GetRocketWeight() , 3, "kg");              // kg　ロケットの質量
+          ItemMaker("燃料重量", specData.GetMass(), 3, "kg");                            // kg　水の質量
           ItemMaker("ノズル径", specData.GetNozzleRadius() * 1000, 1, "mm");        // m　ノズル直径
           ItemMaker("ロケット段数", specData.GetMultistage(), 0, "段");                      //　ロケットの段数
           ItemMaker("ボディの耐圧", specData.GetInnerPressureMax(), 0, "kPa");        // kPa　ボディの耐圧
-          ItemMaker("噴射速度", specData.GetNozzleFlowRate(), 1, "m/s");             // m/s 　ノズル通過時の流速
+          ItemMaker("噴射速度", specData.GetNozzleFlowRate(), 3, "m/s");             // m/s 　ノズル通過時の流速
           ItemMaker("本体推力", specData.GetThrustForce(), 1, "N");                      //  N　上昇力
           ItemMaker("噴射時間", specData.GetBurningTime(), 2, "Sec");               // Sec　燃焼時間
           ItemMaker("CD値", specData.GetCd(), 2, "");                                      // CD

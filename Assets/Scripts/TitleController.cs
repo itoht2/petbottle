@@ -5,6 +5,7 @@ using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 
 public class TitleController : MonoBehaviour {
+     private SpecData specData;
 
 	// Use this for initialization
 	void Start () {
@@ -51,7 +52,10 @@ public class TitleController : MonoBehaviour {
 
      IEnumerator GoNextScine(string NextScine)
      {
-          PlayerPrefs.Flush();
+          specData = GameObject.Find("SpecData").GetComponent<SpecData>();
+          specData.SaveData();
+
+        
           yield return new WaitForSeconds(0.5f);
           
           SceneManager.LoadScene(NextScine);

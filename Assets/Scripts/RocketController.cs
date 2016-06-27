@@ -435,8 +435,9 @@ public class RocketController : MonoBehaviour {
                
            startTime = Time.time;
           Launched = true;
-          RocketBody2D.constraints = RigidbodyConstraints2D.None;  // 回転させる
-          
+          if(specData.GetStability() != 0) {  
+               RocketBody2D.constraints = RigidbodyConstraints2D.None;  // 回転させる
+          }
 
           specData.Recalculation();
           //Debug.Log(specData.GetMass());
