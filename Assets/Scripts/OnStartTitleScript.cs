@@ -11,6 +11,8 @@ public class OnStartTitleScript : MonoBehaviour {
           GameObject IsScoreData = GameObject.Find("ScoreData");
           GameObject IsBodyFolder = GameObject.Find("BodyFolder");
           GameObject IsNoseCornFolder = GameObject.Find("NoseCornFolder");
+          GameObject IsFinFolder = GameObject.Find("FinFolder");
+
 
           if (IsSpecData == null)
           {
@@ -45,6 +47,15 @@ public class OnStartTitleScript : MonoBehaviour {
                GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/NoseCornFolder");
                IsNoseCornFolder = Instantiate(SpecDataprefab);
                IsNoseCornFolder.name = "NoseCornFolder";
+               DontDestroyOnLoad(IsNoseCornFolder);
+          }
+
+          if (IsFinFolder == null)
+          {
+               //Debug.Log(IsSpecData.name);
+               GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/FinFolder");
+               IsNoseCornFolder = Instantiate(SpecDataprefab);
+               IsNoseCornFolder.name = "FinFolder";
                DontDestroyOnLoad(IsNoseCornFolder);
           }
 

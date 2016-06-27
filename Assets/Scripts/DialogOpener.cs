@@ -28,7 +28,8 @@ public class DialogOpener : MonoBehaviour {
 
           _menuAnim = detailDialog.GetComponent<Animator>();
 
-          int.TryParse(this.name.Substring(4, 1), out SelectedNumber);
+          //int.TryParse(this.name.Substring(4, 1), out SelectedNumber);
+          int.TryParse(this.name.Substring(this.name.Length - 1, 1), out SelectedNumber);
      }
 
 	

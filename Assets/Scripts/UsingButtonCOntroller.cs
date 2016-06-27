@@ -87,7 +87,7 @@ public class UsingButtonCOntroller : MonoBehaviour {
                               break;                         
                     }
 
-                    switch (parameterName)
+                    switch (parameterName) // ここに変えるパラメータを並べる
                     {
                          case "NoseCornCD":
                               specData.NoseCornCD = parameterValue;
@@ -108,6 +108,15 @@ public class UsingButtonCOntroller : MonoBehaviour {
                               specData.Cd = parameterValue;
 
                               break;
+                         case "FinCD":
+                              specData.FinCD = parameterValue;
+
+                              break;
+                         case "Stability":
+                              specData.Stability = parameterValue;
+
+                              break;
+
 
 
 

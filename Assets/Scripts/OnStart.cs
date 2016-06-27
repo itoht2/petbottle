@@ -77,6 +77,9 @@ public class OnStart : MonoBehaviour {
           NoseCornFolder bodyFolder = GameObject.Find("BodyFolder").GetComponent<NoseCornFolder>();
           rocket.GetComponent<SpriteRenderer>().sprite = bodyFolder.GetImage(bodyFolder.GetNowUsed());
 
+          NoseCornFolder finFolder = GameObject.Find("FinFolder").GetComponent<NoseCornFolder>();
+          rocket.transform.FindChild("fin").GetComponent<SpriteRenderer>().sprite = finFolder.GetImage(finFolder.GetNowUsed());
+
           //Debug.Log(noseCornFolder.GetImage(noseCornFolder.GetNowUsed()));
      }
 
