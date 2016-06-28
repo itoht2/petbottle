@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 public class DialogOpener : MonoBehaviour {
      public Animator _menuAnim;
@@ -23,13 +24,17 @@ public class DialogOpener : MonoBehaviour {
           if (Content.name !="Canvas")
           { 
                _noseCornFolder = Content.GetComponent<ContentsMaker>().GetNoseCornFolder();
-          }
+          
           
 
           _menuAnim = detailDialog.GetComponent<Animator>();
 
           //int.TryParse(this.name.Substring(4, 1), out SelectedNumber);
-          int.TryParse(this.name.Substring(this.name.Length - 1, 1), out SelectedNumber);
+          //int.TryParse(this.name.Substring(this.name.Length - 1, 1), out SelectedNumber);
+
+          SelectedNumber = int.Parse(Regex.Replace(this.name, @"[^\d]", ""));
+          //Debug.Log(SelectedNumber);
+          }
      }
 
 	

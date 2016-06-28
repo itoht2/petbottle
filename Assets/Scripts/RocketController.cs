@@ -739,11 +739,11 @@ public class RocketController : MonoBehaviour {
                {
                     AtmospherPresuure = 0.0f;
                }
-               Debug.Log(AtmospherPresuure);
+               //Debug.Log(AtmospherPresuure);
 
                DensityOfAir = AtmospherPresuure * 10 / (specData.GetGasConstant() * (TempAltitude + 273.15f));
 
-               AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * ScoreBody.velocity.y * ScoreBody.velocity.y /2;
+               AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * ScoreBody.velocity.y * ScoreBody.velocity.y ;
                //ScoreBody.AddForce(-AirResistancce * ScoreBody.velocity / 500);
                ScoreBody.AddForce(-AirResistancce * new Vector2(0.0f, 1.0f)/100 );
 
