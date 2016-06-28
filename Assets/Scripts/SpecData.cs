@@ -339,6 +339,21 @@ public class SpecData : MonoBehaviour {
           return NozzleFlowRate;
      }
 
+     public float GetTemperature()
+     {
+          return Temperature;
+     }
+
+     public float GetGasConstant()
+     {
+          return GasConstant;
+     }
+
+     public float GetAtmospherPresuure()
+     {
+          return AtmospherPresuure;
+     }
+
      public void OnApplicationQuit()
      {
           PlayerPrefs.Flush();

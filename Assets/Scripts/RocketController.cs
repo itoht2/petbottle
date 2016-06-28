@@ -450,20 +450,20 @@ public class RocketController : MonoBehaviour {
           float totlThrustFource = specData.GetThrustForce() * specData.GetBurningTime() + specData.GetSRBANumber() * specData.GetSRBAThrustForce() * specData.GetSRBABurningTime() ;
           //Debug.Log(totlThrustFource); 
 
-          if (totlThrustFource <= 200f)
-          {
-               tRank = 0;
-          } else if (totlThrustFource <= 400f)
-          {
-               tRank = 1;         
-          } else if (totlThrustFource <= 900f)
-          {
-               tRank = 2;
-          } else {
-               tRank = 3;
-          }
+          //if (totlThrustFource <= 200f)
+          //{
+          //     tRank = 0;
+          //} else if (totlThrustFource <= 400f)
+          //{
+          //     tRank = 1;         
+          //} else if (totlThrustFource <= 900f)
+          //{
+          //     tRank = 2;
+          //} else {
+          //     tRank = 3;
+          //}
 
-          Time.timeScale = tRank +1;
+          //Time.timeScale = tRank +1;
 
           timeTemp = 0.0f;
           thrustForce = specData.GetThrustForce();
@@ -705,13 +705,57 @@ public class RocketController : MonoBehaviour {
      {
           while (ScoreBody != null)
           {
+               float TempAltitude = specData.GetTemperature();
+
+               if (ScoreBody.transform.position.y <= 11000.0f)
+               {
+                    TempAltitude = specData.GetTemperature() - 6.5f * ScoreBody.transform.position.y / 1000;
+
+               } else if (ScoreBody.transform.position.y <= 20000)
+               {
+                    TempAltitude = specData.GetTemperature() - 6.5f * 11.0f;
+               } else if (ScoreBody.transform.position.y <= 50000)
+               {
+                    TempAltitude = specData.GetTemperature() - 6.5f * 11.0f + ScoreBody.transform.position.y / 1000;
+               }
+               else if (ScoreBody.transform.position.y <= 90000)
+               {
+                    TempAltitude = specData.GetTemperature() - 1.875f * ScoreBody.transform.position.y / 1000 + 68.75f;
+               } else
+               {
+                    TempAltitude = specData.GetTemperature() + 3.0f * ScoreBody.transform.position.y /1000 - 380.0f;
+               }
+
+               //Debug.Log(TempAltitude);
+
+               float AtmospherPresuure = 1013.0f * Mathf.Pow(1.0f - 0.0065f * ScoreBody.transform.position.y  / (TempAltitude + 273.2f) , 5.258f);
+
+               if (float.IsNaN(AtmospherPresuure))
+               {
+                    AtmospherPresuure = 0.0f;
+               }
+
+               if(AtmospherPresuure <= 0.001f )
+               {
+                    AtmospherPresuure = 0.0f;
+               }
+               Debug.Log(AtmospherPresuure);
+
+               DensityOfAir = AtmospherPresuure * 10 / (specData.GetGasConstant() * (TempAltitude + 273.15f));
+
                AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * ScoreBody.velocity.y * ScoreBody.velocity.y /2;
                //ScoreBody.AddForce(-AirResistancce * ScoreBody.velocity / 500);
                ScoreBody.AddForce(-AirResistancce * new Vector2(0.0f, 1.0f)/100 );
 
+               float TrueGravity = 9.80665f * Mathf.Pow((6356.766f / (6356.766f + ScoreBody.transform.position.y / 1000.0f)),2);
+               //Debug.Log(TrueGravity);
+
+               ScoreBody.gravityScale = TrueGravity / 9.80665f;
+
                //Debug.Log(ScoreBody.name);
-               yield return new WaitForSeconds(0.2f);
-              
+               //yield return new WaitForSeconds(0.2f);
+               yield return null;
+
           }
      }
 
