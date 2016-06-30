@@ -449,6 +449,9 @@ public class RocketController : MonoBehaviour {
           RocketBody2D.mass = specData.GetMass();
 
           float totlThrustFource = specData.GetThrustForce() * specData.GetBurningTime() + specData.GetSRBANumber() * specData.GetSRBAThrustForce() * specData.GetSRBABurningTime() ;
+
+          //Debug.Log("orce()"+ specData.GetBurningTime());
+
           //Debug.Log(totlThrustFource); 
 
           //if (totlThrustFource <= 200f)
@@ -730,16 +733,16 @@ public class RocketController : MonoBehaviour {
                //Debug.Log(TempAltitude);
                specData.Temperature = TempAltitude;
 
-               float AtmospherPresuure = 1013.0f * Mathf.Pow(1.0f - 0.0065f * ScoreBody.transform.position.y  / (TempAltitude + 273.2f) , 5.258f);
+               float AtmospherPresuure = (1013.0f * Mathf.Pow(1.0f - (0.0065f * ScoreBody.transform.position.y / (TempAltitude + 273.15f)) , 5.257f)) /10;
 
                if (float.IsNaN(AtmospherPresuure))
                {
-                    AtmospherPresuure = 0.0f;
+                    AtmospherPresuure = 0.01f;
                }
 
-               if(AtmospherPresuure <= 0.001f )
+               if(AtmospherPresuure <= 0.01f )
                {
-                    AtmospherPresuure = 0.0f;
+                    AtmospherPresuure = 0.01f;
                }
                //Debug.Log(AtmospherPresuure);
                specData.AtmospherPresuure = AtmospherPresuure;
@@ -748,9 +751,11 @@ public class RocketController : MonoBehaviour {
 
                specData.DensityOfAir = DensityOfAir;
 
-               AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * ScoreBody.velocity.y * ScoreBody.velocity.y ;
+               AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * ScoreBody.velocity.y * ScoreBody.velocity.y /2.0f ;
                //ScoreBody.AddForce(-AirResistancce * ScoreBody.velocity / 500);
-               ScoreBody.AddForce(-AirResistancce * new Vector2(0.0f, 1.0f)/100 );
+               //Debug.Log(AirResistancce);
+
+               ScoreBody.AddForce(-AirResistancce * new Vector2(0.0f, 1.0f) / 50 );
 
                float TrueGravity = 9.80665f * Mathf.Pow((6356.766f / (6356.766f + ScoreBody.transform.position.y / 1000.0f)),2);
                //Debug.Log(TrueGravity);
