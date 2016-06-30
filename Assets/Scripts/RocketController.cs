@@ -43,6 +43,7 @@ public class RocketController : MonoBehaviour {
      private int Ccount;
 
      private MainSwitchController mainSwitchController;
+     private float TemperatureOfGraund = 20.0f;
    
 
      public float[] SRBAxPosition;
@@ -705,28 +706,29 @@ public class RocketController : MonoBehaviour {
      {
           while (ScoreBody != null)
           {
-               float TempAltitude = specData.GetTemperature();
+               float TempAltitude = TemperatureOfGraund;
 
                if (ScoreBody.transform.position.y <= 11000.0f)
                {
-                    TempAltitude = specData.GetTemperature() - 6.5f * ScoreBody.transform.position.y / 1000;
+                    TempAltitude = TemperatureOfGraund - 6.5f * ScoreBody.transform.position.y / 1000;
 
                } else if (ScoreBody.transform.position.y <= 20000)
                {
-                    TempAltitude = specData.GetTemperature() - 6.5f * 11.0f;
+                    TempAltitude = TemperatureOfGraund - 6.5f * 11.0f;
                } else if (ScoreBody.transform.position.y <= 50000)
                {
-                    TempAltitude = specData.GetTemperature() - 6.5f * 11.0f + ScoreBody.transform.position.y / 1000;
+                    TempAltitude = TemperatureOfGraund - 6.5f * 11.0f + ScoreBody.transform.position.y / 1000;
                }
                else if (ScoreBody.transform.position.y <= 90000)
                {
-                    TempAltitude = specData.GetTemperature() - 1.875f * ScoreBody.transform.position.y / 1000 + 68.75f;
+                    TempAltitude = TemperatureOfGraund - 1.875f * ScoreBody.transform.position.y / 1000 + 68.75f;
                } else
                {
-                    TempAltitude = specData.GetTemperature() + 3.0f * ScoreBody.transform.position.y /1000 - 380.0f;
+                    TempAltitude = TemperatureOfGraund + 3.0f * ScoreBody.transform.position.y /1000 - 380.0f;
                }
 
                //Debug.Log(TempAltitude);
+               specData.Temperature = TempAltitude;
 
                float AtmospherPresuure = 1013.0f * Mathf.Pow(1.0f - 0.0065f * ScoreBody.transform.position.y  / (TempAltitude + 273.2f) , 5.258f);
 
@@ -740,8 +742,11 @@ public class RocketController : MonoBehaviour {
                     AtmospherPresuure = 0.0f;
                }
                //Debug.Log(AtmospherPresuure);
+               specData.AtmospherPresuure = AtmospherPresuure;
 
                DensityOfAir = AtmospherPresuure * 10 / (specData.GetGasConstant() * (TempAltitude + 273.15f));
+
+               specData.DensityOfAir = DensityOfAir;
 
                AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * ScoreBody.velocity.y * ScoreBody.velocity.y ;
                //ScoreBody.AddForce(-AirResistancce * ScoreBody.velocity / 500);
