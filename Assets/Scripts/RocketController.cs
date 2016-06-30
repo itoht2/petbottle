@@ -448,7 +448,7 @@ public class RocketController : MonoBehaviour {
           //Debug.Log(specData.GetMass());
           RocketBody2D.mass = specData.GetMass();
 
-          float totlThrustFource = specData.GetThrustForce() * specData.GetBurningTime() + specData.GetSRBANumber() * specData.GetSRBAThrustForce() * specData.GetSRBABurningTime() ;
+          //float totlThrustFource = specData.GetThrustForce() * specData.GetBurningTime() + specData.GetSRBANumber() * specData.GetSRBAThrustForce() * specData.GetSRBABurningTime() ;
 
           //Debug.Log("orce()"+ specData.GetBurningTime());
 
@@ -751,18 +751,18 @@ public class RocketController : MonoBehaviour {
 
                specData.DensityOfAir = DensityOfAir;
 
-               AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * ScoreBody.velocity.y * ScoreBody.velocity.y /2.0f ;
+               AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * Mathf.Pow(Mathf.Abs(ScoreBody.velocity.y) , 2.2f) / 2.0f ;
                //ScoreBody.AddForce(-AirResistancce * ScoreBody.velocity / 500);
                //Debug.Log(AirResistancce);
 
-               ScoreBody.AddForce(-AirResistancce * new Vector2(0.0f, 1.0f) / 50 );
+               ScoreBody.AddForce(-AirResistancce * new Vector2(0.0f, 1.0f) / 100.0f );
 
                float TrueGravity = 9.80665f * Mathf.Pow((6356.766f / (6356.766f + ScoreBody.transform.position.y / 1000.0f)),2);
                //Debug.Log(TrueGravity);
 
                ScoreBody.gravityScale = TrueGravity / 9.80665f;
 
-               //Debug.Log(ScoreBody.name);
+               //Debug.Log(TrueGravity);
                //yield return new WaitForSeconds(0.2f);
                yield return null;
 
