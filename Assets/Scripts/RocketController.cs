@@ -733,7 +733,7 @@ public class RocketController : MonoBehaviour {
                //Debug.Log(TempAltitude);
                specData.Temperature = TempAltitude;
 
-               float AtmospherPresuure = (1013.0f * Mathf.Pow(1.0f - (0.0065f * ScoreBody.transform.position.y / (TempAltitude + 273.15f)) , 5.257f)) /10;
+               float AtmospherPresuure = (1013.0f * Mathf.Pow(1.0f - (0.0065f * ScoreBody.transform.position.y / (TempAltitude + 273.15f)) , 5.258f)) /10;
 
                if (float.IsNaN(AtmospherPresuure))
                {
@@ -744,7 +744,7 @@ public class RocketController : MonoBehaviour {
                {
                     AtmospherPresuure = 0.01f;
                }
-               //Debug.Log(AtmospherPresuure);
+               //Debug.Log("Press:" + AtmospherPresuure + "Hight:" + ScoreBody.transform.position.y + "Temp:"+ TempAltitude);
                specData.AtmospherPresuure = AtmospherPresuure;
 
                DensityOfAir = AtmospherPresuure * 10 / (specData.GetGasConstant() * (TempAltitude + 273.15f));
@@ -753,8 +753,12 @@ public class RocketController : MonoBehaviour {
 
                AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * Mathf.Pow(Mathf.Abs(ScoreBody.velocity.y) , 2.2f) / 2.0f ;
                //ScoreBody.AddForce(-AirResistancce * ScoreBody.velocity / 500);
+              
+               if (AirResistancce <= 10000 && ScoreBody.transform.position.y > 1000.0f) // 空気抵抗をなくさい
+               {
+                    AirResistancce = 10000.0f;
+               }
                //Debug.Log(AirResistancce);
-
                ScoreBody.AddForce(-AirResistancce * new Vector2(0.0f, 1.0f) / 100.0f );
 
                float TrueGravity = 9.80665f * Mathf.Pow((6356.766f / (6356.766f + ScoreBody.transform.position.y / 1000.0f)),2);
