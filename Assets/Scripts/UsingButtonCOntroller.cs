@@ -116,6 +116,18 @@ public class UsingButtonCOntroller : MonoBehaviour {
                               specData.Stability = parameterValue;
 
                               break;
+                         case "SRBANumber":
+                              specData.SRBANumber = (int)parameterValue;
+
+                              break;
+                         case "SRBAThrustForce":
+                              specData.SRBAThrustForce = parameterValue;
+
+                              break;
+                         case "SRBABurningTime":
+                              specData.SRBABurningTime = parameterValue;
+
+                              break;
 
 
 
