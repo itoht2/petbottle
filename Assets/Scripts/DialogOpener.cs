@@ -79,7 +79,7 @@ public class DialogOpener : MonoBehaviour {
                int nowUsed = _noseCornFolder.GetNowUsed();
                Text NowUsingText = detailDialog.transform.FindChild("NowUsingText").GetComponent<Text>();
 
-               Debug.Log(_noseCornFolder.name.Substring(0, 4));
+               //Debug.Log(_noseCornFolder.name.Substring(0, 4));
                if (_noseCornFolder.name.Substring(0,4) == "SRBA")
                {
                     SRBANumber.SetActive(true);
