@@ -53,7 +53,7 @@ public class OnStart : MonoBehaviour {
           yield return new WaitForSeconds(0.1f);
           for (int i = 0; i < 10; i++)
           {               
-               Vector3 placePosition = new Vector3(Random.Range(-HightLevel *2 , HightLevel *2), Random.Range(HightLevel * 0.75f  , HightLevel * 2.5f), 0);
+               Vector3 placePosition = new Vector3(Random.Range(-50 , +50), Random.Range(HightLevel * 0.75f  , HightLevel * 2.5f), 0);
                Quaternion q = new Quaternion();
                q = Quaternion.identity;
                GameObject Star_temp = (GameObject)Instantiate(PointStar, placePosition,q);

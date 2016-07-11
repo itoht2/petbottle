@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 522a057809396da4a8bd8e71c8b07f6f
-timeCreated: 1459154490
+timeCreated: 1468216017
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -56,32 +56,32 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 46
-        width: 346
-        height: 346
+        y: 42
+        width: 348
+        height: 351
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -173, y: 173}
-        - {x: -173, y: -173}
-        - {x: 173, y: -173}
-        - {x: 173, y: 173}
+      - - {x: -59, y: 59.640705}
+        - {x: -59, y: -59.359295}
+        - {x: 59, y: -59.359295}
+        - {x: 59, y: 59.640705}
     - name: LaunchButton_1
       rect:
         serializedVersion: 2
-        x: 369
-        y: 46
-        width: 346
-        height: 346
+        x: 371
+        y: 42
+        width: 348
+        height: 351
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -173, y: 173}
-        - {x: -173, y: -173}
-        - {x: 173, y: -173}
-        - {x: 173, y: 173}
+      - - {x: -58.590454, y: 59.640705}
+        - {x: -58.590454, y: -59.359295}
+        - {x: 60.409546, y: -59.359295}
+        - {x: 60.409546, y: 59.640705}
     outline: []
   spritePackingTag: 
   userData: 

@@ -431,7 +431,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300002, guid: 522a057809396da4a8bd8e71c8b07f6f, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1928,6 +1928,8 @@ MonoBehaviour:
   AirResistancce: 0
   tScale: []
   tRank: 0
+  mLabel: {fileID: 961279250}
+  kmLabel: {fileID: 1250462746}
 --- !u!82 &672931031
 AudioSource:
   m_ObjectHideFlags: 0

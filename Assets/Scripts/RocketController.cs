@@ -117,6 +117,9 @@ public class RocketController : MonoBehaviour {
      public float[] tScale;
      public int tRank;
 
+     public GameObject mLabel;
+     public GameObject kmLabel; 
+
      void Awake ()
      {
           
@@ -163,6 +166,8 @@ public class RocketController : MonoBehaviour {
 
           PumpMax = specData.GetInnerPressureMax();
           PumpMaxText.text = PumpMax.ToString("N0");
+
+         
 
           if (SideThrustTime != 0.0f)
           {
@@ -292,8 +297,32 @@ public class RocketController : MonoBehaviour {
           float NowAltitude = ScoreBody.transform.position.y * tScale[tRank];
           score = Mathf.Max(score, NowAltitude);
           SpeedMax = Mathf.Max(SpeedMax, ScoreBody.velocity.y);
-         
-          scoreLabel.text = NowAltitude.ToString("N2") ;
+
+          if (NowAltitude <= 2000.0f)
+          {    //ｍ単位
+              
+               if (mLabel.activeSelf == false && mainSwitchController.GetMainSwitch() == true)
+               {
+                    mLabel.SetActive(true);
+                    kmLabel.SetActive(false);
+               }
+
+               scoreLabel.text = NowAltitude.ToString("N2") ;
+          } else
+          {    //ｋｍ単位
+               float altitudeTemp = NowAltitude / 1000;
+               scoreLabel.text = altitudeTemp.ToString("N2");
+               if (kmLabel.activeSelf == false && mainSwitchController.GetMainSwitch() == true)
+               {
+                    kmLabel.SetActive(true);
+                    mLabel.SetActive(false);
+               }
+          }
+
+          
+
+
+
           SpeedMeter.text = ScoreBody.velocity.y.ToString("N1") ;
 
           specData.Speed = ScoreBody.velocity.y;
