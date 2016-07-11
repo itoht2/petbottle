@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 public class BuyItemControll : MonoBehaviour {
      public SpecData specData;
@@ -14,12 +16,15 @@ public class BuyItemControll : MonoBehaviour {
      public float [] ParameterValue = new float [3];
      public float ParameterValue2;
      public float ParameterValue3;
-
+     private GameObject SRBANumber;
+    
      // Use this for initialization
      void Start () {
 
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
           scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
+          SRBANumber = GameObject.Find("SRBAText_b");
+          
 
      }
 	
@@ -38,6 +43,18 @@ public class BuyItemControll : MonoBehaviour {
           ItemPrice = _noseCornFolder.GetPrice(MyIDNumber);
           ItemWeight = _noseCornFolder.GetWeight(MyIDNumber);
           TotalPoint = scoreData.GetTotalScore();
+
+          if (_noseCornFolder.name.Substring(0, 4) == "SRBA")
+          {
+               SRBANumber.SetActive(true);
+               Text SRBAText = SRBANumber.GetComponent<Text>();
+               SRBAText.text = _noseCornFolder.GetParameterValue1(MyIDNumber) + "本";
+
+          }
+          else
+          {
+               SRBANumber.SetActive(false);
+          }
 
           for (int j= 0; j < 2; j++)
           {
