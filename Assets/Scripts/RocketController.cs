@@ -44,7 +44,8 @@ public class RocketController : MonoBehaviour {
 
      private MainSwitchController mainSwitchController;
      private float TemperatureOfGraund = 20.0f;
-   
+
+     private NoseCornFolder sRBAFolder;   
 
      public float[] SRBAxPosition;
      public float thrustForce;
@@ -213,9 +214,11 @@ public class RocketController : MonoBehaviour {
 
           mainSwitchController = GameObject.Find("MainSwitch").GetComponent<MainSwitchController>();
 
+          sRBAFolder = GameObject.Find("SRBAFolder").GetComponent<NoseCornFolder>();
 
 
-     WaterJet.SetActive(false);
+
+          WaterJet.SetActive(false);
           TopFlag = false;
           BackPanelClosed = false;
           //CheckButtonOpend = false;
@@ -261,6 +264,10 @@ public class RocketController : MonoBehaviour {
                // 作成したオブジェクトを子として登録
                SRBAJetObject.transform.parent = RocketHontai.transform;
                SRBABodyObject.transform.parent = RocketHontai.transform;
+
+               SpriteRenderer SRBASprite = SRBABodyObject.GetComponent<SpriteRenderer>();
+
+               SRBASprite.sprite = sRBAFolder.GetImage(sRBAFolder.GetNowUsed());
           }
 
           SRBAJet = GameObject.FindGameObjectsWithTag("SRBA");
