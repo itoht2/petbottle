@@ -95,7 +95,7 @@ MonoBehaviour:
   ParameterName:
   - PumpMax
   - PumpCapacity
-  - PumpCapacity
+  - PumpID
   ParameterValue1:
   - 200
   - 300
@@ -112,11 +112,11 @@ MonoBehaviour:
   - 100
   ParameterValue3:
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
