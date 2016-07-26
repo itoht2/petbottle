@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1071fb489d3bdb642a262e7f267a635f
-timeCreated: 1469360633
+timeCreated: 1469498726
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -33,7 +33,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 512
+  maxTextureSize: 2048
   textureSettings:
     filterMode: -1
     aniso: 16
@@ -67,74 +67,17 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -38.5, y: 62.950768}
-        - {x: -38.5, y: -0.049232483}
-        - {x: 38.5, y: -0.049232483}
-        - {x: 38.5, y: 62.950768}
+      - - {x: 150.5, y: 251.80307}
+        - {x: -152.5, y: 251.80307}
+        - {x: -153.5, y: 250.80307}
+        - {x: -153.5, y: 0.80307007}
+        - {x: -152.5, y: -0.19692993}
+        - {x: 153.5, y: -0.19692993}
+        - {x: 153.5, y: 248.80307}
     - name: ScrollPump_1
       rect:
         serializedVersion: 2
-        x: 374
-        y: 0
-        width: 333
-        height: 272
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -38.510384, y: 62.950768}
-        - {x: -38.510384, y: -0.049232483}
-        - {x: 39.489616, y: -0.049232483}
-        - {x: 39.489616, y: 62.950768}
-    - name: ScrollPump_2
-      rect:
-        serializedVersion: 2
-        x: 750
-        y: 0
-        width: 337
-        height: 272
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -39.058258, y: 62.950768}
-        - {x: -39.058258, y: -0.049232483}
-        - {x: 39.941742, y: -0.049232483}
-        - {x: 39.941742, y: 62.950768}
-    - name: ScrollPump_3
-      rect:
-        serializedVersion: 2
-        x: 1127
-        y: 0
-        width: 337
-        height: 272
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -38.874878, y: 62.950768}
-        - {x: -38.874878, y: -0.049232483}
-        - {x: 40.125122, y: -0.049232483}
-        - {x: 40.125122, y: 62.950768}
-    - name: ScrollPump_4
-      rect:
-        serializedVersion: 2
-        x: 1507
-        y: 0
-        width: 333
-        height: 272
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -38.49774, y: 62.950768}
-        - {x: -38.49774, y: -0.049232483}
-        - {x: 39.50226, y: -0.049232483}
-        - {x: 39.50226, y: 62.950768}
-    - name: ScrollPump_5
-      rect:
-        serializedVersion: 2
-        x: 1883
+        x: 378
         y: 0
         width: 331
         height: 272
@@ -142,10 +85,93 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -38.045624, y: 62.950768}
-        - {x: -38.045624, y: -0.049232483}
-        - {x: 38.954376, y: -0.049232483}
-        - {x: 38.954376, y: 62.950768}
+      - - {x: 154.15854, y: 244.80307}
+        - {x: 152.15854, y: 249.80307}
+        - {x: 150.15854, y: 251.80307}
+        - {x: -151.84146, y: 251.80307}
+        - {x: -152.84146, y: 250.80307}
+        - {x: -152.84146, y: 0.80307007}
+        - {x: -151.84146, y: -0.19692993}
+        - {x: 150.15854, y: -0.19692993}
+        - {x: 152.15854, y: 1.8030701}
+        - {x: 153.15854, y: 5.80307}
+        - {x: 154.15854, y: 6.80307}
+    - name: ScrollPump_2
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 0
+        width: 331
+        height: 272
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 152.89209, y: 251.80307}
+        - {x: -152.10791, y: 251.80307}
+        - {x: -153.10791, y: 250.80307}
+        - {x: -153.10791, y: 0.80307007}
+        - {x: -152.10791, y: -0.19692993}
+        - {x: 148.89209, y: -0.19692993}
+        - {x: 151.89209, y: 1.8030701}
+        - {x: 152.89209, y: 2.80307}
+    - name: ScrollPump_3
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 0
+        width: 331
+        height: 272
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 151.62561, y: 249.80307}
+        - {x: 148.62561, y: 251.80307}
+        - {x: -152.37439, y: 251.80307}
+        - {x: -153.37439, y: 250.80307}
+        - {x: -153.37439, y: 0.80307007}
+        - {x: -152.37439, y: -0.19692993}
+        - {x: 149.62561, y: -0.19692993}
+        - {x: 152.62561, y: 1.8030701}
+        - {x: 152.62561, y: 248.80307}
+    - name: ScrollPump_4
+      rect:
+        serializedVersion: 2
+        x: 1509
+        y: 0
+        width: 331
+        height: 272
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 152.85913, y: 249.80307}
+        - {x: 149.85913, y: 251.80307}
+        - {x: -152.14087, y: 251.80307}
+        - {x: -153.14087, y: 250.80307}
+        - {x: -153.14087, y: 0.80307007}
+        - {x: -152.14087, y: -0.19692993}
+        - {x: 150.85913, y: -0.19692993}
+        - {x: 153.85913, y: 1.8030701}
+        - {x: 153.85913, y: 248.80307}
+    - name: ScrollPump_5
+      rect:
+        serializedVersion: 2
+        x: 1891
+        y: 0
+        width: 323
+        height: 272
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -149.28223, y: 251.80307}
+        - {x: -149.28223, y: -0.19692993}
+        - {x: 148.71777, y: -0.19692993}
+        - {x: 149.71777, y: 0.80307007}
+        - {x: 149.71777, y: 250.80307}
+        - {x: 148.71777, y: 251.80307}
     outline: []
   spritePackingTag: 
   userData: 
