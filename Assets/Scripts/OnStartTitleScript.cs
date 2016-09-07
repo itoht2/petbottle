@@ -13,6 +13,7 @@ public class OnStartTitleScript : MonoBehaviour {
           GameObject IsNoseCornFolder = GameObject.Find("NoseCornFolder");
           GameObject IsFinFolder = GameObject.Find("FinFolder");
           GameObject IsSRBAFolder = GameObject.Find("SRBAFolder");
+          GameObject IsPumpFolder = GameObject.Find("PumpFolder");
 
 
           if (IsSpecData == null)
@@ -66,6 +67,15 @@ public class OnStartTitleScript : MonoBehaviour {
                GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/SRBAFolder");
                IsSRBAFolder = Instantiate(SpecDataprefab);
                IsSRBAFolder.name = "SRBAFolder";
+               DontDestroyOnLoad(IsSRBAFolder);
+          }
+
+          if (IsPumpFolder == null)
+          {
+               //Debug.Log(IsSpecData.name);
+               GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/PumpFolder");
+               IsSRBAFolder = Instantiate(SpecDataprefab);
+               IsSRBAFolder.name = "PumpFolder";
                DontDestroyOnLoad(IsSRBAFolder);
           }
 

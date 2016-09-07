@@ -24,9 +24,11 @@ public class ContentsMaker : MonoBehaviour {
      void Start()
      {
           string FolderNameTemp = this.name + "Folder";
+          //Debug.Log("FolderNameTemp:" + FolderNameTemp);
           noseCornFolder = GameObject.Find(FolderNameTemp).GetComponent<NoseCornFolder>();
           numberOfItem = noseCornFolder.GetNumberOfItem();
           this.name = noseCornFolder.name + "Content";
+          
 
           ContentChanger();
          

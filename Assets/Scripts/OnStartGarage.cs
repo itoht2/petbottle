@@ -7,6 +7,7 @@ public class OnStartGarage : MonoBehaviour {
      public NoseCornFolder noseCornFolder;
      public NoseCornFolder bodyFolder;
      public NoseCornFolder finFolder;
+     public NoseCornFolder pumpFolder;
      public SpecData specData;
      
 
@@ -15,6 +16,7 @@ public class OnStartGarage : MonoBehaviour {
           noseCornFolder = GameObject.Find("NoseCornFolder").GetComponent<NoseCornFolder>();
           bodyFolder = GameObject.Find("BodyFolder").GetComponent<NoseCornFolder>();
           finFolder = GameObject.Find("FinFolder").GetComponent<NoseCornFolder>();
+          pumpFolder = GameObject.Find("PumpFolder").GetComponent<NoseCornFolder>();
 
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
           specData.NoseCornImage = noseCornFolder.GetImage(noseCornFolder.GetNowUsed());
