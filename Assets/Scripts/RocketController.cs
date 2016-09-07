@@ -165,6 +165,7 @@ public class RocketController : MonoBehaviour {
           SideThrustTimeMax = SideThrustTime;
 
           PumpMax = specData.GetInnerPressureMax();
+    
           PumpMaxText.text = PumpMax.ToString("N0");
 
          

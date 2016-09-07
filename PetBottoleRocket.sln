@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetBottoleRocket.CSharp.Plugins", "PetBottoleRocket.CSharp.Plugins.csproj", "{8FECD168-9C27-73FC-12AC-3B03CD5B532F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetBottoleRocket.CSharp", "PetBottoleRocket.CSharp.csproj", "{7FC911A2-48F5-7A6E-C1DE-E01E10E73097}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetBottoleRocket.CSharp.Editor", "PetBottoleRocket.CSharp.Editor.csproj", "{787065BB-2DE6-5690-656F-20580F9A717E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FECD168-9C27-73FC-12AC-3B03CD5B532F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FECD168-9C27-73FC-12AC-3B03CD5B532F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FECD168-9C27-73FC-12AC-3B03CD5B532F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FECD168-9C27-73FC-12AC-3B03CD5B532F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FC911A2-48F5-7A6E-C1DE-E01E10E73097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC911A2-48F5-7A6E-C1DE-E01E10E73097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC911A2-48F5-7A6E-C1DE-E01E10E73097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC911A2-48F5-7A6E-C1DE-E01E10E73097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{787065BB-2DE6-5690-656F-20580F9A717E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{787065BB-2DE6-5690-656F-20580F9A717E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{787065BB-2DE6-5690-656F-20580F9A717E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{787065BB-2DE6-5690-656F-20580F9A717E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
