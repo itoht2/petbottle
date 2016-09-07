@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 490832}
   - 212: {fileID: 21251640}
   - 95: {fileID: 9545228}
+  - 114: {fileID: 11438124}
   m_Layer: 0
   m_Name: Pump 1_0
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Animator:
   m_GameObject: {fileID: 197444}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 289013f381e403445b0717fee40c2e35, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9a36842dbfccaee429af0df151dd3aa3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -46,6 +47,32 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11438124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe16cdf359aef624ea59cf65f7a068ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pump:
+  - {fileID: 21300000, guid: 4e441b3f2d3b34e4f82a469e441c4b4e, type: 3}
+  - {fileID: 21300014, guid: 018c8a73a74b23a419dc625a599fd796, type: 3}
+  - {fileID: 21300014, guid: 2f9e2f0c1180b164bacd134fcfd278e2, type: 3}
+  - {fileID: 21300000, guid: dedbae0c73116834bb7b878f75e27a35, type: 3}
+  - {fileID: 21300000, guid: 41509f5fc11478b4491419d35c133c50, type: 3}
+  - {fileID: 21300000, guid: 1071fb489d3bdb642a262e7f267a635f, type: 3}
+  PumpAnimeController:
+  - {fileID: 9100000, guid: 96aa126ca46163b4ebc8ec7648414b3d, type: 2}
+  - {fileID: 9100000, guid: 289013f381e403445b0717fee40c2e35, type: 2}
+  - {fileID: 9100000, guid: 95d63fd12ea56fc4c8c1ae6564cfc99a, type: 2}
+  - {fileID: 9100000, guid: 97ff9adb42de53e4f849eb9bcdf12845, type: 2}
+  - {fileID: 9100000, guid: 9a36842dbfccaee429af0df151dd3aa3, type: 2}
+  - {fileID: 9100000, guid: 656e5f6050a72ad40aef57af142ed2ed, type: 2}
+  specData: {fileID: 0}
 --- !u!212 &21251640
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -72,7 +99,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1770398253
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300014, guid: 018c8a73a74b23a419dc625a599fd796, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41509f5fc11478b4491419d35c133c50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

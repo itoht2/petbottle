@@ -49,6 +49,7 @@ public class SpecData : MonoBehaviour {
      public float PumpMax;                        // kPa　ポンプの最大圧
      public float PumpCapacity;              // kPa　一回のポンピングでの圧力上昇分
      public float PumpPressure;                  // kPa　ポンプ圧
+     public int PumpID;                           //　自然数　ポンプの種類
 
      public float SideThrusterForce;              // N 横向きの力
      public float SideThrusterTime;               // Sec スラスタ噴射時間
@@ -104,7 +105,8 @@ public class SpecData : MonoBehaviour {
           Stability = PlayerPrefs.GetFloat("Stability", 1.0f);
 
           PumpMax = PlayerPrefs.GetFloat("PumpMax", 300f);
-          PumpCapacity = PlayerPrefs.GetFloat("PumpCapacity", 2f);          
+          PumpCapacity = PlayerPrefs.GetFloat("PumpCapacity", 2f);
+          PumpID = PlayerPrefs.GetInt("PumpID", 0);
           SideThrusterForce = PlayerPrefs.GetFloat("SideThrusterForce",1f);
           SideThrusterTime = PlayerPrefs.GetFloat("SideThrusterTime",5.0f);
           LauncherForce = PlayerPrefs.GetFloat("LauncherForce", 0f);
@@ -141,6 +143,7 @@ public class SpecData : MonoBehaviour {
 
           PlayerPrefs.SetFloat("PumpMax", PumpMax);
           PlayerPrefs.SetFloat("PumpCapacity", PumpCapacity);
+          PlayerPrefs.SetInt("PumpID", PumpID);
           PlayerPrefs.SetFloat("SideThrusterForce", SideThrusterForce);
           PlayerPrefs.SetFloat("SideThrusterTime", SideThrusterTime);
           PlayerPrefs.SetFloat("LauncherForce", LauncherForce);
@@ -284,6 +287,11 @@ public class SpecData : MonoBehaviour {
      public float GetInnerPressureMax()
      {
           return InnerPressureMax;
+     }
+
+     public int GetPumpID()
+     {
+          return PumpID;
      }
 
      public float GetLauncherForce() {

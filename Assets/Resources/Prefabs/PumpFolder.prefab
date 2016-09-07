@@ -91,7 +91,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1071fb489d3bdb642a262e7f267a635f, type: 3}
   NumberOfHold: 010000000000000000000000000000000000000000000000
   NowUsed: 0
-  NumberOfParameter: 2
+  NumberOfParameter: 3
   ParameterName:
   - PumpMax
   - PumpCapacity

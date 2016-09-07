@@ -69,7 +69,7 @@ public class UsingButtonCOntroller : MonoBehaviour {
                for (int j = 0; j < numberOfParameter; j++)
                {
                     parameterName = _noseCornFolder.GetParameterName(j);
-                   
+                    //Debug.Log(j);
 
                     switch (j)
                     {
@@ -93,7 +93,6 @@ public class UsingButtonCOntroller : MonoBehaviour {
                               specData.NoseCornCD = parameterValue;
 
                               break;
-
                         
                          case "InnerPressureMax":
                               specData.InnerPressureMax = parameterValue;
@@ -128,6 +127,19 @@ public class UsingButtonCOntroller : MonoBehaviour {
                               specData.SRBABurningTime = parameterValue;
 
                               break;
+                         case "PumpMax":
+                              specData.PumpMax = parameterValue;
+
+                              break;
+                         case "PumpCapacity":
+                              specData.PumpCapacity = parameterValue;
+
+                              break;
+                         case "PumpID":
+                              specData.PumpID = (int)parameterValue;
+
+                              break;
+
 
 
 
