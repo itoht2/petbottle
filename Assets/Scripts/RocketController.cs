@@ -508,8 +508,8 @@ public class RocketController : MonoBehaviour {
      IEnumerator GoScore()
      {
           Time.timeScale = 1.0f;
-          yield return new WaitForSeconds(Mathf.Min(5.0f, SideThrustTime));
-          //Debug.Log("GoScore");
+          yield return new WaitForSeconds(Mathf.Max(5.0f, SideThrustTime));
+          Debug.Log(Mathf.Max(5.0f, SideThrustTime));
           SceneManager.LoadScene("ScoreUpdate");
           yield return null;
 
