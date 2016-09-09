@@ -509,7 +509,7 @@ public class RocketController : MonoBehaviour {
      {
           Time.timeScale = 1.0f;
           yield return new WaitForSeconds(Mathf.Max(5.0f, SideThrustTime));
-          Debug.Log(Mathf.Max(5.0f, SideThrustTime));
+          //Debug.Log(Mathf.Max(5.0f, SideThrustTime));
           SceneManager.LoadScene("ScoreUpdate");
           yield return null;
 
@@ -738,7 +738,7 @@ public class RocketController : MonoBehaviour {
           CanSat.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.1f), ForceMode2D.Impulse);
           ScoreBody = CanSat.GetComponent<Rigidbody2D>();
 
-          if (SideThrustForce >= 2.0f) // サイドスラストが2N以上の場合は回転抑制
+          if (specData.GetRotateFix() == true) // サイドスラストが2N以上の場合は回転抑制
           {
                CanSat.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
           }

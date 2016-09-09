@@ -66,6 +66,7 @@ public class SpecData : MonoBehaviour {
 
      public string PayLoadName;              // ペイロードの種類
      public float PayLoadWeight;             //　ペイロードの質量   
+     public bool RotateFix;                  // ペイロードの回転を止める
 
      // Use this for initialization
 
@@ -115,10 +116,12 @@ public class SpecData : MonoBehaviour {
           SRBABurningTime = PlayerPrefs.GetFloat("SRBABurningTime", 0.0f);
           PayLoadName = PlayerPrefs.GetString("PayLoadName", "Cansat");
           PayLoadWeight = PlayerPrefs.GetFloat("PayLoadWeight", 0.1f);
-    
+          RotateFix = PlayerPrefs.GetBool("RotateFix", false);
 
 
-}
+
+
+     }
 
      public void SaveData ()
      {
@@ -152,6 +155,7 @@ public class SpecData : MonoBehaviour {
           PlayerPrefs.SetFloat("SRBABurningTime", SRBABurningTime);
           PlayerPrefs.SetString("PayLoadName", PayLoadName);
           PlayerPrefs.SetFloat("PayLoadWeight", PayLoadWeight);
+          PlayerPrefs.SetBool("RotateFix", RotateFix);
 
           PlayerPrefs.Flush();
      }
@@ -276,6 +280,11 @@ public class SpecData : MonoBehaviour {
      public float GetPayLoadWeight()
      {
           return PayLoadWeight;
+     }
+
+     public bool GetRotateFix()
+     {
+          return RotateFix;
      }
 
      public float GetSpeedMax()
