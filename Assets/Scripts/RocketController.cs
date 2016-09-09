@@ -62,10 +62,13 @@ public class RocketController : MonoBehaviour {
      private GameObject SideThrustJetPrefab;
      public GameObject SideThrustJet;
      public GameObject SideThrustJetL;
-     private Vector2 SideTrustR;
-     private Vector2 SideTrustL;
-     public ParticleSystem.EmissionModule SideTrustEmission;
-     public ParticleSystem.EmissionModule SideTrustEmissionL;
+     public GameObject SideThrustJetU;
+     private Vector2 SideThrustR;
+     private Vector2 SideThrustL;
+     private Vector2 SideThrustU;
+     public ParticleSystem.EmissionModule SideThrustEmission;
+     public ParticleSystem.EmissionModule SideThrustEmissionL;
+     public ParticleSystem.EmissionModule SideThrustEmissionU;
 
      private bool BackPanelClosed;
      public GameObject BackPanel;
@@ -175,29 +178,39 @@ public class RocketController : MonoBehaviour {
                specData.SideThrusterRate = 1.0f;
                SideThrustJetPrefab = (GameObject)Resources.Load("Prefabs/Effects/SideThrustParticle");
 
-               SideTrustR = Vector2.right * -0.84f;
-               SideTrustL = Vector2.right * 0.84f;
+               SideThrustR = Vector2.right * -0.84f;
+               SideThrustL = Vector2.right * 0.84f;
+               SideThrustU = Vector2.up * 0.84f;
 
                SideThrustJet = (GameObject)Instantiate(SideThrustJetPrefab, Vector2.zero, Quaternion.Euler(0.0f, -90.0f, 0.0f));
                SideThrustJetL = (GameObject)Instantiate(SideThrustJetPrefab, Vector2.zero, Quaternion.Euler(0.0f, 90.0f, 0.0f));
+               SideThrustJetU = (GameObject)Instantiate(SideThrustJetPrefab, Vector2.zero, Quaternion.Euler(90.0f, 0.0f, 0.0f));
 
                SideThrustJet.transform.parent = ScoreBody.transform;
                SideThrustJetL.transform.parent = ScoreBody.transform;
+               SideThrustJetU.transform.parent = ScoreBody.transform;
 
                SideThrustJet.name = "SideThrustJet";
                SideThrustJetL.name = "SideThrustJetL";
+               SideThrustJetU.name = "SideThrustJetU";
 
-               SideThrustJet.transform.localPosition = SideTrustR;
+
+               SideThrustJet.transform.localPosition = SideThrustR;
                SideThrustJet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
 
-               SideThrustJetL.transform.localPosition = SideTrustL;
+               SideThrustJetL.transform.localPosition = SideThrustL;
                SideThrustJetL.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
 
+               SideThrustJetU.transform.localPosition = SideThrustU;
+               SideThrustJetU.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
 
-               SideTrustEmission = SideThrustJet.GetComponent<ParticleSystem>().emission;
-               SideTrustEmission.enabled = false;
-               SideTrustEmissionL = SideThrustJetL.GetComponent<ParticleSystem>().emission;
-               SideTrustEmissionL.enabled = false;
+
+               SideThrustEmission = SideThrustJet.GetComponent<ParticleSystem>().emission;
+               SideThrustEmission.enabled = false;
+               SideThrustEmissionL = SideThrustJetL.GetComponent<ParticleSystem>().emission;
+               SideThrustEmissionL.enabled = false;
+               SideThrustEmissionU = SideThrustJetU.GetComponent<ParticleSystem>().emission;
+               SideThrustEmissionU.enabled = false;
 
           }
           else
@@ -428,12 +441,12 @@ public class RocketController : MonoBehaviour {
 
                {
                     ScoreBody.AddForce(ScoreBody.transform.right * SideThrustForce, ForceMode2D.Force);
-                    SideThrustJet.transform.localPosition = SideTrustR;
+                    SideThrustJet.transform.localPosition = SideThrustR;
                }
                else
                {
                     ScoreBody.AddForce(ScoreBody.transform.right * -SideThrustForce, ForceMode2D.Force);
-                    SideThrustJet.transform.localPosition = SideTrustL;
+                    SideThrustJet.transform.localPosition = SideThrustL;
                }               
 
                SideThrustTime = SideThrustTime - Time.deltaTime;
@@ -441,13 +454,47 @@ public class RocketController : MonoBehaviour {
 
           } else
           {
-               SideTrustEmission.enabled = false;
-               SideTrustEmissionL.enabled = false;
+               SideThrustEmission.enabled = false;
+               SideThrustEmissionL.enabled = false;
+               SideThrustEmissionU.enabled = false;
 
           }
 
 
          
+     }
+
+     public void UpThruster()  // 上向きスラスト噴射
+     {
+
+          if (Broken)
+          {
+               return;
+          }
+
+          if (SideThrustTime > 0.0f)
+          {
+               
+               ScoreBody.AddForce(ScoreBody.transform.up * SideThrustForce, ForceMode2D.Force);
+               SideThrustJet.transform.localPosition = SideThrustU;              
+              
+
+               SideThrustTime = SideThrustTime - Time.deltaTime;
+               specData.SideThrusterRate = (SideThrustTime / SideThrustTimeMax);
+
+          }
+          else
+          {
+               SideThrustEmission.enabled = false;
+               SideThrustEmissionL.enabled = false;
+               SideThrustEmissionU.enabled = false;
+
+
+
+          }
+
+
+
      }
 
      IEnumerator Rotate()
@@ -461,7 +508,7 @@ public class RocketController : MonoBehaviour {
      IEnumerator GoScore()
      {
           Time.timeScale = 1.0f;
-          yield return new WaitForSeconds(10.0f);
+          yield return new WaitForSeconds(Mathf.Min(5.0f, SideThrustTime));
           //Debug.Log("GoScore");
           SceneManager.LoadScene("ScoreUpdate");
           yield return null;
@@ -690,17 +737,28 @@ public class RocketController : MonoBehaviour {
           CanSatJoint.enabled = false;
           CanSat.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.1f), ForceMode2D.Impulse);
           ScoreBody = CanSat.GetComponent<Rigidbody2D>();
+
+          if (SideThrustForce >= 2.0f) // サイドスラストが2N以上の場合は回転抑制
+          {
+               CanSat.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+          }
+
           SideThrustJet.transform.parent = ScoreBody.transform;
           SideThrustJetL.transform.parent = ScoreBody.transform;
+          SideThrustJetU.transform.parent = ScoreBody.transform;
 
-          SideTrustR = Vector2.right * -2.0f;
-          SideTrustL = Vector2.right * 2.0f;
+          SideThrustR = Vector2.right * -2.0f;
+          SideThrustL = Vector2.right * 2.0f;
+          SideThrustU = Vector2.down * 3.3f;
 
-          SideThrustJet.transform.localPosition = SideTrustR;
+          SideThrustJet.transform.localPosition = SideThrustR;
           SideThrustJet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
 
-          SideThrustJetL.transform.localPosition = SideTrustL;
+          SideThrustJetL.transform.localPosition = SideThrustL;
           SideThrustJetL.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+
+          SideThrustJetU.transform.localPosition = SideThrustU;
+          SideThrustJetU.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
 
           MainCamera.GetComponent<FollowCamera>().objTarget = CanSat;
           MapCamera.GetComponent<FollowCameraForMapcamera>().objTarget = CanSat;
@@ -818,6 +876,11 @@ public class RocketController : MonoBehaviour {
      public float GetSideThrustTime()
      {
           return SideThrustTime;
+     }
+
+     public float GetSideThrustForce()
+     {
+          return SideThrustForce;
      }
 
      public void GetSRBAxPosition(int Number)     

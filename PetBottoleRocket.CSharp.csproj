@@ -120,6 +120,7 @@
     <Compile Include="Assets\Scripts\SpecNodeMaker.cs" />
     <Compile Include="Assets\Scripts\StarController.cs" />
     <Compile Include="Assets\Scripts\Th.cs" />
+    <Compile Include="Assets\Scripts\ThU.cs" />
     <Compile Include="Assets\Scripts\ThrustButton.cs" />
     <Compile Include="Assets\Scripts\TitleController.cs" />
     <Compile Include="Assets\Scripts\ToggleImage.cs" />

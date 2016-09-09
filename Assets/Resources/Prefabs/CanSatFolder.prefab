@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &186622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 468524}
+  - 114: {fileID: 11497502}
+  m_Layer: 0
+  m_Name: CanSatFolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &468524
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186622}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11497502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7d93dbdef4b3149a764f0f4c733a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NumberOfItem: 8
+  ItemName:
+  - CanSat0
+  - CanSat1
+  - CanSat2
+  - CanSat3
+  - CanSat4
+  - CanSat5
+  - CanSat6
+  - CanSat7
+  Weight:
+  - 0
+  - 0.03
+  - 0.12
+  - 0.2
+  - 0.3
+  - 0.8
+  - 1.2
+  - 1.6
+  Price:
+  - 0
+  - 1000
+  - 2000
+  - 5000
+  - 10000
+  - 20000
+  - 40000
+  - 100000
+  Discription:
+  - "\u30DA\u30A4\u30ED\u30FC\u30C9\u7121\u3057"
+  - "\u30AC\u30C1\u30E3\u30B5\u30C3\u30C8"
+  - "\u7F36\u30B5\u30C3\u30C8"
+  - "\u9AD8\u6027\u80FD\u7F36\u30B5\u30C3\u30C8"
+  - HTV
+  - "\u30ED\u30FC\u30D0\u30FC"
+  - "\u30AD\u30E5\u30FC\u30D6\u30B5\u30C3\u30C8"
+  - "\u840C\u885B\u661F"
+  Specs:
+  - '-'
+  - "\u76F4\u5F84:65mm /n\u8CEA\u91CF:300g /n\u30B9\u30E9\u30B9\u30BF\u7121\u3057"
+  - "\u76F4\u5F84:65mm /n\u9AD8\u3055:122.2mm /n\u8CEA\u91CF:120\uFF47 /n\u30B5\u30A4\u30C9\u30B9\u30E9\u30B9\u30BF
+    /n\u30B9\u30E9\u30B9\u30BF\u63A8\u529B:0.5N /n\u5674\u5C04\u6642\u9593:3\u79D2"
+  - "\u76F4\u5F84:65mm /n\u9AD8\u3055:122.2mm /n\u8CEA\u91CF:200\uFF47 /n\u30B5\u30A4\u30C9\u30B9\u30E9\u30B9\u30BF
+    /n\u30B9\u30E9\u30B9\u30BF\u63A8\u529B:1N /n\u5674\u5C04\u6642\u9593:5\u79D2"
+  - "\u76F4\u5F84:65mm /n\u9AD8\u3055:122.2mm /n\u8CEA\u91CF:300\uFF47 /n\u30B5\u30A4\u30C9\u30B9\u30E9\u30B9\u30BF
+    /n\u30A2\u30DD\u30B8\u30FC\u30AD\u30C3\u30AF\u30E2\u30FC\u30BF /n\u30B9\u30E9\u30B9\u30BF\u63A8\u529B:2N
+    /n\u5674\u5C04\u6642\u9593:10\u79D2 "
+  - "\u76F4\u5F84:65mm /n\u9AD8\u3055:160mm /n\u8CEA\u91CF:800\uFF47 /n\u30B5\u30A4\u30C9\u30B9\u30E9\u30B9\u30BF
+    /n\u30A2\u30DD\u30B8\u30FC\u30AD\u30C3\u30AF\u30E2\u30FC\u30BF /n\u30B9\u30E9\u30B9\u30BF\u63A8\u529B:4N
+    /n\u5674\u5C04\u6642\u9593:15\u79D2"
+  - "\u76F4\u5F84:65mm /n\u9AD8\u3055:65mm /n\u8CEA\u91CF:1200\uFF47 /n\u30B5\u30A4\u30C9\u30B9\u30E9\u30B9\u30BF
+    /n\u30A2\u30DD\u30B8\u30FC\u30AD\u30C3\u30AF\u30E2\u30FC\u30BF /n\u30B9\u30E9\u30B9\u30BF\u63A8\u529B:5N
+    /n\u5674\u5C04\u6642\u9593:15\u79D2"
+  - "\u76F4\u5F84:120mm /n\u9AD8\u3055:120mm /n\u8CEA\u91CF:1600\uFF47 /n\u30B5\u30A4\u30C9\u30B9\u30E9\u30B9\u30BF
+    /n\u30A2\u30DD\u30B8\u30FC\u30AD\u30C3\u30AF\u30E2\u30FC\u30BF /n\u30B9\u30E9\u30B9\u30BF\u63A8\u529B:10N
+    /n\u5674\u5C04\u6642\u9593:20\u79D2"
+  DiscriptionLong:
+  - "\u30ED\u30B1\u30C3\u30C8\u672C\u4F53\u5185\u306B\u4F55\u3082\u4E57\u3063\u3066\u3044\u306A\u3044\u72B6\u614B"
+  - "\u30AC\u30C1\u30E3\u30AC\u30C1\u30E3\u306E\u30B1\u30FC\u30B9\u3092\u5229\u7528\u3057\u305F\u8D85\u5C0F\u578B\u30DA\u30A4\u30ED\u30FC\u30C9\u3002\u305F\u3060\u3086\u3063\u304F\u308A\u3068\u843D\u3061\u308B\u3060\u3051\u3002"
+  - "\u3061\u3087\u3063\u3068\u5F37\u5316\u3055\u308C\u3066\u3044\u308B\u30DD\u30F3\u30D7/n\u5727\u529B\u3061\u3087\u3063\u3068\u9AD8\u3081\u3067\u3001\u30DC\u30C7\u30A3\u3092\u58CA\u3055\u306A\u3044\u3088\u3046\u6CE8\u610F"
+  - "\u304B\u306A\u308A\u5727\u529B\u304C\u9AD8\u3044\u3002/n\u5F37\u5316\u30DC\u30C7\u30A3\u3092\u9078\u3070\u306A\u3044\u3068\u3001\u7834\u88C2\u304C\u7D9A\u51FA\u3059\u308B\u3002"
+  - "\u666E\u901A\u306F\u3053\u3093\u306A\u306B\u5727\u529B\u304B\u3051\u306A\u3044\u3002/n\u7834\u88C2\u3059\u308B\u524D\u306B\u3084\u3081\u3089\u308C\u308B\uFF1F"
+  - "\u6700\u9AD8\u5727\u529B\u304C\u66F8\u3051\u3089\u308C\u308B\u30DD\u30F3\u30D7/n\u3053\u3044\u3064\u3092\u4F7F\u3044\u3053\u306A\u3059\u306B\u306F\u6700\u9AD8\u306E\u30DC\u30C7\u30A3\u304C\u5FC5\u8981\u3002"
+  - "\u6700\u9AD8\u5727\u529B\u304C\u66F8\u3051\u3089\u308C\u308B\u30DD\u30F3\u30D7/n\u3053\u3044\u3064\u3092\u4F7F\u3044\u3053\u306A\u3059\u306B\u306F\u6700\u9AD8\u306E\u30DC\u30C7\u30A3\u304C\u5FC5\u8981\u3002"
+  - "\u6700\u9AD8\u5727\u529B\u304C\u66F8\u3051\u3089\u308C\u308B\u30DD\u30F3\u30D7/n\u3053\u3044\u3064\u3092\u4F7F\u3044\u3053\u306A\u3059\u306B\u306F\u6700\u9AD8\u306E\u30DC\u30C7\u30A3\u304C\u5FC5\u8981\u3002"
+  Image:
+  - {fileID: 21300000, guid: 4e441b3f2d3b34e4f82a469e441c4b4e, type: 3}
+  - {fileID: 21300014, guid: 018c8a73a74b23a419dc625a599fd796, type: 3}
+  - {fileID: 21300014, guid: 2f9e2f0c1180b164bacd134fcfd278e2, type: 3}
+  - {fileID: 21300000, guid: dedbae0c73116834bb7b878f75e27a35, type: 3}
+  - {fileID: 21300000, guid: 41509f5fc11478b4491419d35c133c50, type: 3}
+  - {fileID: 21300000, guid: 1071fb489d3bdb642a262e7f267a635f, type: 3}
+  NumberOfHold: 010000000000000000000000000000000000000000000000
+  NowUsed: 0
+  NumberOfParameter: 3
+  ParameterName:
+  - PumpMax
+  - PumpCapacity
+  - PumpID
+  ParameterValue1:
+  - 200
+  - 300
+  - 500
+  - 1000
+  - 2500
+  - 5000
+  ParameterValue2:
+  - 2
+  - 5
+  - 10
+  - 20
+  - 30
+  - 100
+  ParameterValue3:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 186622}
+  m_IsPrefabParent: 1
