@@ -54,16 +54,25 @@ public class OnStart : MonoBehaviour {
           for (int i = 0; i < 10; i++)
           {               
                Vector3 placePosition = new Vector3(Random.Range(-50 , +50), Random.Range(HightLevel * 0.75f  , HightLevel * 2.5f), 0);
+               Vector3 placePositionGraund = new Vector3(Random.Range(-100, +100), 1.5f, 0.0f);
                Quaternion q = new Quaternion();
                q = Quaternion.identity;
                GameObject Star_temp = (GameObject)Instantiate(PointStar, placePosition,q);
-                          
+               GameObject Star_temp_G = (GameObject)Instantiate(PointStar, placePositionGraund, q);
+
                Star_temp.GetComponent<StarController>().scoreData = scoreData.GetComponent<ScoreData>();
                Star_temp.GetComponent<StarController>().Rocket = rocket.GetComponent<RocketController>();
 
                Star_temp.transform.parent = StarFolder.transform;
                Star_temp.name = "Star" + i;
-               
+
+
+               Star_temp_G.GetComponent<StarController>().scoreData = scoreData.GetComponent<ScoreData>();
+               Star_temp_G.GetComponent<StarController>().Rocket = rocket.GetComponent<RocketController>();
+
+               Star_temp_G.transform.parent = StarFolder.transform;
+               Star_temp_G.name = "Star_G" + i;
+
                yield return null;
 
           }
