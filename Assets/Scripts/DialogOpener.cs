@@ -58,6 +58,15 @@ public class DialogOpener : MonoBehaviour {
                image = detailDialog.transform.Find("ItemImage").GetComponent<Image>();
                image.sprite = _noseCornFolder.GetImage(SelectedNumber);
 
+               if (_noseCornFolder.GetNumberOfHold(SelectedNumber) > 0)
+               {
+                    image.color = new Color32(255, 255, 255, 255);
+               } else
+               {
+                    image.color = new Color32(40, 40, 40, 255);
+               }
+
+
                itemNameText = detailDialog.transform.FindChild("ItemNameText").GetComponent<Text>();             
                itemNameText.text = _noseCornFolder.GetDiscription(SelectedNumber);
 
