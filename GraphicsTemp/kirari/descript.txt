@@ -1,0 +1,12 @@
+charset,Shift_JIS
+
+craftman,nise
+craftmanw,
+craftmanurl,http://albireo.watson.jp/
+
+name,‚«‚ç‚è
+type,shell
+id,
+
+
+seriko.use_self_alpha,1
