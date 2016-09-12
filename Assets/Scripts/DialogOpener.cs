@@ -63,7 +63,7 @@ public class DialogOpener : MonoBehaviour {
                     image.color = new Color32(255, 255, 255, 255);
                } else
                {
-                    image.color = new Color32(40, 40, 40, 255);
+                    image.color = new Color32(20, 20, 20, 255);
                }
 
 
