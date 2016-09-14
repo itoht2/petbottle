@@ -12,11 +12,18 @@ public class ThrustButton : MonoBehaviour {
      public AudioClip audioClip;
      AudioSource audioSource;
      public MainSwitchController mainSwitchController;
+     private SpecData specData;
 
      // Use this for initialization
      void Start()
      {
-          StartCoroutine("Startdelay");
+          specData = GameObject.Find("SpecData").GetComponent<SpecData>();
+
+          if (specData.GetSideThrusterTime() != 0.0f)
+          {
+              StartCoroutine("Startdelay");
+          }
+          
           audioSource = gameObject.GetComponent<AudioSource>();
           audioSource.clip = audioClip;
      }
@@ -59,6 +66,8 @@ public class ThrustButton : MonoBehaviour {
 
      private IEnumerator Startdelay()
      {
+          
+
           yield return new WaitForSeconds(1.0f);
           rocketController = Rockt2D.GetComponent<RocketController>();
           SideTrustEmission = GameObject.Find("SideThrustJet").GetComponent<ParticleSystem>().emission;

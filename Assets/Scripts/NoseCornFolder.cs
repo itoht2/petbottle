@@ -99,7 +99,14 @@ public class NoseCornFolder : MonoBehaviour {
      }
      public string GetImageName(int i)
      {
-          return Image[i].name;
+          if (Image[i] == null)
+          {
+               return null;
+          }
+          else
+          {
+               return Image[i].name;
+          }
      }
 
 

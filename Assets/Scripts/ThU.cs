@@ -13,11 +13,19 @@ public class ThU : MonoBehaviour
      public AudioClip audioClip;
      AudioSource audioSource;
      public MainSwitchController mainSwitchController;
+     private SpecData specData;
 
      // Use this for initialization
      void Start()
+
      {
-          StartCoroutine("Startdelay");
+          specData = GameObject.Find("SpecData").GetComponent<SpecData>();
+
+          if (specData.GetSideThrusterTime() != 0.0f)
+          {
+               StartCoroutine("Startdelay");
+          }
+          
           audioSource = gameObject.GetComponent<AudioSource>();
           audioSource.clip = audioClip;
      }

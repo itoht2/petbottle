@@ -195,7 +195,7 @@ public class UsingButtonCOntroller : MonoBehaviour {
                          specData.PayLoadName = _noseCornFolder.GetImageName(i);
                     }
 
-                    Debug.Log(_noseCornFolder.GetImageName(i));
+                    //Debug.Log(_noseCornFolder.GetImageName(i));
                     break;
 
 
