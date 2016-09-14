@@ -56,7 +56,7 @@ public class Th : MonoBehaviour {
 
      private IEnumerator Startdelay()
      {
-          yield return new WaitForSeconds(1.0f);
+          yield return new WaitForSeconds(2.0f);
           rocketController = Rockt2D.GetComponent<RocketController>();
           SideTrustEmissionL = GameObject.Find("SideThrustJetL").GetComponent<ParticleSystem>().emission;
           Right = false;

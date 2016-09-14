@@ -97,6 +97,12 @@ public class NoseCornFolder : MonoBehaviour {
      {
           return Image[i];
      }
+     public string GetImageName(int i)
+     {
+          return Image[i].name;
+     }
+
+
      public int GetNumberOfHold(int i)
      {
           return NumberOfHold[i];

@@ -140,7 +140,18 @@ public class UsingButtonCOntroller : MonoBehaviour {
 
                               break;
 
+                         case "SideThrustForce":
+                              specData.SideThrusterForce = parameterValue;
 
+                              break;
+                         case "SideThrustTime":
+                              specData.SideThrusterTime = parameterValue;
+
+                              break;
+                         case "RoteteFix":
+                              specData.RotateFix = (parameterValue == 1.0f);
+
+                              break;
 
 
 
@@ -171,6 +182,23 @@ public class UsingButtonCOntroller : MonoBehaviour {
                case "FinFolder":
                     specData.FinWeight = _noseCornFolder.GetWeight(i);
                     break;
+
+               case "CanSatFolder":
+                    specData.PayLoadWeight = _noseCornFolder.GetWeight(i);
+
+                    if (_noseCornFolder.GetItemName(i) == "CanSat0")
+                    {
+                         specData.PayLoadName = "";
+                    }
+                    else
+                    {
+                         specData.PayLoadName = _noseCornFolder.GetImageName(i);
+                    }
+
+                    Debug.Log(_noseCornFolder.GetImageName(i));
+                    break;
+
+
                default:
 
 

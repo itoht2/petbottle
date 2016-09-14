@@ -250,6 +250,7 @@ public class RocketController : MonoBehaviour {
                // CanSat搭載
                CanSatName = specData.GetPayLoadName();
                CanSatPrefab = (GameObject)Resources.Load("Prefabs/" + CanSatName);
+               Debug.Log(CanSatName);
 
                CanSat = (GameObject)Instantiate(CanSatPrefab, new Vector3(0.0f, 2.08f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
                CanSat.name = "CanSat";

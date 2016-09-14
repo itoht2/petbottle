@@ -69,7 +69,7 @@ public class OnStartTitleScript : MonoBehaviour {
                GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/CanSatFolder");
                IsCanSatFolder = Instantiate(SpecDataprefab);
                IsCanSatFolder.name = "CanSatFolder";
-               DontDestroyOnLoad(IsFinFolder);
+               DontDestroyOnLoad(IsCanSatFolder);
           }
 
           if (IsSRBAFolder == null)
