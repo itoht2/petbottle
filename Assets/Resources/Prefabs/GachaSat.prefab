@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.791484, y: 11.957892, z: 0}
+  m_LocalPosition: {x: -2.051, y: 3.095477, z: 0}
   m_LocalScale: {x: 0.18705341, y: 0.18705341, z: 0.18705341}
   m_Children:
   - {fileID: 22419490}
@@ -77,9 +77,9 @@ CircleCollider2D:
   m_Material: {fileID: 6200000, guid: 35a49ab35acde0f4790867460d9888a2, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.6780849}
+  m_Offset: {x: -0.1, y: 1.6780849}
   serializedVersion: 2
-  m_Radius: 2.235
+  m_Radius: 1.9586682
 --- !u!212 &21232996
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -177,7 +177,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -6.791484, y: 11.957892}
+  m_ConnectedAnchor: {x: -2.051, y: 3.095477}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1001 &100100000

@@ -37,6 +37,12 @@ public class ThU : MonoBehaviour
           {
                return;
           }
+
+          if (specData.GetSideThrusterTime() != 0.0f)
+          {
+               return;
+          }
+
           float tTime = rocketController.GetSideThrustTime();
           //Debug.Log(tTime);
           if (!mainSwitchController.GetMainSwitch())

@@ -256,7 +256,18 @@ public class RocketController : MonoBehaviour {
                CanSat.name = "CanSat";
 
 
-               CanSat.GetComponent<BoxCollider2D>().isTrigger = true;
+               if (CanSat.GetComponent<BoxCollider2D>())
+               {
+                    CanSat.GetComponent<BoxCollider2D>().isTrigger = true;
+               }
+
+               if (CanSat.GetComponent<CircleCollider2D>())
+               {
+                    CanSat.GetComponent<CircleCollider2D>().isTrigger = true;
+               }
+               
+
+
                CanSatJoint = CanSat.GetComponent<FixedJoint2D>();
                CanSatJoint.connectedBody = RocketBody2D;
                CanSatJoint.enabled = true;
@@ -722,11 +733,16 @@ public class RocketController : MonoBehaviour {
           NoseCornJoint = NoseCorn.GetComponent<FixedJoint2D>();
 
           yield return new WaitForSeconds(0.3f);
-          //CanSat.GetComponent<BoxCollider2D>().enabled = true;
-          //CanSat.GetComponent<BoxCollider2D>().isTrigger = false;
+         
+          if (CanSat.GetComponent<BoxCollider2D>())
+          {
+               CanSat.GetComponent<BoxCollider2D>().isTrigger = false;
+          }
 
-          CanSat.GetComponent<BoxCollider2D>().isTrigger = false;
-
+          if (CanSat.GetComponent<CircleCollider2D>())
+          {
+               CanSat.GetComponent<CircleCollider2D>().isTrigger = false;
+          }
           NoseCornJoint.enabled = false;
           NoseCorn.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 0.01f), ForceMode2D.Impulse);
           NoseCorn.GetComponent<Rigidbody2D>().AddTorque(0.001f, ForceMode2D.Impulse);
@@ -739,27 +755,31 @@ public class RocketController : MonoBehaviour {
           CanSat.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.1f), ForceMode2D.Impulse);
           ScoreBody = CanSat.GetComponent<Rigidbody2D>();
 
-          if (specData.GetRotateFix() == true) // サイドスラストが2N以上の場合は回転抑制
+          //if (specData.GetRotateFix() == true) // サイドスラストが2N以上の場合は回転抑制
+          //{
+          //     CanSat.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+          //}
+
+          if (specData.GetSideThrusterTime() > 0.0f)
           {
-               CanSat.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
+               SideThrustJet.transform.parent = ScoreBody.transform;
+               SideThrustJetL.transform.parent = ScoreBody.transform;
+               SideThrustJetU.transform.parent = ScoreBody.transform;
+
+               SideThrustR = Vector2.right * -2.0f;
+               SideThrustL = Vector2.right * 2.0f;
+               SideThrustU = Vector2.down * 3.3f;
+
+               SideThrustJet.transform.localPosition = SideThrustR;
+               SideThrustJet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+
+               SideThrustJetL.transform.localPosition = SideThrustL;
+               SideThrustJetL.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+
+               SideThrustJetU.transform.localPosition = SideThrustU;
+               SideThrustJetU.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
           }
-
-          SideThrustJet.transform.parent = ScoreBody.transform;
-          SideThrustJetL.transform.parent = ScoreBody.transform;
-          SideThrustJetU.transform.parent = ScoreBody.transform;
-
-          SideThrustR = Vector2.right * -2.0f;
-          SideThrustL = Vector2.right * 2.0f;
-          SideThrustU = Vector2.down * 3.3f;
-
-          SideThrustJet.transform.localPosition = SideThrustR;
-          SideThrustJet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-
-          SideThrustJetL.transform.localPosition = SideThrustL;
-          SideThrustJetL.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-
-          SideThrustJetU.transform.localPosition = SideThrustU;
-          SideThrustJetU.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
 
           MainCamera.GetComponent<FollowCamera>().objTarget = CanSat;
           MapCamera.GetComponent<FollowCameraForMapcamera>().objTarget = CanSat;

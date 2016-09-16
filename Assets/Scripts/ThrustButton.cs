@@ -30,7 +30,12 @@ public class ThrustButton : MonoBehaviour {
 
      public void PushDown()
      {
-          float tTime = rocketController.GetSideThrustTime();
+          if (specData.GetSideThrusterTime() != 0.0f)
+          {
+               return;
+          }
+
+               float tTime = rocketController.GetSideThrustTime();
           //Debug.Log(tTime);
 
           if (!mainSwitchController.GetMainSwitch())
