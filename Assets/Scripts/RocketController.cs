@@ -250,10 +250,14 @@ public class RocketController : MonoBehaviour {
                // CanSat搭載
                CanSatName = specData.GetPayLoadName();
                CanSatPrefab = (GameObject)Resources.Load("Prefabs/" + CanSatName);
-               Debug.Log(CanSatName);
+               //Debug.Log(CanSatName);
 
                CanSat = (GameObject)Instantiate(CanSatPrefab, new Vector3(0.0f, 2.08f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
                CanSat.name = "CanSat";
+
+               CanSat.GetComponent<SpriteRenderer>().enabled = false;
+
+               //CanSat.SetActive (false);
 
 
                if (CanSat.GetComponent<BoxCollider2D>())
@@ -727,12 +731,16 @@ public class RocketController : MonoBehaviour {
      }
 
      IEnumerator EjectCansat()
-     {         
+     {
+          yield return new WaitForSeconds(0.3f);
+
+          //CanSat.SetActive(true);
+          
 
           CanSatJoint = CanSat.GetComponent<FixedJoint2D>();
           NoseCornJoint = NoseCorn.GetComponent<FixedJoint2D>();
 
-          yield return new WaitForSeconds(0.3f);
+          
 
           //CanSat.transform.FindChild("Collider").gameObject.SetActive(false);
 
@@ -748,6 +756,7 @@ public class RocketController : MonoBehaviour {
           NoseCornJoint.enabled = false;
           NoseCorn.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 0.01f), ForceMode2D.Impulse);
           NoseCorn.GetComponent<Rigidbody2D>().AddTorque(0.001f, ForceMode2D.Impulse);
+          CanSat.GetComponent<SpriteRenderer>().enabled = true;
 
           yield return new WaitForSeconds(0.3f);
 
