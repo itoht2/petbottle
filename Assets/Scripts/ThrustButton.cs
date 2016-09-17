@@ -30,7 +30,7 @@ public class ThrustButton : MonoBehaviour {
 
      public void PushDown()
      {
-          if (specData.GetSideThrusterTime() != 0.0f)
+          if (specData.GetSideThrusterTime() == 0.0f)
           {
                return;
           }

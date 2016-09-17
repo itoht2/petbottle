@@ -265,7 +265,7 @@ public class RocketController : MonoBehaviour {
                {
                     CanSat.GetComponent<CircleCollider2D>().isTrigger = true;
                }
-               
+
 
 
                CanSatJoint = CanSat.GetComponent<FixedJoint2D>();
@@ -733,7 +733,9 @@ public class RocketController : MonoBehaviour {
           NoseCornJoint = NoseCorn.GetComponent<FixedJoint2D>();
 
           yield return new WaitForSeconds(0.3f);
-         
+
+          //CanSat.transform.FindChild("Collider").gameObject.SetActive(false);
+
           if (CanSat.GetComponent<BoxCollider2D>())
           {
                CanSat.GetComponent<BoxCollider2D>().isTrigger = false;

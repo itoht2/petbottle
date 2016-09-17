@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.3665357, y: 3.2469292, z: 0}
+  m_LocalPosition: {x: -2.13, y: 3.2469292, z: 0}
   m_LocalScale: {x: 0.18705341, y: 0.18705341, z: 0.18705341}
   m_Children:
   - {fileID: 22494046}
@@ -177,7 +177,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -7.3665357, y: 3.2469292}
+  m_ConnectedAnchor: {x: -2.13, y: 3.2469292}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1001 &100100000
