@@ -32,6 +32,7 @@ public class RocketController : MonoBehaviour {
 
      private GameObject ParaPrefab;
      private HingeJoint2D ParaJoint;
+     private FrictionJoint2D ParaJointFriction;
 
      public GameObject NoseCorn;
      private FixedJoint2D NoseCornJoint;
@@ -801,10 +802,15 @@ public class RocketController : MonoBehaviour {
           ParaObject.name = "Para";
           ParaObject.transform.position = CanSat.transform.position;
           yield return new WaitForSeconds(0.3f);
+
           ParaJoint = ParaObject.GetComponent<HingeJoint2D>();
           ParaJoint.connectedBody = CanSat.GetComponent<Rigidbody2D>();
           ParaJoint.anchor = new Vector2(0.0f, -4.5f);
-          ParaJoint.connectedAnchor = new Vector2(0.0f, 4.0f);           
+          ParaJoint.connectedAnchor = new Vector2(0.0f, 4.0f);
+
+          ParaJointFriction = ParaObject.GetComponent<FrictionJoint2D>();
+          ParaJointFriction.connectedBody = CanSat.GetComponent<Rigidbody2D>();
+          ParaJointFriction.maxTorque = 1.5f;
 
           yield return null;
          

@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5045634}
   - 61: {fileID: 6167068}
   - 233: {fileID: 23368562}
+  - 256: {fileID: 25632542}
   - 95: {fileID: 9585890}
   - 114: {fileID: 11429882}
   m_Layer: 0
@@ -145,6 +146,23 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
+--- !u!256 &25632542
+FrictionJoint2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185152}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: -4.5}
+  m_ConnectedAnchor: {x: 0, y: 4}
+  m_MaxForce: 1
+  m_MaxTorque: 100
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
