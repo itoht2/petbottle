@@ -51,12 +51,15 @@ public class FollowCamera : MonoBehaviour {
 
                if (Altitude <= 20000)
                {
-                    mainCamera.backgroundColor = GetRgbColor(0x9BB9FF);
+
+                    mainCamera.backgroundColor = Color.Lerp(GetRgbColor(0x9BB9FF), GetRgbColor(0x001B58),Altitude / 20000);
 
                     
                } else if (Altitude <= 100000) 
                {
-                    mainCamera.backgroundColor = GetRgbColor(0x001B58);
+
+                    mainCamera.backgroundColor = Color.Lerp(GetRgbColor(0x001B58), GetRgbColor(0x000000), (Altitude - 20000) / 80000);
+                
                } else
                {
                     mainCamera.backgroundColor = GetRgbColor(0x000000);
