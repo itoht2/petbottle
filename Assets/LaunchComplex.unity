@@ -1675,7 +1675,7 @@ Transform:
   m_LocalScale: {x: 10, y: 13.374996, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &672931023
 GameObject:
   m_ObjectHideFlags: 0
