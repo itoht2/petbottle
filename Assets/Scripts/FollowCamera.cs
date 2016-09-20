@@ -10,7 +10,8 @@ public class FollowCamera : MonoBehaviour {
      private Vector3 velocity = Vector3.zero;
      public Camera mainCamera;
      public SpecData specData;
-
+     public Color BGColor;
+     
      void Start()
      {
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
@@ -48,6 +49,20 @@ public class FollowCamera : MonoBehaviour {
 
                float Altitude = specData.GetAltitude();
 
+               if (Altitude <= 20000)
+               {
+                    mainCamera.backgroundColor = GetRgbColor(0x9BB9FF);
+
+                    
+               } else if (Altitude <= 100000) 
+               {
+                    mainCamera.backgroundColor = GetRgbColor(0x001B58);
+               } else
+               {
+                    mainCamera.backgroundColor = GetRgbColor(0x000000);
+               }
+
+
                if (Altitude > 100.0f)
                {
                     mainCamera.orthographicSize = Altitude * 0.06f;
@@ -58,5 +73,26 @@ public class FollowCamera : MonoBehaviour {
                }
 
           }
+     }
+
+     public static Color GetRgbColor(uint color)
+     {
+          float r, g, b, a;
+          var inv = 1.0f / 255.0f;
+          if (color > 0xffffff)
+          {
+               r = ((color >> 24) & 0xff) * inv;
+               g = ((color >> 16) & 0xff) * inv;
+               b = ((color >> 8) & 0xff) * inv;
+               a = ((color) & 0xff) * inv;
+          }
+          else
+          {
+               r = ((color >> 16) & 0xff) * inv;
+               g = ((color >> 8) & 0xff) * inv;
+               b = ((color) & 0xff) * inv;
+               a = 1.0f;
+          }
+          return new Color(r, g, b, a);
      }
 }

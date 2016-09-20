@@ -45,6 +45,9 @@ public class OnStart : MonoBehaviour {
           }
 
 
+
+
+
      }
 
      private IEnumerator ScatterStar (float HightLevel) // 星をばらまく

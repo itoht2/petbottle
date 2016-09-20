@@ -954,8 +954,8 @@ Camera:
   m_GameObject: {fileID: 483443383}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0.1542995, b: 0.5, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1009,6 +1009,7 @@ MonoBehaviour:
   smoothTime: 0.05
   mainCamera: {fileID: 483443387}
   specData: {fileID: 0}
+  BGColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &497070487
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,6 +2610,10 @@ Prefab:
     - target: {fileID: 22469736, guid: 77338daed67f22e42a4577b21bf02afd, type: 2}
       propertyPath: m_LocalScale.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 163616, guid: 77338daed67f22e42a4577b21bf02afd, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77338daed67f22e42a4577b21bf02afd, type: 2}
@@ -5872,7 +5877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1373299709
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8575,7 +8580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1953235091
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8868,6 +8873,14 @@ Prefab:
     - target: {fileID: 11474214, guid: 9d4650e3cb42e6542ad0af92fe0c2725, type: 2}
       propertyPath: m_Text
       value: "\u5C04\u70B9"
+      objectReference: {fileID: 0}
+    - target: {fileID: 22496934, guid: 9d4650e3cb42e6542ad0af92fe0c2725, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 22496934, guid: 9d4650e3cb42e6542ad0af92fe0c2725, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -170
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d4650e3cb42e6542ad0af92fe0c2725, type: 2}
