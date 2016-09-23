@@ -95,6 +95,7 @@ public class NoseCornFolder : MonoBehaviour {
      } 
      public Sprite GetImage(int i)
      {
+          //Debug.Log(i);
           return Image[i];
      }
      public string GetImageName(int i)
@@ -128,6 +129,7 @@ public class NoseCornFolder : MonoBehaviour {
      }
     public string GetParameterName(int j)
      {
+          //Debug.Log(j);
           return ParameterName[j];
      }
      public float GetParameterValue1(int i)

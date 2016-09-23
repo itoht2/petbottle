@@ -104,6 +104,7 @@ public class SpecData : MonoBehaviour {
           FinCD = PlayerPrefs.GetFloat("FinCD", 0.2f);
           CDFactor = PlayerPrefs.GetFloat("CDFacto", 1.0f);
           Stability = PlayerPrefs.GetFloat("Stability", 1.0f);
+          Multistage = PlayerPrefs.GetInt("Multistage", 1);
 
           PumpMax = PlayerPrefs.GetFloat("PumpMax", 300f);
           PumpCapacity = PlayerPrefs.GetFloat("PumpCapacity", 2f);
@@ -142,7 +143,7 @@ public class SpecData : MonoBehaviour {
           PlayerPrefs.SetFloat("FinCD", FinCD);
           PlayerPrefs.SetFloat("CDFacto", CDFactor);
           PlayerPrefs.SetFloat("Stability", Stability);
-
+          PlayerPrefs.SetInt("Multistage", Multistage);
 
           PlayerPrefs.SetFloat("PumpMax", PumpMax);
           PlayerPrefs.SetFloat("PumpCapacity", PumpCapacity);

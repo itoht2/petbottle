@@ -152,7 +152,10 @@ public class UsingButtonCOntroller : MonoBehaviour {
                               specData.RotateFix = (parameterValue == 1.0f);
 
                               break;
+                         case "Multistage":
+                              specData.Multistage = (int)parameterValue;
 
+                              break;
 
 
 

@@ -16,6 +16,7 @@ public class OnStartTitleScript : MonoBehaviour {
 
           GameObject IsSRBAFolder = GameObject.Find("SRBAFolder");
           GameObject IsPumpFolder = GameObject.Find("PumpFolder");
+          GameObject IsMultiStageFolder = GameObject.Find("MultiStageFolder");
 
 
           if (IsSpecData == null)
@@ -85,15 +86,25 @@ public class OnStartTitleScript : MonoBehaviour {
           {
                //Debug.Log(IsSpecData.name);
                GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/PumpFolder");
-               IsSRBAFolder = Instantiate(SpecDataprefab);
-               IsSRBAFolder.name = "PumpFolder";
-               DontDestroyOnLoad(IsSRBAFolder);
+               IsPumpFolder = Instantiate(SpecDataprefab);
+               IsPumpFolder.name = "PumpFolder";
+               DontDestroyOnLoad(IsPumpFolder);
           }
 
+          if (IsMultiStageFolder == null)
+          {
+               //Debug.Log(IsSpecData.name);
+               GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/MultiStageFolder");
+               IsMultiStageFolder = Instantiate(SpecDataprefab);
+               IsMultiStageFolder.name = "MultiStageFolder";
+               DontDestroyOnLoad(IsMultiStageFolder);
+          }
+
+
      }
-	
-	// Update is called once per frame
-	void Update () {
+
+     // Update is called once per frame
+     void Update () {
 	
 	}
 

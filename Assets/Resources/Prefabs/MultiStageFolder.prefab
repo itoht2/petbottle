@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &118298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 448842}
+  - 114: {fileID: 11496272}
+  m_Layer: 0
+  m_Name: MultiStageFolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &448842
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118298}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11496272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7d93dbdef4b3149a764f0f4c733a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NumberOfItem: 3
+  ItemName:
+  - MultiStage0
+  - MultiStage1
+  - MultiStage2
+  Weight:
+  - 0
+  - 0
+  - 0
+  Price:
+  - 0
+  - 30
+  - 10000
+  Discription:
+  - "1\u6BB5"
+  - "2\u6BB5"
+  - "3\u6BB5"
+  Specs:
+  - "\u30ED\u30B1\u30C3\u30C8\u6BB5\u6570:1\u6BB5"
+  - "\u30ED\u30B1\u30C3\u30C8\u6BB5\u6570:2\u6BB5"
+  - "\u30ED\u30B1\u30C3\u30C8\u6BB5\u6570:3\u6BB5"
+  DiscriptionLong:
+  - "\u666E\u901A\u306E\u6C34\u30ED\u30B1\u30C3\u30C8"
+  - "\u4E00\u56DE\u6C34\u304C\u7121\u304F\u306A\u3063\u3066\u3082\u3082\u3046\u4E00\u56DE\u5674\u5C04\u3067\u304D\u308B\u3002/n\u666E\u901A\u306E\u30ED\u30B1\u30C3\u30C8\u306E2\u500D\u98DB\u3076\u3002"
+  - "\u8105\u5A01\u306E3\u6BB5\u5674\u5C04\u3002/n\u666E\u901A\u306E\u30ED\u30B1\u30C3\u30C8\u306E3\u500D\u98DB\u3076\u3088\u3002"
+  Image:
+  - {fileID: 21300000, guid: d4323d745a75f0e4aa5d367012ea8832, type: 3}
+  - {fileID: 21300000, guid: a01d8ff3d72ac694db072ffa25d33912, type: 3}
+  - {fileID: 21300000, guid: a01d8ff3d72ac694db072ffa25d33912, type: 3}
+  NumberOfHold: 010000000000000000000000
+  NowUsed: 0
+  NumberOfParameter: 1
+  ParameterName:
+  - Multistage
+  - 
+  - 
+  ParameterValue1:
+  - 1
+  - 2
+  - 3
+  ParameterValue2:
+  - 0
+  - 0
+  - 0
+  ParameterValue3:
+  - 0
+  - 0
+  - 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 118298}
+  m_IsPrefabParent: 1
