@@ -94,7 +94,12 @@ public class ScoreData : MonoBehaviour {
 
      public void CalcNewScore (float AddDistance) // 距離を加える
      {
+         
+
           Score = AddDistance * ScoreCoefficient;
+          //Debug.Log("score:" + Score);
+          //Debug.Log("AddDis:" + AddDistance);
+          //Debug.Log("ScoreCoeff:" + ScoreCoefficient);
           TotalDistance = TotalDistance + AddDistance;
           TotalScore = TotalScore  + AddDistance * ScoreCoefficient;
 

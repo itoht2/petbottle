@@ -327,6 +327,7 @@ public class RocketController : MonoBehaviour {
 
           float NowAltitude = ScoreBody.transform.position.y * tScale[tRank];
           score = Mathf.Max(score, NowAltitude);
+          //Debug.Log(score);
           SpeedMax = Mathf.Max(SpeedMax, ScoreBody.velocity.y);
 
           if (NowAltitude <= 2000.0f)
@@ -381,16 +382,16 @@ public class RocketController : MonoBehaviour {
           {
               if (!TopFlag)
                {  
-                    ScoreData.CalcNewScore(score);
+                    //ScoreData.CalcNewScore(score);
                     TopFlag = true;
                     RocketBody2D.constraints = RigidbodyConstraints2D.None ;  // 回転させる
                     
 
                     //RocketBody2D.centerOfMass = center;
                     StartCoroutine("Rotate");
-                    ScoreData.ScoreNow = score;
-                    ScoreData.CalcMaxDistance(score);
-                    ScoreData.SaveScore();
+                    //ScoreData.ScoreNow = score;
+                    //ScoreData.CalcMaxDistance(score);
+                    //ScoreData.SaveScore();
 
                     
                     StartCoroutine("CheckButtonOpen");
@@ -524,12 +525,28 @@ public class RocketController : MonoBehaviour {
 
      IEnumerator GoScore()
      {
+          //ScoreData.CalcNewScore(score);
+          //ScoreData.ScoreNow = score;
+          //ScoreData.CalcMaxDistance(score);
+          //ScoreData.SaveScore();
+
+          ScoreDataStore();
+
           Time.timeScale = 1.0f;
           yield return new WaitForSeconds(Mathf.Max(5.0f, SideThrustTime));
           //Debug.Log(Mathf.Max(5.0f, SideThrustTime));
           SceneManager.LoadScene("ScoreUpdate");
           yield return null;
 
+     }
+
+     public void ScoreDataStore()
+     {
+          ScoreData.CalcNewScore(score);
+          ScoreData.ScoreNow = score;
+          ScoreData.CalcMaxDistance(score);
+          ScoreData.SaveScore();
+          //Debug.Log(score);
      }
 
      IEnumerator Launch()    

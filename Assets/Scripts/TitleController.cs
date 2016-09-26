@@ -6,11 +6,19 @@ using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 public class TitleController : MonoBehaviour {
      private SpecData specData;
+     public RocketController rocketController;
+
+   
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+
+          if (GameObject.Find("RocketBody") != null)
+          {
+               rocketController = GameObject.Find("RocketBody").GetComponent<RocketController>();
+          }
+         
+     }
 	
 	// Update is called once per frame
 	void Update () {
@@ -19,6 +27,11 @@ public class TitleController : MonoBehaviour {
 
      public void OnScoreUpdateButtonClicked ()
      {
+          if (rocketController != null)
+          {
+               rocketController.ScoreDataStore();
+          }
+     
           StartCoroutine(GoNextScine("ScoreUpdate"));
      }
 
