@@ -30,6 +30,11 @@ public class PrefReset : MonoBehaviour {
                scoreData.LoadScore();
                GameObject.Find("NoseCornFolder").GetComponent<NoseCornFolder>().LoadData();
                GameObject.Find("BodyFolder").GetComponent<NoseCornFolder>().LoadData();
+               GameObject.Find("FinFolder").GetComponent<NoseCornFolder>().LoadData();
+               GameObject.Find("CanSatFolder").GetComponent<NoseCornFolder>().LoadData();
+               GameObject.Find("SRBAFolder").GetComponent<NoseCornFolder>().LoadData();
+               GameObject.Find("PumpFolder").GetComponent<NoseCornFolder>().LoadData();
+               GameObject.Find("MultiStageFolder").GetComponent<NoseCornFolder>().LoadData();
 
 
           }
