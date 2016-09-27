@@ -106,17 +106,17 @@ public class SpecData : MonoBehaviour {
           Stability = PlayerPrefs.GetFloat("Stability", 1.0f);
           Multistage = PlayerPrefs.GetInt("Multistage", 1);
 
-          PumpMax = PlayerPrefs.GetFloat("PumpMax", 300f);
+          PumpMax = PlayerPrefs.GetFloat("PumpMax", 200f);
           PumpCapacity = PlayerPrefs.GetFloat("PumpCapacity", 2f);
           PumpID = PlayerPrefs.GetInt("PumpID", 0);
-          SideThrusterForce = PlayerPrefs.GetFloat("SideThrusterForce",1f);
-          SideThrusterTime = PlayerPrefs.GetFloat("SideThrusterTime",5.0f);
+          SideThrusterForce = PlayerPrefs.GetFloat("SideThrusterForce",0.0f);
+          SideThrusterTime = PlayerPrefs.GetFloat("SideThrusterTime",0.0f);
           LauncherForce = PlayerPrefs.GetFloat("LauncherForce", 0f);
           SRBANumber = PlayerPrefs.GetInt("SRBANumber", 0);
           SRBAThrustForce = PlayerPrefs.GetFloat("SRBAThrustForce", 0.0f);
           SRBABurningTime = PlayerPrefs.GetFloat("SRBABurningTime", 0.0f);
-          PayLoadName = PlayerPrefs.GetString("PayLoadName", "Cansat");
-          PayLoadWeight = PlayerPrefs.GetFloat("PayLoadWeight", 0.1f);
+          PayLoadName = PlayerPrefs.GetString("PayLoadName", "");
+          PayLoadWeight = PlayerPrefs.GetFloat("PayLoadWeight", 0.0f);
           RotateFix = PlayerPrefs.GetBool("RotateFix", false);
 
 

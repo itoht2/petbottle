@@ -32,16 +32,17 @@ public class ThU : MonoBehaviour
 
      public void PushDown()
      {
+          if (specData.GetSideThrusterTime() == 0.0f)
+          {
+               return;
+          }
 
           if (rocketController.GetSideThrustForce() < 2.0f)
           {
                return;
           }
 
-          if (specData.GetSideThrusterTime() == 0.0f)
-          {
-               return;
-          }
+          
 
           float tTime = rocketController.GetSideThrustTime();
           //Debug.Log(tTime);

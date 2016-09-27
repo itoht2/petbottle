@@ -42,14 +42,14 @@ MonoBehaviour:
   Gravity: 9.807
   WaterDensity: 1000
   RocketWeight: 0.07
-  NoseCornWeight: 0.02
-  FinWeight: 0.01
+  NoseCornWeight: 0.03
+  FinWeight: 0.03
   FuelCapacity: 0.0002
   FuelWeight: 0
   AverageWeight: 0
   NozzleRadius: 0.003
   NozzleArea: 0
-  Multistage: 3
+  Multistage: 1
   InnerPressureMax: 300
   Speed: 0
   Altitude: 0
@@ -73,6 +73,7 @@ MonoBehaviour:
   PumpMax: 300
   PumpCapacity: 2
   PumpPressure: 0
+  PumpID: 0
   SideThrusterForce: 1
   SideThrusterTime: 5
   SideThrusterRate: 0
@@ -84,6 +85,7 @@ MonoBehaviour:
   SRBAOffset: {x: 0, y: 0.89, z: 0}
   PayLoadName: CanSat
   PayLoadWeight: 0.1
+  RotateFix: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
