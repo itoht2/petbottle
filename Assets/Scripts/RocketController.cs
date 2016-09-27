@@ -757,7 +757,6 @@ public class RocketController : MonoBehaviour {
 
           CanSatJoint = CanSat.GetComponent<FixedJoint2D>();
           NoseCornJoint = NoseCorn.GetComponent<FixedJoint2D>();
-
           
 
           //CanSat.transform.FindChild("Collider").gameObject.SetActive(false);
@@ -771,12 +770,15 @@ public class RocketController : MonoBehaviour {
           {
                CanSat.GetComponent<CircleCollider2D>().isTrigger = false;
           }
+
           NoseCornJoint.enabled = false;
-          NoseCorn.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 0.01f), ForceMode2D.Impulse);
-          NoseCorn.GetComponent<Rigidbody2D>().AddTorque(0.001f, ForceMode2D.Impulse);
-          CanSat.GetComponent<SpriteRenderer>().enabled = true;
+          NoseCorn.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 0.1f), ForceMode2D.Impulse);
+          NoseCorn.GetComponent<Rigidbody2D>().AddTorque(0.002f, ForceMode2D.Impulse);
+          
 
           yield return new WaitForSeconds(0.3f);
+
+          CanSat.GetComponent<SpriteRenderer>().enabled = true;
 
           GetComponent<AudioSource>().PlayOneShot(CansatSound);
 
@@ -818,7 +820,7 @@ public class RocketController : MonoBehaviour {
 
           ParaObject.name = "Para";
           ParaObject.transform.position = CanSat.transform.position;
-          yield return new WaitForSeconds(0.3f);
+          yield return new WaitForSeconds(0.5f);
 
           ParaJoint = ParaObject.GetComponent<HingeJoint2D>();
           ParaJoint.connectedBody = CanSat.GetComponent<Rigidbody2D>();
