@@ -64,13 +64,13 @@ MonoBehaviour:
   Temperature: 20
   GasConstant: 2.87
   Cd: 1
-  NoseCornCD: 0.2
+  NoseCornCD: 0.5
   NoseCornImage: {fileID: 0}
   FinCD: 0.2
   Stability: 1
   CDFactor: 1
   DensityOfAir: 0
-  PumpMax: 300
+  PumpMax: 200
   PumpCapacity: 2
   PumpPressure: 0
   PumpID: 0
