@@ -23,6 +23,8 @@ public class ScoreShowController : MonoBehaviour {
           LaunchNo.text =  scoreData.GetLaunchNumber().ToString() + "号機";
           StartCoroutine("PointRateAdd");
 
+          
+
          // StartCoroutine(ScoreAnimation(0.5f, 0.0f, scoreData.GetScoreNow(), 1.0f));
 
      }
@@ -33,6 +35,11 @@ public class ScoreShowController : MonoBehaviour {
 
 	
 	}
+
+     void ShowAdDialog()  // unityの動画広告を見るかどうか判断させる
+     {
+          Debug.Log("ShowAd?");
+     }
 
      private IEnumerator PointRateAdd()
      {
@@ -148,7 +155,15 @@ public class ScoreShowController : MonoBehaviour {
           // 最終的な着地のスコア
           scoreText.text = endScore.ToString("f2") + " point";
           GetComponent<AudioSource>().Stop();
+
+          if (Random.value <= 0.2f)  //ランダムでこれ以下なら広告のダイアログを出す
+          {
+               ShowAdDialog();
+          }
      }
+
+
+
 
    
 }
