@@ -75,8 +75,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AdControll.cs" />
     <Compile Include="Assets\Scripts\AccordionExpander.cs" />
+    <Compile Include="Assets\Scripts\AdControll.cs" />
     <Compile Include="Assets\Scripts\AddOnClick.cs" />
     <Compile Include="Assets\Scripts\AnimatedScore.cs" />
     <Compile Include="Assets\Scripts\BackToMenu.cs" />
@@ -122,6 +122,7 @@
     <Compile Include="Assets\Scripts\ThrustButton.cs" />
     <Compile Include="Assets\Scripts\TitleController.cs" />
     <Compile Include="Assets\Scripts\ToggleImage.cs" />
+    <Compile Include="Assets\Scripts\UnityAdsScript.cs" />
     <Compile Include="Assets\Scripts\UsingButtonCOntroller.cs" />
     <Compile Include="Assets\UITween\Prefabs\Click Effect Pref\ClickedWaveAnimation.cs" />
     <Compile Include="Assets\UITween\ScenesExamplesScripts\ActivateOnEnable.cs" />
@@ -130,7 +131,6 @@
     <Compile Include="Assets\UITween\Scripts\EasyTween.cs" />
     <Compile Include="Assets\UITween\Scripts\ReferencedFrom.cs" />
     <Compile Include="Assets\UITween\Scripts\UITween.cs" />
-    <Compile Include="Assets\UnityAdsScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Android\unityads\AndroidManifest.xml" />
