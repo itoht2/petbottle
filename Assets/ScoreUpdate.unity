@@ -797,7 +797,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11485308, guid: cf8e54ebce04dea4bb0bec4c6e3fcc8d, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 22494430, guid: cf8e54ebce04dea4bb0bec4c6e3fcc8d, type: 2}
       propertyPath: m_LocalPosition.x
@@ -918,6 +918,42 @@ Prefab:
     - target: {fileID: 11485308, guid: cf8e54ebce04dea4bb0bec4c6e3fcc8d, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485308, guid: cf8e54ebce04dea4bb0bec4c6e3fcc8d, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 889319717}
+    - target: {fileID: 11485308, guid: cf8e54ebce04dea4bb0bec4c6e3fcc8d, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShowAd
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485308, guid: cf8e54ebce04dea4bb0bec4c6e3fcc8d, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485082, guid: cf8e54ebce04dea4bb0bec4c6e3fcc8d, type: 2}
+      propertyPath: m_Text
+      value: "\u77ED\u6642\u9593\u306E\u52D5\u753B\u5E83\u544A\u3092\u8868\u793A\u3055\u305B\u308B\u3068\u3001\n\u30B9\u30B3\u30A2\u30921000point\u5897\u3084\u3059\u3053\u3068\u304C\u51FA\u6765\u307E\u3059\u3002\n\u5E83\u544A\u3092\u898B\u307E\u3059\u304B\uFF1F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485308, guid: cf8e54ebce04dea4bb0bec4c6e3fcc8d, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485308, guid: cf8e54ebce04dea4bb0bec4c6e3fcc8d, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485308, guid: cf8e54ebce04dea4bb0bec4c6e3fcc8d, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2085908685}
+    - target: {fileID: 11485308, guid: cf8e54ebce04dea4bb0bec4c6e3fcc8d, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: AfertShowAd
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485308, guid: cf8e54ebce04dea4bb0bec4c6e3fcc8d, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11463936, guid: cf8e54ebce04dea4bb0bec4c6e3fcc8d, type: 2}
@@ -1539,6 +1575,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1 &889319715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 889319716}
+  - 114: {fileID: 889319717}
+  m_Layer: 0
+  m_Name: UnityAds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &889319716
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889319715}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.631085, y: 213.00769, z: 0}
+  m_LocalScale: {x: 1.0606896, y: 1.0606896, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1343148953}
+  m_RootOrder: 5
+--- !u!114 &889319717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889319715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7288b365306d3e4c8e03dc0744a64ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &920938729
 GameObject:
   m_ObjectHideFlags: 0
@@ -2738,6 +2813,7 @@ MonoBehaviour:
   Etc: {fileID: 139293873}
   LaunchNo: {fileID: 1124178443}
   scoreText: {fileID: 1992171921}
+  UpScoreText: {fileID: 0}
   adAnimator: {fileID: 0}
 --- !u!82 &2085908686
 AudioSource:

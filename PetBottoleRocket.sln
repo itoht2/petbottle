@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetBottoleRocket.CSharp.Plu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetBottoleRocket.CSharp", "PetBottoleRocket.CSharp.csproj", "{7FC911A2-48F5-7A6E-C1DE-E01E10E73097}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetBottoleRocket.CSharp.Editor.Plugins", "PetBottoleRocket.CSharp.Editor.Plugins.csproj", "{97ACA201-11ED-D596-6676-AC7558B4318D}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetBottoleRocket.CSharp.Editor", "PetBottoleRocket.CSharp.Editor.csproj", "{787065BB-2DE6-5690-656F-20580F9A717E}"
 EndProject
 Global
@@ -21,6 +23,10 @@ Global
 		{7FC911A2-48F5-7A6E-C1DE-E01E10E73097}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FC911A2-48F5-7A6E-C1DE-E01E10E73097}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FC911A2-48F5-7A6E-C1DE-E01E10E73097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97ACA201-11ED-D596-6676-AC7558B4318D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97ACA201-11ED-D596-6676-AC7558B4318D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97ACA201-11ED-D596-6676-AC7558B4318D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97ACA201-11ED-D596-6676-AC7558B4318D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{787065BB-2DE6-5690-656F-20580F9A717E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{787065BB-2DE6-5690-656F-20580F9A717E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{787065BB-2DE6-5690-656F-20580F9A717E}.Release|Any CPU.ActiveCfg = Release|Any CPU

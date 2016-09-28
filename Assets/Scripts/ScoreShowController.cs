@@ -12,6 +12,10 @@ public class ScoreShowController : MonoBehaviour {
      public Text Etc;
      public Text LaunchNo;
      public Text scoreText;
+     private float ScoreBeforeAd;
+     private int UpScore;
+     public Text UpScoreText;
+     private int keta;
 
      public Animator adAnimator;
     
@@ -26,6 +30,7 @@ public class ScoreShowController : MonoBehaviour {
           StartCoroutine("PointRateAdd");
 
           adAnimator = GameObject.Find("AdDialog").GetComponent<Animator>();
+          UpScoreText = GameObject.Find("DetailText").GetComponent<Text>();
 
          // StartCoroutine(ScoreAnimation(0.5f, 0.0f, scoreData.GetScoreNow(), 1.0f));
 
@@ -33,15 +38,36 @@ public class ScoreShowController : MonoBehaviour {
 
      // Update is called once per frame
      void Update () {
-
-
 	
 	}
-
+     
      void ShowAdDialog()  // unityの動画広告を見るかどうか判断させる
      {
-          Debug.Log("ShowAd?");
+          //Debug.Log("ShowAd?");
+                   
+
+          UpScore = (int) (scoreData.GetScore() * Random.Range(0.2f,1.2f));
+          keta = Mathf.Max(GetDigit(UpScore) -2 , 0);
+          UpScore = (int) (Mathf.Round(UpScore / Mathf.Pow(10, keta)) * Mathf.Pow(10, keta));
+
+          
+          Debug.Log("keta:" + keta);
+          Debug.Log("UpScore:" + UpScore);
+
+          UpScoreText.text = "短時間の動画広告を表示させると、/nスコアを" + UpScore + "point増やすことが出来ます。/n広告を見ますか？";
           adAnimator.SetBool("Up" , true);
+         
+     }
+
+     public void AfertShowAd()
+     {
+          StartCoroutine(ScoreAnimation(0.5f, ScoreBeforeAd, ScoreBeforeAd + UpScore, 1.0f));
+     }
+
+     
+     public static int GetDigit(int num)
+     {
+          return (num == 0) ? 1 : (int)Mathf.Log10(num) + 1;
      }
 
      private IEnumerator PointRateAdd()
@@ -50,7 +76,9 @@ public class ScoreShowController : MonoBehaviour {
    
           yield return StartCoroutine(RateAnimation(0.5f, 0.0f, scoreData.GetScoreCoefficient(), 1.0f));
 
-          yield return StartCoroutine(ScoreAnimation(0.5f, 0.0f, scoreData.GetScoreNow() * scoreData.GetScoreCoefficient(), 1.0f));
+          ScoreBeforeAd = scoreData.GetScoreNow() * scoreData.GetScoreCoefficient();
+
+          yield return StartCoroutine(ScoreAnimation(0.5f, 0.0f, ScoreBeforeAd, 1.0f));
 
       
      }
@@ -162,6 +190,7 @@ public class ScoreShowController : MonoBehaviour {
           if (Random.value <= 1.0f)  //ランダムでこれ以下なら広告のダイアログを出す
           {
                ShowAdDialog();
+
           }
      }
 
