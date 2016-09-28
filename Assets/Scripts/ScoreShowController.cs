@@ -16,13 +16,14 @@ public class ScoreShowController : MonoBehaviour {
      private int UpScore;
      public Text UpScoreText;
      private int keta;
+     private bool AdShowed;
 
      public Animator adAnimator;
     
      // Use this for initialization
      void Start () {
           scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
-
+          AdShowed = false;
 
           //StartCoroutine(ScoreAnimation(0.5f, 1000f, 10000f, 2f));
 
@@ -54,7 +55,7 @@ public class ScoreShowController : MonoBehaviour {
           Debug.Log("keta:" + keta);
           Debug.Log("UpScore:" + UpScore);
 
-          UpScoreText.text = "短時間の動画広告を表示させると、/nスコアを" + UpScore + "point増やすことが出来ます。/n広告を見ますか？";
+          UpScoreText.text = "短時間の動画広告を表示させると、\nスコアを" + UpScore + "point増やすことが出来ます。\n広告を見ますか？";
           adAnimator.SetBool("Up" , true);
          
      }
@@ -62,6 +63,7 @@ public class ScoreShowController : MonoBehaviour {
      public void AfertShowAd()
      {
           StartCoroutine(ScoreAnimation(0.5f, ScoreBeforeAd, ScoreBeforeAd + UpScore, 1.0f));
+          scoreData.TotalScore = scoreData.GetTotalScore() + UpScore;
      }
 
      
@@ -187,8 +189,9 @@ public class ScoreShowController : MonoBehaviour {
           scoreText.text = endScore.ToString("f2") + " point";
           GetComponent<AudioSource>().Stop();
 
-          if (Random.value <= 1.0f)  //ランダムでこれ以下なら広告のダイアログを出す
+          if ((Random.value <= 1.0f) && (AdShowed = false))  //ランダムでこれ以下なら広告のダイアログを出す
           {
+               AdShowed = true;
                ShowAdDialog();
 
           }
