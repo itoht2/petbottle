@@ -189,7 +189,7 @@ public class ScoreShowController : MonoBehaviour {
           scoreText.text = endScore.ToString("f2") + " point";
           GetComponent<AudioSource>().Stop();
 
-          if ((Random.value <= 1.0f) && (AdShowed = false))  //ランダムでこれ以下なら広告のダイアログを出す
+          if (Random.value <= 1.0f && AdShowed == false)  //ランダムでこれ以下なら広告のダイアログを出す
           {
                AdShowed = true;
                ShowAdDialog();
