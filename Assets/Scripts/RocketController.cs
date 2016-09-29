@@ -33,6 +33,7 @@ public class RocketController : MonoBehaviour {
      private GameObject ParaPrefab;
      private HingeJoint2D ParaJoint;
      private FrictionJoint2D ParaJointFriction;
+     private GameObject ParaObject;
 
      public GameObject NoseCorn;
      private FixedJoint2D NoseCornJoint;
@@ -772,21 +773,23 @@ public class RocketController : MonoBehaviour {
           }
 
           NoseCornJoint.enabled = false;
-          NoseCorn.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 0.1f), ForceMode2D.Impulse);
+          NoseCorn.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 0.05f), ForceMode2D.Impulse);
           NoseCorn.GetComponent<Rigidbody2D>().AddTorque(0.002f, ForceMode2D.Impulse);
           
 
           yield return new WaitForSeconds(0.3f);
 
-          CanSat.GetComponent<SpriteRenderer>().enabled = true;
+         
 
           GetComponent<AudioSource>().PlayOneShot(CansatSound);
 
           CanSatJoint.enabled = false;
-          CanSat.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.1f), ForceMode2D.Impulse);
+          CanSat.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.05f), ForceMode2D.Impulse);
           ScoreBody = CanSat.GetComponent<Rigidbody2D>();
 
-          //if (specData.GetRotateFix() == true) // サイドスラストが2N以上の場合は回転抑制
+          CanSat.GetComponent<SpriteRenderer>().enabled = true;
+
+          //if (specData.GetRotateFix() == true) // サイドスラストが2N以上の場合は回転抑制 →缶サット側のプレファブで対応
           //{
           //     CanSat.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
           //}
@@ -816,7 +819,7 @@ public class RocketController : MonoBehaviour {
           MapCamera.GetComponent<FollowCameraForMapcamera>().objTarget = CanSat;
 
           ParaPrefab = (GameObject)Resources.Load("Prefabs/Para");
-          GameObject ParaObject = (GameObject)Instantiate(ParaPrefab);
+          ParaObject = Instantiate(ParaPrefab);
 
           ParaObject.name = "Para";
           ParaObject.transform.position = CanSat.transform.position;
@@ -882,7 +885,7 @@ public class RocketController : MonoBehaviour {
                     TempAltitude = TemperatureOfGraund + 3.0f * ScoreBody.transform.position.y /1000 - 380.0f;
                }
 
-               //Debug.Log(TempAltitude);
+               //Debug.Log("TempAltitude:"+TempAltitude);
                specData.Temperature = TempAltitude;
 
                float AtmospherPresuure = (1013.0f * Mathf.Pow(1.0f - (0.0065f * ScoreBody.transform.position.y / (TempAltitude + 273.15f)) , 5.258f)) /10;
@@ -896,12 +899,13 @@ public class RocketController : MonoBehaviour {
                {
                     AtmospherPresuure = 0.01f;
                }
-               //Debug.Log("Press:" + AtmospherPresuure + "Hight:" + ScoreBody.transform.position.y + "Temp:"+ TempAltitude);
+               Debug.Log("Press:" + AtmospherPresuure + "Hight:" + ScoreBody.transform.position.y + "Temp:"+ TempAltitude);
                specData.AtmospherPresuure = AtmospherPresuure;
 
                DensityOfAir = AtmospherPresuure * 10 / (specData.GetGasConstant() * (TempAltitude + 273.15f));
 
                specData.DensityOfAir = DensityOfAir;
+               Debug.Log("DensityOfAir:" + DensityOfAir);
 
                AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * Mathf.Pow(Mathf.Abs(ScoreBody.velocity.y) , 2.2f) / 2.0f ;
                //ScoreBody.AddForce(-AirResistancce * ScoreBody.velocity / 500);
@@ -910,8 +914,18 @@ public class RocketController : MonoBehaviour {
                {
                     AirResistancce = 10000.0f;
                }
-               //Debug.Log(AirResistancce);
-               ScoreBody.AddForce(-AirResistancce * new Vector2(0.0f, 1.0f) / 100.0f );
+               Debug.Log("AirReg:" + AirResistancce);
+
+               if (specData.GetSpeed() >= 0.0f )
+               {
+                    ScoreBody.AddForce(-AirResistancce * new Vector2(0.0f, 1.0f) / 100.0f);
+               } 
+
+               if (ParaObject != null)
+               {
+                    ParaObject.GetComponent<Rigidbody2D>().drag = 5.0f *  Mathf.Pow(DensityOfAir,4) * 0.482f ;
+               }
+
 
                float TrueGravity = 9.80665f * Mathf.Pow((6356.766f / (6356.766f + ScoreBody.transform.position.y / 1000.0f)),2);
                //Debug.Log(TrueGravity);
