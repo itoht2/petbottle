@@ -52,8 +52,8 @@ public class ScoreShowController : MonoBehaviour {
           UpScore = (int) (Mathf.Round(UpScore / Mathf.Pow(10, keta)) * Mathf.Pow(10, keta));
 
           
-          Debug.Log("keta:" + keta);
-          Debug.Log("UpScore:" + UpScore);
+          //Debug.Log("keta:" + keta);
+          //Debug.Log("UpScore:" + UpScore);
 
           UpScoreText.text = "短時間の動画広告を表示させると、\nスコアを" + UpScore + "point増やすことが出来ます。\n広告を見ますか？";
           adAnimator.SetBool("Up" , true);
@@ -189,7 +189,7 @@ public class ScoreShowController : MonoBehaviour {
           scoreText.text = endScore.ToString("f2") + " point";
           GetComponent<AudioSource>().Stop();
 
-          if (Random.value <= 1.0f && AdShowed == false)  //ランダムでこれ以下なら広告のダイアログを出す
+          if (Random.value <= 0.2f && AdShowed == false)  //ランダムでこれ以下なら広告のダイアログを出す
           {
                AdShowed = true;
                ShowAdDialog();

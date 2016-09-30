@@ -2264,7 +2264,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 490302, guid: 47feb38ac4f20f841b9a03aa19272352, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11405340, guid: 47feb38ac4f20f841b9a03aa19272352, type: 2}
       propertyPath: scoreData
@@ -4876,7 +4876,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 490832, guid: 4624d58b8e67a3e4bbe8b3f60ac1d650, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4624d58b8e67a3e4bbe8b3f60ac1d650, type: 2}

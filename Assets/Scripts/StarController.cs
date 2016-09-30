@@ -72,10 +72,13 @@ public class StarController : MonoBehaviour {
                //Debug.Log(collision.transform.name);
 
                GameObject effect = Instantiate(Resources.Load(EFFECT_PATH)) as GameObject;
-               effect.transform.position = (Vector3)collision.transform.position;
+               effect.transform.position = collision.transform.position;
 
                scoreData.AddScoreCoefficient(AddNumber);
                //Debug.Log(collision.transform.name);
+
+               Destroy(effect, 1.0f);
+               //StartCoroutine("StopParticle", effect.name);
           }
 
           //gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -86,5 +89,15 @@ public class StarController : MonoBehaviour {
           //GameObject.Destroy(gameObject);
      }
 
-    
+     //private IEnumerator StopParticle( string effectName)
+     //{
+     //     yield return new WaitForSeconds(1.0f);
+     //     GameObject effectToKill =  GameObject.Find(effectName);
+     //     Destroy(effectToKill, 1.0f);
+
+
+
+     //}
+
+
 }
