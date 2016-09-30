@@ -10,6 +10,7 @@ public class ThrustButton : MonoBehaviour {
      bool push = false;     
      public bool Right;
      public AudioClip audioClip;
+     public AudioClip Migi;
      AudioSource audioSource;
      public MainSwitchController mainSwitchController;
      private SpecData specData;
@@ -45,8 +46,17 @@ public class ThrustButton : MonoBehaviour {
           if (tTime > 0.0)
           {
                push = true;
+
                SideTrustEmission.enabled = true;
-               audioSource.PlayOneShot(audioClip);
+               if (specData.GetPayLoadName() == "moe3")
+               {
+                    audioSource.PlayOneShot(Migi);
+               }
+               else
+               {
+                    audioSource.PlayOneShot(audioClip);
+               }
+               
           }
      }
 

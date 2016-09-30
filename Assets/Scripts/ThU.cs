@@ -12,6 +12,7 @@ public class ThU : MonoBehaviour
      
      public AudioClip audioClip;
      AudioSource audioSource;
+     public AudioClip Ue;
      public MainSwitchController mainSwitchController;
      private SpecData specData;
 
@@ -54,7 +55,14 @@ public class ThU : MonoBehaviour
           {
                push = true;
                SideTrustEmissionL.enabled = true;
-               audioSource.PlayOneShot(audioClip);
+               if (specData.GetPayLoadName() == "moe3")
+               {
+                    audioSource.PlayOneShot(Ue);
+               }
+               else
+               {
+                    audioSource.PlayOneShot(audioClip);
+               }
           }
      }
 

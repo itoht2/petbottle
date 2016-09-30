@@ -10,6 +10,7 @@ public class Th : MonoBehaviour {
      bool push = false;
      public bool Right;
      public AudioClip audioClip;
+     public AudioClip Hidari;
      AudioSource audioSource;
      public MainSwitchController mainSwitchController;
      private SpecData specData;
@@ -45,7 +46,14 @@ public class Th : MonoBehaviour {
           {
                push = true;
                SideTrustEmissionL.enabled = true;
-               audioSource.PlayOneShot(audioClip);
+
+               if(specData.GetPayLoadName() == "moe3")
+                    {
+                    audioSource.PlayOneShot(Hidari);
+               } else {
+                    audioSource.PlayOneShot(audioClip);
+               }
+               
           }
      }
 

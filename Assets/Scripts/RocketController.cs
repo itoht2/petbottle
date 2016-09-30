@@ -29,6 +29,7 @@ public class RocketController : MonoBehaviour {
      private string CanSatName;
      private bool IsEjected;
      public AudioClip CansatSound;
+     public AudioClip HimawariSound;
 
      private GameObject ParaPrefab;
      private HingeJoint2D ParaJoint;
@@ -781,7 +782,14 @@ public class RocketController : MonoBehaviour {
 
          
 
-          GetComponent<AudioSource>().PlayOneShot(CansatSound);
+          if (specData.GetPayLoadName() == "moe3")
+          {
+               GetComponent<AudioSource>().PlayOneShot(HimawariSound);
+          } else
+          {
+               GetComponent<AudioSource>().PlayOneShot(CansatSound);
+          }
+          
 
           CanSatJoint.enabled = false;
           CanSat.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.05f), ForceMode2D.Impulse);
@@ -832,7 +840,7 @@ public class RocketController : MonoBehaviour {
 
           ParaJointFriction = ParaObject.GetComponent<FrictionJoint2D>();
           ParaJointFriction.connectedBody = CanSat.GetComponent<Rigidbody2D>();
-          ParaJointFriction.maxTorque = 1.5f;
+          ParaJointFriction.maxTorque = 1.0f;
 
           yield return null;
          
@@ -899,13 +907,13 @@ public class RocketController : MonoBehaviour {
                {
                     AtmospherPresuure = 0.01f;
                }
-               Debug.Log("Press:" + AtmospherPresuure + "Hight:" + ScoreBody.transform.position.y + "Temp:"+ TempAltitude);
+               //Debug.Log("Press:" + AtmospherPresuure + "Hight:" + ScoreBody.transform.position.y + "Temp:"+ TempAltitude);
                specData.AtmospherPresuure = AtmospherPresuure;
 
                DensityOfAir = AtmospherPresuure * 10 / (specData.GetGasConstant() * (TempAltitude + 273.15f));
 
                specData.DensityOfAir = DensityOfAir;
-               Debug.Log("DensityOfAir:" + DensityOfAir);
+               //Debug.Log("DensityOfAir:" + DensityOfAir);
 
                AirResistancce = (Cd + NoseCornCD + FinCD) * CDFactor * DensityOfAir * ProjectedArea * Mathf.Pow(Mathf.Abs(ScoreBody.velocity.y) , 2.2f) / 2.0f ;
                //ScoreBody.AddForce(-AirResistancce * ScoreBody.velocity / 500);
@@ -914,7 +922,7 @@ public class RocketController : MonoBehaviour {
                {
                     AirResistancce = 10000.0f;
                }
-               Debug.Log("AirReg:" + AirResistancce);
+               //Debug.Log("AirReg:" + AirResistancce);
 
                if (specData.GetSpeed() >= 0.0f )
                {
