@@ -2,10 +2,13 @@
 using System.Collections;
 using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
+
 public class OnStartTitleScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+
+         
 
           GameObject IsSpecData = GameObject.Find("SpecData");
           GameObject IsScoreData = GameObject.Find("ScoreData");
