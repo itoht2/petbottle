@@ -20,6 +20,7 @@ public class OnStartTitleScript : MonoBehaviour {
           GameObject IsSRBAFolder = GameObject.Find("SRBAFolder");
           GameObject IsPumpFolder = GameObject.Find("PumpFolder");
           GameObject IsMultiStageFolder = GameObject.Find("MultiStageFolder");
+          // ふらぐのフォルダーもいれる　未実装
 
 
           if (IsSpecData == null)

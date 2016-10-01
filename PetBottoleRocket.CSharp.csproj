@@ -78,6 +78,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AwardFlags.cs" />
     <Compile Include="Assets\Scripts\AccordionExpander.cs" />
     <Compile Include="Assets\Scripts\AdControll.cs" />
     <Compile Include="Assets\Scripts\AddOnClick.cs" />
