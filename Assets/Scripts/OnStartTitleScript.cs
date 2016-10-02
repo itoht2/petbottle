@@ -20,6 +20,7 @@ public class OnStartTitleScript : MonoBehaviour {
           GameObject IsSRBAFolder = GameObject.Find("SRBAFolder");
           GameObject IsPumpFolder = GameObject.Find("PumpFolder");
           GameObject IsMultiStageFolder = GameObject.Find("MultiStageFolder");
+          GameObject IsAwardFlags = GameObject.Find("AwardFlags");
           // ふらぐのフォルダーもいれる　未実装
 
 
@@ -101,6 +102,15 @@ public class OnStartTitleScript : MonoBehaviour {
                GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/MultiStageFolder");
                IsMultiStageFolder = Instantiate(SpecDataprefab);
                IsMultiStageFolder.name = "MultiStageFolder";
+               DontDestroyOnLoad(IsMultiStageFolder);
+          }
+
+          if (IsAwardFlags == null)
+          {
+               //Debug.Log(IsSpecData.name);
+               GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/AwardFlags");
+               IsMultiStageFolder = Instantiate(SpecDataprefab);
+               IsMultiStageFolder.name = "AwardFlags";
                DontDestroyOnLoad(IsMultiStageFolder);
           }
 
