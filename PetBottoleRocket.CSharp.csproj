@@ -78,11 +78,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AwardFlags.cs" />
     <Compile Include="Assets\Scripts\AccordionExpander.cs" />
     <Compile Include="Assets\Scripts\AdControll.cs" />
     <Compile Include="Assets\Scripts\AddOnClick.cs" />
     <Compile Include="Assets\Scripts\AnimatedScore.cs" />
+    <Compile Include="Assets\Scripts\AwardFlags.cs" />
     <Compile Include="Assets\Scripts\BackToMenu.cs" />
     <Compile Include="Assets\Scripts\BubbleController.cs" />
     <Compile Include="Assets\Scripts\BuyDialogOpener.cs" />
