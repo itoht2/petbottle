@@ -29,7 +29,7 @@ public class RocketController : MonoBehaviour {
      private string CanSatName;
      private bool IsEjected;
      public AudioClip CansatSound;
-     public AudioClip HimawariSound;
+     public AudioClip[] HimawariSound;
 
      private GameObject ParaPrefab;
      private HingeJoint2D ParaJoint;
@@ -280,6 +280,11 @@ public class RocketController : MonoBehaviour {
                CanSatJoint.enabled = true;
 
                IsEjected = false;
+
+               
+
+
+
           }
 
           // SRBAのプレハブを取得
@@ -784,7 +789,11 @@ public class RocketController : MonoBehaviour {
 
           if (specData.GetPayLoadName() == "moe3")
           {
-               GetComponent<AudioSource>().PlayOneShot(HimawariSound);
+               int RndSoundID = Random.Range(0, HimawariSound.Length);
+               GetComponent<AudioSource>().PlayOneShot(HimawariSound[RndSoundID]);
+               //Debug.Log(RndSoundID);
+
+
           } else
           {
                GetComponent<AudioSource>().PlayOneShot(CansatSound);

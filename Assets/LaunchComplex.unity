@@ -1837,7 +1837,18 @@ MonoBehaviour:
   IsCanSat: 0
   CanSat: {fileID: 0}
   CansatSound: {fileID: 8300000, guid: 0d217f92720bde541b00853e2bb87fd2, type: 3}
-  HimawariSound: {fileID: 8300000, guid: c4c7aed6fa6d4694c8cef12b071ea2a8, type: 3}
+  HimawariSound:
+  - {fileID: 8300000, guid: 403efc6687ea59942849d6ec689c8654, type: 3}
+  - {fileID: 8300000, guid: c4c7aed6fa6d4694c8cef12b071ea2a8, type: 3}
+  - {fileID: 8300000, guid: 6c6d3fa3bb96cfe44a621d70dbb14d27, type: 3}
+  - {fileID: 8300000, guid: 2cd62cb63ab05d44ea7da2bd943f2817, type: 3}
+  - {fileID: 8300000, guid: 6c2600f65fe0ff447a26a678ef68c7da, type: 3}
+  - {fileID: 8300000, guid: fdd6ccf2f2dc3c54d8373ade8ed4e5aa, type: 3}
+  - {fileID: 8300000, guid: 25cf9586beea93d4eadca644ba09efc0, type: 3}
+  - {fileID: 8300000, guid: 930add824365c7540871cc66f99b17b5, type: 3}
+  - {fileID: 8300000, guid: 23817be52f492944d97e0b138577696e, type: 3}
+  - {fileID: 8300000, guid: 047f40c477a853d46a708a9d02fcdb8a, type: 3}
+  - {fileID: 8300000, guid: 876a0943af68c8f47af61eca104f3ce4, type: 3}
   NoseCorn: {fileID: 1526646603}
   SRBAxPosition: []
   thrustForce: 0
