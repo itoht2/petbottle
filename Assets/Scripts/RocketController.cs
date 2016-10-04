@@ -78,6 +78,11 @@ public class RocketController : MonoBehaviour {
 
      public GameObject CheckButton;
 
+     private float XmaxR;
+     private float XmaxL;
+     private GameObject WoodsPrefab1;
+     private GameObject WoodsPrefab2;
+
      public bool TopFlag;
      public Vector3 effectRotation;
      public bool Launched = false;
@@ -139,6 +144,8 @@ public class RocketController : MonoBehaviour {
 
           RocketBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;  // 回転させない
 
+         
+
 
           RocketBody2D.mass = specData.GetMass();
           ScoreBody = RocketBody2D;
@@ -174,8 +181,18 @@ public class RocketController : MonoBehaviour {
     
           PumpMaxText.text = PumpMax.ToString("N0");
 
-         
+          XmaxL = -50.0f;
+          XmaxR = 50.0f;
 
+          WoodsPrefab1 = (GameObject)Resources.Load("Prefabs/Woods1");
+          WoodsPrefab2 = (GameObject)Resources.Load("Prefabs/Woods2");
+
+          for (int i = -50; i <= 50; i=i+50 ) // まずは森を3つ書く
+          {
+               DrowWoods(i);
+
+          }
+          
           if (SideThrustTime != 0.0f)
           {
                specData.SideThrusterRate = 1.0f;
@@ -381,7 +398,16 @@ public class RocketController : MonoBehaviour {
                }
           }
 
-         
+         if (ScoreBody.position.x >= XmaxR)
+          {
+               XmaxR = XmaxR + 50;
+               DrowWoods((int)XmaxR);
+          }
+          if (ScoreBody.position.x <= XmaxL)
+          {
+               XmaxR = XmaxR - 50;
+               DrowWoods((int)XmaxL);
+          }
 
 
 
@@ -954,6 +980,21 @@ public class RocketController : MonoBehaviour {
                yield return null;
 
           }
+     }
+
+     private void DrowWoods (int i) //森を書く
+     {
+          if (Random.Range(0, 2) == 1)
+          {
+               GameObject Woods = (GameObject)Instantiate(WoodsPrefab1, new Vector3(i, 2.8f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+               Woods.transform.parent = GameObject.Find("WoodsFolder").GetComponent<Transform>();
+          }
+          else
+          {
+               GameObject Woods = (GameObject)Instantiate(WoodsPrefab2, new Vector3(i, 2.8f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+               Woods.transform.parent = GameObject.Find("WoodsFolder").GetComponent<Transform>();
+          }
+
      }
 
      public bool GetLaunched()
