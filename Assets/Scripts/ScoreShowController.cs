@@ -8,10 +8,10 @@ public class ScoreShowController : MonoBehaviour {
      public ScoreData scoreData;
      public Text maxHight;
      public Text PointRate;
-     public Text Point;
-     public Text Etc;
+     public Text Point;     
      public Text LaunchNo;
      public Text scoreText;
+     public Text totalScoreText;
      private float ScoreBeforeAd;
      private int UpScore;
      public Text UpScoreText;
@@ -188,6 +188,34 @@ public class ScoreShowController : MonoBehaviour {
           // 最終的な着地のスコア
           scoreText.text = endScore.ToString("f2") + " point";
           GetComponent<AudioSource>().Stop();
+
+          //　動く前にひと呼吸
+          yield return new WaitForSeconds(WaitTime);
+
+          // 開始時間
+          float startTime2 = Time.time;
+
+          // 終了時間
+          float endTime2 = startTime2 + duration;
+
+          GetComponent<AudioSource>().Play();
+
+          do
+          {
+               // 現在の時間の割合
+               float timeRate = (Time.time - startTime2) / duration;
+
+               // 数値を更新 scoreData.GetTotalScore() + UpScore
+               float updateValue = (float)(scoreData.GetTotalScore() * timeRate + scoreData.GetTotalScore());
+           
+
+               // テキストの更新
+               totalScoreText.text = updateValue.ToString("f0") + " point"; // ("f0" の "0" は、小数点以下の桁数指定)
+
+               // 1フレーム待つ
+               yield return null;
+
+          } while (Time.time < endTime2);
 
           if (Random.value <= 0.2f && AdShowed == false)  //ランダムでこれ以下なら広告のダイアログを出す
           {
