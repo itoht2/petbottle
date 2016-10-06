@@ -578,7 +578,7 @@ public class RocketController : MonoBehaviour {
           ScoreData.CalcNewScore(score);
           ScoreData.ScoreNow = score;
           ScoreData.CalcMaxDistance(score);
-          ScoreData.SaveScore();
+          //ScoreData.SaveScore();
           //Debug.Log(score);
      }
 

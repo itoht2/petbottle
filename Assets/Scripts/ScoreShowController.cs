@@ -28,6 +28,7 @@ public class ScoreShowController : MonoBehaviour {
           //StartCoroutine(ScoreAnimation(0.5f, 1000f, 10000f, 2f));
 
           LaunchNo.text =  scoreData.GetLaunchNumber().ToString() + "号機";
+          totalScoreText.text = scoreData.GetTotalScore().ToString("f2") + " point";
           StartCoroutine("PointRateAdd");
 
           adAnimator = GameObject.Find("AdDialog").GetComponent<Animator>();
@@ -62,6 +63,7 @@ public class ScoreShowController : MonoBehaviour {
 
      public void AfertShowAd()
      {
+          Debug.Log(ScoreBeforeAd);
           StartCoroutine(ScoreAnimation(0.5f, ScoreBeforeAd, ScoreBeforeAd + UpScore, 1.0f));
           scoreData.TotalScore = scoreData.GetTotalScore() + UpScore;
      }
@@ -198,6 +200,8 @@ public class ScoreShowController : MonoBehaviour {
           // 終了時間
           float endTime2 = startTime2 + duration;
 
+          //Debug.Log("s:" + startTime2 + " e:" + endTime2);
+
           GetComponent<AudioSource>().Play();
 
           do
@@ -206,18 +210,25 @@ public class ScoreShowController : MonoBehaviour {
                float timeRate = (Time.time - startTime2) / duration;
 
                // 数値を更新 scoreData.GetTotalScore() + UpScore
-               float updateValue = (float)(scoreData.GetTotalScore() * timeRate + scoreData.GetTotalScore());
-           
+               float updateValue = endScore * timeRate + scoreData.GetTotalScore();
+               //Debug.Log("S" + endScore);
 
                // テキストの更新
-               totalScoreText.text = updateValue.ToString("f0") + " point"; // ("f0" の "0" は、小数点以下の桁数指定)
+               totalScoreText.text = updateValue.ToString("f2") + " point"; // ("f0" の "0" は、小数点以下の桁数指定)
 
                // 1フレーム待つ
                yield return null;
 
           } while (Time.time < endTime2);
 
-          if (Random.value <= 0.2f && AdShowed == false)  //ランダムでこれ以下なら広告のダイアログを出す
+          totalScoreText.text = (scoreData.GetTotalScore() + endScore).ToString("f2") + " point";
+
+          scoreData.TotalScore = scoreData.GetTotalScore() + endScore;
+          scoreData.SaveScore();
+
+          GetComponent<AudioSource>().Stop();
+
+          if (Random.value <= 1.0f && AdShowed == false)  //ランダムでこれ以下なら広告のダイアログを出す
           {
                AdShowed = true;
                ShowAdDialog();

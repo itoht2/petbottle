@@ -101,7 +101,7 @@ public class ScoreData : MonoBehaviour {
           //Debug.Log("AddDis:" + AddDistance);
           //Debug.Log("ScoreCoeff:" + ScoreCoefficient);
           TotalDistance = TotalDistance + AddDistance;
-          TotalScore = TotalScore  + AddDistance * ScoreCoefficient;
+          //TotalScore = TotalScore  + AddDistance * ScoreCoefficient;
 
           SaveScore();
 
