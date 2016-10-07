@@ -17,6 +17,7 @@ public class ScoreShowController : MonoBehaviour {
      public Text UpScoreText;
      private int keta;
      private bool AdShowed;
+     private float RndRate; //　ランダムのレート　これ以下なら広告が出る
 
      public Animator adAnimator;
     
@@ -33,6 +34,8 @@ public class ScoreShowController : MonoBehaviour {
 
           adAnimator = GameObject.Find("AdDialog").GetComponent<Animator>();
           UpScoreText = GameObject.Find("DetailText").GetComponent<Text>();
+
+          RndRate = 0.2f;
 
          // StartCoroutine(ScoreAnimation(0.5f, 0.0f, scoreData.GetScoreNow(), 1.0f));
 
@@ -63,9 +66,21 @@ public class ScoreShowController : MonoBehaviour {
 
      public void AfertShowAd()
      {
-          Debug.Log(ScoreBeforeAd);
-          StartCoroutine(ScoreAnimation(0.5f, ScoreBeforeAd, ScoreBeforeAd + UpScore, 1.0f));
-          scoreData.TotalScore = scoreData.GetTotalScore() + UpScore;
+          //Debug.Log("SBA" +ScoreBeforeAd);
+          //Debug.Log("Upo" + UpScore);
+          StartCoroutine(ScoreAnimation(0.5f, ScoreBeforeAd, UpScore+ ScoreBeforeAd, 1.0f));
+
+          float nowTotalScore = scoreData.GetTotalScore();
+          //Debug.Log("nowTotal" + nowTotalScore);
+
+          StartCoroutine(TotalScoreAnimation(0.5f, nowTotalScore, nowTotalScore + UpScore, 1.0f));
+       
+
+          scoreData.TotalScore = nowTotalScore + UpScore;
+
+          //Debug.Log("TS" + scoreData.GetTotalScore());
+          
+          scoreData.SaveScore();
      }
 
      
@@ -84,7 +99,13 @@ public class ScoreShowController : MonoBehaviour {
 
           yield return StartCoroutine(ScoreAnimation(0.5f, 0.0f, ScoreBeforeAd, 1.0f));
 
-      
+          yield return StartCoroutine(TotalScoreAnimation(0.5f, scoreData.GetTotalScore(), scoreData.GetTotalScore() + ScoreBeforeAd, 1.0f));
+
+          
+          scoreData.TotalScore = scoreData.GetTotalScore() + ScoreBeforeAd;
+          scoreData.SaveScore();
+
+
      }
 
      // 距離をアニメーションさせる
@@ -142,7 +163,7 @@ public class ScoreShowController : MonoBehaviour {
                float timeRate = (Time.time - startTime) / duration;
 
                // 数値を更新
-               float updateValue = (float)((endScore - startScore) * timeRate + startScore);
+               float updateValue = (endScore - startScore) * timeRate + startScore;
 
                // テキストの更新
                PointRate.text = "✕" + updateValue.ToString("f2"); // ("f0" の "0" は、小数点以下の桁数指定)
@@ -177,7 +198,7 @@ public class ScoreShowController : MonoBehaviour {
                float timeRate = (Time.time - startTime) / duration;
 
                // 数値を更新
-               float updateValue = (float)((endScore - startScore) * timeRate + startScore);
+               float updateValue = (endScore - startScore) * timeRate + startScore;
 
                // テキストの更新
                scoreText.text = updateValue.ToString("f2") + " point"; // ("f0" の "0" は、小数点以下の桁数指定)
@@ -191,6 +212,16 @@ public class ScoreShowController : MonoBehaviour {
           scoreText.text = endScore.ToString("f2") + " point";
           GetComponent<AudioSource>().Stop();
 
+          
+
+         
+
+
+     }
+
+     // トータルスコアをアニメーションさせる
+     private IEnumerator TotalScoreAnimation(float WaitTime, float startScore, float endScore, float duration)
+     {
           //　動く前にひと呼吸
           yield return new WaitForSeconds(WaitTime);
 
@@ -210,8 +241,8 @@ public class ScoreShowController : MonoBehaviour {
                float timeRate = (Time.time - startTime2) / duration;
 
                // 数値を更新 scoreData.GetTotalScore() + UpScore
-               float updateValue = endScore * timeRate + scoreData.GetTotalScore();
-               //Debug.Log("S" + endScore);
+               float updateValue = (endScore - startScore) * timeRate + startScore;
+               //Debug.Log("ES" + endScore);
 
                // テキストの更新
                totalScoreText.text = updateValue.ToString("f2") + " point"; // ("f0" の "0" は、小数点以下の桁数指定)
@@ -221,14 +252,11 @@ public class ScoreShowController : MonoBehaviour {
 
           } while (Time.time < endTime2);
 
-          totalScoreText.text = (scoreData.GetTotalScore() + endScore).ToString("f2") + " point";
 
-          scoreData.TotalScore = scoreData.GetTotalScore() + endScore;
-          scoreData.SaveScore();
-
+          totalScoreText.text = endScore.ToString("f2") + " point";
           GetComponent<AudioSource>().Stop();
 
-          if (Random.value <= 1.0f && AdShowed == false)  //ランダムでこれ以下なら広告のダイアログを出す
+          if (Random.value <= RndRate && AdShowed == false)  //ランダムでこれ以下なら広告のダイアログを出す
           {
                AdShowed = true;
                ShowAdDialog();
@@ -239,5 +267,5 @@ public class ScoreShowController : MonoBehaviour {
 
 
 
-   
+
 }
