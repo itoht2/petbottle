@@ -17,7 +17,9 @@ public class ScoreShowController : MonoBehaviour {
      public Text UpScoreText;
      private int keta;
      private bool AdShowed;
-     private float RndRate; //　ランダムのレート　これ以下なら広告が出る
+     private float RndRate; 
+     private Coroutine coroutine;
+     public TitleController titleController;
 
      public Animator adAnimator;
     
@@ -35,7 +37,10 @@ public class ScoreShowController : MonoBehaviour {
           adAnimator = GameObject.Find("AdDialog").GetComponent<Animator>();
           UpScoreText = GameObject.Find("DetailText").GetComponent<Text>();
 
-          RndRate = 0.2f;
+          RndRate = 0.2f;  //　ランダムのレート　これ以下なら広告が出る
+
+          titleController = GameObject.Find("Canvas").GetComponent<TitleController>();
+
 
          // StartCoroutine(ScoreAnimation(0.5f, 0.0f, scoreData.GetScoreNow(), 1.0f));
 
@@ -81,6 +86,9 @@ public class ScoreShowController : MonoBehaviour {
           //Debug.Log("TS" + scoreData.GetTotalScore());
           
           scoreData.SaveScore();
+
+          coroutine = StartCoroutine("ChangeScine");
+
      }
 
      
@@ -213,10 +221,6 @@ public class ScoreShowController : MonoBehaviour {
           GetComponent<AudioSource>().Stop();
 
           
-
-         
-
-
      }
 
      // トータルスコアをアニメーションさせる
@@ -255,14 +259,24 @@ public class ScoreShowController : MonoBehaviour {
 
           totalScoreText.text = endScore.ToString("f2") + " point";
           GetComponent<AudioSource>().Stop();
+          coroutine = StartCoroutine("ChangeScine");
 
           if (Random.value <= RndRate && AdShowed == false)  //ランダムでこれ以下なら広告のダイアログを出す
           {
                AdShowed = true;
                ShowAdDialog();
+               StopCoroutine(coroutine); 
 
           }
      }
+
+     IEnumerator ChangeScine()
+     {
+          yield return new WaitForSeconds(10);
+
+          StartCoroutine(titleController.GoNextScine("Title"));
+     }
+
 
 
 

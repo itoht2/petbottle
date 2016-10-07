@@ -22,6 +22,7 @@ public class TitleController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 	
 	}
 
@@ -63,7 +64,7 @@ public class TitleController : MonoBehaviour {
 
      }
 
-     IEnumerator GoNextScine(string NextScine)
+     public IEnumerator GoNextScine(string NextScine)
      {
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
           specData.SaveData();
