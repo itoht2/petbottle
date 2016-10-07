@@ -811,11 +811,12 @@ public class RocketController : MonoBehaviour {
           NoseCornJoint.enabled = false;
           NoseCorn.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 0.05f), ForceMode2D.Impulse);
           NoseCorn.GetComponent<Rigidbody2D>().AddTorque(0.002f, ForceMode2D.Impulse);
-          
+
+          ScoreBody = CanSat.GetComponent<Rigidbody2D>();
 
           yield return new WaitForSeconds(0.3f);
 
-         
+          
 
           if (specData.GetPayLoadName() == "moe3")
           {
@@ -832,7 +833,7 @@ public class RocketController : MonoBehaviour {
 
           CanSatJoint.enabled = false;
           CanSat.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.05f), ForceMode2D.Impulse);
-          ScoreBody = CanSat.GetComponent<Rigidbody2D>();
+          
 
           CanSat.GetComponent<SpriteRenderer>().enabled = true;
 
@@ -880,6 +881,14 @@ public class RocketController : MonoBehaviour {
           ParaJointFriction = ParaObject.GetComponent<FrictionJoint2D>();
           ParaJointFriction.connectedBody = CanSat.GetComponent<Rigidbody2D>();
           ParaJointFriction.maxTorque = 1.0f;
+
+         
+
+          int Takasa = (int)ScoreBody.position.y;
+          int keta = Mathf.Max(GetDigit(Takasa) - 2, 0);
+          Takasa = (int)(Mathf.Round(Takasa / Mathf.Pow(10, keta)) * Mathf.Pow(10, keta));
+          ScoreData.EjectBonus = (int)(Takasa / 10) ;
+          //Debug.Log(Takasa);
 
           yield return null;
          
@@ -1006,6 +1015,11 @@ public class RocketController : MonoBehaviour {
           return Launched;
      }
 
+     public float GetScoreBodyX ()
+     {
+          return ScoreBody.position.x;
+     }
+
      public float GetSideThrustTime()
      {
           return SideThrustTime;
@@ -1014,6 +1028,11 @@ public class RocketController : MonoBehaviour {
      public float GetSideThrustForce()
      {
           return SideThrustForce;
+     }
+
+     public static int GetDigit(int num)
+     {
+          return (num == 0) ? 1 : (int)Mathf.Log10(num) + 1;
      }
 
      public void GetSRBAxPosition(int Number)     

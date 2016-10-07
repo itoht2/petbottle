@@ -24,21 +24,30 @@ public class GreenLineController : MonoBehaviour {
           SoundPlayed = false;
           Launched = false;
 
-          MaxX = 20.0f;
-          MinX = -20.0f;
+          MaxX = 10.0f;
+          MinX = -10.0f;
 
 
      }
 	
-	// Update is called once per frame
+ 	// Update is called once per frame
 	void Update () {
-          if (Rocket.GetScoreBodyX() > MaxX)
+          if (Rocket.GetScoreBodyX() > MaxX )
           {
-
+               //Debug.Log(Rocket.GetScoreBodyX());
+               Vector2 posTemp = transform.position;
+               posTemp.x += 10;
+               transform.position = posTemp;
+               MaxX += 10;
+               MinX -= 10;
           }
           if (Rocket.GetScoreBodyX() < MinX)
           {
-
+               Vector2 posTemp = transform.position;
+               posTemp.x -= 10;
+               transform.position = posTemp;
+               MaxX -= 10;
+               MinX += 10;
           }
 
 
@@ -53,8 +62,19 @@ public class GreenLineController : MonoBehaviour {
           {
                sound01.PlayOneShot(sound01.clip);
                SoundPlayed = true;
+               int Takasa = (int)transform.position.y;
+               int keta = Mathf.Max(GetDigit(Takasa) - 2, 0);
+               Takasa = (int)(Mathf.Round(Takasa / Mathf.Pow(10, keta)) * Mathf.Pow(10, keta));
+               scoreData.HiScoreBonus = (int)(Takasa / 5 );
+
+
           }
 
      }
 
+     public static int GetDigit(int num)
+     {
+          return (num == 0) ? 1 : (int)Mathf.Log10(num) + 1;
      }
+
+}

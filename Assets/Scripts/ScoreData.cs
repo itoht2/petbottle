@@ -17,6 +17,9 @@ public class ScoreData : MonoBehaviour {
      public int NumberOfDays = 1;      //  プレイ日数
      public int NumbrtOfDaysContinue = 1;   //   連続日数
 
+     public float HiScoreBonus;         // 最高高度を超えたときのボーナス
+     public float EjectBonus;           //　ペイロード放出ボーナス
+
      void Awake()
      {
           LoadScore();
@@ -89,6 +92,8 @@ public class ScoreData : MonoBehaviour {
           TodayDate = DateTime.Today;
           NumberOfDays = PlayerPrefs.GetInt("NumberOfDays", 1);
           NumbrtOfDaysContinue = PlayerPrefs.GetInt("NumberOfDaysContinue", 1);
+          HiScoreBonus = 0.0f;
+          EjectBonus = 0.0f;
 
      }
 
@@ -176,6 +181,16 @@ public class ScoreData : MonoBehaviour {
      public int GetNumbrtOfDaysContinue()
      {
           return NumbrtOfDaysContinue;
+     }
+
+     public float GetHiScoreBonus()
+     {
+          return HiScoreBonus;
+     }
+
+     public float GetEjectBonus()
+     {
+          return EjectBonus;
      }
 
      public void AddLaunchNumber()
