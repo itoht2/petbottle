@@ -1869,6 +1869,7 @@ MonoBehaviour:
   specData: {fileID: 0}
   Stage: 5
   SRBANumber: 2
+  oldMaxDistance: 0
   scoreLabel: {fileID: 687361742}
   SpeedMeter: {fileID: 322910572}
   Water: {fileID: 371712123}
@@ -2247,11 +2248,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 490302, guid: 47feb38ac4f20f841b9a03aa19272352, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.5295746
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 490302, guid: 47feb38ac4f20f841b9a03aa19272352, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 94.79252
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 490302, guid: 47feb38ac4f20f841b9a03aa19272352, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7836,9 +7837,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 341.81934, y: -4998}
+  m_Offset: {x: 0, y: -354.57184}
   serializedVersion: 2
-  m_Size: {x: 49400.92, y: 10000}
+  m_Size: {x: 20000, y: 713.14386}
 --- !u!212 &1946709014
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -101,6 +101,8 @@ public class RocketController : MonoBehaviour {
      public int Stage;
      public int SRBANumber;
 
+     public float oldMaxDistance;
+
      private float Stability;
 
      public Text scoreLabel;
@@ -180,6 +182,8 @@ public class RocketController : MonoBehaviour {
           PumpMax = specData.GetInnerPressureMax();
     
           PumpMaxText.text = PumpMax.ToString("N0");
+
+          oldMaxDistance = ScoreData.GetMaxDistance(); 
 
           XmaxL = -50.0f;
           XmaxR = 50.0f;
@@ -433,7 +437,7 @@ public class RocketController : MonoBehaviour {
 
               if (ScoreBody.transform.position.y <= 1.0f && ScoreBody.velocity.y <=0.5f && !Landed)
                {
-                   //Debug.Log("Stop");
+                   //Debug.Log("Landed");
                     StartCoroutine("GoScore");
                     transform.FindChild("SideFin").GetComponent<PolygonCollider2D>().enabled = true;
                     Landed = true;

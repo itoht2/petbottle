@@ -9,6 +9,8 @@ public class GreenLineController : MonoBehaviour {
      private AudioSource sound01;
      private bool SoundPlayed;
      private bool Launched ;
+     private float MaxX;
+     private float MinX;
 
      // Use this for initialization
      void Start () {
@@ -22,12 +24,25 @@ public class GreenLineController : MonoBehaviour {
           SoundPlayed = false;
           Launched = false;
 
+          MaxX = 20.0f;
+          MinX = -20.0f;
+
+
      }
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+          if (Rocket.GetScoreBodyX() > MaxX)
+          {
+
+          }
+          if (Rocket.GetScoreBodyX() < MinX)
+          {
+
+          }
+
+
+     }
 
      void OnTriggerEnter2D(Collider2D collision)
      {
