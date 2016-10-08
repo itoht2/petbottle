@@ -1724,7 +1724,7 @@ EdgeCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 672931023}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 2eed5b9fd3648ac45b292c6b6f9f2982, type: 2}
   m_IsTrigger: 0
@@ -2297,6 +2297,14 @@ Prefab:
     - target: {fileID: 6175822, guid: 47feb38ac4f20f841b9a03aa19272352, type: 2}
       propertyPath: m_Size.y
       value: 0.4174571
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175822, guid: 47feb38ac4f20f841b9a03aa19272352, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21251304, guid: 47feb38ac4f20f841b9a03aa19272352, type: 2}
+      propertyPath: m_SortingLayerID
+      value: -546779085
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47feb38ac4f20f841b9a03aa19272352, type: 2}
