@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GreenLineController : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class GreenLineController : MonoBehaviour {
      private bool Launched ;
      private float MaxX;
      private float MinX;
+     private Text HiText;
 
      // Use this for initialization
      void Start () {
@@ -87,6 +89,9 @@ public class GreenLineController : MonoBehaviour {
           {
                sound01.PlayOneShot(sound01.clip);
                SoundPlayed = true;
+
+               StartCoroutine(HiscoreTextBlink());
+
                int Takasa = (int)transform.position.y;
                int keta = Mathf.Max(GetDigit(Takasa) - 2, 0);
                Takasa = (int)(Mathf.Round(Takasa / Mathf.Pow(10, keta)) * Mathf.Pow(10, keta));
@@ -99,6 +104,23 @@ public class GreenLineController : MonoBehaviour {
      public static int GetDigit(int num)
      {
           return (num == 0) ? 1 : (int)Mathf.Log10(num) + 1;
+     }
+
+     private IEnumerator HiscoreTextBlink()
+     {
+          HiText = GameObject.Find("HiscoreText").GetComponent<Text>();
+
+          yield return null;
+
+          for (int i = 0; i < 3; i++)
+          {
+               HiText.enabled = true;
+               yield return new WaitForSeconds(0.4f);
+               HiText.enabled = false;
+               yield return new WaitForSeconds(0.4f);
+          }
+
+
      }
 
 }

@@ -1016,7 +1016,7 @@ public class RocketController : MonoBehaviour {
           return Launched;
      }
 
-     public float GetScoreBodyX ()
+     public float GetScoreBodyX()
      {
           return ScoreBody.position.x;
      }
