@@ -26,6 +26,8 @@ public class OnStart : MonoBehaviour {
           scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
           scoreData.Score = 0.0f;
           scoreData.ScoreNow = 0.0f;
+          scoreData.HiScoreBonus = 0.0f;
+          scoreData.EjectBonus = 0.0f;
           specData = GameObject.Find("SpecData").GetComponent<SpecData>();
           specData.PumpPressure = 0.0f;
 

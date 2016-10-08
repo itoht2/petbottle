@@ -790,7 +790,12 @@ public class RocketController : MonoBehaviour {
           yield return new WaitForSeconds(0.3f);
 
           //CanSat.SetActive(true);
-          
+
+          int Takasa = (int)ScoreBody.position.y;
+          int keta = Mathf.Max(GetDigit(Takasa) - 2, 0);
+          Takasa = (int)(Mathf.Round(Takasa / Mathf.Pow(10, keta)) * Mathf.Pow(10, keta));
+          ScoreData.EjectBonus = (Takasa / 10);
+
 
           CanSatJoint = CanSat.GetComponent<FixedJoint2D>();
           NoseCornJoint = NoseCorn.GetComponent<FixedJoint2D>();
@@ -881,13 +886,9 @@ public class RocketController : MonoBehaviour {
           ParaJointFriction = ParaObject.GetComponent<FrictionJoint2D>();
           ParaJointFriction.connectedBody = CanSat.GetComponent<Rigidbody2D>();
           ParaJointFriction.maxTorque = 1.0f;
+                  
 
          
-
-          int Takasa = (int)ScoreBody.position.y;
-          int keta = Mathf.Max(GetDigit(Takasa) - 2, 0);
-          Takasa = (int)(Mathf.Round(Takasa / Mathf.Pow(10, keta)) * Mathf.Pow(10, keta));
-          ScoreData.EjectBonus = (int)(Takasa / 10) ;
           //Debug.Log(Takasa);
 
           yield return null;
@@ -1019,6 +1020,12 @@ public class RocketController : MonoBehaviour {
      {
           return ScoreBody.position.x;
      }
+
+     public float GetScoreBodyY()
+     {
+          return ScoreBody.position.y;
+     }
+
 
      public float GetSideThrustTime()
      {

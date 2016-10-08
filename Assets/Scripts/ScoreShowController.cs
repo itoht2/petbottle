@@ -11,6 +11,8 @@ public class ScoreShowController : MonoBehaviour {
      public Text Point;     
      public Text LaunchNo;
      public Text scoreText;
+     public Text bonusText;
+     private float scoreBonus;
      public Text totalScoreText;
      private float ScoreBeforeAd;
      private int UpScore;
@@ -41,8 +43,15 @@ public class ScoreShowController : MonoBehaviour {
 
           titleController = GameObject.Find("Canvas").GetComponent<TitleController>();
 
+          if (scoreData.GetHiScoreBonus() != 0)
+          {
+              
+               GameObject.Find("NewMaxHight").GetComponent<Text>().enabled = true;
 
-         // StartCoroutine(ScoreAnimation(0.5f, 0.0f, scoreData.GetScoreNow(), 1.0f));
+          }
+
+
+          // StartCoroutine(ScoreAnimation(0.5f, 0.0f, scoreData.GetScoreNow(), 1.0f));
 
      }
 
@@ -64,7 +73,7 @@ public class ScoreShowController : MonoBehaviour {
           //Debug.Log("keta:" + keta);
           //Debug.Log("UpScore:" + UpScore);
 
-          UpScoreText.text = "短時間の動画広告を表示させると、\nスコアを" + UpScore + "point増やすことが出来ます。\n広告を見ますか？";
+          UpScoreText.text = "短時間の動画広告を表示させると、\nスコアをスコアを<color=red><size=30>" + UpScore + "point</size></color>増やすことが出来ます。広告を見ますか？";
           adAnimator.SetBool("Up" , true);
          
      }
@@ -107,10 +116,18 @@ public class ScoreShowController : MonoBehaviour {
 
           yield return StartCoroutine(ScoreAnimation(0.5f, 0.0f, ScoreBeforeAd, 1.0f));
 
-          yield return StartCoroutine(TotalScoreAnimation(0.5f, scoreData.GetTotalScore(), scoreData.GetTotalScore() + ScoreBeforeAd, 1.0f));
+          scoreBonus = scoreData.GetHiScoreBonus() + scoreData.GetEjectBonus(); 
+
+          if (scoreBonus != 0)
+          {
+               yield return StartCoroutine(BonusAnimation(0.5f, 0.0f, scoreBonus, 1.0f));
+          }
+          
+
+          yield return StartCoroutine(TotalScoreAnimation(0.5f, scoreData.GetTotalScore(), scoreData.GetTotalScore() + ScoreBeforeAd + scoreBonus, 1.0f));
 
           
-          scoreData.TotalScore = scoreData.GetTotalScore() + ScoreBeforeAd;
+          scoreData.TotalScore = scoreData.GetTotalScore() + ScoreBeforeAd + scoreBonus;
           scoreData.SaveScore();
 
 
@@ -221,6 +238,56 @@ public class ScoreShowController : MonoBehaviour {
           GetComponent<AudioSource>().Stop();
 
           
+     }
+
+     // ボーナスをアニメーションさせる
+     private IEnumerator BonusAnimation(float WaitTime, float startScore, float endScore, float duration)
+     {
+          //　動く前にひと呼吸
+          yield return new WaitForSeconds(WaitTime);
+
+          // 開始時間
+          float startTime = Time.time;
+
+          // 終了時間
+          float endTime = startTime + duration;
+
+          GetComponent<AudioSource>().Play();
+
+          if(scoreData.GetHiScoreBonus() != 0)
+          {
+               GameObject.Find("HiScoreBonus").GetComponent<Text>().enabled = true;
+                             
+          }
+          
+          if (scoreData.GetEjectBonus() != 0)
+          {
+               GameObject.Find("EjectBonus").GetComponent<Text>().enabled = true;
+          }
+
+
+
+               do
+          {
+               // 現在の時間の割合
+               float timeRate = (Time.time - startTime) / duration;
+
+               // 数値を更新
+               float updateValue = (endScore - startScore) * timeRate + startScore;
+
+               // テキストの更新
+               bonusText.text = updateValue.ToString("f2") + " point"; // ("f0" の "0" は、小数点以下の桁数指定)
+
+               // 1フレーム待つ
+               yield return null;
+
+          } while (Time.time < endTime);
+
+          // 最終的な着地のスコア
+          bonusText.text = endScore.ToString("f2") + " point";
+          GetComponent<AudioSource>().Stop();
+
+
      }
 
      // トータルスコアをアニメーションさせる

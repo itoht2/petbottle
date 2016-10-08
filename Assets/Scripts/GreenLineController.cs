@@ -19,7 +19,7 @@ public class GreenLineController : MonoBehaviour {
 
           MaxHight = scoreData.GetMaxDistance();
           //Debug.Log("maxDistance" + MaxHight);
-          this.GetComponent<Transform>().position = new Vector3(0.0f, MaxHight, 0);
+          GetComponent<Transform>().position = new Vector3(0.0f, MaxHight, 0);
           sound01 = GetComponent<AudioSource>();
           SoundPlayed = false;
           Launched = false;
@@ -32,6 +32,12 @@ public class GreenLineController : MonoBehaviour {
 	
  	// Update is called once per frame
 	void Update () {
+
+          if (Rocket.GetScoreBodyY() > MaxHight)
+          {
+               HiScoreHit();
+          }
+
           if (Rocket.GetScoreBodyX() > MaxX )
           {
                //Debug.Log(Rocket.GetScoreBodyX());
@@ -53,7 +59,26 @@ public class GreenLineController : MonoBehaviour {
 
      }
 
-     void OnTriggerEnter2D(Collider2D collision)
+     //void OnTriggerEnter2D(Collider2D collision)
+     //{
+
+     //     Launched = Rocket.GetLaunched();
+
+     //     if (!SoundPlayed && Launched)
+     //     {
+     //          sound01.PlayOneShot(sound01.clip);
+     //          SoundPlayed = true;
+     //          int Takasa = (int)transform.position.y;
+     //          int keta = Mathf.Max(GetDigit(Takasa) - 2, 0);
+     //          Takasa = (int)(Mathf.Round(Takasa / Mathf.Pow(10, keta)) * Mathf.Pow(10, keta));
+     //          scoreData.HiScoreBonus = (Takasa / 5 );
+
+
+     //     }
+
+     //}
+
+     void HiScoreHit()
      {
 
           Launched = Rocket.GetLaunched();
@@ -65,12 +90,11 @@ public class GreenLineController : MonoBehaviour {
                int Takasa = (int)transform.position.y;
                int keta = Mathf.Max(GetDigit(Takasa) - 2, 0);
                Takasa = (int)(Mathf.Round(Takasa / Mathf.Pow(10, keta)) * Mathf.Pow(10, keta));
-               scoreData.HiScoreBonus = (int)(Takasa / 5 );
-
-
+               scoreData.HiScoreBonus = (Takasa / 5);
           }
 
      }
+
 
      public static int GetDigit(int num)
      {

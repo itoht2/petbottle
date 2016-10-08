@@ -2286,6 +2286,18 @@ Prefab:
       propertyPath: Rocket
       value: 
       objectReference: {fileID: 672931030}
+    - target: {fileID: 8274248, guid: 47feb38ac4f20f841b9a03aa19272352, type: 2}
+      propertyPath: MinDistance
+      value: 1.3516693
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175822, guid: 47feb38ac4f20f841b9a03aa19272352, type: 2}
+      propertyPath: m_Offset.y
+      value: 0.7912674
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175822, guid: 47feb38ac4f20f841b9a03aa19272352, type: 2}
+      propertyPath: m_Size.y
+      value: 0.4174571
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47feb38ac4f20f841b9a03aa19272352, type: 2}
   m_IsPrefabParent: 0
