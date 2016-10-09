@@ -39,36 +39,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7d93dbdef4b3149a764f0f4c733a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfItem: 3
+  NumberOfItem: 5
   ItemName:
   - MultiStage0
   - MultiStage1
   - MultiStage2
+  - MultiStage3
+  - MultiStage4
   Weight:
+  - 0
+  - 0
   - 0
   - 0
   - 0
   Price:
   - 0
-  - 30
-  - 10000
+  - 100
+  - 300
+  - 5000
+  - 1000
   Discription:
   - "1\u6BB5"
   - "2\u6BB5"
   - "3\u6BB5"
+  - "4\u6BB5"
+  - "4\u6BB5"
   Specs:
   - "\u30ED\u30B1\u30C3\u30C8\u6BB5\u6570:1\u6BB5"
   - "\u30ED\u30B1\u30C3\u30C8\u6BB5\u6570:2\u6BB5"
   - "\u30ED\u30B1\u30C3\u30C8\u6BB5\u6570:3\u6BB5"
+  - "\u30ED\u30B1\u30C3\u30C8\u6BB5\u6570:4\u6BB5"
+  - "\u30ED\u30B1\u30C3\u30C8\u6BB5\u6570:5\u6BB5"
   DiscriptionLong:
   - "\u666E\u901A\u306E\u6C34\u30ED\u30B1\u30C3\u30C8"
   - "\u4E00\u56DE\u6C34\u304C\u7121\u304F\u306A\u3063\u3066\u3082\u3082\u3046\u4E00\u56DE\u5674\u5C04\u3067\u304D\u308B\u3002/n\u666E\u901A\u306E\u30ED\u30B1\u30C3\u30C8\u306E2\u500D\u98DB\u3076\u3002"
   - "\u8105\u5A01\u306E3\u6BB5\u5674\u5C04\u3002/n\u666E\u901A\u306E\u30ED\u30B1\u30C3\u30C8\u306E3\u500D\u98DB\u3076\u3088\u3002"
+  - "\u307E\u3055\u304B\u306E4\u6BB5\u5674\u5C04\u3002/n\u666E\u901A\u306E\u30ED\u30B1\u30C3\u30C8\u306E4\u500D\u98DB\u3076\uFF01"
+  - "\u5947\u8DE1\u306E5\u6BB5\u5674\u5C04\u3002\u666E\u901A\u306E\u30ED\u30B1\u30C3\u30C8\u306E5\u500D\u98DB\u3076\u3002/n\u6C34\u306F\u3069\u3053\u304B\u3089\u88DC\u5145\u3055\u308C\u308B\u306E\u304B\uFF1F"
   Image:
-  - {fileID: 21300000, guid: d4323d745a75f0e4aa5d367012ea8832, type: 3}
   - {fileID: 21300000, guid: a01d8ff3d72ac694db072ffa25d33912, type: 3}
-  - {fileID: 21300000, guid: a01d8ff3d72ac694db072ffa25d33912, type: 3}
-  NumberOfHold: 010000000000000000000000
+  - {fileID: 21300000, guid: c3c79223cff08a74397d1cfd574c02ae, type: 3}
+  - {fileID: 21300000, guid: 3cf49b306729e6842bec865d77d213ec, type: 3}
+  - {fileID: 21300000, guid: 62e754772324748449cbcd54f164cf47, type: 3}
+  - {fileID: 21300000, guid: 8fc452a7f871c8e45963e0fec3de7515, type: 3}
+  NumberOfHold: 0100000000000000000000000000000000000000
   NowUsed: 0
   NumberOfParameter: 1
   ParameterName:
@@ -79,11 +93,17 @@ MonoBehaviour:
   - 1
   - 2
   - 3
+  - 4
+  - 5
   ParameterValue2:
   - 0
   - 0
   - 0
+  - 0
+  - 0
   ParameterValue3:
+  - 0
+  - 0
   - 0
   - 0
   - 0
