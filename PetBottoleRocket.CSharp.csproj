@@ -78,7 +78,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CharUIText.cs" />
     <Compile Include="Assets\Scripts\AccordionExpander.cs" />
     <Compile Include="Assets\Scripts\AdControll.cs" />
     <Compile Include="Assets\Scripts\AddOnClick.cs" />
@@ -89,6 +88,7 @@
     <Compile Include="Assets\Scripts\BuyDialogOpener.cs" />
     <Compile Include="Assets\Scripts\BuyItem.cs" />
     <Compile Include="Assets\Scripts\BuyItemControll.cs" />
+    <Compile Include="Assets\Scripts\CharUIText.cs" />
     <Compile Include="Assets\Scripts\ContentsMaker.cs" />
     <Compile Include="Assets\Scripts\DialogOpener.cs" />
     <Compile Include="Assets\Scripts\FollowCamera.cs" />

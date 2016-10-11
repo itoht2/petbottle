@@ -69,6 +69,11 @@ public class ScoreShowController : MonoBehaviour {
           keta = Mathf.Max(GetDigit(UpScore) -2 , 0);
           UpScore = (int) (Mathf.Round(UpScore / Mathf.Pow(10, keta)) * Mathf.Pow(10, keta));
 
+          if (scoreData.GetScore() == -10.0f) //破裂したときは10点
+          {
+               UpScore = 10;
+          }
+
           
           //Debug.Log("keta:" + keta);
           //Debug.Log("UpScore:" + UpScore);

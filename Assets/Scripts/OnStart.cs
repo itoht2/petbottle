@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 public class OnStart : MonoBehaviour {
@@ -95,6 +96,16 @@ public class OnStart : MonoBehaviour {
           rocket.transform.FindChild("fin").GetComponent<SpriteRenderer>().sprite = finFolder.GetImage(finFolder.GetNowUsed());
 
           //Debug.Log(noseCornFolder.GetImage(noseCornFolder.GetNowUsed()));
+
+          // サイドスラストが無いときはボタンを表示しない
+          GameObject.Find("SideThrustButtonU").GetComponent<Image>().enabled = (specData.GetSideThrusterForce() >= 2.0f);
+          GameObject.Find("SideThrustButtonR").GetComponent<Image>().enabled = (specData.GetSideThrusterForce() > 0.0f);
+          GameObject.Find("SideThrustButtonL").GetComponent<Image>().enabled = (specData.GetSideThrusterForce() > 0.0f);
+
+          // ペイロード無いときはボタンを表示しない
+
+          GameObject.Find("EjectButton").GetComponent<Image>().enabled = (specData.GetPayLoadName() != "");
+
      }
 
      
