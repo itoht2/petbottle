@@ -54,10 +54,10 @@ MonoBehaviour:
   - 0.001
   Price:
   - 10
-  - 200
+  - 50
+  - 100
+  - 300
   - 1000
-  - 2000
-  - 5000
   Discription:
   - "\u6700\u521D\u306E\u30CE\u30FC\u30BA\u30B3\u30FC\u30F3"
   - "\u30D7\u30E9\u30B9\u30C1\u30C3\u30AF\u30CE\u30FC\u30BA\u30B3\u30FC\u30F3"

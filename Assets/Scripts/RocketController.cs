@@ -10,6 +10,7 @@ public class RocketController : MonoBehaviour {
      public ScoreData ScoreData;
      public GameObject WaterJet;
      private AudioSource WaterJetSound;
+     
 
      public GameObject[] SRBAJet;
      public GameObject[] SRBABody;
@@ -826,6 +827,7 @@ public class RocketController : MonoBehaviour {
           if (specData.GetPayLoadName() == "moe3")
           {
                int RndSoundID = Random.Range(0, HimawariSound.Length);
+              
                GetComponent<AudioSource>().PlayOneShot(HimawariSound[RndSoundID]);
                //Debug.Log(RndSoundID);
 
@@ -885,7 +887,7 @@ public class RocketController : MonoBehaviour {
 
           ParaJointFriction = ParaObject.GetComponent<FrictionJoint2D>();
           ParaJointFriction.connectedBody = CanSat.GetComponent<Rigidbody2D>();
-          ParaJointFriction.maxTorque = 1.0f;
+          ParaJointFriction.maxTorque = 0.1f;
                   
 
          

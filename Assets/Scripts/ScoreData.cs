@@ -16,6 +16,8 @@ public class ScoreData : MonoBehaviour {
      public DateTime TodayDate;    // 今日
      public int NumberOfDays = 1;      //  プレイ日数
      public int NumbrtOfDaysContinue = 1;   //   連続日数
+     public float BGMVolume;                 // BGMのボリューム
+     public float SEVolume;                  // SEのボリューム
 
      public float HiScoreBonus;         // 最高高度を超えたときのボーナス
      public float EjectBonus;           //　ペイロード放出ボーナス
@@ -74,6 +76,8 @@ public class ScoreData : MonoBehaviour {
           PlayerPrefs.SetString("LastDate", TodayDate.ToBinary().ToString());
           PlayerPrefs.SetInt("NumberOfDays", NumberOfDays);
           PlayerPrefs.SetInt("NumberOfDaysContinue", NumbrtOfDaysContinue);
+          PlayerPrefs.SetFloat("BGMVolume", BGMVolume);
+          PlayerPrefs.SetFloat("SEVolume", SEVolume);
 
           //PlayerPrefs.Flush();
 
@@ -95,7 +99,10 @@ public class ScoreData : MonoBehaviour {
           TodayDate = DateTime.Today;
           NumberOfDays = PlayerPrefs.GetInt("NumberOfDays", 1);
           NumbrtOfDaysContinue = PlayerPrefs.GetInt("NumberOfDaysContinue", 1);
-          
+
+          BGMVolume =  PlayerPrefs.GetFloat("BGMVolume", 1.0f);
+          SEVolume = PlayerPrefs.GetFloat("SEVolume", 1.0f);
+
 
      }
 
@@ -200,5 +207,15 @@ public class ScoreData : MonoBehaviour {
           LaunchNumber ++ ;
           SaveScore();
           PlayerPrefs.Flush();
+     }
+
+     public float GetBGMVolume()
+     {
+          return BGMVolume;
+     }
+
+     public float GetSEVolume ()
+     {
+          return SEVolume;
      }
 }

@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 
 public class OnStartTitleScript : MonoBehaviour {
 
+     public Slider BGMVolumeSlider;
+     public Slider SEVolumeSlider;
+
+     public ScoreData scoreData;
+
 	// Use this for initialization
 	void Awake () {
-
          
 
           GameObject IsSpecData = GameObject.Find("SpecData");
@@ -114,6 +119,10 @@ public class OnStartTitleScript : MonoBehaviour {
                DontDestroyOnLoad(IsMultiStageFolder);
           }
 
+          scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
+
+          BGMVolumeSlider.value = scoreData.GetBGMVolume();
+          SEVolumeSlider.value = scoreData.GetSEVolume();
 
      }
 

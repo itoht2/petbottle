@@ -118,6 +118,7 @@
     <Compile Include="Assets\Scripts\RocketController.cs" />
     <Compile Include="Assets\Scripts\ScoreData.cs" />
     <Compile Include="Assets\Scripts\ScoreShowController.cs" />
+    <Compile Include="Assets\Scripts\SetVolumes.cs" />
     <Compile Include="Assets\Scripts\SideThrustBarController.cs" />
     <Compile Include="Assets\Scripts\SpecData.cs" />
     <Compile Include="Assets\Scripts\SpecNodeMaker.cs" />
