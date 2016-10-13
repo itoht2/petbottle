@@ -8,6 +8,7 @@ public class OnStartTitleScript : MonoBehaviour {
 
      public Slider BGMVolumeSlider;
      public Slider SEVolumeSlider;
+     public UnityEngine.Audio.AudioMixer BGMVol;
 
      public ScoreData scoreData;
 
@@ -121,13 +122,25 @@ public class OnStartTitleScript : MonoBehaviour {
 
           scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();
 
-          BGMVolumeSlider.value = scoreData.GetBGMVolume();
-          SEVolumeSlider.value = scoreData.GetSEVolume();
+          
 
      }
 
-     // Update is called once per frame
-     void Update () {
+     void Start()
+     {
+
+          BGMVolumeSlider.value = scoreData.GetBGMVolume();
+          SEVolumeSlider.value = scoreData.GetSEVolume();
+
+          BGMVol.SetFloat("BGM", Mathf.Lerp(-80, 0, scoreData.GetBGMVolume()));
+          BGMVol.SetFloat("Sounds", Mathf.Lerp(-80, 0, scoreData.GetSEVolume()));
+
+
+     }
+
+
+          // Update is called once per frame
+          void Update () {
 	
 	}
 

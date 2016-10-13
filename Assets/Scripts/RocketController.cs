@@ -10,7 +10,8 @@ public class RocketController : MonoBehaviour {
      public ScoreData ScoreData;
      public GameObject WaterJet;
      private AudioSource WaterJetSound;
-     
+
+     public GameObject ground;
 
      public GameObject[] SRBAJet;
      public GameObject[] SRBABody;
@@ -414,6 +415,10 @@ public class RocketController : MonoBehaviour {
                DrowWoods((int)XmaxL);
           }
 
+          if (Mathf.Abs(ScoreBody.position.x - ground.transform.position.x) > 250 )
+          {
+               ground.transform.position = new Vector2 (ScoreBody.position.x, ground.transform.position.y);
+          }
 
 
           if (score > NowAltitude + 2.0f) // 頂点に達したら(2m落ちたら)
@@ -440,10 +445,12 @@ public class RocketController : MonoBehaviour {
               
               if (ScoreBody.IsSleeping() && !Landed) {
                     //Debug.Log("Landed");
+
+                    Debug.Log(ScoreBody.name + ":" + ScoreBody.IsSleeping());
                     
                          
 
-                    StartCoroutine("GoScore");
+                    StartCoroutine(GoScore(10.0f));
                     transform.FindChild("SideFin").GetComponent<PolygonCollider2D>().enabled = true;
                     Landed = true;
 
@@ -565,7 +572,7 @@ public class RocketController : MonoBehaviour {
           yield return null;
      }
 
-     IEnumerator GoScore()
+     IEnumerator GoScore(float tranjisionTime)
      {
           //ScoreData.CalcNewScore(score);
           //ScoreData.ScoreNow = score;
@@ -575,7 +582,7 @@ public class RocketController : MonoBehaviour {
           ScoreDataStore();
 
           //Time.timeScale = 1.0f;
-          yield return new WaitForSeconds(10.0f);
+          yield return new WaitForSeconds(tranjisionTime);
           //Debug.Log(Mathf.Max(5.0f, SideThrustTime));
           SceneManager.LoadScene("ScoreUpdate");
           yield return null;
@@ -792,6 +799,7 @@ public class RocketController : MonoBehaviour {
 
      IEnumerator EjectCansat()
      {
+          ScoreBody = CanSat.GetComponent<Rigidbody2D>();
           yield return new WaitForSeconds(0.3f);
 
           //CanSat.SetActive(true);
@@ -822,7 +830,7 @@ public class RocketController : MonoBehaviour {
           NoseCorn.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 0.05f), ForceMode2D.Impulse);
           NoseCorn.GetComponent<Rigidbody2D>().AddTorque(0.002f, ForceMode2D.Impulse);
 
-          ScoreBody = CanSat.GetComponent<Rigidbody2D>();
+          //ScoreBody = CanSat.GetComponent<Rigidbody2D>();
 
           yield return new WaitForSeconds(0.3f);
 
