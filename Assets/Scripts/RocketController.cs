@@ -436,9 +436,13 @@ public class RocketController : MonoBehaviour {
                   
                }
 
-              if (ScoreBody.transform.position.y <= 1.0f && ScoreBody.velocity.y <=0.5f && !Landed)
-               {
-                   //Debug.Log("Landed");
+               //if (ScoreBody.transform.position.y <= 1.0f && ScoreBody.velocity.y <=0.5f && !Landed) {
+              
+              if (ScoreBody.IsSleeping() && !Landed) {
+                    //Debug.Log("Landed");
+                    
+                         
+
                     StartCoroutine("GoScore");
                     transform.FindChild("SideFin").GetComponent<PolygonCollider2D>().enabled = true;
                     Landed = true;
@@ -570,8 +574,8 @@ public class RocketController : MonoBehaviour {
 
           ScoreDataStore();
 
-          Time.timeScale = 1.0f;
-          yield return new WaitForSeconds(Mathf.Max(5.0f, SideThrustTime));
+          //Time.timeScale = 1.0f;
+          yield return new WaitForSeconds(10.0f);
           //Debug.Log(Mathf.Max(5.0f, SideThrustTime));
           SceneManager.LoadScene("ScoreUpdate");
           yield return null;
