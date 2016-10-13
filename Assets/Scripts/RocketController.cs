@@ -85,6 +85,8 @@ public class RocketController : MonoBehaviour {
      private GameObject WoodsPrefab1;
      private GameObject WoodsPrefab2;
 
+     public OnStart onStart;
+
      public bool TopFlag;
      public Vector3 effectRotation;
      public bool Launched = false;
@@ -114,6 +116,7 @@ public class RocketController : MonoBehaviour {
      private float SpeedMax;
      private Vector2 LastVelocity;
      private float MaxG;
+     public bool CheckButtonOpend;
 
      //private Vector2 center ;
      public GameObject Water;
@@ -148,7 +151,7 @@ public class RocketController : MonoBehaviour {
 
           RocketBody2D.constraints = RigidbodyConstraints2D.FreezeRotation;  // 回転させない
 
-         
+          onStart = GameObject.Find("OnStart").GetComponent<OnStart>();
 
 
           RocketBody2D.mass = specData.GetMass();
@@ -266,7 +269,7 @@ public class RocketController : MonoBehaviour {
           WaterJet.SetActive(false);
           TopFlag = false;
           BackPanelClosed = false;
-          //CheckButtonOpend = false;
+          CheckButtonOpend = false;
           Landed = false;
 
           IsCanSat = !(specData.GetPayLoadName().Length == 0);
@@ -380,10 +383,7 @@ public class RocketController : MonoBehaviour {
                     mLabel.SetActive(false);
                }
           }
-
           
-
-
 
           SpeedMeter.text = ScoreBody.velocity.y.ToString("N1") ;
 
@@ -408,14 +408,16 @@ public class RocketController : MonoBehaviour {
           {
                XmaxR = XmaxR + 50;
                DrowWoods((int)XmaxR);
+               onStart.Star(ScoreBody.position.y / 2 , XmaxR);
           }
           if (ScoreBody.position.x <= XmaxL)
           {
-               XmaxR = XmaxR - 50;
+               XmaxL = XmaxL - 50;
                DrowWoods((int)XmaxL);
+               onStart.Star(ScoreBody.position.y / 2 , XmaxL);
           }
 
-          if (Mathf.Abs(ScoreBody.position.x - ground.transform.position.x) > 250 )
+          if (Mathf.Abs(ScoreBody.position.x - ground.transform.position.x) > 40)
           {
                ground.transform.position = new Vector2 (ScoreBody.position.x, ground.transform.position.y);
           }
@@ -436,28 +438,27 @@ public class RocketController : MonoBehaviour {
                     //ScoreData.CalcMaxDistance(score);
                     //ScoreData.SaveScore();
 
-                    
-                    StartCoroutine("CheckButtonOpen");
-                  
+                    //StartCoroutine("CheckButtonOpen");
+
                }
 
                //if (ScoreBody.transform.position.y <= 1.0f && ScoreBody.velocity.y <=0.5f && !Landed) {
-              
-              if (ScoreBody.IsSleeping() && !Landed && ScoreBody.transform.position.y <= 2.0f) {
+               // 地面に着いてｎ秒で結果へ行く　n=10
+               if (ScoreBody.velocity.y <= 0.5f && Launched && ScoreBody.transform.position.y <= 2.0f && !Landed)
+               {
                     //Debug.Log("Landed");
 
-                    Debug.Log(ScoreBody.name + ":" + ScoreBody.IsSleeping());
-                    
-                         
-
-                    StartCoroutine(GoScore(10.0f));
-                    transform.FindChild("SideFin").GetComponent<PolygonCollider2D>().enabled = true;
                     Landed = true;
 
-               }  
-                          
-               
-          } 
+                    StartCoroutine(GoScore(10.0f));
+                    //transform.FindChild("SideFin").GetComponent<PolygonCollider2D>().enabled = true;
+
+
+               }
+          }
+
+
+          
 
      }
      
@@ -473,8 +474,7 @@ public class RocketController : MonoBehaviour {
           {
                return;
           }
-
-          //Launched = true;
+          
 
           if (Stage >= 1)
           {
@@ -483,10 +483,16 @@ public class RocketController : MonoBehaviour {
                
           }
 
-          if (!BackPanelClosed) // 戻るパネル隠して
+          if (!BackPanelClosed ) // 戻るパネル隠して
           {
                StartCoroutine("BackPanelClose");
           }
+
+          if (!CheckButtonOpend)
+          {
+               StartCoroutine("CheckButtonOpen");
+          }
+          
 
           if (!SRBALaunched)
           {
@@ -580,7 +586,7 @@ public class RocketController : MonoBehaviour {
           //ScoreData.SaveScore();
 
           ScoreDataStore();
-
+          //Debug.Log(tranjisionTime);
           //Time.timeScale = 1.0f;
           yield return new WaitForSeconds(tranjisionTime);
           //Debug.Log(Mathf.Max(5.0f, SideThrustTime));
@@ -922,8 +928,8 @@ public class RocketController : MonoBehaviour {
 
      IEnumerator CheckButtonOpen()  // チェックパネルを出す
      {
-          BackPanelClosed = true;
-          yield return new WaitForSeconds(1.0f);
+          CheckButtonOpend = true;
+          yield return new WaitForSeconds(5.0f);
           for (int i = 0; i < 65; i = i +2)
           {
               CheckButton.GetComponent<RectTransform>().anchoredPosition = new Vector3((float)i ,471f , 0.0f); ;

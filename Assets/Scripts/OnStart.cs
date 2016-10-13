@@ -18,7 +18,7 @@ public class OnStart : MonoBehaviour {
 
      // Use this for initialization
      void Start () {
-          QualitySettings.vSyncCount = 0; // VSyncをOFFにする
+          //QualitySettings.vSyncCount = 0; // VSyncをOFFにする
           Application.targetFrameRate = 60; // ターゲットフレームレートを60に設定
 
           Time.timeScale = 1.0f;
@@ -34,7 +34,7 @@ public class OnStart : MonoBehaviour {
 
           HightRenge = 25.0f;
 
-          StartCoroutine(ScatterStar(HightRenge));
+          StartCoroutine(ScatterStar(HightRenge , 0.0f));
           ImageChanger();
                    
      }
@@ -43,23 +43,26 @@ public class OnStart : MonoBehaviour {
      void Update () {
           if (specData.GetAltitude() > HightRenge)
           {
-               StartCoroutine(ScatterStar(HightRenge ));
+               StartCoroutine(ScatterStar(HightRenge, rocket.GetComponent<RocketController>().GetScoreBodyX()));
                HightRenge = HightRenge * 2;
           }
 
-
-
-
-
+          
+          
      }
 
-     private IEnumerator ScatterStar (float HightLevel) // 星をばらまく
+     public void Star(float HightLevel, float Xposition)
+     {
+          StartCoroutine(ScatterStar( HightLevel,  Xposition));
+     }
+
+     private IEnumerator ScatterStar (float HightLevel , float Xposition) // 星をばらまく
      {
           
           yield return new WaitForSeconds(0.1f);
           for (int i = 0; i < 10; i++)
           {               
-               Vector3 placePosition = new Vector3(Random.Range(-50 , +50), Random.Range(HightLevel * 0.75f  , HightLevel * 2.5f), 0);
+               Vector3 placePosition = new Vector3(Random.Range(Xposition  - 50 , Xposition + 50), Random.Range(HightLevel * 0.75f  , HightLevel * 2.5f), 0);
                //Vector3 placePositionGraund = new Vector3(Random.Range(-100, +100), 1.5f, 0.0f);
                Quaternion q = new Quaternion();
                q = Quaternion.identity;
