@@ -443,7 +443,7 @@ public class RocketController : MonoBehaviour {
 
                //if (ScoreBody.transform.position.y <= 1.0f && ScoreBody.velocity.y <=0.5f && !Landed) {
               
-              if (ScoreBody.IsSleeping() && !Landed) {
+              if (ScoreBody.IsSleeping() && !Landed && ScoreBody.transform.position.y <= 2.0f) {
                     //Debug.Log("Landed");
 
                     Debug.Log(ScoreBody.name + ":" + ScoreBody.IsSleeping());

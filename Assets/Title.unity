@@ -2144,6 +2144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGMVolumeSlider: {fileID: 1303422892}
   SEVolumeSlider: {fileID: 782461496}
+  BGMVol: {fileID: 24100000, guid: ac3d89d39ab00884f9dd3e4500d5f8bd, type: 2}
   scoreData: {fileID: 0}
 --- !u!4 &1657452379
 Transform:
