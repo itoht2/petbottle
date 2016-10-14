@@ -78,7 +78,7 @@ public class MainSwitchController : MonoBehaviour {
                     TempText.enabled = true;
                }
           }
-
+          OnOffCheck();
           yield return new WaitForSeconds(1.0f);
 
           for (int i = 0; i < Ing.Length; i++)
@@ -99,6 +99,12 @@ public class MainSwitchController : MonoBehaviour {
                }
               
           }
+
+     }
+
+     private void OnOffCheck() //それぞれのスイッチをオン・オフどれにするかチェック
+
+     {
 
      }
 }
