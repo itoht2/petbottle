@@ -6,6 +6,10 @@ using PlayerPrefs = PreviewLabs.PlayerPrefs;
 
 public class OnStartTitleScript : MonoBehaviour {
 
+     [SerializeField]
+     Animator
+       animator;
+
      public Slider BGMVolumeSlider;
      public Slider SEVolumeSlider;
      public UnityEngine.Audio.AudioMixer BGMVol;
@@ -135,17 +139,38 @@ public class OnStartTitleScript : MonoBehaviour {
           BGMVol.SetFloat("BGM", Mathf.Lerp(-80, 0, scoreData.GetBGMVolume()));
           BGMVol.SetFloat("Sounds", Mathf.Lerp(-80, 0, scoreData.GetSEVolume()));
 
+          StartCoroutine(TitleRocketFlyer());
+
 
      }
 
 
           // Update is called once per frame
-          void Update () {
-	
-	}
+     void Update ()
+     {
+
+          //if (Input.GetKeyDown(KeyCode.UpArrow))
+          //     animator.SetBool("Fly", true);
+          //if (Input.GetKeyDown(KeyCode.DownArrow))
+          //     animator.SetBool("Fly", false);
+     }
 
      public void OnApplicationQuit()
      {
           PlayerPrefs.Flush();
+     }
+
+     IEnumerator TitleRocketFlyer()
+     {
+          while (true)
+          {
+               // Do anything
+
+               yield return new WaitForSeconds(30.0f);
+               animator.SetBool("Fly", true);
+
+               yield return new WaitForSeconds(0.5f);
+               animator.SetBool("Fly", false);
+          }
      }
 }

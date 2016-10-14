@@ -2124,6 +2124,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1657452379}
   - 114: {fileID: 1657452378}
+  - 95: {fileID: 1657452380}
   m_Layer: 0
   m_Name: OnStartTitle
   m_TagString: Untagged
@@ -2142,6 +2143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53ba5ce592f3d94d9cb4f9d0623a558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 2143956582}
   BGMVolumeSlider: {fileID: 1303422892}
   SEVolumeSlider: {fileID: 782461496}
   BGMVol: {fileID: 24100000, guid: ac3d89d39ab00884f9dd3e4500d5f8bd, type: 2}
@@ -2158,6 +2160,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!95 &1657452380
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1657452377}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 58bb3f95bf3d2f5459afc4cd7e6c4b92, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1681160684
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,6 +2635,7 @@ GameObject:
   - 224: {fileID: 2143956579}
   - 222: {fileID: 2143956581}
   - 114: {fileID: 2143956580}
+  - 95: {fileID: 2143956582}
   m_Layer: 0
   m_Name: RocketImage
   m_TagString: Untagged
@@ -2673,3 +2693,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2143956578}
+--- !u!95 &2143956582
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143956578}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 58bb3f95bf3d2f5459afc4cd7e6c4b92, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1

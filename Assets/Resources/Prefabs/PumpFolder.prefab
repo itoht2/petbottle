@@ -105,11 +105,11 @@ MonoBehaviour:
   - 5000
   ParameterValue2:
   - 2
+  - 3
   - 5
   - 10
-  - 20
-  - 30
-  - 100
+  - 25
+  - 50
   ParameterValue3:
   - 0
   - 1
