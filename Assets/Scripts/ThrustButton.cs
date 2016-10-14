@@ -30,7 +30,7 @@ public class ThrustButton : MonoBehaviour {
           
           audioSource = gameObject.GetComponent<AudioSource>();
           audioSource.clip = audioClip;
-          Ing = GameObject.Find("ThrustimageR").GetComponent<Image>();
+          Ing = GameObject.Find("ThrustimageLR").GetComponent<Image>();
      }
 
      public void PushDown()
