@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ThrustButton : MonoBehaviour {
 
@@ -14,6 +15,8 @@ public class ThrustButton : MonoBehaviour {
      AudioSource audioSource;
      public MainSwitchController mainSwitchController;
      private SpecData specData;
+     public Image Ing;
+
 
      // Use this for initialization
      void Start()
@@ -27,6 +30,7 @@ public class ThrustButton : MonoBehaviour {
           
           audioSource = gameObject.GetComponent<AudioSource>();
           audioSource.clip = audioClip;
+          Ing = GameObject.Find("ThrustimageR").GetComponent<Image>();
      }
 
      public void PushDown()
@@ -35,10 +39,8 @@ public class ThrustButton : MonoBehaviour {
           {
                return;
           }
-
-               float tTime = rocketController.GetSideThrustTime();
+           float tTime = rocketController.GetSideThrustTime();
           //Debug.Log(tTime);
-
           if (!mainSwitchController.GetMainSwitch())
           {
                return;
@@ -46,8 +48,9 @@ public class ThrustButton : MonoBehaviour {
           if (tTime > 0.0)
           {
                push = true;
-
                SideTrustEmission.enabled = true;
+               Ing.enabled = true;
+
                if (specData.GetPayLoadName() == "moe3")
                {
                     audioSource.PlayOneShot(Migi);
@@ -64,6 +67,7 @@ public class ThrustButton : MonoBehaviour {
      {
           push = false;
           SideTrustEmission.enabled = false;
+          Ing.enabled = false;
           audioSource.Stop() ;
      }
      

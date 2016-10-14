@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Th : MonoBehaviour {
 
@@ -14,6 +15,7 @@ public class Th : MonoBehaviour {
      AudioSource audioSource;
      public MainSwitchController mainSwitchController;
      private SpecData specData;
+     public Image Ing;
 
 
      // Use this for initialization
@@ -28,6 +30,7 @@ public class Th : MonoBehaviour {
        
           audioSource = gameObject.GetComponent<AudioSource>();
           audioSource.clip = audioClip;
+          Ing = GameObject.Find("ThrustimageL").GetComponent<Image>();
      }
 
      public void PushDown()
@@ -46,6 +49,7 @@ public class Th : MonoBehaviour {
           {
                push = true;
                SideTrustEmissionL.enabled = true;
+               Ing.enabled = true;
 
                if(specData.GetPayLoadName() == "moe3")
                     {
@@ -61,6 +65,7 @@ public class Th : MonoBehaviour {
      {
           push = false;
           SideTrustEmissionL.enabled = false;
+          Ing.enabled = false;
           audioSource.Stop();
      }
 

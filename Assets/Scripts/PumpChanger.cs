@@ -23,9 +23,6 @@ public class PumpChanger : MonoBehaviour {
 
           PumpAnime = gameObject.GetComponent<Animator>();
           PumpAnime.runtimeAnimatorController = PumpAnimeController[ID];
-
-          
-                
 	
 	}
 	

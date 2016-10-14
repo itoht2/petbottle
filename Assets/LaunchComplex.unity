@@ -86,6 +86,109 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2594244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2594246}
+  - 82: {fileID: 2594245}
+  m_Layer: 0
+  m_Name: AudioSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &2594245
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2594244}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24339170, guid: ac3d89d39ab00884f9dd3e4500d5f8bd,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 19e93093401d30d4aacc713d5b8a2004, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &2594246
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2594244}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 175.5445, y: 132.03716, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
 --- !u!1 &154808556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,6 +1283,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 61902fe56d1213f4bb7682260841f033, type: 3}
   Hidari: {fileID: 8300000, guid: 1f76960fac4895744b4ff72cce01c07f, type: 3}
   mainSwitchController: {fileID: 1955207396}
+  Ing: {fileID: 0}
 --- !u!114 &548687924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1414,7 +1518,7 @@ GameObject:
   - 222: {fileID: 574382338}
   - 114: {fileID: 574382337}
   m_Layer: 5
-  m_Name: ThrustimageR
+  m_Name: ThrustimageL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2846,7 +2950,7 @@ GameObject:
   - 222: {fileID: 995958384}
   - 114: {fileID: 995958383}
   m_Layer: 5
-  m_Name: ThrustimageL
+  m_Name: ThrustimageLR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3030,6 +3134,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 61902fe56d1213f4bb7682260841f033, type: 3}
   Migi: {fileID: 8300000, guid: 413c4b0d13f4c174bad2a17e1240d736, type: 3}
   mainSwitchController: {fileID: 1955207396}
+  Ing: {fileID: 0}
 --- !u!114 &1071177021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8089,7 +8194,8 @@ MonoBehaviour:
   buttonImage: {fileID: 0}
   OnImage: {fileID: 21300000, guid: 6aa353742031dd4449a8ae3a232d00e0, type: 3}
   OffImage: {fileID: 21300002, guid: 6aa353742031dd4449a8ae3a232d00e0, type: 3}
-  Ingflag: 000000000000000001010101010101010101010101010101
+  specData: {fileID: 0}
+  Ingflag: 00000000000000000101010101010101010101010101010100
   Ing:
   - {fileID: 407891586}
   - {fileID: 1310460283}
@@ -8115,6 +8221,7 @@ MonoBehaviour:
   - {fileID: 1929577318}
   - {fileID: 1740111019}
   - {fileID: 961279250}
+  - {fileID: 639711850}
 --- !u!1001 &1979051885
 Prefab:
   m_ObjectHideFlags: 0
@@ -8629,7 +8736,8 @@ AudioSource:
   m_GameObject: {fileID: 2036961934}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24339170, guid: ac3d89d39ab00884f9dd3e4500d5f8bd,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 93a12247e75410e41ab54f4f3179c226, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.72

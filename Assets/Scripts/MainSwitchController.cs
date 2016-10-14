@@ -7,12 +7,15 @@ public class MainSwitchController : MonoBehaviour {
      public Image buttonImage;
      public Sprite OnImage;
      public Sprite OffImage;
+     public SpecData specData;
 
      public bool[] Ingflag;
      public GameObject[] Ing;
 
 	// Use this for initialization
 	void Start () {
+
+          specData = GameObject.Find("SpecData").GetComponent<SpecData>();
 
           MainSwitch = false;
           buttonImage = GetComponent<Image>();
@@ -105,6 +108,14 @@ public class MainSwitchController : MonoBehaviour {
      private void OnOffCheck() //それぞれのスイッチをオン・オフどれにするかチェック
 
      {
+          Ingflag[0] = (specData.GetMultistage() != 1);
+          Ingflag[24] = (specData.GetMultistage() != 1);
+          Ing[24].GetComponent<Text>().text = specData.GetMultistage().ToString();
+
+          Ingflag[1] = (specData.GetSRBANumber() != 0);
+          Ingflag[2] = (specData.GetSideThrusterForce() != 0.0f);
+
+          Ingflag[3] = (specData.GetPayLoadName() != "");
 
      }
 }

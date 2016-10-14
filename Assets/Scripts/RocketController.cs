@@ -480,6 +480,7 @@ public class RocketController : MonoBehaviour {
           {
                StartCoroutine("Launch");
                Stage = Stage - 1;
+               GameObject.Find("MultiNumber").GetComponent<Text>().text = Stage.ToString();
                
           }
 
@@ -795,6 +796,7 @@ public class RocketController : MonoBehaviour {
 
           if (IsCanSat && !(IsEjected))
           {
+               GameObject.Find("Ejectimage").GetComponent<Image>().enabled = true;
                IsEjected = true;
                StartCoroutine("EjectCansat");
                Stage = 0;
