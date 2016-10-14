@@ -48,7 +48,6 @@ public class OnStart : MonoBehaviour {
           }
 
           
-          
      }
 
      public void Star(float HightLevel, float Xposition)
@@ -104,6 +103,8 @@ public class OnStart : MonoBehaviour {
           GameObject.Find("SideThrustButtonU").GetComponent<Image>().enabled = (specData.GetSideThrusterForce() >= 2.0f);
           GameObject.Find("SideThrustButtonR").GetComponent<Image>().enabled = (specData.GetSideThrusterForce() > 0.0f);
           GameObject.Find("SideThrustButtonL").GetComponent<Image>().enabled = (specData.GetSideThrusterForce() > 0.0f);
+
+          
 
           // ペイロード無いときはボタンを表示しない
 

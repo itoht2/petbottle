@@ -119,9 +119,9 @@ public class OnStartTitleScript : MonoBehaviour {
           {
                //Debug.Log(IsSpecData.name);
                GameObject SpecDataprefab = (GameObject)Resources.Load("Prefabs/AwardFlags");
-               IsMultiStageFolder = Instantiate(SpecDataprefab);
-               IsMultiStageFolder.name = "AwardFlags";
-               DontDestroyOnLoad(IsMultiStageFolder);
+               IsAwardFlags = Instantiate(SpecDataprefab);
+               IsAwardFlags.name = "AwardFlags";
+               DontDestroyOnLoad(IsAwardFlags);
           }
 
           scoreData = GameObject.Find("ScoreData").GetComponent<ScoreData>();

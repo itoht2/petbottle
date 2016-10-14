@@ -38,7 +38,19 @@ public class MainSwitchController : MonoBehaviour {
                buttonImage.sprite = OffImage;
                for (int i = 0; i < Ing.Length; i++)
                {
-                    Ing[i].SetActive(false);
+                    //Ing[i].SetActive(false);
+                    Image TempImage = Ing[i].GetComponent<Image>();
+                    if (TempImage)
+                    {
+                         TempImage.enabled = false;
+                    }
+                    Text TempText = Ing[i].GetComponent<Text>();
+                    if (TempText)
+                    {
+                         TempText.enabled = false;
+                    }
+
+
                }
 
           }
@@ -55,7 +67,16 @@ public class MainSwitchController : MonoBehaviour {
           yield return null;
           for (int i = 0; i < Ing.Length; i++)
           {
-               Ing[i].SetActive(true);
+               Image TempImage = Ing[i].GetComponent<Image>();
+               if (TempImage)
+               {
+                    TempImage.enabled = true;
+               }
+               Text TempText = Ing[i].GetComponent<Text>();
+               if (TempText)
+               {
+                    TempText.enabled = true;
+               }
           }
 
           yield return new WaitForSeconds(1.0f);
@@ -64,7 +85,17 @@ public class MainSwitchController : MonoBehaviour {
           {
                if (Ingflag[i] == false)
                {
-                    Ing[i].SetActive(false);
+                    Image TempImage = Ing[i].GetComponent<Image>();
+                    if(TempImage)
+                    {
+                         TempImage.enabled = false;
+                    }
+                    Text TempText = Ing[i].GetComponent<Text>();
+                    if (TempText)
+                    {
+                         TempText.enabled = false;
+                    }
+
                }
               
           }

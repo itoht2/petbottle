@@ -35,6 +35,7 @@ public class PrefReset : MonoBehaviour {
                GameObject.Find("SRBAFolder").GetComponent<NoseCornFolder>().LoadData();
                GameObject.Find("PumpFolder").GetComponent<NoseCornFolder>().LoadData();
                GameObject.Find("MultiStageFolder").GetComponent<NoseCornFolder>().LoadData();
+               GameObject.Find("AwardFlags").GetComponent<NoseCornFolder>().LoadData();
 
 
           }
