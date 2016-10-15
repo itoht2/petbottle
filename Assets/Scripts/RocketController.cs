@@ -847,8 +847,13 @@ public class RocketController : MonoBehaviour {
           if (specData.GetPayLoadName() == "moe3")
           {
                int RndSoundID = Random.Range(0, HimawariSound.Length);
+
+               AudioMixer amix = Resources.Load("mixer") as AudioMixer;
+
+               GetComponent<AudioSource>().outputAudioMixerGroup = amix.FindMatchingGroups("SE")[0];
               
                GetComponent<AudioSource>().PlayOneShot(HimawariSound[RndSoundID]);
+
                //Debug.Log(RndSoundID);
 
 
