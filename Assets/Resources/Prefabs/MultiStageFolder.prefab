@@ -55,9 +55,9 @@ MonoBehaviour:
   Price:
   - 0
   - 100
-  - 300
-  - 500
-  - 1000
+  - 400
+  - 800
+  - 1500
   Discription:
   - "1\u6BB5"
   - "2\u6BB5"

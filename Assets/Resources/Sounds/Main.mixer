@@ -57,6 +57,7 @@ AudioMixerGroupController:
   m_Volume: a837ddfd3f5f67e4aa297884ad4b9b80
   m_Pitch: 295731c1cd7ddf74188d31d8f9f2d287
   m_Effects:
+  - {fileID: 24435006}
   - {fileID: 24417114}
   m_UserColorIndex: 0
   m_Mute: 0
@@ -74,6 +75,7 @@ AudioMixerGroupController:
   m_Volume: 15da850303ab66a4196a20156b0174b2
   m_Pitch: ab74ac21c1215e74b97d90e1d7ab21fb
   m_Effects:
+  - {fileID: 24466468}
   - {fileID: 24411474}
   m_UserColorIndex: 0
   m_Mute: 0
@@ -118,6 +120,46 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &24435006
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: e4bd4ea2344f2c34ab8e4dec64bdce0d
+  m_EffectName: Duck Volume
+  m_MixLevel: b9532dceb4c82724587e667c150687f7
+  m_Parameters:
+  - m_ParameterName: Threshold
+    m_GUID: ca5c5e162f02d1c428e5c467d88c5859
+  - m_ParameterName: Ratio
+    m_GUID: 1ab1e72f33e18f44e829ef81e6eb970d
+  - m_ParameterName: Attack Time
+    m_GUID: 388b1ed619661664eb78884cbc64e977
+  - m_ParameterName: Release Time
+    m_GUID: 0369249a8a2ec38468b57a4027711215
+  - m_ParameterName: Make-up Gain
+    m_GUID: 9f2f6e267afd66540940fbfcf1e0585c
+  - m_ParameterName: Knee
+    m_GUID: 1c9d42c09b9d58943bf5260a6a02730d
+  - m_ParameterName: Sidechain Mix
+    m_GUID: dd2ea657c815059429f0042da34b8124
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &24466468
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 117a4e690999b564e9e498a30fc6d011
+  m_EffectName: Send
+  m_MixLevel: 1c30dc79229bef9488b419aeec8b9c78
+  m_Parameters: []
+  m_SendTarget: {fileID: 24435006}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!245 &24500003
 AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
@@ -127,6 +169,20 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 6a2078d866af2c249848bff7e9176b23
   m_FloatValues:
+    4f89422286dfd994cb323ec2fb933d34: -0.5
     15da850303ab66a4196a20156b0174b2: -0.02577656
+    41129d63b7aacc045bbba0db67a077ee: 0.1
+    f759a1b3df683e24aa80c7a585f31cf4: 9.260412
+    ca5c5e162f02d1c428e5c467d88c5859: -47.1
+    9f2f6e267afd66540940fbfcf1e0585c: 0
+    77dc9746a7b2bb84d9f9b10a8fd0d67f: 7.9871106
+    101102777bad4274facc56a23c1be782: -64.399956
+    0c7a8db7df8844e458efd4f82eee6114: 0
+    1c30dc79229bef9488b419aeec8b9c78: 0
+    0369249a8a2ec38468b57a4027711215: 0.1
+    7c13faaae7507094fbdca63e5b43c6b4: 14
     a837ddfd3f5f67e4aa297884ad4b9b80: -0.02577656
+    1ab1e72f33e18f44e829ef81e6eb970d: 2.61
+    1f7f955f6df5f224490b7eb33ebb1cf7: 2
+    3f34cd6f86f222d4eb164628e2b40d53: 0.1
   m_TransitionOverrides: {}
